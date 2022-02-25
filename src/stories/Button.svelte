@@ -7,7 +7,7 @@
     export let label = '';
 
     let mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-
+    let disabledMode = disabled && 'storybook-button--disabled';
     const dispatch = createEventDispatcher();
 
     function onClick(event) {
@@ -18,7 +18,7 @@
 <button
     type="button"
     {disabled}
-    class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+    class={['storybook-button', `storybook-button--${size}`, disabledMode, mode].join(' ')}
     on:click={onClick}
 >
     {label}
@@ -36,6 +36,9 @@
     }
     .storybook-button--secondary {
         @apply text-gray-900 bg-transparent border-[1px];
+    }
+    .storybook-button--disabled {
+        @apply bg-light-purple opacity-50;
     }
     .storybook-button--medium {
         font-size: 16px;
