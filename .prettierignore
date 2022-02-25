@@ -1,0 +1,4 @@
+/storybook-static/**
+/.out/**
+/public/build/**
+/node_modules/**
