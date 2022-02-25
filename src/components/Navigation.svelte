@@ -1,10 +1,14 @@
 <script>
     export let navItems = [];
+
+    function onClick(event) {
+        dispatch('click', event);
+    }
 </script>
 
 <nav class="nav">
     {#each navItems as item}
-        <a href="#_">{item.name}</a>
+        <a href={'/' + item.name} on:click={onClick}>{item.name}</a>
     {/each}
 </nav>
 
