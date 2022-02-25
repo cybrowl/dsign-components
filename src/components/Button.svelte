@@ -22,7 +22,7 @@
 <button
     type="button"
     {disabled}
-    class={['button', `button--${size}`, primaryDisabledStyle, secondaryDisabledStyle, mode].join(' ')}
+    class={['button', $$props.class, `button--${size}`, primaryDisabledStyle, secondaryDisabledStyle, mode].join(' ')}
     on:click={onClick}
 >
     {label}
