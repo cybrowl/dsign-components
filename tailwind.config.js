@@ -19,7 +19,9 @@ module.exports = {
                 'light-grey': '#E2E1E6',
                 'tulip-purple': '#6259C8',
                 'primary-purple': '#7A71DE',
-                'light-purple': '#6259C8'
+                'light-purple': '#6259C8',
+                'bubble-purple': '#B6AFFC',
+                'lilalic-purple': '#968CFF'
             }
         }
     },

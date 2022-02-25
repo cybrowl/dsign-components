@@ -6,16 +6,16 @@
 <!-- More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export -->
 <!-- More on argTypes: https://storybook.js.org/docs/svelte/api/argtypes -->
 <Meta
-    title="Example/Button"
+    title="Dsign/Button"
     component={Button}
     argTypes={{
-        backgroundColor: {control: 'color'},
-        label: {control: 'text'},
         onClick: {action: 'onClick'},
+        label: {control: 'text'},
         primary: {control: 'boolean'},
+        disabled: {control: 'boolean'},
         size: {
             control: {type: 'select'},
-            options: ['small', 'medium', 'large']
+            options: ['medium']
         }
     }}
 />
@@ -30,6 +30,15 @@
     name="Primary"
     args={{
         primary: true,
+        label: 'Button'
+    }}
+/>
+
+<Story
+    name="Disabled"
+    args={{
+        primary: true,
+        disabled: true,
         label: 'Button'
     }}
 />

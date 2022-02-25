@@ -6,8 +6,8 @@
     export let size = 'medium';
     export let label = '';
 
-    let mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-    let disabledMode = disabled && 'storybook-button--disabled';
+    let mode = primary ? 'button--primary' : 'button--secondary';
+    let disabledMode = disabled && 'button--disabled';
     const dispatch = createEventDispatcher();
 
     function onClick(event) {
@@ -15,32 +15,30 @@
     }
 </script>
 
-<button
-    type="button"
-    {disabled}
-    class={['storybook-button', `storybook-button--${size}`, disabledMode, mode].join(' ')}
-    on:click={onClick}
->
+<button type="button" {disabled} class={['button', `button--${size}`, disabledMode, mode].join(' ')} on:click={onClick}>
     {label}
 </button>
 
 <style>
-    .storybook-button {
+    .button {
         @apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block;
     }
-    .storybook-button--primary {
+    .button--primary {
         @apply bg-tulip-purple;
     }
-    .storybook-button--primary:active {
+    .button--primary:active {
         @apply bg-primary-purple;
     }
-    .storybook-button--secondary {
-        @apply text-gray-900 bg-transparent border-[1px];
+    .button--secondary {
+        @apply bg-transparent border border-bubble-purple;
     }
-    .storybook-button--disabled {
+    .button--secondary:active {
+        @apply bg-transparent border border-lilalic-purple;
+    }
+    .button--disabled {
         @apply bg-light-purple opacity-50;
     }
-    .storybook-button--medium {
+    .button--medium {
         font-size: 16px;
         padding: 12px 24px;
     }
