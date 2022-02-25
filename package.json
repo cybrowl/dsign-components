@@ -1,6 +1,6 @@
 {
-    "name": "svelte-storybook-tailwind",
-    "author": "Jerric Lyns John",
+    "name": "dsign-component-lib",
+    "author": "Cyberowl",
     "license": "MIT",
     "version": "0.0.3",
     "scripts": {
