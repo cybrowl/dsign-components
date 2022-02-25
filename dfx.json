@@ -1,0 +1,28 @@
+{
+    "canisters": {
+        "dsign_lib_assets": {
+            "dependencies": [],
+            "frontend": {
+                "entrypoint": "storybook-static/index.html"
+            },
+            "source": [
+                "storybook-static"
+            ],
+            "type": "assets"
+        }
+    },
+    "defaults": {
+        "build": {
+            "args": "",
+            "packtool": "vessel sources"
+        }
+    },
+    "dfx": "0.9.0",
+    "networks": {
+        "local": {
+            "bind": "127.0.0.1:8000",
+            "type": "ephemeral"
+        }
+    },
+    "version": 1
+}
