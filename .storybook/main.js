@@ -8,7 +8,8 @@ module.exports = {
         '@storybook/addon-essentials',
         '@storybook/addon-svelte-csf',
         '@storybook/addon-storysource',
-        '@storybook/addon-a11y'
+        '@storybook/addon-a11y',
+        'storybook-dark-mode'
     ],
     framework: '@storybook/svelte',
     svelteOptions: {
