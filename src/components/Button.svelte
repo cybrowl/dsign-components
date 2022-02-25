@@ -42,10 +42,10 @@
         @apply bg-light-purple opacity-50;
     }
     .button--secondary {
-        @apply bg-transparent border border-bubble-purple;
+        @apply bg-transparent border-solid border border-bubble-purple;
     }
     .button--secondary:active {
-        @apply bg-transparent border border-lilalic-purple;
+        @apply bg-transparent border-solid border border-lilalic-purple;
     }
     .button--secondary-disabled {
         @apply border-bubble-purple;
