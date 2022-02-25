@@ -12,7 +12,8 @@
         onClick: {action: 'onClick'},
         label: {control: 'text'},
         primary: {control: 'boolean'},
-        disabled: {control: 'boolean'},
+        primaryDisabled: {control: 'boolean'},
+        secondaryDisabled: {control: 'boolean'},
         size: {
             control: {type: 'select'},
             options: ['medium']
@@ -35,10 +36,10 @@
 />
 
 <Story
-    name="Disabled"
+    name="Primary/Disabled"
     args={{
         primary: true,
-        disabled: true,
+        primaryDisabled: true,
         label: 'Button'
     }}
 />
@@ -47,5 +48,13 @@
     name="Secondary"
     args={{
         label: 'Button'
+    }}
+/>
+
+<Story
+    name="Secondary/Disabled"
+    args={{
+        label: 'Button',
+        primaryDisabled: true
     }}
 />
