@@ -26,3 +26,48 @@
         height: '20'
     }}
 />
+
+<Story
+    name="error_sign"
+    args={{
+        name: 'error_sign',
+        width: '20',
+        height: '20'
+    }}
+/>
+
+<Story
+    name="favorite"
+    args={{
+        name: 'favorite',
+        width: '39',
+        height: '39'
+    }}
+/>
+
+<Story
+    name="favorite_disabled"
+    args={{
+        name: 'favorite_disabled',
+        width: '39',
+        height: '39'
+    }}
+/>
+
+<Story
+    name="visibility"
+    args={{
+        name: 'visibility',
+        width: '20',
+        height: '20'
+    }}
+/>
+
+<Story
+    name="visibility_disabled"
+    args={{
+        name: 'visibility_disabled',
+        width: '20',
+        height: '20'
+    }}
+/>
