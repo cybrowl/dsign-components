@@ -8,7 +8,7 @@
 
 <span>
     <Button label="Sign In" on:click={onClick} class="mr-4" />
-    <Button primary label="Let’s get started!" />
+    <Button primary label="Let's get started!" />
 </span>
 
 <style>
