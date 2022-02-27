@@ -37,7 +37,7 @@
         @apply bg-white rounded-lg shadow bg-dark-grey;
     }
     .modalHeader {
-        @apply flex float-right;
+        @apply flex flex-row-reverse;
     }
     .modalHeaderClose {
         @apply p-5 rounded-t;
