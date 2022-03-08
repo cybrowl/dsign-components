@@ -3,28 +3,28 @@
     import {createEventDispatcher} from 'svelte';
     import Icon from './Icon.svelte';
 
+    export let isModalOpen = true;
     const dispatch = createEventDispatcher();
 
-    function onClick(event) {
-        dispatch('click', event);
-    }
-
     function onClose(event) {
-        dispatch('click', event);
+        dispatch('closeModal', event);
+        isModalOpen = !isModalOpen;
     }
 </script>
 
-<div class="modalBackdrop" on:click={onClick} />
-<div class="modalLayout" in:fly={{y: 200, duration: 1000}} out:fade>
-    <div class="modal">
-        <div class="modalHeader">
-            <span class="modalHeaderClose" on:click={onClose}>
-                <Icon class="closeStandard" name="close_standard" width="20" height="20" />
-            </span>
+{#if isModalOpen}
+    <div class="modalBackdrop" on:click={onClose} />
+    <div class="modalLayout" in:fly={{y: 200, duration: 1000}} out:fade>
+        <div class="modal">
+            <div class="modalHeader">
+                <span class="modalHeaderClose" on:click={onClose}>
+                    <Icon class="closeStandard" name="close_standard" width="20" height="20" />
+                </span>
+            </div>
+            <div class="modalBody" />
         </div>
-        <div class="modalBody" />
     </div>
-</div>
+{/if}
 
 <style>
     .modalBackdrop {

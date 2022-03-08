@@ -7,6 +7,7 @@
     title="Dsign/Modal"
     component={Modal}
     argTypes={{
+        isModalOpen: {control: 'boolean'},
         onClick: {action: 'onClick'},
         onClose: {action: 'onClose'}
     }}
@@ -19,7 +20,6 @@
 <Story
     name="Default"
     args={{
-        primary: true,
-        label: 'Modal'
+        isModalOpen: true
     }}
 />
