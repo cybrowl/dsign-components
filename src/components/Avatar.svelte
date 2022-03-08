@@ -1,8 +1,11 @@
 <script>
+    import {createEventDispatcher} from 'svelte';
+
     export let avatar = '';
     export let firstCharUsername = '';
     export let lastCharUsername = '';
     export let hasAvatar = false;
+    const dispatch = createEventDispatcher();
 
     function onClick(event) {
         dispatch('click', event);
@@ -30,7 +33,7 @@
         @apply w-12 bg-transparent;
     }
     .avatarUsername {
-        @apply font-sans font-bold text-white w-14 h-14 flex justify-center items-center rounded-full 
+        @apply font-sans font-bold w-14 h-14 flex justify-center items-center rounded-full
 		bg-neutral-900 text-xl text-white uppercase cursor-pointer;
     }
     .avatarUsername p {

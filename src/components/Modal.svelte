@@ -34,7 +34,7 @@
         @apply fixed top-40 left-1/4 right-1/4;
     }
     .modal {
-        @apply bg-white rounded-lg shadow bg-dark-grey;
+        @apply rounded-lg shadow bg-dark-grey;
     }
     .modalHeader {
         @apply flex flex-row-reverse;

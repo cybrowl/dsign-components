@@ -1,5 +1,7 @@
 <script>
+    import {createEventDispatcher} from 'svelte';
     export let navItems = [];
+    const dispatch = createEventDispatcher();
 
     function onClick(event) {
         dispatch('click', event);
