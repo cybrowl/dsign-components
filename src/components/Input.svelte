@@ -15,15 +15,20 @@
     };
 
     export let placeholder = '';
-
-    let isFocused = autofocus;
+    export let onlyAllowLettersAndNumbers = false;
     export let hasError = false;
 
+    let isFocused = autofocus;
     const onFocus = () => {
         isFocused = true;
         hasError = false;
     };
+
     const onBlur = () => (isFocused = false);
+
+    function onlyLowercaseLettersAndNumbers(str) {
+        return /^[a-z0-9]*$/.test(str);
+    }
 </script>
 
 <span class="font-sans">
@@ -35,17 +40,26 @@
     <span class="flex items-center">
         <!-- svelte-ignore a11y-autofocus -->
         <input
-            id="finput"
             {autofocus}
-            on:focus={onFocus}
-            on:blur={onBlur}
-            type="text"
-            minlength={length.min}
-            maxlength={length.max}
+            {placeholder}
+            bind:value={inputVal}
             class="bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-60 outline-0 focus:border-bubble-purple mr-4"
             class:errorInput={hasError === true}
-            bind:value={inputVal}
-            {placeholder}
+            id="finput"
+            maxlength={length.max}
+            minlength={length.min}
+            on:blur={onBlur}
+            on:focus={onFocus}
+            on:input={() => {
+                if (onlyAllowLettersAndNumbers) {
+                    if (onlyLowercaseLettersAndNumbers(inputVal)) {
+                        hasError = false;
+                    } else {
+                        hasError = true;
+                    }
+                }
+            }}
+            type="text"
         />
         {#if hasError}
             <Icon name="error_sign" width="30" height="30" />

@@ -17,7 +17,8 @@
         length: {
             name: 'number',
             value: 'number'
-        }
+        },
+        onlyAllowLettersAndNumbers: {control: 'boolean'}
     }}
 />
 
@@ -37,7 +38,8 @@
         length: {
             mix: 1,
             max: 20
-        }
+        },
+        onlyAllowLettersAndNumbers: true
     }}
 />
 
