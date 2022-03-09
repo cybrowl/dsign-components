@@ -21,7 +21,9 @@
                     <Icon class="closeStandard" name="close_standard" width="20" height="20" />
                 </span>
             </div>
-            <div class="modalBody" />
+            <div class="flex flex-col items-center">
+                <slot />
+            </div>
         </div>
     </div>
 {/if}
@@ -41,8 +43,5 @@
     }
     .modalHeaderClose {
         @apply p-5 rounded-t;
-    }
-    .modalBody {
-        @apply relative h-96;
     }
 </style>

@@ -43,7 +43,7 @@
             {autofocus}
             {placeholder}
             bind:value={inputVal}
-            class="bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-60 outline-0 focus:border-bubble-purple mr-4"
+            class="bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-80 outline-0 focus:border-bubble-purple mr-4"
             class:errorInput={hasError === true}
             id="finput"
             maxlength={length.max}

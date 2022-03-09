@@ -14,7 +14,9 @@
 />
 
 <Template let:args>
-    <Modal {...args} on:click={args.onClick} />
+    <Modal {...args} on:click={args.onClick}>
+        <div class="h-80" />
+    </Modal>
 </Template>
 
 <Story
