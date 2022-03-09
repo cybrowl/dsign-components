@@ -3,13 +3,7 @@
     import CreateAccountModal from '../components/CreateAccountModal.svelte';
 </script>
 
-<Meta
-    title="Dsign/CreateAccountModal"
-    component={CreateAccountModal}
-    argTypes={{
-        avatar: {control: 'text'}
-    }}
-/>
+<Meta title="Dsign/CreateAccountModal" component={CreateAccountModal} argTypes={{}} />
 
 <Template let:args>
     <CreateAccountModal {...args} on:click={args.onClick} />

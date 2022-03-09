@@ -1,7 +1,7 @@
 <script>
     import Icon from '../components/Icon.svelte';
 
-    let inputVal = '';
+    export let value;
 
     export let autofocus = false;
     export let label = {
@@ -42,8 +42,9 @@
         <input
             {autofocus}
             {placeholder}
-            bind:value={inputVal}
-            class="bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-80 outline-0 focus:border-bubble-purple mr-4"
+            bind:value
+            class="bg-smoky-grey border border-solid rounded border-white px-3 py-2
+                 text-white w-80 outline-0 focus:border-bubble-purple mr-4"
             class:errorInput={hasError === true}
             id="finput"
             maxlength={length.max}
@@ -52,7 +53,7 @@
             on:focus={onFocus}
             on:input={() => {
                 if (onlyAllowLettersAndNumbers) {
-                    if (onlyLowercaseLettersAndNumbers(inputVal)) {
+                    if (onlyLowercaseLettersAndNumbers(value)) {
                         hasError = false;
                     } else {
                         hasError = true;
