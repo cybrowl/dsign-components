@@ -7,10 +7,15 @@
     title="Dsign/Input"
     component={Input}
     argTypes={{
+        autofocus: {control: 'boolean'},
         isEdit: {control: 'boolean'},
         label: {
             name: 'text',
             value: 'text'
+        },
+        length: {
+            name: 'number',
+            value: 'number'
         }
     }}
 />
@@ -20,12 +25,17 @@
 </Template>
 
 <Story
-    name="Default"
+    name="Username"
     args={{
+        autofocus: true,
         isEdit: false,
         label: {
             name: 'Username',
             value: 'Username'
+        },
+        length: {
+            mix: 1,
+            max: 20
         }
     }}
 />
