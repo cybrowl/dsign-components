@@ -22,7 +22,7 @@
 </script>
 
 <span class="font-sans">
-    <label for="fusername" name={label.name}>
+    <label for="finput" name={label.name}>
         <p class={isFocused ? 'text-bubble-purple mb-1.5' : 'text-white mb-1.5'}>
             {label.value}
         </p>
@@ -30,7 +30,7 @@
     <span class="flex items-center">
         <!-- svelte-ignore a11y-autofocus -->
         <input
-            id="fusername"
+            id="finput"
             {autofocus}
             on:focus={onFocus}
             on:blur={onBlur}
