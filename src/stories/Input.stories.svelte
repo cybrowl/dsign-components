@@ -8,6 +8,7 @@
     component={Input}
     argTypes={{
         autofocus: {control: 'boolean'},
+        hasError: {control: 'boolean'},
         isEdit: {control: 'boolean'},
         label: {
             name: 'text',
@@ -25,9 +26,26 @@
 </Template>
 
 <Story
-    name="Username"
+    name="Selected"
     args={{
         autofocus: true,
+        isEdit: false,
+        label: {
+            name: 'Username',
+            value: 'Username'
+        },
+        length: {
+            mix: 1,
+            max: 20
+        }
+    }}
+/>
+
+<Story
+    name="Error"
+    args={{
+        autofocus: false,
+        hasError: true,
         isEdit: false,
         label: {
             name: 'Username',

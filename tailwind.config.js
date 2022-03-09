@@ -21,7 +21,8 @@ module.exports = {
                 'primary-purple': '#7A71DE',
                 'light-purple': '#6259C8',
                 'bubble-purple': '#B6AFFC',
-                'lilalic-purple': '#968CFF'
+                'lilalic-purple': '#968CFF',
+                'error-red': '#F0627C'
             }
         }
     },
