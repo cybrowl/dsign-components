@@ -18,7 +18,6 @@
     let username;
 
     function onClick() {
-        console.log('username: ', username);
         dispatch('click', {username});
     }
 </script>
@@ -28,7 +27,7 @@
     <p class="text-base	mb-20">Use lower case letters with 20 characters or less</p>
     <Input autofocus={true} isEdit="false" {label} {length} bind:value={username} onlyAllowLettersAndNumbers={true} />
     <a class="block text-base mt-20 mb-11" href="/private-policy">Private Policy</a>
-    <Button class="ml-64" primary="true" label="Get started!" on:click={onClick} />
+    <Button class="ml-56" primary="true" label="Get started!" on:click={onClick} />
 </div>
 
 <style>

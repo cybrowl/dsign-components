@@ -1,11 +1,15 @@
 <script>
     import Modal from '../components/Modal.svelte';
     import CreateUsername from '../components/CreateUsername.svelte';
+
+    function createUsername(e) {
+        console.log('create_username: ', e.detail);
+    }
 </script>
 
 <div>
     <Modal>
-        <CreateUsername />
+        <CreateUsername on:click={createUsername} />
     </Modal>
 </div>
 
