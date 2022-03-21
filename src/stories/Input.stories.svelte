@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import Input from '../components/Input.svelte';
+    import Input from '../lib/components/Input.svelte';
 </script>
 
 <Meta

@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import CreateUsername from '../components/CreateUsername.svelte';
+    import CreateUsername from '../lib/components/CreateUsername.svelte';
 </script>
 
 <Meta

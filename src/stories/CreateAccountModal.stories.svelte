@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import CreateAccountModal from '../components/CreateAccountModal.svelte';
+    import CreateAccountModal from '../lib/components/CreateAccountModal.svelte';
 </script>
 
 <Meta title="Dsign/CreateAccountModal" component={CreateAccountModal} argTypes={{}} />

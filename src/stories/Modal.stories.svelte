@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import Modal from '../components/Modal.svelte';
+    import Modal from '../lib/components/Modal.svelte';
 </script>
 
 <Meta
