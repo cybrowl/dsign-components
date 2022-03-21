@@ -1,5 +1,5 @@
 import {themes} from '@storybook/theming';
-import 'tailwindcss/tailwind.css';
+import '../src/tailwind.css';
 
 export const parameters = {
     actions: {argTypesRegex: '^on[A-Z].*'},

@@ -1,6 +1,7 @@
 /node_modules/
 /public/build/
 /storybook-static/
+/package/
 
 .DS_Store
 .dfx

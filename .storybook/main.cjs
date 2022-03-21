@@ -29,7 +29,7 @@ module.exports = {
     ],
     framework: '@storybook/svelte',
     svelteOptions: {
-        // preprocess: import('../svelte.config.js').preprocess
+        preprocess: require('svelte-preprocess')({postcss: true})
     },
     webpackFinal: async config => {
         // config.module.rules.push({
@@ -45,7 +45,7 @@ module.exports = {
         // });
 
         config.module.rules.push({
-            test: [/\.stories\.js$/, /index\.js$/, /\.css$/],
+            test: [/\.css$/],
             use: [
                 {
                     loader: 'postcss-loader',
