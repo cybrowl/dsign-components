@@ -31,20 +31,19 @@
     }
 </script>
 
-<span class="font-sans">
-    <label for="finput" name={label.name} class="mb-1.5 text-white">
+<span class="inputContainer">
+    <label for="finput" name={label.name} class="label">
         <p class:focused={isFocused === true} class:errorLabel={hasError === true}>
             {label.value}
         </p>
     </label>
-    <span class="flex items-center">
+    <span>
         <!-- svelte-ignore a11y-autofocus -->
         <input
             {autofocus}
             {placeholder}
             bind:value
-            class="bg-smoky-grey border border-solid rounded border-white px-3 py-2
-                 text-white w-80 outline-0 focus:border-bubble-purple mr-4"
+            class="input"
             class:errorInput={hasError === true}
             id="finput"
             maxlength={length.max}
@@ -69,14 +68,24 @@
 </span>
 
 <style>
+    .label {
+        @apply mb-1.5 text-white;
+    }
+    .input {
+        @apply bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-80 outline-0 mr-4;
+    }
+    .inputContainer {
+        @apply font-sans;
+    }
+    .inputContainer span {
+        @apply flex items-center;
+    }
     .focused {
         color: #b6affc;
     }
-
     .errorLabel {
         color: #f0627c;
     }
-
     .errorInput {
         border-color: #f0627c;
     }
