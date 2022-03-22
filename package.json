@@ -2,13 +2,14 @@
     "name": "dsign-components",
     "author": "Cyberowl",
     "license": "MIT",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "scripts": {
         "dev": "svelte-kit dev",
         "build": "svelte-kit build",
         "package": "svelte-kit package",
         "preview": "svelte-kit preview",
         "storybook": "start-storybook -p 6006",
+        "static": "build-storybook -c .storybook -o dist",
         "build-storybook": "build-storybook"
     },
     "devDependencies": {

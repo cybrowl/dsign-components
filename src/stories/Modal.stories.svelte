@@ -15,7 +15,7 @@
 
 <Template let:args>
     <Modal {...args} on:click={args.onClick}>
-        <div class="h-80" />
+        <div class="modalBody" />
     </Modal>
 </Template>
 
@@ -25,3 +25,9 @@
         isModalOpen: true
     }}
 />
+
+<style>
+    .modalBody {
+        @apply h-80;
+    }
+</style>

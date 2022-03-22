@@ -27,7 +27,9 @@
     <p>Use lower case letters with 20 characters or less</p>
     <Input autofocus={true} isEdit="false" {label} {length} bind:value={username} onlyAllowLettersAndNumbers={true} />
     <a href="/private-policy">Private Policy</a>
-    <Button class="ml-56" primary="true" label="Get started!" on:click={onClick} />
+    <span class="primaryButon">
+        <Button primary="true" label="Get started!" on:click={onClick} />
+    </span>
 </div>
 
 <style>
@@ -42,5 +44,8 @@
     }
     .createUsername a {
         @apply block text-base mt-20 mb-11;
+    }
+    .primaryButon {
+        @apply ml-56;
     }
 </style>

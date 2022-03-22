@@ -2,7 +2,9 @@
 /public/build/
 /storybook-static/
 /package/
+/dist/
 
 .DS_Store
 .dfx
 .out
+.svelte-kit
