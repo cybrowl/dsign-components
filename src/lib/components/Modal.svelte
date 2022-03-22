@@ -4,6 +4,7 @@
     import Icon from './Icon.svelte';
 
     export let isModalOpen = true;
+    export let centered = true;
     const dispatch = createEventDispatcher();
 
     function onClose(event) {
@@ -21,7 +22,7 @@
                     <Icon class="closeStandard" name="close_standard" width="20" height="20" />
                 </span>
             </div>
-            <div class="modalBody">
+            <div class="modalBody" class:centered={centered === true}>
                 <slot />
             </div>
         </div>
@@ -45,6 +46,9 @@
         @apply p-5 rounded-t;
     }
     .modalBody {
-        @apply flex flex-col items-center;
+        @apply flex flex-col;
+    }
+    .centered {
+        @apply items-center;
     }
 </style>

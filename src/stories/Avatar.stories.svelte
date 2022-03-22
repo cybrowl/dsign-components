@@ -7,6 +7,7 @@
     title="Dsign/Avatar"
     component={Avatar}
     argTypes={{
+        onClick: {action: 'onClick'},
         avatar: {control: 'text'}
     }}
 />

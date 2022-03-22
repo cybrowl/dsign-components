@@ -1,19 +1,19 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import Settings from '../lib/components/Settings.svelte';
+    import SettingsModal from '../lib/components/SettingsModal.svelte';
 </script>
 
 <Meta
-    title="Dsign/Settings"
-    component={Settings}
+    title="Dsign/SettingsModal"
+    component={SettingsModal}
     argTypes={{
         onClick: {action: 'onClick'},
-        names: {control: 'object'}
+        username: {control: 'text'}
     }}
 />
 
 <Template let:args>
-    <Settings {...args} on:clickAvatar={args.onClick} on:clickLogOut={args.onClick} />
+    <SettingsModal {...args} on:avatarChange={args.onClick} />
 </Template>
 
 <Story
