@@ -7,7 +7,7 @@
     export let multiple = false;
     export let triggerInputEvent = false;
     export let username = '';
-    export let profileStorage;
+    export let avatar = '';
     let fileinput;
 
     function onClickAvatar(event) {
@@ -40,9 +40,9 @@
     <div class="content">
         <span class="avatar">
             <Avatar
-                avatar={profileStorage && profileStorage.avatar}
-                firstCharUsername={username.charAt(0)}
+                {avatar}
                 {hasAvatar}
+                firstCharUsername={username.charAt(0)}
                 lastCharUsername={username.charAt(username.length - 1)}
                 on:click={onClickAvatar}
             />
