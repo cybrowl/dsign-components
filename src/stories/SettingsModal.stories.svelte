@@ -8,7 +8,8 @@
     component={SettingsModal}
     argTypes={{
         onClick: {action: 'onClick'},
-        username: {control: 'text'}
+        username: {control: 'text'},
+        triggerInputEvent: {control: 'boolean'}
     }}
 />
 
@@ -20,5 +21,13 @@
     name="Default"
     args={{
         username: 'cyberowl'
+    }}
+/>
+
+<Story
+    name="Change Avatar"
+    args={{
+        username: 'cyberowl',
+        triggerInputEvent: true
     }}
 />
