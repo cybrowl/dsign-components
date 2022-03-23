@@ -3,11 +3,10 @@
     import Avatar from './Avatar.svelte';
 
     const dispatch = createEventDispatcher();
-    export let hasAvatar = false;
+    export let avatar = '';
     export let multiple = false;
     export let triggerInputEvent = false;
     export let username = '';
-    export let avatar = '';
     let fileinput;
 
     function onClickAvatar(event) {
@@ -41,7 +40,6 @@
         <span class="avatar">
             <Avatar
                 {avatar}
-                {hasAvatar}
                 firstCharUsername={username.charAt(0)}
                 lastCharUsername={username.charAt(username.length - 1)}
                 on:click={onClickAvatar}
@@ -99,6 +97,6 @@
         @apply ml-4 font-bold text-2xl;
     }
     .input {
-        @apply invisible;
+        @apply invisible w-0 h-0;
     }
 </style>
