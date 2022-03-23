@@ -4,7 +4,6 @@
     export let avatar = '';
     export let firstCharUsername = '';
     export let lastCharUsername = '';
-    export let hasAvatar = false;
     const dispatch = createEventDispatcher();
 
     function onClick(event) {
@@ -12,7 +11,7 @@
     }
 </script>
 
-{#if hasAvatar}
+{#if avatar.length > 3}
     <div class={['cropAvatar', $$props.class].join(' ')}>
         <img alt="avatar" class="avatarImg" src={avatar} on:click={onClick} />
     </div>

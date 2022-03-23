@@ -19,23 +19,20 @@
 <Story
     name="Default/Mishicat"
     args={{
-        avatar: 'https://i.ibb.co/KVfVsg0/Coffee.png',
-        hasAvatar: true
+        avatar: 'https://i.ibb.co/KVfVsg0/Coffee.png'
     }}
 />
 
 <Story
     name="Default/Motoko"
     args={{
-        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png',
-        hasAvatar: true
+        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png'
     }}
 />
 
 <Story
     name="Default/Initials"
     args={{
-        hasAvatar: false,
         firstCharUsername: 'M',
         lastCharUsername: 'T'
     }}
