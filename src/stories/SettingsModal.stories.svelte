@@ -9,6 +9,7 @@
     argTypes={{
         onClick: {action: 'onClick'},
         username: {control: 'text'},
+        avatar: {control: 'text'},
         triggerInputEvent: {control: 'boolean'}
     }}
 />
@@ -27,6 +28,15 @@
 <Story
     name="Change Avatar"
     args={{
+        username: 'cyberowl',
+        triggerInputEvent: true
+    }}
+/>
+
+<Story
+    name="Change Avatar Image"
+    args={{
+        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png',
         username: 'cyberowl',
         triggerInputEvent: true
     }}

@@ -40,6 +40,7 @@
         <span class="avatar">
             <Avatar
                 {avatar}
+                canEditAvatar={true}
                 firstCharUsername={username.charAt(0)}
                 lastCharUsername={username.charAt(username.length - 1)}
                 on:click={onClickAvatar}

@@ -15,6 +15,11 @@
             name: 'error_sign',
             path: `<rect width="32" height="32" rx="16" fill="#F03F5F"/><path d="M16 14.1131L8.88685 7L7 8.88684L14.1131 16L7 23.1131L8.88685 25L16 17.8868L23.1131 25L25 23.1131L17.8869 16L25 8.88684L23.1131 7L16 14.1131Z" fill="white"/>`
         },
+        edit_avatar: {
+            box: 25,
+            name: 'edit_avatar',
+            path: `<circle cx="12" cy="12" r="12" fill="#6259C8"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17 5V7H19V8.33333H17V10.3267C17 10.3267 15.6733 10.3333 15.6667 10.3267V8.33333H13.6667C13.6667 8.33333 13.6733 7.00667 13.6667 7H15.6667V5H17ZM15.6667 17.6667H6.33333V8.33333H12.3333V7H6.33333C5.6 7 5 7.6 5 8.33333V17.6667C5 18.4 5.6 19 6.33333 19H15.6667C16.4 19 17 18.4 17 17.6667V11.6667H15.6667V17.6667ZM10.4733 15.5533L9.16667 13.98L7.33333 16.3333H14.6667L12.3067 13.1933L10.4733 15.5533Z" fill="#FEFEFF"/>`
+        },
         favorite: {
             box: 39,
             name: 'favorite',
@@ -47,8 +52,10 @@
     .closeStandard {
         @apply fill-white cursor-pointer;
     }
-
     .closeStandard:hover {
         @apply fill-bubble-purple;
+    }
+    .editAvatar {
+        @apply absolute top-0 right-0;
     }
 </style>

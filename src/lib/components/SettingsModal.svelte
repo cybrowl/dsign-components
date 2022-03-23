@@ -5,6 +5,7 @@
 
     const dispatch = createEventDispatcher();
 
+    export let avatar = '';
     export let username = '';
     export let triggerInputEvent = false;
 
@@ -15,7 +16,7 @@
 
 <div>
     <Modal centered={false}>
-        <Settings on:clickAvatar={handleAvatarChange} {username} {triggerInputEvent} />
+        <Settings {avatar} {username} {triggerInputEvent} on:clickAvatar={handleAvatarChange} />
     </Modal>
 </div>
 

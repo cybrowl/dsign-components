@@ -37,6 +37,15 @@
 />
 
 <Story
+    name="edit_avatar"
+    args={{
+        name: 'edit_avatar',
+        width: '20',
+        height: '20'
+    }}
+/>
+
+<Story
     name="favorite"
     args={{
         name: 'favorite',

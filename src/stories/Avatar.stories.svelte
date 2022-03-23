@@ -8,7 +8,8 @@
     component={Avatar}
     argTypes={{
         onClick: {action: 'onClick'},
-        avatar: {control: 'text'}
+        avatar: {control: 'text'},
+        canEditAvatar: {control: 'boolean'}
     }}
 />
 
@@ -35,5 +36,13 @@
     args={{
         firstCharUsername: 'M',
         lastCharUsername: 'T'
+    }}
+/>
+
+<Story
+    name="Default/EditAvatar"
+    args={{
+        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png',
+        canEditAvatar: true
     }}
 />
