@@ -17,7 +17,7 @@
     <div class={['cropAvatar', $$props.class].join(' ')}>
         <img alt="avatar" class="avatarImg" src={avatar} on:click={onClick} />
         {#if canEditAvatar}
-            <Icon class="editAvatar" name="edit_avatar" width="25" height="25" />
+            <Icon class="editAvatar" name="edit_avatar" width="25" height="25" on:click={onClick} />
         {/if}
     </div>
 {:else}
@@ -27,7 +27,7 @@
             {lastCharUsername}
         </p>
         {#if canEditAvatar}
-            <Icon class="editAvatar" name="edit_avatar" width="25" height="25" />
+            <Icon class="editAvatar" name="edit_avatar" width="25" height="25" on:click={onClick} />
         {/if}
     </div>
 {/if}
