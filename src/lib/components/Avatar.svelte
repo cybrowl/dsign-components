@@ -38,6 +38,7 @@
     }
     .avatarImg {
         @apply w-12 bg-transparent;
+        clip-path: circle(1.7rem);
     }
     .avatarUsername {
         @apply relative font-sans font-bold w-14 h-14 flex justify-center items-center rounded-full
