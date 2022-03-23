@@ -14,7 +14,7 @@
 
 {#if hasAvatar}
     <div class={['cropAvatar', $$props.class].join(' ')}>
-        <img alt="avatar" class="avatarImg" src={avatar} />
+        <img alt="avatar" class="avatarImg" src={avatar} on:click={onClick} />
     </div>
 {:else}
     <div class={['avatarUsername', $$props.class].join(' ')} on:click={onClick}>
@@ -27,7 +27,7 @@
 
 <style>
     .cropAvatar {
-        @apply w-14 h-14 flex items-center justify-center rounded-full bg-neutral-900;
+        @apply w-14 h-14 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
     }
     .avatarImg {
         @apply w-12 bg-transparent;
