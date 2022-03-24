@@ -37,7 +37,7 @@
         @apply relative w-14 h-14 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
     }
     .avatarImg {
-        @apply w-12 bg-transparent;
+        @apply bg-transparent;
         clip-path: circle(1.7rem);
     }
     .avatarUsername {
