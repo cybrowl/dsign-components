@@ -30,7 +30,7 @@
 
 <style>
     .button {
-        @apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block leading-5;
+        @apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block leading-5 h-full;
     }
     .button--primary {
         @apply bg-tulip-purple;
