@@ -34,7 +34,9 @@
 
 <style>
     .createUsername {
-        @apply font-sans text-white mb-6;
+        @apply font-sans text-white;
+        margin-right: 20%;
+        margin-left: 20%;
     }
     .createUsername h2 {
         @apply text-4xl font-bold mb-2;
@@ -43,9 +45,9 @@
         @apply text-base mb-20;
     }
     .createUsername a {
-        @apply block text-base mt-20 mb-11;
+        @apply block text-base mt-20 pb-28;
     }
     .primaryButon {
-        @apply ml-56;
+        @apply absolute bottom-0 right-0 pb-6 pr-6;
     }
 </style>

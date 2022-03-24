@@ -34,7 +34,9 @@
         @apply fixed top-0 left-0 right-0 h-full w-full bg-backdrop opacity-90;
     }
     .modalLayout {
-        @apply fixed top-40 left-1/4 right-1/4;
+        @apply fixed top-40;
+        left: 30%;
+        right: 30%;
     }
     .modal {
         @apply rounded-lg shadow bg-dark-grey;
@@ -46,7 +48,7 @@
         @apply p-5 rounded-t;
     }
     .modalBody {
-        @apply flex flex-col;
+        @apply relative;
     }
     .centered {
         @apply items-center;
