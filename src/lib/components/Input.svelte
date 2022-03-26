@@ -77,7 +77,7 @@
         @apply mb-1.5 text-white;
     }
     .input {
-        @apply bg-smoky-grey autofill:bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-full outline-0 mr-4;
+        @apply bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-full outline-0 mr-4;
     }
     .inputContainer {
         @apply font-sans;
