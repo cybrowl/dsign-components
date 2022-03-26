@@ -9,8 +9,6 @@
 
     let disabled = primaryDisabled || secondaryDisabled;
     let mode = primary ? 'button--primary' : 'button--secondary';
-    let primaryDisabledStyle = primaryDisabled ? 'button--primary-disabled' : '';
-    let secondaryDisabledStyle = secondaryDisabled ? 'button--secondary-disabled' : '';
 
     const dispatch = createEventDispatcher();
 
@@ -22,7 +20,9 @@
 <button
     type="button"
     {disabled}
-    class={['button', $$props.class, `button--${size}`, mode, primaryDisabledStyle, secondaryDisabledStyle].join(' ')}
+    class={['button', $$props.class, `button--${size}`, mode].join(' ')}
+    class:button--primary-disabled={primaryDisabled === true}
+    class:button--secondary-disabled={primaryDisabled === true}
     on:click={onClick}
 >
     {label}
