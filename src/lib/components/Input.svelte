@@ -33,6 +33,7 @@
     }
 </script>
 
+{@debug hasError}
 <span class="inputContainer">
     <label for="finput" name={label.name} class="label">
         <p class:focused={isFocused === true} class:errorLabel={hasError === true}>
