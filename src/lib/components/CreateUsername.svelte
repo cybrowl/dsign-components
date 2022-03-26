@@ -26,7 +26,6 @@
     }
 </script>
 
-{@debug hasError}
 <div class="createUsername">
     <h2>Create a username</h2>
     <p>Use lower case letters and numbers only</p>
