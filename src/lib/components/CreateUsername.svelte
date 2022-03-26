@@ -56,10 +56,10 @@
         @apply text-4xl font-bold mb-4;
     }
     .createUsername p:nth-child(3) {
-        @apply text-base mb-16;
+        @apply text-base mb-20;
     }
     .createUsername a {
-        @apply block text-base mt-20 pb-28;
+        @apply block text-base mt-14 pb-28;
     }
     .primaryButon {
         @apply absolute bottom-0 right-0 pb-6 pr-6;
