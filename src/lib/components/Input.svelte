@@ -46,6 +46,7 @@
             {autofocus}
             {placeholder}
             bind:value
+            autocomplete="off"
             class="input"
             class:errorInput={hasError === true}
             id="finput"
