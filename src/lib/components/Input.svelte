@@ -17,10 +17,13 @@
     export let placeholder = '';
     export let onlyAllowLettersAndNumbers = false;
     export let hasError = false;
+    export let errorMessage = '';
 
     let isFocused = autofocus;
     const onFocus = () => {
         isFocused = true;
+        value = '';
+        errorMessage = '';
         hasError = false;
     };
 
@@ -65,6 +68,9 @@
             <Icon name="error_sign" width="30" height="30" />
         {/if}
     </span>
+    {#if hasError}
+        <p class="errorMessage">{errorMessage}</p>
+    {/if}
 </span>
 
 <style>
@@ -88,5 +94,9 @@
     }
     .errorInput {
         border-color: #f0627c;
+    }
+    .errorMessage {
+        color: #f0627c;
+        @apply mt-2.5;
     }
 </style>
