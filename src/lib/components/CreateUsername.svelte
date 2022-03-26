@@ -7,7 +7,7 @@
 
     export let errorMessage = '';
     export let hasError = false;
-    export let isCreatingAccount = false;
+    export let isCreatingAccount;
 
     const label = {
         name: 'Username',
