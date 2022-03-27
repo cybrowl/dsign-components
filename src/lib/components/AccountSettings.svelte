@@ -3,6 +3,7 @@
     import Avatar from './Avatar.svelte';
 
     const dispatch = createEventDispatcher();
+
     export let avatar = '';
     export let multiple = false;
     export let triggerInputEvent = false;

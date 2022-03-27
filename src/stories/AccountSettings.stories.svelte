@@ -1,11 +1,11 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import Settings from '../lib/components/Settings.svelte';
+    import AccountSettings from '../lib/components/AccountSettings.svelte';
 </script>
 
 <Meta
-    title="Dsign/Settings"
-    component={Settings}
+    title="Dsign/AccountSettings"
+    component={AccountSettings}
     argTypes={{
         onClick: {action: 'onClick'},
         names: {control: 'object'}
@@ -13,7 +13,7 @@
 />
 
 <Template let:args>
-    <Settings {...args} on:clickAvatar={args.onClick} on:clickLogOut={args.onClick} />
+    <AccountSettings {...args} on:clickAvatar={args.onClick} on:clickLogOut={args.onClick} />
 </Template>
 
 <Story
