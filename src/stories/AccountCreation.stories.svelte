@@ -1,18 +1,18 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import CreateUsername from '../lib/components/CreateUsername.svelte';
+    import AccountCreation from '../lib/components/AccountCreation.svelte';
 </script>
 
 <Meta
-    title="Dsign/CreateUsername"
-    component={CreateUsername}
+    title="Dsign/AccountCreation"
+    component={AccountCreation}
     argTypes={{
         avatar: {control: 'text'}
     }}
 />
 
 <Template let:args>
-    <CreateUsername {...args} on:click={args.onClick} />
+    <AccountCreation {...args} on:click={args.onClick} />
 </Template>
 
 <Story name="Default" args={{}} />

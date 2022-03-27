@@ -26,7 +26,7 @@
     }
 </script>
 
-<div class="createUsername">
+<div class="accountCreation">
     <h2>Create a username</h2>
     <p>Use lower case letters and numbers only</p>
     <p>Must be 20 characters or less</p>
@@ -47,18 +47,18 @@
 </div>
 
 <style>
-    .createUsername {
+    .accountCreation {
         @apply font-sans text-white;
         margin-right: 20%;
         margin-left: 20%;
     }
-    .createUsername h2 {
+    .accountCreation h2 {
         @apply text-4xl font-bold mb-4;
     }
-    .createUsername p:nth-child(3) {
+    .accountCreation p:nth-child(3) {
         @apply text-base mb-20;
     }
-    .createUsername a {
+    .accountCreation a {
         @apply block text-base mt-14 pb-28;
     }
     .primaryButon {
