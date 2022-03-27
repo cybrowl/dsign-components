@@ -16,7 +16,11 @@
 </script>
 
 {#if closeModalAfterNumSecs}
-    {setTimeout(onClose, 2000)}
+    <span class="hidden">
+        {setTimeout(function () {
+            isModalOpen = false;
+        }, 2000)}
+    </span>
 {/if}
 
 {#if isModalOpen}
@@ -60,5 +64,8 @@
     }
     .centered {
         @apply flex flex-col items-center;
+    }
+    .hidden {
+        @apply invisible;
     }
 </style>
