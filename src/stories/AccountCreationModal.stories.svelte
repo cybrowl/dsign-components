@@ -48,7 +48,6 @@
     args={{
         hasError: false,
         isCreatingAccount: false,
-        createdAccount: true,
-        closeModalAfterNumSecs: true
+        createdAccount: true
     }}
 />

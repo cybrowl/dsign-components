@@ -7,17 +7,23 @@
     export let errorMessage = '';
     export let hasError = false;
     export let isCreatingAccount = false;
-    export let closeModalAfterNumSecs = false;
+    export let isVisible = true;
 
     function handleAccountCreation(e) {
         console.log('create account: ', e.detail);
     }
+
+    setTimeout(function () {
+        isVisible = false;
+    }, 2000);
 </script>
 
 <div>
-    <Modal modalHeaderVisible={!createdAccount} {closeModalAfterNumSecs}>
+    <Modal modalHeaderVisible={!createdAccount} on:closeModal={handleAccountCreation}>
         {#if createdAccount}
-            <AccountCreationSuccess />
+            {#if isVisible}
+                <AccountCreationSuccess />
+            {/if}
         {:else}
             <AccountCreation on:click={handleAccountCreation} {errorMessage} {hasError} {isCreatingAccount} />
         {/if}

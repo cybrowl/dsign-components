@@ -6,7 +6,6 @@
     export let isModalOpen = true;
     export let centered = true;
     export let modalHeaderVisible = true;
-    export let closeModalAfterNumSecs = false;
     const dispatch = createEventDispatcher();
 
     function onClose(event) {
@@ -14,14 +13,6 @@
         isModalOpen = !isModalOpen;
     }
 </script>
-
-{#if closeModalAfterNumSecs}
-    <span class="hidden">
-        {setTimeout(function () {
-            isModalOpen = false;
-        }, 2000)}
-    </span>
-{/if}
 
 {#if isModalOpen}
     <div class="modalBackdrop" on:click={onClose} />
@@ -64,8 +55,5 @@
     }
     .centered {
         @apply flex flex-col items-center;
-    }
-    .hidden {
-        @apply invisible;
     }
 </style>
