@@ -18,11 +18,15 @@
     export let onlyAllowLettersAndNumbers = false;
     export let hasError = false;
     export let errorMessage = '';
+    export let clearValueOnFocus = false;
 
     let isFocused = autofocus;
     const onFocus = () => {
         isFocused = true;
-        value = '';
+
+        if (clearValueOnFocus) {
+            value = '';
+        }
         hasError = false;
         errorMessage = '';
     };

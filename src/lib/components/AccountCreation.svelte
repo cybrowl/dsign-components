@@ -9,6 +9,8 @@
     export let hasError = false;
     export let isCreatingAccount = false;
 
+    let clearValueOnFocus = true;
+
     const label = {
         name: 'Username',
         value: 'Username'
@@ -31,6 +33,7 @@
     <p>Use lower case letters and numbers only</p>
     <p>Must be 20 characters or less</p>
     <Input
+        {clearValueOnFocus}
         {errorMessage}
         {hasError}
         {label}
