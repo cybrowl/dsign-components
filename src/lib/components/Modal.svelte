@@ -13,11 +13,11 @@
         dispatch('closeModal', event);
         isModalOpen = !isModalOpen;
     }
-
-    if (closeModalAfterNumSecs) {
-        setTimeout(onClose, 2000);
-    }
 </script>
+
+{#if closeModalAfterNumSecs}
+    {setTimeout(onClose, 2000)}
+{/if}
 
 {#if isModalOpen}
     <div class="modalBackdrop" on:click={onClose} />
