@@ -1,0 +1,26 @@
+<script>
+</script>
+
+<div class="accountCreationSuccess">
+    <img
+        src="https://storageapi.fleek.co/b39f2b39-0e5f-46be-9b0f-f924f7ed71a8-bucket/mishicat_success.png"
+        alt="account created"
+    />
+    <h3>Success!</h3>
+    <p>You have successfully created an account.</p>
+</div>
+
+<style>
+    .accountCreationSuccess {
+        @apply font-sans text-white pb-24 pt-10 flex flex-col items-center;
+    }
+    .accountCreationSuccess img {
+        @apply w-64 h-56 mb-11;
+    }
+    .accountCreationSuccess h3 {
+        @apply text-6xl font-bold mb-4;
+    }
+    .accountCreationSuccess p {
+        @apply text-lg;
+    }
+</style>
