@@ -27,7 +27,7 @@
 </script>
 
 <div class="accountCreation">
-    <h2>Create a username</h2>
+    <h2>Choose Username</h2>
     <p>Use lower case letters and numbers only</p>
     <p>Must be 20 characters or less</p>
     <Input
