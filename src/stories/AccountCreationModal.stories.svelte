@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Dsign/AccountCreationModal"
+    title="Flow/AccountCreationModal"
     component={AccountCreationModal}
     argTypes={{
         isCreatingAccount: {control: 'boolean'}

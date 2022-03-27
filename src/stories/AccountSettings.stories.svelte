@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Dsign/AccountSettings"
+    title="Flow/Parts/AccountSettings"
     component={AccountSettings}
     argTypes={{
         onClick: {action: 'onClick'},

@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Dsign/AccountCreation"
+    title="Flow/Parts/AccountCreation"
     component={AccountCreation}
     argTypes={{
         avatar: {control: 'text'}

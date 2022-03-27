@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Dsign/AccountSettingsModal"
+    title="Flow/AccountSettingsModal"
     component={AccountSettingsModal}
     argTypes={{
         avatar: {control: 'text'},

@@ -8,4 +8,4 @@
 .dfx
 .out
 .svelte-kit
-.package-lock.json
+package-lock.json
