@@ -42,3 +42,13 @@
         isCreatingAccount: false
     }}
 />
+
+<Story
+    name="Account Creation/ProfileCreated"
+    args={{
+        hasError: false,
+        isCreatingAccount: false,
+        createdAccount: true,
+        closeModalAfterNumSecs: true
+    }}
+/>

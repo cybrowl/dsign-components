@@ -6,11 +6,16 @@
     export let isModalOpen = true;
     export let centered = true;
     export let modalHeaderVisible = true;
+    export let closeModalAfterNumSecs = false;
     const dispatch = createEventDispatcher();
 
     function onClose(event) {
         dispatch('closeModal', event);
         isModalOpen = !isModalOpen;
+    }
+
+    if (closeModalAfterNumSecs) {
+        setTimeout(onClose, 2000);
     }
 </script>
 
