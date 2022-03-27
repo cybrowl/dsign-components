@@ -51,7 +51,7 @@
 
 <style>
     .accountCreation {
-        @apply font-sans text-white;
+        @apply font-sans text-white pb-28;
         margin-right: 20%;
         margin-left: 20%;
     }
@@ -62,9 +62,9 @@
         @apply text-base mb-20;
     }
     .accountCreation a {
-        @apply block text-base mt-14 pb-28;
+        @apply block text-base mt-14;
     }
     .primaryButon {
-        @apply absolute bottom-0 right-0 pb-6 pr-6;
+        @apply absolute bottom-0 right-0 pr-6 pb-6;
     }
 </style>
