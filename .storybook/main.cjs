@@ -27,6 +27,7 @@ module.exports = {
             }
         }
     ],
+    staticDirs: ['../src/lib/assets'],
     framework: '@storybook/svelte',
     svelteOptions: {
         preprocess: require('svelte-preprocess')({postcss: true})
