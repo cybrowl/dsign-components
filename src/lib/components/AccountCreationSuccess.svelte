@@ -10,6 +10,7 @@
 <style>
     .accountCreationSuccess {
         @apply font-sans text-white pb-24 pt-10 flex flex-col items-center;
+        min-width: 600px;
     }
     .accountCreationSuccess img {
         @apply w-64 h-56 mb-11;

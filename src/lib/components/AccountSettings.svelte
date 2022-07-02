@@ -11,6 +11,7 @@
     let fileinput;
 
     function onClickAvatar(event) {
+        //TODO: check if I need triggerInputEvent, or it can be removed
         if (triggerInputEvent) {
             fileinput.click();
         }
@@ -69,6 +70,7 @@
 <style>
     .settings {
         @apply flex flex-row font-sans font-bold text-white ml-6;
+        min-width: 540px;
     }
     .nav {
         @apply basis-1/5;

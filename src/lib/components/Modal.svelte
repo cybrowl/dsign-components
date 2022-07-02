@@ -4,7 +4,6 @@
     import Icon from './Icon.svelte';
 
     export let isModalOpen = true;
-    export let centered = true;
     export let modalHeaderVisible = true;
     const dispatch = createEventDispatcher();
 
@@ -25,9 +24,7 @@
                     </span>
                 </div>
             {/if}
-            <div class="modalBody" class:centered={centered === true}>
-                <slot />
-            </div>
+            <slot />
         </div>
     </div>
 {/if}
@@ -37,9 +34,10 @@
         @apply fixed top-0 left-0 right-0 h-full w-full bg-backdrop opacity-90;
     }
     .modalLayout {
-        @apply fixed top-40;
-        left: 30%;
-        right: 30%;
+        @apply fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     .modal {
         @apply rounded-lg shadow bg-dark-grey;
@@ -49,11 +47,5 @@
     }
     .modalHeaderClose {
         @apply p-5 rounded-t;
-    }
-    .modalBody {
-        @apply relative;
-    }
-    .centered {
-        @apply flex flex-col items-center;
     }
 </style>

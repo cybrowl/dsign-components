@@ -52,8 +52,9 @@
 <style>
     .accountCreation {
         @apply font-sans text-white pb-28;
-        margin-right: 20%;
-        margin-left: 20%;
+        min-width: 600px;
+        padding-right: 20%;
+        padding-left: 20%;
     }
     .accountCreation h2 {
         @apply text-4xl font-bold mb-4;

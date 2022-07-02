@@ -1,12 +1,11 @@
 <script>
     import {createEventDispatcher} from 'svelte';
-    import AccountSettings from './AccountSettings.svelte';
+    import SnapCreation from './SnapCreation.svelte';
     import Modal from '../components/Modal.svelte';
 
     const dispatch = createEventDispatcher();
 
-    export let avatar = '';
-    export let username = '';
+    export let title = '';
     export let triggerInputEvent = false;
 
     function handleAvatarChange(e) {
@@ -16,7 +15,7 @@
 
 <div>
     <Modal>
-        <AccountSettings {avatar} {username} {triggerInputEvent} on:clickAvatar={handleAvatarChange} />
+        <SnapCreation {title} {triggerInputEvent} on:clickAvatar={handleAvatarChange} />
     </Modal>
 </div>
 
