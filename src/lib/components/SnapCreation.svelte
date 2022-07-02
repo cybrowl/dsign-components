@@ -1,5 +1,6 @@
 <script>
     import {createEventDispatcher} from 'svelte';
+    import {fade, fly} from 'svelte/transition';
     import Input from '../components/Input.svelte';
     import Button from '../components/Button.svelte';
 
@@ -32,15 +33,42 @@
         fileinput.click();
     }
 
-    function generatePreview() {
-        snapImages.forEach(image => {
-            previewSnapImages = [];
+    async function readFileAsDataURL(file) {
+        let result_base64 = await new Promise(resolve => {
+            let fileReader = new FileReader();
+            fileReader.onload = e => resolve(fileReader.result);
+            fileReader.readAsDataURL(file);
+        });
 
-            let reader = new FileReader();
-            reader.readAsDataURL(image);
-            reader.onload = e => {
-                previewSnapImages = [...previewSnapImages, e.target.result];
-            };
+        return result_base64;
+    }
+
+    function generatePreview() {
+        if (snapImages.length > 4) {
+            console.log('too many images');
+            return null;
+        }
+        previewSnapImages = [];
+
+        let snapImagesPreviewPromises = snapImages.map(image => {
+            return readFileAsDataURL(image);
+        });
+
+        const remainingImages = 4 - snapImages.length;
+        const previewImgEmpty = new Array(remainingImages).fill(null);
+
+        snapImagesPreviewPromises = [...snapImagesPreviewPromises, ...previewImgEmpty];
+
+        let snapImagesPreview = snapImagesPreviewPromises.map(async imagePromise => {
+            if (imagePromise == null) {
+                previewSnapImages = [null, ...previewSnapImages];
+            } else {
+                const image = await imagePromise;
+
+                previewSnapImages = [image, ...previewSnapImages];
+
+                return image;
+            }
         });
     }
 
@@ -48,7 +76,7 @@
         let files = e.target.files;
 
         [...files].forEach(file => {
-            snapImages.push(file);
+            snapImages.unshift(file);
         });
 
         generatePreview();
