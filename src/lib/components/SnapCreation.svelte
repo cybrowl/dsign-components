@@ -14,7 +14,7 @@
     let clearValueOnFocus = false;
     let fileinput;
 
-    let snapImages = [];
+    let snapImageFiles = [];
     let previewSnapImages = [null, null, null, null];
 
     const label = {
@@ -44,31 +44,21 @@
     }
 
     function generatePreview() {
-        if (snapImages.length > 4) {
+        if (snapImageFiles.length > 4) {
             console.log('too many images');
             return null;
         }
         previewSnapImages = [];
 
-        let snapImagesPreviewPromises = snapImages.map(image => {
+        let snapImagesPreviewPromises = snapImageFiles.map(image => {
             return readFileAsDataURL(image);
         });
 
-        const remainingImages = 4 - snapImages.length;
-        const previewImgEmpty = new Array(remainingImages).fill(null);
+        Promise.all(snapImagesPreviewPromises).then(snapBase64Images => {
+            const remainingImages = 4 - snapImageFiles.length;
+            const previewImgEmpty = new Array(remainingImages).fill(null);
 
-        snapImagesPreviewPromises = [...snapImagesPreviewPromises, ...previewImgEmpty];
-
-        let snapImagesPreview = snapImagesPreviewPromises.map(async imagePromise => {
-            if (imagePromise == null) {
-                previewSnapImages = [null, ...previewSnapImages];
-            } else {
-                const image = await imagePromise;
-
-                previewSnapImages = [image, ...previewSnapImages];
-
-                return image;
-            }
+            previewSnapImages = [...snapBase64Images, ...previewImgEmpty];
         });
     }
 
@@ -76,14 +66,14 @@
         let files = e.target.files;
 
         [...files].forEach(file => {
-            snapImages.unshift(file);
+            snapImageFiles.push(file);
         });
 
         generatePreview();
     };
 
     function onCreateSnap() {
-        dispatch('onCreateSnap', snapImages);
+        dispatch('onCreateSnap', snapImageFiles);
     }
 </script>
 
