@@ -83,7 +83,7 @@
         @apply mb-1.5 text-white;
     }
     .input {
-        @apply bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-full outline-0 mr-4;
+        @apply bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-full outline-0;
     }
     .inputContainer {
         @apply font-sans;
@@ -98,6 +98,7 @@
         color: #f0627c;
     }
     .errorInput {
+        margin-right: 1rem;
         border-color: #f0627c;
     }
     .errorMessage {

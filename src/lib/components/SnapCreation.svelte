@@ -12,10 +12,10 @@
     export let multiple = true;
 
     let clearValueOnFocus = false;
-    let fileinput;
+    let file_input_elem;
 
-    let snapImageFiles = [];
-    let previewSnapImages = [null, null, null, null];
+    let snap_image_files = [];
+    let preview_snap_images = [null, null, null, null];
 
     const label = {
         name: 'Title',
@@ -29,8 +29,8 @@
 
     let title;
 
-    function onAddImages(event) {
-        fileinput.click();
+    function on_add_images(event) {
+        file_input_elem.click();
     }
 
     async function readFileAsDataURL(file) {
@@ -44,41 +44,41 @@
     }
 
     function generatePreview() {
-        if (snapImageFiles.length > 4) {
+        if (snap_image_files.length > 4) {
             console.log('too many images');
             return null;
         }
-        previewSnapImages = [];
+        preview_snap_images = [];
 
-        let snapImagesPreviewPromises = snapImageFiles.map(image => {
+        let snapImagesPreviewPromises = snap_image_files.map(image => {
             return readFileAsDataURL(image);
         });
 
-        Promise.all(snapImagesPreviewPromises).then(snapBase64Images => {
-            const remainingImages = 4 - snapImageFiles.length;
-            const previewImgEmpty = new Array(remainingImages).fill(null);
+        Promise.all(snapImagesPreviewPromises).then(snap_base64_images => {
+            const remaining_images = 4 - snap_image_files.length;
+            const empty_image = new Array(remaining_images).fill(null);
 
-            previewSnapImages = [...snapBase64Images, ...previewImgEmpty];
+            preview_snap_images = [...snap_base64_images, ...empty_image];
         });
     }
 
-    const onFilesSelected = e => {
+    function on_files_selected(e) {
         let files = e.target.files;
 
         [...files].forEach(file => {
-            snapImageFiles.push(file);
+            snap_image_files.push(file);
         });
 
         generatePreview();
-    };
+    }
 
-    function onCreateSnap() {
-        dispatch('onCreateSnap', snapImageFiles);
+    function on_create_snap() {
+        dispatch('on_create_snap', {title, snap_image_files});
     }
 </script>
 
 <div class="snapCreation">
-    <h1>Get started on your work/snap?</h1>
+    <h1>Publish Your Work</h1>
     <Input
         {clearValueOnFocus}
         {errorMessage}
@@ -95,26 +95,26 @@
         type="file"
         {multiple}
         accept=".jpg, .jpeg, .png, .gif"
-        on:change={e => onFilesSelected(e)}
-        bind:this={fileinput}
+        on:change={e => on_files_selected(e)}
+        bind:this={file_input_elem}
     />
     <div class="addImagesButton">
-        <Button secondary="true" label="Add Images" on:click={onAddImages} />
+        <Button secondary="true" label="Attach Images" on:click={on_add_images} />
     </div>
     <h2 class="previewHeading">Preview</h2>
     <div class="previewSnapImages">
-        {#each previewSnapImages as previewSnapImage}
-            {#if previewSnapImage == null}
+        {#each preview_snap_images as preview_image}
+            {#if preview_image == null}
                 <span class="previewImgEmpty" />
             {:else}
                 <span>
-                    <img class="previewImg" src={previewSnapImage} alt="snap" />
+                    <img class="previewImg" src={preview_image} alt="snap" />
                 </span>
             {/if}
         {/each}
     </div>
     <span class="publishButton">
-        <Button primary="true" label="Publish" on:click={onCreateSnap} />
+        <Button primary="true" label="Publish" on:click={on_create_snap} />
     </span>
 </div>
 
@@ -126,13 +126,13 @@
         min-width: 700px;
     }
     .snapCreation h1 {
-        @apply text-3xl font-bold mb-6;
+        @apply text-3xl font-bold mb-6 text-center;
     }
     .addImagesButton {
         @apply mt-10 mb-10;
     }
     .previewHeading {
-        @apply text-2xl;
+        @apply text-base mb-4;
     }
     .previewSnapImages {
         @apply flex space-x-4;
