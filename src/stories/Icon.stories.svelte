@@ -28,6 +28,16 @@
 />
 
 <Story
+    name="close_upload"
+    args={{
+        name: 'close_upload',
+        class: 'close_upload',
+        width: '24',
+        height: '24'
+    }}
+/>
+
+<Story
     name="error_sign"
     args={{
         name: 'error_sign',
