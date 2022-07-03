@@ -63,4 +63,9 @@
     .editAvatar {
         @apply absolute top-0 right-0;
     }
+    .removeSnapImg {
+        @apply absolute cursor-pointer;
+        top: -12px;
+        right: -10px;
+    }
 </style>

@@ -1,8 +1,8 @@
 <script>
     import {createEventDispatcher} from 'svelte';
-    import {fade, fly} from 'svelte/transition';
-    import Input from '../components/Input.svelte';
     import Button from '../components/Button.svelte';
+    import Icon from '../components/Icon.svelte';
+    import Input from '../components/Input.svelte';
 
     const dispatch = createEventDispatcher();
 
@@ -107,9 +107,10 @@
             {#if preview_image == null}
                 <span class="previewImgEmpty" />
             {:else}
-                <span>
+                <div class="previewImgContainer">
+                    <Icon class="removeSnapImg" name="close_upload" width="24" height="24" />
                     <img class="previewImg" src={preview_image} alt="snap" />
-                </span>
+                </div>
             {/if}
         {/each}
     </div>
@@ -136,6 +137,9 @@
     }
     .previewSnapImages {
         @apply flex space-x-4;
+    }
+    .previewImgContainer {
+        @apply relative;
     }
     .previewImg {
         width: 125px;
