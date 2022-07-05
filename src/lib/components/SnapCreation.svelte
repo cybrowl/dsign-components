@@ -66,6 +66,7 @@
         let files = e.target.files;
 
         [...files].forEach(file => {
+            // TODO: check img is below max MB
             snap_image_files.push(file);
         });
 

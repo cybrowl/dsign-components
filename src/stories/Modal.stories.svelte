@@ -29,5 +29,6 @@
 <style>
     .modalBody {
         @apply h-80;
+        min-width: 700px;
     }
 </style>
