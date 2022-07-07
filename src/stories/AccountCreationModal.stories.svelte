@@ -15,7 +15,7 @@
     <AccountCreationModal {...args} on:click={args.onClick} />
 </Template>
 
-<Story name="Page Load" args={{}} />
+<Story name="First Render" args={{}} />
 
 <Story
     name="Creating Account"

@@ -19,7 +19,7 @@
 </Template>
 
 <Story
-    name="Page Load"
+    name="First Render"
     args={{
         username: 'cyberowl'
     }}
