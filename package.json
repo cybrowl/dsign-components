@@ -5,7 +5,7 @@
     "version": "0.0.53",
     "scripts": {
         "dev": "svelte-kit dev",
-        "build": "svelte-kit build",
+        "build": "build-storybook -c .storybook -o dist",
         "package": "svelte-kit package",
         "preview": "svelte-kit preview",
         "storybook": "start-storybook -p 6006",
