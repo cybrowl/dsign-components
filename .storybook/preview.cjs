@@ -5,7 +5,12 @@ export const parameters = {
     actions: {argTypesRegex: '^on[A-Z].*'},
     darkMode: {
         // Override the default dark theme
-        dark: {...themes.dark, appBg: '#32313D'},
+        dark: {
+            ...themes.dark,
+            appBg: '#32313D',
+            brandImage:
+                'https://bafybeif4za4ncyho45wv4pflqvlc45r5xjfo72njyd27sxswdjrreortky.ipfs.dweb.link/logo.png'
+        },
         // Override the default light theme
         light: {...themes.normal, appBg: 'white'},
         stylePreview: true,
