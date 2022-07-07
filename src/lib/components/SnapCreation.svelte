@@ -29,11 +29,11 @@
 
     let title;
 
-    function on_add_images(event) {
+    function on_add_images() {
         file_input_elem.click();
     }
 
-    async function readFileAsDataURL(file) {
+    async function read_file_as_data_url(file) {
         let result_base64 = await new Promise(resolve => {
             let fileReader = new FileReader();
             fileReader.onload = e => resolve(fileReader.result);
@@ -43,7 +43,7 @@
         return result_base64;
     }
 
-    function generatePreview() {
+    function generate_preview() {
         if (snap_image_files.length > 4) {
             console.log('too many images');
             return null;
@@ -51,7 +51,7 @@
         preview_snap_images = [];
 
         let snapImagesPreviewPromises = snap_image_files.map(image => {
-            return readFileAsDataURL(image);
+            return read_file_as_data_url(image);
         });
 
         Promise.all(snapImagesPreviewPromises).then(snap_base64_images => {
@@ -70,11 +70,16 @@
             snap_image_files.push(file);
         });
 
-        generatePreview();
+        generate_preview();
     }
 
     function on_create_snap() {
         dispatch('on_create_snap', {title, snap_image_files});
+    }
+
+    function on_remove_image(i) {
+        snap_image_files.splice(i, 1);
+        generate_preview();
     }
 </script>
 
@@ -104,12 +109,14 @@
     </div>
     <h2 class="previewHeading">Preview</h2>
     <div class="previewSnapImages">
-        {#each preview_snap_images as preview_image}
+        {#each preview_snap_images as preview_image, i}
             {#if preview_image == null}
                 <span class="previewImgEmpty" />
             {:else}
                 <div class="previewImgContainer">
-                    <Icon class="removeSnapImg" name="close_upload" width="24" height="24" />
+                    <span on:click={() => on_remove_image(i)}
+                        ><Icon class="removeSnapImg" name="close_upload" width="24" height="24" /></span
+                    >
                     <img class="previewImg" src={preview_image} alt="snap" />
                 </div>
             {/if}
