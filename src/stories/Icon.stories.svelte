@@ -56,6 +56,15 @@
 />
 
 <Story
+    name="like"
+    args={{
+        name: 'like',
+        width: '25',
+        height: '25'
+    }}
+/>
+
+<Story
     name="favorite"
     args={{
         name: 'favorite',
