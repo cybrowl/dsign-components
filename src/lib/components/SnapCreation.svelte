@@ -1,5 +1,5 @@
 <script>
-    import {createEventDispatcher} from 'svelte';
+    import {createEventDispatcher, onDestroy} from 'svelte';
     import Button from '../components/Button.svelte';
     import Icon from '../components/Icon.svelte';
     import Input from '../components/Input.svelte';
@@ -28,6 +28,10 @@
     };
 
     let title;
+
+    onDestroy(() => {
+        snap_image_files = [null, null, null, null];
+    });
 
     function on_add_images() {
         file_input_elem.click();
