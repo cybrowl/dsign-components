@@ -112,6 +112,15 @@
 />
 
 <Story
+    name="upload_snap"
+    args={{
+        name: 'upload_snap',
+        width: '89',
+        height: '89'
+    }}
+/>
+
+<Story
     name="visibility_disabled"
     args={{
         name: 'visibility_disabled',
