@@ -18,6 +18,26 @@
 </Template>
 
 <Story
+    name="checkmark"
+    args={{
+        name: 'checkmark',
+        class: 'checkmark',
+        width: '20',
+        height: '20'
+    }}
+/>
+
+<Story
+    name="unchecked"
+    args={{
+        name: 'unchecked',
+        class: 'unchecked',
+        width: '20',
+        height: '20'
+    }}
+/>
+
+<Story
     name="close_standard"
     args={{
         name: 'close_standard',

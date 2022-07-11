@@ -13,9 +13,46 @@
     name="Default"
     args={{
         snap: {
+            isSelected: false,
+            cover_image_location: '0',
             likes: 456,
             views: 867,
-            url: 'https://bafybeifdvmxoh4wo6xasiwvcjg62hwewk6afwvvljtttallaslvu6v4qvi.ipfs.dweb.link/profile.png'
+            image_urls: ['https://i.imgur.com/50CnzSg.png']
+        }
+    }}
+/>
+
+<Story
+    name="Loading"
+    args={{
+        isLoadingSnap: true
+    }}
+/>
+
+<Story
+    name="Unselected"
+    args={{
+        isEditMode: true,
+        snap: {
+            isSelected: false,
+            cover_image_location: '0',
+            likes: 456,
+            views: 867,
+            image_urls: ['https://i.imgur.com/50CnzSg.png']
+        }
+    }}
+/>
+
+<Story
+    name="Is Selected"
+    args={{
+        isEditMode: true,
+        snap: {
+            isSelected: true,
+            cover_image_location: '0',
+            likes: 456,
+            views: 867,
+            image_urls: ['https://i.imgur.com/50CnzSg.png']
         }
     }}
 />
