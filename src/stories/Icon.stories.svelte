@@ -48,6 +48,15 @@
 />
 
 <Story
+    name="close_edit"
+    args={{
+        name: 'close_edit',
+        width: '40',
+        height: '40'
+    }}
+/>
+
+<Story
     name="close_upload"
     args={{
         name: 'close_upload',
@@ -67,20 +76,20 @@
 />
 
 <Story
+    name="edit"
+    args={{
+        name: 'edit',
+        width: '40',
+        height: '40'
+    }}
+/>
+
+<Story
     name="edit_avatar"
     args={{
         name: 'edit_avatar',
         width: '20',
         height: '20'
-    }}
-/>
-
-<Story
-    name="like"
-    args={{
-        name: 'like',
-        width: '25',
-        height: '25'
     }}
 />
 
@@ -99,6 +108,33 @@
         name: 'favorite_disabled',
         width: '39',
         height: '39'
+    }}
+/>
+
+<Story
+    name="like"
+    args={{
+        name: 'like',
+        width: '25',
+        height: '25'
+    }}
+/>
+
+<Story
+    name="move"
+    args={{
+        name: 'move',
+        width: '40',
+        height: '40'
+    }}
+/>
+
+<Story
+    name="trash"
+    args={{
+        name: 'trash',
+        width: '40',
+        height: '40'
     }}
 />
 
