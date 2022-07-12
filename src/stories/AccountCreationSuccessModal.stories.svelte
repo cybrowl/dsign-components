@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Flow/AccountCreationSuccessModal"
+    title="Modals/AccountCreationSuccess"
     component={AccountCreationSuccessModal}
     argTypes={{
         isCreatingAccount: {control: 'boolean'}

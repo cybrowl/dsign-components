@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Flow/Parts/SnapCreation"
+    title="Components/SnapCreation"
     component={SnapCreation}
     argTypes={{
         avatar: {control: 'text'}

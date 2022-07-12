@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Flow/SnapCreationModal"
+    title="Modals/SnapCreation"
     component={SnapCreationModal}
     argTypes={{
         isCreatingSnap: {control: 'boolean'}

@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Flow/Parts/AccountCreationSuccess"
+    title="Components/AccountCreationSuccess"
     component={AccountCreationSuccess}
     argTypes={{
         avatar: {control: 'text'}
