@@ -139,20 +139,20 @@
 />
 
 <Story
-    name="visibility"
-    args={{
-        name: 'visibility',
-        width: '20',
-        height: '20'
-    }}
-/>
-
-<Story
     name="upload_snap"
     args={{
         name: 'upload_snap',
         width: '89',
         height: '89'
+    }}
+/>
+
+<Story
+    name="visibility"
+    args={{
+        name: 'visibility',
+        width: '20',
+        height: '20'
     }}
 />
 

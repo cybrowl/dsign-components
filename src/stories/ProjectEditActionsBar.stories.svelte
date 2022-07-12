@@ -15,4 +15,16 @@
     <ProjectEditActionsBar {...args} on:click={args.onClick} />
 </Template>
 
-<Story name="Default" args={{}} />
+<Story
+    name="Default"
+    args={{
+        isEditActive: false
+    }}
+/>
+
+<Story
+    name="Expanded"
+    args={{
+        isEditActive: true
+    }}
+/>

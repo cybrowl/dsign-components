@@ -1,7 +1,7 @@
 <script>
     import Icon from './Icon.svelte';
 
-    let isEditActive = false;
+    export let isEditActive = false;
 
     function toggleEditMode() {
         isEditActive = !isEditActive;

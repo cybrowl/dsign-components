@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Dsign/ProjectsPage"
+    title="Pages/Project"
     component={ProjectsPage}
     argTypes={{
         onClick: {action: 'onClick'},
