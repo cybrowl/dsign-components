@@ -4,7 +4,7 @@
 </script>
 
 <Meta
-    title="Pages/Project"
+    title="Pages/Snaps"
     component={ProjectsPage}
     argTypes={{
         onClick: {action: 'onClick'},
@@ -20,7 +20,6 @@
     name="Default"
     args={{
         navItems: [
-            {name: 'DSign', selected: true},
             {name: 'Explore', selected: false},
             {name: 'Favorites', selected: false},
             {name: 'Projects', selected: false}

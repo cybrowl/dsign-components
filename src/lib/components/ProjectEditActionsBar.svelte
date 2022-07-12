@@ -28,6 +28,6 @@
 
 <style>
     .actionsBar {
-        @apply flex gap-4 float-right;
+        @apply flex gap-4 float-right cursor-pointer;
     }
 </style>
