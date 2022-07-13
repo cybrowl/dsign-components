@@ -78,7 +78,24 @@
     }
 
     function on_create_snap() {
-        dispatch('create_snap', {title, snap_image_files});
+        // convert snap_image_files to unit8Arrays
+        let snap_image_files_unit8Arrays = snap_image_files.map(async file => {
+            const imageAsUnit8ArrayBuffer = new Uint8Array(await file.arrayBuffer());
+            return [...imageAsUnit8ArrayBuffer];
+        });
+
+        Promise.all(snap_image_files_unit8Arrays).then(image_files => {
+            const payload = {
+                title,
+                is_public: true,
+                images: image_files,
+                cover_image_location: 0
+            };
+
+            console.log('payload: ', payload);
+
+            dispatch('create_snap', payload);
+        });
     }
 
     function on_remove_image(i) {

@@ -7,7 +7,7 @@
     title="Components/SnapCreation"
     component={SnapCreation}
     argTypes={{
-        avatar: {control: 'text'}
+        hasError: {control: 'boolean'}
     }}
 />
 
