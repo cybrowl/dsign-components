@@ -78,7 +78,7 @@
     }
 
     function on_create_snap() {
-        dispatch('on_create_snap', {title, snap_image_files});
+        dispatch('create_snap', {title, snap_image_files});
     }
 
     function on_remove_image(i) {
