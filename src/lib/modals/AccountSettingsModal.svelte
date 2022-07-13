@@ -1,6 +1,6 @@
 <script>
     import {createEventDispatcher} from 'svelte';
-    import AccountSettings from './AccountSettings.svelte';
+    import AccountSettings from '../components/AccountSettings.svelte';
     import Modal from '../components/Modal.svelte';
 
     const dispatch = createEventDispatcher();

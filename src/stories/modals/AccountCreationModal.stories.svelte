@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import AccountCreationModal from '../lib/components/AccountCreationModal.svelte';
+    import AccountCreationModal from '../../lib/modals/AccountCreationModal.svelte';
 </script>
 
 <Meta

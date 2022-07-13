@@ -1,5 +1,5 @@
 <script>
-    import AccountCreationSuccess from './AccountCreationSuccess.svelte';
+    import AccountCreationSuccess from '../components/AccountCreationSuccess.svelte';
     import Modal from '../components/Modal.svelte';
 </script>
 

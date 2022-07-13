@@ -1,6 +1,6 @@
 <script>
     import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import SnapCreationModal from '../lib/components/SnapCreationModal.svelte';
+    import SnapCreationModal from '../../lib/modals/SnapCreationModal.svelte';
 </script>
 
 <Meta
