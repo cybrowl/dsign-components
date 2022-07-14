@@ -70,7 +70,11 @@
         let files = e.target.files;
 
         [...files].forEach(file => {
-            // TODO: check img is below max MB
+            if (file.size > 2000000) {
+                errorMessage = 'File is too large';
+                hasError = true;
+                return;
+            }
             snap_image_files.push(file);
         });
 
@@ -91,8 +95,6 @@
                 images: image_files,
                 cover_image_location: 0
             };
-
-            console.log('payload: ', payload);
 
             dispatch('create_snap', payload);
         });
@@ -159,7 +161,7 @@
         @apply text-3xl font-bold mb-6 text-center;
     }
     .addImagesButton {
-        @apply mt-10 mb-10;
+        @apply mt-5 mb-10;
     }
     .previewHeading {
         @apply text-base mb-4;
