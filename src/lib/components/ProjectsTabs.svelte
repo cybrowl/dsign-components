@@ -1,6 +1,8 @@
 <script>
     import {createEventDispatcher} from 'svelte';
 
+    const dispatch = createEventDispatcher();
+
     export let isSnapsSelected = false;
     export let isProjectsSelected = false;
 
