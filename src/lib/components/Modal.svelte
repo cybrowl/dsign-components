@@ -14,7 +14,7 @@
 </script>
 
 {#if isModalOpen}
-    <div class="modalBackdrop" on:click={onClose} />
+    <div class="modalBackdrop" in:fade on:click={onClose} />
     <div class="modalLayout" in:fly={{y: 200, duration: 1000}} out:fade>
         <div class="modal">
             {#if modalHeaderVisible}
