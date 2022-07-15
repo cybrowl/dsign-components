@@ -70,7 +70,7 @@
     </div>
 {:else}
     <div class="snapCard">
-        <img src={snap.image_urls[snap.cover_image_location]} alt="snap" in:fade out:fade />
+        <img src={snap.image_urls[snap.cover_image_location]} alt="snap" in:fade />
         <span class="icons">
             <span>
                 <Icon name="like" width="16" height="16" />
