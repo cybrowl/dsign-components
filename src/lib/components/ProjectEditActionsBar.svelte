@@ -1,10 +1,15 @@
 <script>
     import Icon from './Icon.svelte';
+    import {createEventDispatcher} from 'svelte';
+
+    const dispatch = createEventDispatcher();
 
     export let isEditActive = false;
 
     function toggleEditMode() {
         isEditActive = !isEditActive;
+
+        dispatch('toggleEditMode', isEditActive);
     }
 </script>
 
