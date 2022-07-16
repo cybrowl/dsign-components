@@ -78,7 +78,7 @@
                 cover_image_location: 0,
                 isSelected: false,
                 image_urls: [
-                    'https://cdn.dribbble.com/userupload/3124376/file/original-8940fb6294b9ef793adafb8aca897901.png?compress=1&resize=1024x768&vertical=center',
+                    'https://cdn.dribbble.com/userupload/3123876/file/original-bc9ebfbc8b0f63cf4fb1bdba45124c3a.jpg?compress=1&resize=1024x1365',
                     'https://picsum.photos/200/300?image=2',
                     'https://picsum.photos/200/300?image=3'
                 ],

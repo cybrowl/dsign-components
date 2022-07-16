@@ -87,12 +87,16 @@
 
     .snapCard {
         @apply relative font-sans cursor-pointer;
+        --numcolumns: 6;
+        --gap: 1rem;
+        --size: calc(100vw / var(--numcolumns));
+        height: calc(var(--size) - var(--gap));
     }
 
-    .snapCard img {
+    .snapCard > img {
         object-fit: cover;
         width: 100%;
-        max-height: 100%;
+        height: 100%;
         border-radius: 6px;
     }
 
