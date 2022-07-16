@@ -66,8 +66,11 @@
 
 <style>
     .snapCardLoading {
-        max-width: 290px;
-        max-height: 226px;
+        @apply relative font-sans cursor-pointer;
+        --numcolumns: 6;
+        --gap: 1rem;
+        --size: calc(100vw / var(--numcolumns));
+        height: calc(var(--size) - var(--gap));
     }
 
     .snapCardLoadingImg {
@@ -75,8 +78,8 @@
         border-radius: 6px;
         background-size: 200% 100%;
         animation: 1.5s shine linear infinite;
-        width: 290px;
-        height: 226px;
+        width: 100%;
+        height: 100%;
     }
 
     @keyframes shine {

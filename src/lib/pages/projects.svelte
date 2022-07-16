@@ -5,6 +5,7 @@
     import SnapCard from '../components/SnapCard.svelte';
 
     export let navItems;
+    export let isLoadingSnap;
     export let snap_storage = [];
 </script>
 
@@ -23,7 +24,7 @@
 
                 <div class="snaps">
                     {#each snap_storage as snap}
-                        <SnapCard {snap} />
+                        <SnapCard {snap} {isLoadingSnap} />
                     {/each}
                 </div>
             </div>
