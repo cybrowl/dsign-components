@@ -27,7 +27,7 @@
         </span>
     </div>
 {:else}
-    <div class="snapCard">
+    <div class="snapCard" on:click={isEditMode && select_card}>
         <img
             class={isEditMode === true ? 'editModeSnapCard' : ''}
             src={snap.image_urls[snap.cover_image_location]}
@@ -45,7 +45,7 @@
 
         <!-- Selected -->
         {#if isEditMode && snap.isSelected}
-            <span class="checkmark" on:click={select_card}>
+            <span class="checkmark">
                 <Icon name="checkmark" width="32" height="32" />
             </span>
         {/if}
