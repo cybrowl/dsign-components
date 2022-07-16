@@ -86,17 +86,10 @@
     }
 
     .snapCard {
-        @apply relative font-sans cursor-pointer;
-        max-width: 290px;
-        max-height: 226px;
-        border-radius: 6px;
-        margin-bottom: 24px;
+        @apply relative font-sans cursor-pointer max-h-80;
     }
 
     .snapCard img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
         border-radius: 6px;
     }
 
@@ -114,10 +107,9 @@
 
     .icons {
         @apply gap-1;
-        position: absolute;
-        bottom: -24px;
-        right: 0;
         display: flex;
+        float: right;
+        margin-top: 8px;
     }
 
     .icons span {
