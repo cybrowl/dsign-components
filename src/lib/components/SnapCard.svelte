@@ -86,10 +86,13 @@
     }
 
     .snapCard {
-        @apply relative font-sans cursor-pointer max-h-80;
+        @apply relative font-sans cursor-pointer;
     }
 
     .snapCard img {
+        object-fit: cover;
+        width: 100%;
+        max-height: 100%;
         border-radius: 6px;
     }
 
