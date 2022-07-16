@@ -13,50 +13,8 @@
 </script>
 
 {#if isLoadingSnap}
-    <div class="snapCardLoading">
+    <div class="snapCardLoading" in:fade out:fade>
         <div class="snapCardLoadingImg" />
-        <span class="icons">
-            <span>
-                <Icon name="like" width="16" height="16" />
-                <span class="count">{snap.likes}</span>
-            </span>
-            <span>
-                <Icon name="visibility" width="16" height="16" />
-                <span class="count">{snap.views}</span>
-            </span>
-        </span>
-    </div>
-{:else if isEditMode && snap.isSelected === false}
-    <div class="snapCard">
-        <img
-            class={isEditMode === true ? 'editModeSnapCard' : ''}
-            src={snap.image_urls[snap.cover_image_location]}
-            alt="snap"
-        />
-        <span class="checkmark" on:click={select_card}>
-            <Icon name="unchecked" width="32" height="32" />
-        </span>
-        <span class="icons">
-            <span>
-                <Icon name="like" width="16" height="16" />
-                <span class="count">{snap.likes}</span>
-            </span>
-            <span>
-                <Icon name="visibility" width="16" height="16" />
-                <span class="count">{snap.views}</span>
-            </span>
-        </span>
-    </div>
-{:else if isEditMode && snap.isSelected}
-    <div class="snapCard">
-        <img
-            class={isEditMode === true ? 'editModeSnapCard' : ''}
-            src={snap.image_urls[snap.cover_image_location]}
-            alt="snap"
-        />
-        <span class="checkmark" on:click={select_card}>
-            <Icon name="checkmark" width="32" height="32" />
-        </span>
         <span class="icons">
             <span>
                 <Icon name="like" width="16" height="16" />
@@ -70,7 +28,29 @@
     </div>
 {:else}
     <div class="snapCard">
-        <img src={snap.image_urls[snap.cover_image_location]} alt="snap" in:fade />
+        <img
+            class={isEditMode === true ? 'editModeSnapCard' : ''}
+            src={snap.image_urls[snap.cover_image_location]}
+            alt="snap"
+            in:fade
+            out:fade
+        />
+
+        <!-- Unselected -->
+        {#if isEditMode && snap.isSelected === false}
+            <span class="checkmark" on:click={select_card}>
+                <Icon name="unchecked" width="32" height="32" />
+            </span>
+        {/if}
+
+        <!-- Selected -->
+        {#if isEditMode && snap.isSelected}
+            <span class="checkmark" on:click={select_card}>
+                <Icon name="checkmark" width="32" height="32" />
+            </span>
+        {/if}
+
+        <!-- Icons -->
         <span class="icons">
             <span>
                 <Icon name="like" width="16" height="16" />
@@ -106,7 +86,7 @@
     }
 
     .snapCard {
-        @apply relative font-sans;
+        @apply relative font-sans cursor-pointer;
         max-width: 290px;
         max-height: 226px;
         border-radius: 6px;
