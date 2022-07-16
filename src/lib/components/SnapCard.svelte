@@ -45,7 +45,7 @@
 
         <!-- Selected -->
         {#if isEditMode && snap.isSelected}
-            <span class="checkmark">
+            <span class="checkmark" on:click={select_card}>
                 <Icon name="checkmark" width="32" height="32" />
             </span>
         {/if}
