@@ -38,14 +38,14 @@
 
         <!-- Unselected -->
         {#if isEditMode && snap.isSelected === false}
-            <span class="checkmark" on:click={select_card}>
+            <span class="checkmark">
                 <Icon name="unchecked" width="32" height="32" />
             </span>
         {/if}
 
         <!-- Selected -->
         {#if isEditMode && snap.isSelected}
-            <span class="checkmark" on:click={select_card}>
+            <span class="checkmark">
                 <Icon name="checkmark" width="32" height="32" />
             </span>
         {/if}
