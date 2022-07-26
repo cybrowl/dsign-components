@@ -50,6 +50,7 @@
 <Story
     name="close_edit"
     args={{
+        class: 'editActionsBar',
         name: 'close_edit',
         width: '40',
         height: '40'
@@ -78,6 +79,7 @@
 <Story
     name="edit"
     args={{
+        class: 'editActionsBar',
         name: 'edit',
         width: '40',
         height: '40'
@@ -123,6 +125,7 @@
 <Story
     name="move"
     args={{
+        class: 'editActionsBar',
         name: 'move',
         width: '40',
         height: '40'
@@ -132,6 +135,7 @@
 <Story
     name="trash"
     args={{
+        class: 'editActionsBar',
         name: 'trash',
         width: '40',
         height: '40'
