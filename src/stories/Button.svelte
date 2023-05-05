@@ -1,31 +1,96 @@
 <script>
-  import './button.css';
+  import {createEventDispatcher} from 'svelte';
 
-  /**
-   * Is this the principal call to action on the page?
-   */
   export let primary = false;
+  export let secondary = false;
+  export let tertiary = false;
+  export let destroy = false;
 
-  /**
-   * @type {string} What background color to use
-   */
-  export let backgroundColor = undefined;
+  export let destroyDisabled = false;
+  export let primaryDisabled = false;
+  export let secondaryDisabled = false;
+  export let tertiaryDisabled = false;
 
-  /**
-   * @type {string} Button contents
-   */
-  export let label;
+  export let size = 'medium';
+  export let label = '';
+  let mode = 'button--primary';
 
-  $: mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  let disabled = primaryDisabled || secondaryDisabled || tertiaryDisabled || destroyDisabled;
 
-  $: style = backgroundColor ? `background-color: ${backgroundColor}` : '';
+  if (primary) {
+      mode = 'button--primary';
+  } else if (secondary) {
+      mode = 'button--secondary';
+  } else if (tertiary) {
+      mode = 'button--tertiary';
+  } else if (destroy) {
+      mode = 'button--destroy';
+  }
+
+  const dispatch = createEventDispatcher();
+
+  function onClick(event) {
+      dispatch('click', event);
+  }
 </script>
 
 <button
   type="button"
-  class='bg-red-500 decoration-zinc-600 underline rounded-full'
-  {style}
-  on:click
+  {disabled}
+  class={['button', $$props.class, `button--${size}`, mode].join(' ')}
+  class:button--primary-disabled={primaryDisabled === true}
+  class:button--secondary-disabled={secondaryDisabled === true}
+  class:button--tertiary-disabled={tertiaryDisabled === true}
+  class:button--destroy-disabled={destroyDisabled === true}
+  on:click={onClick}
+  on:keypress={e => {
+      //TODO: need to design how this will work A11y
+  }}
 >
   {label}
 </button>
+
+<style>
+  .button {
+      @apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block leading-5 h-full;
+  }
+  .button--primary {
+      @apply bg-lilalic-purple;
+  }
+  .button--primary:active {
+      @apply bg-primary-purple;
+  }
+  .button--primary-disabled {
+      @apply bg-lilalic-purple opacity-50;
+  }
+  .button--secondary {
+      @apply bg-transparent border-solid border border-lilalic-purple;
+  }
+  .button--secondary:active {
+      @apply bg-transparent border-solid border border-primary-purple;
+  }
+  .button--secondary-disabled {
+      @apply border-lilalic-purple opacity-50;
+  }
+  .button--tertiary {
+      @apply bg-smoky-grey;
+  }
+  .button--tertiary:active {
+      @apply bg-dark-grey;
+  }
+  .button--tertiary-disabled {
+      @apply bg-smoky-grey opacity-50;
+  }
+  .button--destroy {
+      @apply bg-error-red;
+  }
+  .button--destroy:active {
+      @apply bg-error-red;
+  }
+  .button--destroy-disabled {
+      @apply bg-error-red opacity-50;
+  }
+  .button--medium {
+      @apply px-4 py-2 text-base;
+  }
+</style>
