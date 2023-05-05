@@ -12,11 +12,6 @@
   export let backgroundColor = undefined;
 
   /**
-   * @type {'small' | 'medium' | 'large'} How large should the button be?
-   */
-  export let size = 'medium';
-
-  /**
    * @type {string} Button contents
    */
   export let label;
@@ -28,7 +23,7 @@
 
 <button
   type="button"
-  class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+  class='bg-red-500 decoration-zinc-600 underline rounded-full'
   {style}
   on:click
 >
