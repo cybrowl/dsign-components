@@ -1,6 +1,6 @@
 {
   "name": "axon-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "directories": {
     "example": "examples"
@@ -15,9 +15,7 @@
   "author": "",
   "license": "ISC",
   "exports": {
-    ".": {
-      "svelte": "./dist/index.js"
-    }
+    ".": "./index.js"
   },
   "peerDependencies": {
     "svelte": "^3.58.0"
