@@ -1,13 +1,9 @@
 {
-  "name": "axon-components",
-  "version": "1.0.1",
+  "name": "dsign-components-v2",
+  "version": "0.1.0",
   "description": "",
-  "directories": {
-    "example": "examples"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "package": "svelte-package --no-types",
     "build-storybook": "storybook build"
   },
@@ -25,12 +21,14 @@
     "@storybook/addon-interactions": "^7.0.8",
     "@storybook/addon-links": "^7.0.8",
     "@storybook/addon-styling": "^1.0.6",
+    "@storybook/addon-svelte-csf": "^3.0.2",
     "@storybook/sveltekit": "^7.0.8",
     "@storybook/testing-library": "^0.1.0",
     "@sveltejs/package": "^2.0.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
     "storybook": "^7.0.8",
+    "storybook-dark-mode": "^3.0.0",
     "tailwindcss": "^3.3.2"
   }
 }

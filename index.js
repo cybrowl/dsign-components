@@ -1,2 +1,2 @@
 // index.js
-export { default as Button } from "./src/lib/Button.svelte";
+export { default as Button } from "./src/lib/components/Button.svelte";
