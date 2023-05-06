@@ -1,36 +1,37 @@
 {
-  "name": "dsign-components-v2",
-  "version": "0.1.4",
-  "description": "",
-  "scripts": {
-    "storybook": "storybook dev -p 6007",
-    "package": "svelte-package --no-types",
-    "build-storybook": "storybook build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "main": "index.js",
-  "type": "module",
-  "exports": {
-    ".": "./index.js"
-  },
-  "peerDependencies": {
-    "svelte": "^3.58.0"
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.8",
-    "@storybook/addon-interactions": "^7.0.8",
-    "@storybook/addon-links": "^7.0.8",
-    "@storybook/addon-styling": "^1.0.6",
-    "@storybook/addon-svelte-csf": "^3.0.2",
-    "@storybook/sveltekit": "^7.0.8",
-    "@storybook/testing-library": "^0.1.0",
-    "@sveltejs/package": "^2.0.2",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.23",
-    "storybook": "^7.0.8",
-    "storybook-dark-mode": "^3.0.0",
-    "tailwindcss": "^3.3.2"
-  }
+	"name": "dsign-components-v2",
+	"version": "0.1.4",
+	"description": "",
+	"scripts": {
+		"storybook": "storybook dev -p 6007",
+		"package": "svelte-package --no-types",
+		"build-storybook": "storybook build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"exports": {
+		".": "./index.js"
+	},
+	"peerDependencies": {
+		"svelte": "^3.58.0"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^7.0.8",
+		"@storybook/addon-interactions": "^7.0.8",
+		"@storybook/addon-links": "^7.0.8",
+		"@storybook/addon-styling": "^1.0.6",
+		"@storybook/addon-svelte-csf": "^3.0.2",
+		"@storybook/sveltekit": "^7.0.8",
+		"@storybook/testing-library": "^0.1.0",
+		"@sveltejs/package": "^2.0.2",
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.23",
+		"prettier": "^2.8.8",
+		"prettier-plugin-svelte": "^2.10.0",
+		"storybook": "^7.0.8",
+		"storybook-dark-mode": "^3.0.0",
+		"svelte-preprocess": "^5.0.3",
+		"tailwindcss": "^3.3.2"
+	}
 }
