@@ -1,6 +1,6 @@
 {
   "name": "dsign-components-v2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "scripts": {
     "storybook": "storybook dev -p 6007",
@@ -10,8 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "main": "index.js",
+  "type": "module",
   "exports": {
-    ".": "./index.js"
+    ".": "./index.js",
+    "./Button.svelte": "./src/lib/components/Button.svelte"
   },
   "peerDependencies": {
     "svelte": "^3.58.0"
