@@ -1,6 +1,6 @@
 {
 	"name": "dsign-components-v2",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"description": "",
 	"scripts": {
 		"storybook": "storybook dev -p 6007",
@@ -12,7 +12,7 @@
 	"license": "ISC",
 	"exports": {
 		".": {
-			"svelte": "./dist/index.js"
+			"svelte": "./index.js"
 		}
 	},
 	"peerDependencies": {
