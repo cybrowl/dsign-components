@@ -84,7 +84,7 @@
 	{/if}
 </span>
 
-<style>
+<style lang="postcss">
 	.label {
 		@apply mb-1.5 text-white;
 	}

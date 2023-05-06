@@ -9,17 +9,11 @@ module.exports = {
 		'@storybook/addon-svelte-csf',
 		'storybook-dark-mode',
 		{
-			name: '@storybook/addon-styling',
-			options: {
-				postCss: true
-			}
+			name: '@storybook/addon-styling'
 		}
 	],
 	framework: {
-		name: '@storybook/sveltekit',
-		options: {
-			preprocess: require('svelte-preprocess')({postcss: true})
-		}
+		name: '@storybook/sveltekit'
 	},
 	docs: {
 		autodocs: true

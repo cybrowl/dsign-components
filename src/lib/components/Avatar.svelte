@@ -43,7 +43,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	@keyframes boop {
 		0% {
 			transform: rotate(0deg);

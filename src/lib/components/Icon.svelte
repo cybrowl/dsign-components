@@ -155,7 +155,7 @@
 	{@html displayIcon.path}
 </svg>
 
-<style>
+<style lang="postcss">
 	.closeStandard {
 		@apply fill-white cursor-pointer;
 	}
