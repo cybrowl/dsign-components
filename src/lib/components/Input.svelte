@@ -1,27 +1,25 @@
 <script>
 	import Icon from '../components/Icon.svelte';
 
-	export let value;
-
 	export let autofocus = false;
+	export let capitalizeFirstLetter = false;
+	export let clearValueOnFocus = false;
+	export let errorMessage = '';
+	export let hasError = false;
 	export let label = {
 		name: '',
 		value: ''
 	};
-
 	export let length = {
 		min: '',
 		max: ''
 	};
-
-	export let placeholder = '';
 	export let onlyAllowLettersAndNumbers = false;
-	export let capitalizeFirstLetter = false;
-	export let hasError = false;
-	export let errorMessage = '';
-	export let clearValueOnFocus = false;
+	export let placeholder = '';
+	export let value;
 
 	let isFocused = autofocus;
+
 	const onFocus = () => {
 		isFocused = true;
 
@@ -34,9 +32,9 @@
 
 	const onBlur = () => (isFocused = false);
 
-	function onlyLowercaseLettersAndNumbers(str) {
+	const onlyLowercaseLettersAndNumbers = str => {
 		return /^[a-z0-9]*$/.test(str);
-	}
+	};
 </script>
 
 <span class="inputContainer">

@@ -1,47 +1,48 @@
 <script>
-    import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-    import Avatar from '../lib/components/Avatar.svelte';
+	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
+	import Avatar from '../lib/components/Avatar.svelte';
 </script>
 
 <Meta
-    title="Basic Elements/Avatar"
-    component={Avatar}
-    argTypes={{
-        onClick: {action: 'onClick'},
-        avatar: {control: 'text'},
-        canEditAvatar: {control: 'boolean'}
-    }}
+	title="Basic Elements/Avatar"
+	component={Avatar}
+	argTypes={{
+		onClick: {action: 'onClick'},
+		avatar: {control: 'text'},
+		username: {control: 'text'},
+		canEditAvatar: {control: 'boolean'}
+	}}
 />
 
 <Template let:args>
-    <Avatar {...args} on:click={args.onClick} />
+	<Avatar {...args} on:click={args.onClick} />
 </Template>
 
 <Story
-    name="Default/Mishicat"
-    args={{
-        avatar: 'https://i.ibb.co/KVfVsg0/Coffee.png'
-    }}
+	name="Default/Mishicat"
+	args={{
+		avatar: 'https://i.ibb.co/KVfVsg0/Coffee.png'
+	}}
 />
 
 <Story
-    name="Default/Motoko"
-    args={{
-        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png'
-    }}
+	name="Default/Motoko"
+	args={{
+		avatar: 'https://i.ibb.co/TRJmsGT/motoko.png'
+	}}
 />
 
 <Story
-    name="Default/Initials"
-    args={{
-        username: 'Motoko'
-    }}
+	name="Default/Initials"
+	args={{
+		username: 'Motoko'
+	}}
 />
 
 <Story
-    name="Default/EditAvatar"
-    args={{
-        avatar: 'https://i.ibb.co/TRJmsGT/motoko.png',
-        canEditAvatar: true
-    }}
+	name="Default/EditAvatar"
+	args={{
+		avatar: 'https://i.ibb.co/TRJmsGT/motoko.png',
+		canEditAvatar: true
+	}}
 />

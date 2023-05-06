@@ -3,8 +3,9 @@
 	import Icon from '../components/Icon.svelte';
 
 	export let avatar = '';
-	export let username = '';
 	export let canEditAvatar = false;
+	export let username = '';
+
 	const dispatch = createEventDispatcher();
 
 	function onClick(event) {

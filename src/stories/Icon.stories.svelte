@@ -7,9 +7,9 @@
 	title="Basic Elements/Icon"
 	component={Icon}
 	argTypes={{
+		height: {control: 'text'},
 		name: {control: 'text'},
-		width: {control: 'text'},
-		height: {control: 'text'}
+		width: {control: 'text'}
 	}}
 />
 
@@ -95,6 +95,7 @@
 		height: '40'
 	}}
 />
+
 <Story
 	name="down_arrow"
 	args={{
