@@ -1,6 +1,6 @@
 {
   "name": "dsign-components-v2",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "scripts": {
     "storybook": "storybook dev -p 6007",
@@ -13,11 +13,7 @@
   "main": "index.js",
   "type": "module",
   "exports": {
-    ".": "./index.js",
-    "./Button.svelte": "./src/lib/components/Button.svelte",
-    "./Avatar.svelte": "./src/lib/components/Avatar.svelte",
-    "./Icon.svelte": "./src/lib/components/Icon.svelte",
-    "./Input.svelte": "./src/lib/components/Input.svelte"
+    ".": "./index.js"
   },
   "peerDependencies": {
     "svelte": "^3.58.0"
