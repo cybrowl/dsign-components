@@ -5,7 +5,8 @@
 	"scripts": {
 		"storybook": "storybook dev -p 6007",
 		"package": "svelte-package --no-types",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"build": "storybook build -c .storybook -o dist"
 	},
 	"keywords": [],
 	"author": "",
