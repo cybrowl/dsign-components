@@ -1,6 +1,6 @@
 <script>
 	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-	import Icon from '../lib/components/Icon.svelte';
+	import Icon from '../lib/components/basic_elements/Icon.svelte';
 </script>
 
 <Meta

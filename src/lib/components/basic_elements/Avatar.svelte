@@ -1,6 +1,6 @@
 <script>
 	import {createEventDispatcher} from 'svelte';
-	import Icon from '../components/Icon.svelte';
+	import Icon from './Icon.svelte';
 
 	export let avatar = '';
 	export let canEditAvatar = false;
