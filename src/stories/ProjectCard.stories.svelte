@@ -3,28 +3,13 @@
 	import ProjectCard from '../lib/components/cards/ProjectCard.svelte';
 </script>
 
-<Meta title="Dsign/ProjectCard" component={ProjectCard} argTypes={{}} />
+<Meta title="Cards/ProjectCard" component={ProjectCard} argTypes={{}} />
 
 <Template let:args>
 	<div class="wrapper">
 		<div class="projectRow"><ProjectCard {...args} on:click={args.onClick} /></div>
 	</div>
 </Template>
-
-<Story
-	name="Default"
-	args={{
-		snap: {
-			isSelected: false,
-			image_cover_location: 0,
-			metrics: {
-				likes: 456,
-				views: 867
-			},
-			images: [{url: 'https://i.imgur.com/50CnzSg.png'}]
-		}
-	}}
-/>
 
 <Story
 	name="Loading"
@@ -191,7 +176,7 @@
 		grid-column-end: 12;
 
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		grid-row-start: 3;
 		grid-row-end: auto;
 		margin-left: 1rem /* 16px */;

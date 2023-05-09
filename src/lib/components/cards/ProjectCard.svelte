@@ -1,9 +1,9 @@
 <script>
 	import {fade} from 'svelte/transition';
 	import {createEventDispatcher} from 'svelte';
-	import Icon from './Icon.svelte';
+	import Icon from '../basic_elements/Icon.svelte';
 
-	import {clickOutside} from '../utils/utils';
+	import {clickOutside} from '../../utils/utils';
 
 	const dispatch = createEventDispatcher();
 
