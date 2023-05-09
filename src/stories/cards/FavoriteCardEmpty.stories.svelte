@@ -1,6 +1,6 @@
 <script>
 	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
-	import FavoriteCardEmpty from '../lib/components/cards/FavoriteCardEmpty.svelte';
+	import FavoriteCardEmpty from '../../lib/components/cards/FavoriteCardEmpty.svelte';
 </script>
 
 <Meta

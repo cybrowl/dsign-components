@@ -1,9 +1,9 @@
 <script>
 	import {fade} from 'svelte/transition';
 	import {createEventDispatcher} from 'svelte';
-	import Icon from '../basic_elements/Icon.svelte';
+	import Icon from './Icon.svelte';
 
-	import {clickOutside} from '../../utils/utils';
+	import {clickOutside} from '../utils/utils';
 
 	const dispatch = createEventDispatcher();
 
@@ -11,19 +11,18 @@
 		snaps: []
 	};
 
-	export let isLoadingProject = false;
-	export let isOptionsVisible = false;
 	export let hideDetails = false;
 	export let hideSnapsCount = false;
-	export let showUsername = false;
+	export let isLoadingProject = false;
 	export let isMoveModal = false;
+	export let isOptionsPopoverOpen = false;
+	export let isOptionsVisible = false;
 	export let showOptionsPopover = false;
+	export let showUsername = false;
 	export let optionsPopoverHide = {
 		rename: false,
 		delete: false
 	};
-
-	export let isOptionsPopoverOpen = false;
 
 	function clickProject() {
 		console.log('project');
@@ -41,7 +40,7 @@
 	}
 </script>
 
-{#if isLoadingProject}
+{#if isLoadingProject === true}
 	<div class="projectCardLoading">
 		<div class="projectCardLoadingImg" />
 		<span class="projectCardLoadingDetails">
@@ -49,7 +48,9 @@
 			<span />
 		</span>
 	</div>
-{:else}
+{/if}
+
+{#if isLoadingProject === false}
 	<div
 		class="projectCard"
 		class:move-modal-preview={isMoveModal === true}
@@ -190,8 +191,7 @@
 	}
 
 	.projectCard {
-		@apply relative font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300
-        lg:h-64 lg:max-h-64 2xl:h-96 2xl:max-h-96;
+		@apply relative font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300 lg:h-64 lg:max-h-64 2xl:h-96 2xl:max-h-96;
 	}
 
 	.emptyProject {
