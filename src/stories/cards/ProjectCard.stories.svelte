@@ -12,21 +12,6 @@
 </Template>
 
 <Story
-	name="Default"
-	args={{
-		snap: {
-			isSelected: false,
-			image_cover_location: 0,
-			metrics: {
-				likes: 456,
-				views: 867
-			},
-			images: [{url: 'https://i.imgur.com/50CnzSg.png'}]
-		}
-	}}
-/>
-
-<Story
 	name="Loading"
 	args={{
 		isLoadingProject: true
