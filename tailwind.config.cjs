@@ -1,6 +1,6 @@
-module.exports = {
-	content: ['./src/**/*.{svelte,js,ts}'],
-	darkMode: ['class', '[data-mode="dark"]'],
+const config = {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+
 	theme: {
 		extend: {
 			fontFamily: {
@@ -20,11 +20,15 @@ module.exports = {
 				'light-grey': '#E2E1E6',
 				'tulip-purple': '#6259C8',
 				'primary-purple': '#7A71DE',
+				'foggy-purple': '#A099F4',
 				'bubble-purple': '#B6AFFC',
 				'lilalic-purple': '#968CFF',
 				'error-red': '#FC3030'
 			}
 		}
 	},
+
 	plugins: []
 };
+
+module.exports = config;
