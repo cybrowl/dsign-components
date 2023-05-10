@@ -9,15 +9,15 @@
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let avatar = '';
-	export let username = '';
+	export const avatar = '';
+	export const username = '';
 	export let is_authenticated = false;
 	export let navItems;
-	export let isLoadingSnap;
+	export const isLoadingSnap = false;
 	export let isLoadingProject;
 	export let showOptionsPopover = false;
-	export let snap_store = [];
 	export let project_store = [];
+
 	// export let is_visible = false;
 	export let profileTabsState = {
 		isFavoritesSelected: false,
@@ -32,7 +32,7 @@
 <main>
 	<html lang="en" class="dark">
 		<body>
-			<div class="wrapper">
+			<div class="grid_layout">
 				<div class="navigation_main_layout">
 					<PageNavigation {navItems}>
 						<span>
@@ -71,16 +71,17 @@
 </div>
 
 <style lang="postcss">
-	.wrapper {
-		@apply hidden lg:grid grid-cols-12 gap-y-2 relative;
+	.grid_layout {
+		@apply hidden lg:grid grid-cols-12 gap-y-2 relative ml-12 mr-12;
 	}
 	.navigation_main_layout {
-		@apply col-start-1 col-end-12 row-start-1 row-end-2 ml-6;
+		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
 	}
 	.navigation_main_layout span {
-		@apply flex gap-x-4 cursor-pointer;
+		@apply flex gap-x-3 cursor-pointer;
 	}
 	.projects_layout {
-		@apply hidden lg:grid col-start-2 col-end-12 grid-cols-4 row-start-4 row-end-auto gap-x-8 gap-y-12 mt-2 mb-16;
+		@apply hidden lg:grid col-start-1 col-end-13 grid-cols-4 
+		row-start-2 row-end-auto gap-x-6 gap-y-12 mb-16;
 	}
 </style>

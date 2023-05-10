@@ -38,24 +38,26 @@
 
 <style lang="postcss">
 	.pageNavigation {
-		@apply flex flex-row justify-between items-center mt-6 mb-4;
+		@apply flex flex-row justify-between items-center mt-6 mb-8;
 	}
+
 	.logo {
-		@apply mr-12 text-4xl font-bold text-white;
+		@apply mr-12 text-2xl font-bold text-white flex flex-row items-center;
 	}
+
 	.navItem {
 		@apply font-sans font-bold text-white no-underline mr-8;
 	}
+
 	.selected {
 		@apply text-bubble-purple;
 	}
-	.logo {
-		@apply flex flex-row items-center;
-	}
+
 	.navigation {
 		@apply flex flex-row items-center;
 	}
+
 	.navigation img {
-		@apply w-9 h-9 mr-1;
+		@apply w-6 h-6 mr-1;
 	}
 </style>
