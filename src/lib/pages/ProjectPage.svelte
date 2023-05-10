@@ -4,6 +4,7 @@
 	import Icon from '../components/basic_elements/Icon.svelte';
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
+	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
 
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
@@ -27,7 +28,7 @@
 	// export let showOptionsPopover = false;
 	export let selectedTabState = {};
 
-	function handleProjectClick() {}
+	function handleSnapCreateModalOpen() {}
 </script>
 
 <main>
@@ -59,6 +60,9 @@
 					{#each project.snaps as snap}
 						<SnapCard {snap} isEditMode={isEditActive} />
 					{/each}
+					{#if is_owner && isEditActive === false}
+						<SnapCardCreate on:clickSnapCardCreate={handleSnapCreateModalOpen} />
+					{/if}
 				</div>
 			</div>
 		</body>

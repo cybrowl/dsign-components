@@ -88,7 +88,7 @@
 		@apply bg-error-red;
 	}
 	.button--filter {
-		@apply bg-transparent border-none text-bubble-purple;
+		@apply bg-transparent border-none text-grey;
 	}
 	.button--destroy:active {
 		@apply bg-error-red;
