@@ -1,6 +1,6 @@
 {
     "compilerOptions": {},
-    "include": ["src/**/*.js", "src/**/**/*.svelte"],
+    "include": ["src/**/*.js", "src/**/*.svelte", "src/**/**/*.svelte"],
     "exclude": ["node_modules/*"]
 }
   

@@ -11,18 +11,19 @@
 		snaps: []
 	};
 
+	export let isLoadingProject = false;
 	export let hideDetails = false;
 	export let hideSnapsCount = false;
-	export let isLoadingProject = false;
-	export let isMoveModal = false;
-	export let isOptionsPopoverOpen = false;
-	export let isOptionsVisible = false;
-	export let showOptionsPopover = false;
 	export let showUsername = false;
+	export let isMoveModal = false;
+	export let showOptionsPopover = false;
 	export let optionsPopoverHide = {
 		rename: false,
 		delete: false
 	};
+
+	export let isOptionsPopoverOpen = false;
+	let mouseOverProjectCard = false;
 
 	function clickProject() {
 		console.log('project');
@@ -40,7 +41,7 @@
 	}
 </script>
 
-{#if isLoadingProject === true}
+{#if isLoadingProject}
 	<div class="projectCardLoading">
 		<div class="projectCardLoadingImg" />
 		<span class="projectCardLoadingDetails">
@@ -48,9 +49,7 @@
 			<span />
 		</span>
 	</div>
-{/if}
-
-{#if isLoadingProject === false}
+{:else}
 	<div
 		class="projectCard"
 		class:move-modal-preview={isMoveModal === true}
@@ -59,10 +58,10 @@
 			//TODO: need to design how this will work A11y
 		}}
 		alt="project"
-		on:mouseenter={() => (isOptionsVisible = true)}
-		on:mouseleave={() => (isOptionsVisible = false)}
+		on:mouseenter={() => (mouseOverProjectCard = true)}
+		on:mouseleave={() => (mouseOverProjectCard = false)}
 	>
-		{#if (isOptionsVisible || isOptionsPopoverOpen) && showOptionsPopover}
+		{#if (mouseOverProjectCard || isOptionsPopoverOpen) && showOptionsPopover}
 			<span
 				class="options"
 				on:click={() => (isOptionsPopoverOpen = true)}
@@ -155,7 +154,7 @@
 					//TODO: need to design how this will work A11y
 				}}
 			>
-				<p>{project.name}</p>
+				<p class:change-project-color={mouseOverProjectCard === true}>{project.name}</p>
 
 				{#if !hideSnapsCount}
 					{#if project.snaps.length > 1 || project.snaps.length === 0}
@@ -166,7 +165,13 @@
 				{/if}
 
 				{#if showUsername}
-					<a href={`/${project.username}`}>{project.username}</a>
+					<a
+						href={`/${project.username}`}
+						on:mouseenter={() => (mouseOverProjectCard = false)}
+						on:mouseleave={() => (mouseOverProjectCard = true)}
+					>
+						{project.username}</a
+					>
 				{/if}
 			</span>
 		{/if}
@@ -191,7 +196,8 @@
 	}
 
 	.projectCard {
-		@apply relative font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300 lg:h-64 lg:max-h-64 2xl:h-96 2xl:max-h-96;
+		@apply relative font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300
+        lg:h-72 lg:max-h-72 2xl:h-96 2xl:max-h-96;
 	}
 
 	.emptyProject {
@@ -227,6 +233,10 @@
 	}
 
 	.projectCardDetails a:hover {
+		@apply text-yellow-300;
+	}
+
+	.change-project-color {
 		@apply text-bubble-purple;
 	}
 

@@ -12,6 +12,7 @@ module.exports = {
 			name: '@storybook/addon-styling'
 		}
 	],
+	staticDirs: ['../src/lib/assets'],
 	framework: {
 		name: '@storybook/sveltekit'
 	},

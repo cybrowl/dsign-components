@@ -6,8 +6,10 @@
 <Meta title="Cards/ProjectCard" component={ProjectCard} argTypes={{}} />
 
 <Template let:args>
-	<div class="wrapper">
-		<div class="projectRow"><ProjectCard {...args} on:click={args.onClick} /></div>
+	<div class="hidden lg:grid grid-cols-12 gap-y-2 relative">
+		<div class="col-start-2 col-end-12 grid grid-cols-4 row-start-3 row-end-auto mx-4 gap-x-10 gap-y-20 mt-2 mb-24">
+			<ProjectCard {...args} on:click={args.onClick} />
+		</div>
 	</div>
 </Template>
 
@@ -163,27 +165,3 @@
 		}
 	}}
 />
-
-<style>
-	.wrapper {
-		display: grid;
-		grid-template-columns: repeat(12, minmax(0, 1fr));
-		row-gap: 0.5rem;
-		position: relative;
-	}
-	.projectRow {
-		grid-column-start: 2;
-		grid-column-end: 12;
-
-		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
-		grid-row-start: 3;
-		grid-row-end: auto;
-		margin-left: 1rem /* 16px */;
-		margin-right: 1rem /* 16px */;
-		column-gap: 2.5rem /* 40px */;
-		row-gap: 3rem /* 48px */;
-		margin-top: 0.5rem /* 8px */;
-		margin-bottom: 4rem /* 64px */;
-	}
-</style>

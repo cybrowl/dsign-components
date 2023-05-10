@@ -14,7 +14,9 @@
 />
 
 <Template let:args>
-	<Icon {...args} on:click={args.onClick} />
+	<div class="m-6">
+		<Icon {...args} on:click={args.onClick} />
+	</div>
 </Template>
 
 <Story

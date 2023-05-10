@@ -2,6 +2,7 @@ import '../src/tailwind.css';
 import {themes} from '@storybook/theming';
 
 export const parameters = {
+	layout: 'fullscreen',
 	darkMode: {
 		dark: {
 			...themes.dark,

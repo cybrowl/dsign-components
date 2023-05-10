@@ -15,7 +15,9 @@
 />
 
 <Template let:args>
-	<Avatar {...args} on:click={args.onClick} />
+	<div class="m-6">
+		<Avatar {...args} on:click={args.onClick} />
+	</div>
 </Template>
 
 <Story

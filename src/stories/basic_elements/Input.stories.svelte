@@ -27,7 +27,9 @@
 />
 
 <Template let:args>
-	<Input {...args} on:click={args.onClick} />
+	<div class="m-6">
+		<Input {...args} on:click={args.onClick} />
+	</div>
 </Template>
 
 <Story
