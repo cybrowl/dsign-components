@@ -97,3 +97,11 @@
 		destroyDisabled: true
 	}}
 />
+
+<Story
+	name="Filter"
+	args={{
+		label: '# Fonts',
+		filter: true
+	}}
+/>

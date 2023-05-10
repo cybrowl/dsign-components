@@ -5,6 +5,7 @@
 	export let secondary = false;
 	export let tertiary = false;
 	export let destroy = false;
+	export let filter = false;
 
 	export let destroyDisabled = false;
 	export let primaryDisabled = false;
@@ -25,6 +26,8 @@
 		mode = 'button--tertiary';
 	} else if (destroy) {
 		mode = 'button--destroy';
+	} else if (filter) {
+		mode = 'button--filter';
 	}
 
 	const dispatch = createEventDispatcher();
@@ -83,6 +86,9 @@
 	}
 	.button--destroy {
 		@apply bg-error-red;
+	}
+	.button--filter {
+		@apply bg-transparent border-none text-bubble-purple;
 	}
 	.button--destroy:active {
 		@apply bg-error-red;

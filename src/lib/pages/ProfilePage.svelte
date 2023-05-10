@@ -34,8 +34,6 @@
 	function handleProjectClick() {}
 </script>
 
-<link rel="stylesheet" href="/src/lib/global.css" />
-
 <main>
 	<html lang="en" class="dark">
 		<body>
