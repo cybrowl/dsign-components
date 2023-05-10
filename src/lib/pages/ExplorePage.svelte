@@ -36,7 +36,7 @@
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar="https://i.ibb.co/TRJmsGT/motoko.png" />
-								<Icon name="settings" width="44" height="44" />
+								<Icon name="settings" width="44" height="44" class="settings" />
 							{:else}
 								<Button primary={true} label="Connect" />
 							{/if}

@@ -45,19 +45,21 @@
 			//TODO: need to design how this will work for A11y
 		}}>Snaps</span
 	>
-	<span
-		class={selectedTabState.isRecsSelected ? 'selected' : ''}
-		on:click={selectRecsTab}
-		on:keypress={e => {
-			//TODO: need to design how this will work for A11y
-		}}>Recs</span
-	>
+
 	<span
 		class={selectedTabState.isChangesSelected ? 'selected' : ''}
 		on:click={selectChangesTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
 		}}>Changes</span
+	>
+
+	<span
+		class={selectedTabState.isRecsSelected ? 'selected' : ''}
+		on:click={selectRecsTab}
+		on:keypress={e => {
+			//TODO: need to design how this will work for A11y
+		}}>Recs</span
 	>
 </div>
 

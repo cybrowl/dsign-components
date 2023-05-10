@@ -110,6 +110,9 @@
 			</span>
 		{/if}
 
+		<div class="title">
+			<p>{snap.title}</p>
+		</div>
 		<!-- Metrics -->
 		<!-- {#if showMetrics}
             <span class="metrics">
@@ -173,6 +176,10 @@
 
 	.username {
 		@apply gap-1 float-left mt-2 font-sans text-gray-100 hover:text-primary-purple;
+	}
+
+	.title {
+		@apply text-base font-bold text-white pt-1;
 	}
 
 	/* .metrics {

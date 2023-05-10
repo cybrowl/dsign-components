@@ -3,12 +3,14 @@
 	import Button from '../components/basic_elements/Button.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
 
-	import ProjectInfo from '../components/project/ProjectInfo.svelte';
 	import SnapCard from '../components/cards/SnapCard.svelte';
 
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
+
 	import ProjectTabs from '../components/project/ProjectTabs.svelte';
+	import ProjectInfo from '../components/project/ProjectInfo.svelte';
+	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -18,7 +20,8 @@
 	export let username = '';
 	export let is_authenticated = false;
 	export let project = {};
-	// export let is_owner = false;
+	export let is_owner = false;
+	export let isEditActive = false;
 	export const navItems = [];
 	export const isLoadingProject = false;
 	// export let showOptionsPopover = false;
@@ -36,7 +39,7 @@
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar={avatar_nav} {username} />
-								<Icon name="settings" width="44" height="44" />
+								<Icon name="settings" width="44" height="44" class="settings" />
 							{:else}
 								<Button primary={true} label="Connect" />
 							{/if}
@@ -48,10 +51,13 @@
 				</div>
 				<div class="project_tabs_layout">
 					<ProjectTabs {selectedTabState} />
+					{#if selectedTabState.isSnapsSelected && is_owner}
+						<ProjectEditActionsBar {isEditActive} />
+					{/if}
 				</div>
 				<div class="snaps_layout">
 					{#each project.snaps as snap}
-						<SnapCard {snap} />
+						<SnapCard {snap} isEditMode={isEditActive} />
 					{/each}
 				</div>
 			</div>
@@ -75,12 +81,12 @@
 		@apply flex gap-x-3 cursor-pointer;
 	}
 	.project_info_layout {
-		@apply relative col-start-1 col-end-6 row-start-2 row-end-auto;
+		@apply relative col-start-1 col-end-13 row-start-2 row-end-auto;
 	}
 	.project_tabs_layout {
-		@apply hidden lg:grid col-start-1 col-end-6 row-start-3 row-end-auto mt-12 self-end justify-between items-center mb-6;
+		@apply col-start-1 col-end-13 items-center justify-between row-start-3 row-end-auto mt-12 mb-6;
 	}
 	.snaps_layout {
-		@apply hidden lg:grid col-start-1 col-end-13 grid-cols-4 row-start-4 row-end-auto gap-x-8 gap-y-12 mb-16;
+		@apply hidden lg:grid col-start-1 col-end-13 grid-cols-4 row-start-4 row-end-auto gap-x-6 gap-y-12 mb-16;
 	}
 </style>
