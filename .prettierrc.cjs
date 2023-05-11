@@ -4,13 +4,14 @@ module.exports = {
 	singleQuote: true,
 	printWidth: 80,
 	svelteSortOrder: 'options-scripts-markup-styles',
+	ignoreTemplateLiterals: true,
 	trailingComma: 'none',
 	useTabs: true,
 	overrides: [
 		{
-			files: ['*.svelte', '*.html'],
+			files: ['*.svelte', '*.html, *js'],
 			options: {
-				printWidth: 120
+				printWidth: 80
 			}
 		},
 		{

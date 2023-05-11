@@ -21,7 +21,9 @@
 {#if isFetching === false}
 	<div class="projectInfoHeader">
 		<span class="breadcrumb">
-			<a href={`/${get(project, 'username', '')}`}>{get(project, 'username', '')}</a>
+			<a href={`/${get(project, 'username', '')}`}
+				>{get(project, 'username', '')}</a
+			>
 			<span>/</span>
 			<p>{get(project, 'name', '')}</p>
 		</span>
@@ -35,16 +37,18 @@
 			>
 				<Icon
 					name="favorite"
-					width="40"
-					height="40"
-					class={get(project, 'likeActive', false) ? 'likeActive' : 'like'}
+					size="3rem"
+					scale="1"
+					class={get(project, 'likeActive', false)
+						? 'favoriteActive cursor'
+						: 'favorite cursor'}
 				/>
 			</span>
 		</div>
 		<h2>{get(project, 'description', '')}</h2>
 		<div class="projectTags">
 			{#each get(project, 'tags', []) as tag}
-				<Button label={`# ${tag}`} filter={true} size="" />
+				<Button label={`# ${tag.toUpperCase()}`} filter={true} size="" />
 			{/each}
 		</div>
 	</div>

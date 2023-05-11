@@ -78,6 +78,7 @@ export const project_many_snaps = {
 	description: 'Decentralized UI for AI Models',
 	name: 'Poro',
 	owner: null,
+	likeActive: true,
 	tags: ['UI', 'AI', 'ICP', 'DESKTOP', 'MOBILE', 'WALLET'],
 	snaps: [
 		{
