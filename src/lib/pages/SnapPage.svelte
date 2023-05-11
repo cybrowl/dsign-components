@@ -23,8 +23,19 @@
 					<PageNavigation {navItems}>
 						<span>
 							{#if is_authenticated}
-								<Avatar avatar="https://i.ibb.co/TRJmsGT/motoko.png" {username} />
-								<Icon name="settings" width="44" height="44" class="settings" />
+								<Avatar
+									avatar="https://i.ibb.co/TRJmsGT/motoko.png"
+									{username}
+								/>
+								<Icon
+									name="settings"
+									size="2.75rem"
+									class="cursor_pointer fill_dark_grey hover_smoky_grey"
+									viewSize={{
+										width: '44',
+										height: '44'
+									}}
+								/>
 							{:else}
 								<Button primary={true} label="Connect" />
 							{/if}

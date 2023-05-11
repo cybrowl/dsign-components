@@ -13,9 +13,17 @@
 	}
 </script>
 
-<div class="favoriteCardEmpty" on:click={clickFavoriteEmpty} on:keypress={handleKeyPress}>
+<div
+	class="favoriteCardEmpty"
+	on:click={clickFavoriteEmpty}
+	on:keypress={handleKeyPress}
+>
 	<span>
-		<Icon name="project_empty" width="64" height="64" />
+		<Icon
+			name="project_empty"
+			size="4rem"
+			viewSize={{width: '92', height: '92'}}
+		/>
 		<p>No favorite projects</p>
 	</span>
 </div>

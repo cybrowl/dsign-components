@@ -23,7 +23,11 @@
 	>
 		<img alt="avatar" class="avatarImg" src={avatar} />
 		{#if canEditAvatar}
-			<Icon class="editAvatar" name="edit_avatar" width="25" height="25" />
+			<Icon
+				class="cursor_pointer editAvatar"
+				name="edit_avatar"
+				size="1.5rem"
+			/>
 		{/if}
 	</div>
 {:else}
@@ -39,7 +43,11 @@
 			{username.charAt(username.length - 1)}
 		</p>
 		{#if canEditAvatar}
-			<Icon class="editAvatar" name="edit_avatar" width="25" height="25" />
+			<Icon
+				class="cursor_pointer editAvatar"
+				name="edit_avatar"
+				size="1.5rem"
+			/>
 		{/if}
 	</div>
 {/if}

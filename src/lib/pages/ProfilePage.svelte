@@ -43,7 +43,15 @@
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar={avatar_nav} {username} />
-								<Icon name="settings" width="44" height="44" class="settings" />
+								<Icon
+									name="settings"
+									size="2.75rem"
+									class="cursor_pointer fill_dark_grey hover_smoky_grey"
+									viewSize={{
+										width: '44',
+										height: '44'
+									}}
+								/>
 							{:else}
 								<Button primary={true} label="Connect" />
 							{/if}
@@ -56,7 +64,10 @@
 				</div>
 
 				<div class="profile_banner_layout">
-					<ProfileBanner {is_authenticated} profile_banner_url="/default_profile_banner.png" />
+					<ProfileBanner
+						{is_authenticated}
+						profile_banner_url="/default_profile_banner.png"
+					/>
 				</div>
 
 				<div class="profile_tabs_layout">
@@ -70,7 +81,12 @@
 				{#if profileTabsState.isProjectsSelected}
 					<div class="projects_layout">
 						{#each project_store as project}
-							<ProjectCard {project} {isLoadingProject} {showOptionsPopover} on:clickProject={handleProjectClick} />
+							<ProjectCard
+								{project}
+								{isLoadingProject}
+								{showOptionsPopover}
+								on:clickProject={handleProjectClick}
+							/>
 						{/each}
 					</div>
 				{/if}

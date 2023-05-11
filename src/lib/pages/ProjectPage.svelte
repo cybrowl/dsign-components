@@ -40,7 +40,15 @@
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar={avatar_nav} {username} />
-								<Icon name="settings" width="44" height="44" class="settings" />
+								<Icon
+									name="settings"
+									size="2.75rem"
+									class="cursor_pointer fill_dark_grey hover_smoky_grey"
+									viewSize={{
+										width: '44',
+										height: '44'
+									}}
+								/>
 							{:else}
 								<Button primary={true} label="Connect" />
 							{/if}
@@ -61,7 +69,9 @@
 						<SnapCard {snap} isEditMode={isEditActive} />
 					{/each}
 					{#if is_owner && isEditActive === false}
-						<SnapCardCreate on:clickSnapCardCreate={handleSnapCreateModalOpen} />
+						<SnapCardCreate
+							on:clickSnapCardCreate={handleSnapCreateModalOpen}
+						/>
 					{/if}
 				</div>
 			</div>
