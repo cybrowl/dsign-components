@@ -1,5 +1,7 @@
 <script>
 	import * as icons from './icons';
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
 
 	export let name;
 	export let focusable = false;
@@ -14,6 +16,10 @@
 		width: viewSize.width / scale,
 		height: viewSize.height / scale
 	};
+
+	function onClick(event) {
+		dispatch('click', event);
+	}
 </script>
 
 <svg
@@ -22,6 +28,10 @@
 	width={size}
 	height={size}
 	viewBox={`0 0 ${viewbox.width} ${viewbox.height}`}
+	on:click={onClick}
+	on:keypress={e => {
+		//TODO: need to design how this will work A11y
+	}}
 >
 	{@html icons[name]}
 </svg>

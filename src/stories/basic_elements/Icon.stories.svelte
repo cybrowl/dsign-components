@@ -9,7 +9,8 @@
 	argTypes={{
 		height: {control: 'text'},
 		name: {control: 'text'},
-		width: {control: 'text'}
+		width: {control: 'text'},
+		onClick: {action: 'onClick'}
 	}}
 />
 
