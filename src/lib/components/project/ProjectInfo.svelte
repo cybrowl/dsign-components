@@ -40,8 +40,8 @@
 					size="3rem"
 					scale="1"
 					class={get(project, 'likeActive', false)
-						? 'favoriteActive cursor'
-						: 'favorite cursor'}
+						? 'cursor_pointer fill_primary_purple'
+						: 'cursor_pointer fill_none'}
 				/>
 			</span>
 		</div>

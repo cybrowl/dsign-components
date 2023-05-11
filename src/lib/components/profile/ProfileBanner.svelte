@@ -34,7 +34,11 @@
 				//TODO: need to design how this will work A11y
 			}}
 		>
-			<Icon class="editProfileBanner" name="edit" width="40" height="40" />
+			<Icon
+				class="cursor_pointer fill_dark_grey hover_primary_purple"
+				name="edit"
+				size="2.5rem"
+			/>
 		</span>
 		<input
 			class="input"

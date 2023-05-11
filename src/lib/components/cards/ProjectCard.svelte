@@ -69,7 +69,14 @@
 					//TODO: need to design how this will work A11y
 				}}
 			>
-				<Icon class="options" name="options" width="1.75rem" height="1.75rem" />
+				<Icon
+					class="cursor_pointer fill_dark_grey hover_grey"
+					name="options"
+					viewSize={{
+						width: '40',
+						height: '40'
+					}}
+				/>
 			</span>
 			{#if isOptionsPopoverOpen}
 				<div
@@ -136,14 +143,24 @@
 					<div class="overlay-container">
 						<span class="overlay-count" class:card-rounded-br={true} />
 						<p class="overlay-count-text">+ {project.snaps.length}</p>
-						<img src={snap.images[snap.image_cover_location].url} class:card-rounded-br={true} alt="snap" in:fade />
+						<img
+							src={snap.images[snap.image_cover_location].url}
+							class:card-rounded-br={true}
+							alt="snap"
+							in:fade
+						/>
 					</div>
 				{/if}
 			{/if}
 		{/each}
 
 		{#if project.snaps.length === 0}
-			<img src="/empty_project.png" alt="account created" class:fill-grid={true} class="emptyProject" />
+			<img
+				src="/empty_project.png"
+				alt="account created"
+				class:fill-grid={true}
+				class="emptyProject"
+			/>
 		{/if}
 
 		{#if !hideDetails}
@@ -154,7 +171,9 @@
 					//TODO: need to design how this will work A11y
 				}}
 			>
-				<p class:change-project-color={mouseOverProjectCard === true}>{project.name}</p>
+				<p class:change-project-color={mouseOverProjectCard === true}>
+					{project.name}
+				</p>
 
 				{#if !hideSnapsCount}
 					{#if project.snaps.length > 1 || project.snaps.length === 0}
