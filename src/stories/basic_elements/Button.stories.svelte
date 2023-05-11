@@ -105,3 +105,19 @@
 		filter: true
 	}}
 />
+
+<Story
+	name="Filter"
+	args={{
+		label: '# Fonts',
+		class: 'button--filter'
+	}}
+/>
+
+<Story
+	name="Filter/Active"
+	args={{
+		label: '# Fonts',
+		class: 'button--filter-active'
+	}}
+/>

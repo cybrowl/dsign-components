@@ -48,7 +48,11 @@
 		<h2>{get(project, 'description', '')}</h2>
 		<div class="projectTags">
 			{#each get(project, 'tags', []) as tag}
-				<Button label={`# ${tag.toUpperCase()}`} filter={true} size="" />
+				<Button
+					label={`# ${tag.toUpperCase()}`}
+					class="button--filter"
+					size=""
+				/>
 			{/each}
 		</div>
 	</div>

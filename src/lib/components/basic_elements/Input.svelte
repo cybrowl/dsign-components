@@ -74,7 +74,7 @@
 			type="text"
 		/>
 		{#if hasError}
-			<Icon name="error_sign" width="32" height="32" />
+			<Icon name="error_sign" />
 		{/if}
 	</span>
 	{#if hasError}

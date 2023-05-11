@@ -35,7 +35,7 @@
 			}}
 		>
 			<Icon
-				class="cursor_pointer fill_dark_grey hover_primary_purple"
+				class="cursor_pointer fill_dark_grey hover_tulip_purple"
 				name="edit"
 				size="2.5rem"
 			/>

@@ -5,7 +5,6 @@
 	export let secondary = false;
 	export let tertiary = false;
 	export let destroy = false;
-	export let filter = false;
 
 	export let destroyDisabled = false;
 	export let primaryDisabled = false;
@@ -16,7 +15,8 @@
 	export let label = '';
 	let mode = 'button--primary';
 
-	let disabled = primaryDisabled || secondaryDisabled || tertiaryDisabled || destroyDisabled;
+	let disabled =
+		primaryDisabled || secondaryDisabled || tertiaryDisabled || destroyDisabled;
 
 	if (primary) {
 		mode = 'button--primary';
@@ -26,8 +26,6 @@
 		mode = 'button--tertiary';
 	} else if (destroy) {
 		mode = 'button--destroy';
-	} else if (filter) {
-		mode = 'button--filter';
 	}
 
 	const dispatch = createEventDispatcher();
@@ -40,7 +38,7 @@
 <button
 	type="button"
 	{disabled}
-	class={['button', $$props.class, `button--${size}`, mode].join(' ')}
+	class={['button', `button--${size}`, mode, $$props.class].join(' ')}
 	class:button--primary-disabled={primaryDisabled === true}
 	class:button--secondary-disabled={secondaryDisabled === true}
 	class:button--tertiary-disabled={tertiaryDisabled === true}
@@ -89,6 +87,12 @@
 	}
 	.button--filter {
 		@apply bg-transparent border-none text-grey;
+	}
+	.button--filter-active {
+		@apply bg-transparent border-none text-primary-purple;
+	}
+	.cursor_default {
+		@apply cursor-default;
 	}
 	.button--destroy:active {
 		@apply bg-error-red;

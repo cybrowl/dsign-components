@@ -55,6 +55,9 @@
 	.hover_primary_purple:hover {
 		@apply fill-primary-purple;
 	}
+	.hover_tulip_purple:hover {
+		@apply fill-tulip-purple;
+	}
 	.hover_grey:hover {
 		@apply fill-grey;
 	}

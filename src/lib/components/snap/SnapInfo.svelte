@@ -9,7 +9,9 @@
 
 	export let snap = {};
 
-	let created = DateTime.fromMillis(Number(snap.created) / 1000000).toLocaleString(DateTime.DATETIME_MED);
+	let created = DateTime.fromMillis(
+		Number(snap.created) / 1000000
+	).toLocaleString(DateTime.DATETIME_MED);
 
 	function saveToFavorites() {
 		project.metrics.likes = Number(project.metrics.likes) + 1;
@@ -24,8 +26,12 @@
 	<span class="breadcrumb">
 		<a href={`/${get(snap, 'username', '')}`}>{get(snap, 'username', '')}</a>
 		<span>/</span>
-		<a href={`/project/${get(snap, 'project.id', '')}/?canister_id=${get(snap, 'project.canister_id', '')}`}
-			>{get(snap, 'project.name', '')}</a
+		<a
+			href={`/project/${get(snap, 'project.id', '')}/?canister_id=${get(
+				snap,
+				'project.canister_id',
+				''
+			)}`}>{get(snap, 'project.name', '')}</a
 		>
 		<span>/</span>
 		<p>{get(snap, 'title', '')}</p>
@@ -37,7 +43,11 @@
 	</div>
 	<div class="tags">
 		{#each get(snap, 'tags', []) as tag}
-			<Button label={`# ${tag.toUpperCase()}`} filter={true} size="" />
+			<Button
+				label={`# ${tag.toUpperCase()}`}
+				class="button--filter-active cursor_default"
+				size=""
+			/>
 		{/each}
 	</div>
 </div>
