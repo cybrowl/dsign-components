@@ -252,7 +252,7 @@
 	}
 
 	.projectCardDetails a:hover {
-		@apply text-yellow-300;
+		@apply underline underline-offset-4 text-bubble-purple;
 	}
 
 	.change-project-color {
