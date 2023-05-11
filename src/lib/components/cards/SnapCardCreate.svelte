@@ -20,7 +20,14 @@
 	}}
 >
 	<span>
-		<Icon name="upload_snap" class={is_hovered ? 'snapCreationActive' : 'snapCreation'} width="89" height="89" />
+		<Icon
+			name="snap_creation"
+			class={is_hovered
+				? 'cursor_pointer fill_primary_purple'
+				: 'cursor_pointer fill_castle_grey'}
+			viewSize={{width: '89', height: '89'}}
+			size="4rem"
+		/>
 	</span>
 </div>
 
