@@ -11,6 +11,7 @@
 	import ProfileTabs from '../components/profile/ProfileTabs.svelte';
 
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
+	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -88,6 +89,9 @@
 								on:clickProject={handleProjectClick}
 							/>
 						{/each}
+						{#if is_owner}
+							<ProjectCardCreate />
+						{/if}
 					</div>
 				{/if}
 			</div>
