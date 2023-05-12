@@ -29,7 +29,7 @@
 <style lang="postcss">
 	.projectEmpty {
 		@apply bg-black-a w-full max-w-xs h-56 border border-castle-grey rounded
-        flex justify-center drop-shadow-md cursor-pointer;
+        flex justify-center drop-shadow-md cursor-default;
 	}
 	.projectEmpty span {
 		@apply flex flex-col justify-center items-center;
