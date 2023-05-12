@@ -49,7 +49,7 @@
 		<div class="projectTags">
 			{#each get(project, 'tags', []) as tag}
 				<Button
-					label={`# ${tag.toUpperCase()}`}
+					label={`# ${tag.toLowerCase()}`}
 					class="button--filter"
 					size=""
 				/>

@@ -1,0 +1,62 @@
+<script>
+	import Icon from '../basic_elements/Icon.svelte';
+	import get from 'lodash/get';
+
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	export let snap = {};
+
+	function clickBackHistory(event) {
+		dispatch('clickBack', event);
+	}
+
+	function clickDownload() {
+		const link = document.createElement('a');
+		link.href = snap.file_asset.url;
+		link.click();
+		link.remove();
+	}
+</script>
+
+<div class="actions_bar_sticky">
+	<div class="actions">
+		<span class="action_item">
+			<Icon
+				name="back"
+				class="cursor_pointer fill_dark_grey hover_tulip_purple"
+				size="3rem"
+				on:click={clickBackHistory}
+			/>
+			<p>Back</p>
+		</span>
+
+		{#if get(snap, 'file_asset.id', '').length > 0}
+			<span class="action_item">
+				<Icon
+					name="figma"
+					class="cursor_pointer fill_dark_grey hover_tulip_purple"
+					viewSize={{
+						width: '48',
+						height: '48'
+					}}
+					size="3rem"
+					on:click={clickDownload}
+				/>
+				<p>Download</p>
+			</span>
+		{/if}
+	</div>
+</div>
+
+<style lang="postcss">
+	.actions_bar_sticky {
+		@apply relative;
+	}
+	.actions {
+		@apply sticky top-10 right-0 text-white font-sans flex flex-col gap-10;
+	}
+	.action_item {
+		@apply flex flex-col items-center gap-2;
+	}
+</style>

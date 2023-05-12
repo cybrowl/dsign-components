@@ -205,6 +205,30 @@
 	}}
 />
 
+<Story
+	name="back"
+	args={{
+		name: 'back',
+		class: 'cursor_pointer fill_dark_grey hover_tulip_purple',
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="figma"
+	args={{
+		name: 'figma',
+		class: 'cursor_pointer fill_dark_grey hover_tulip_purple',
+		viewSize: {
+			width: '48',
+			height: '48'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
 <!-- <Story
 	name="file_"
 	args={{

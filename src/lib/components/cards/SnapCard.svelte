@@ -26,13 +26,13 @@
 		snap.isSelected = !snap.isSelected;
 	}
 
-	function clickLike() {
-		snap.metrics.likes = Number(snap.metrics.likes) + 1;
+	// function clickLike() {
+	// 	snap.metrics.likes = Number(snap.metrics.likes) + 1;
 
-		snap.likeActive = true;
+	// 	snap.likeActive = true;
 
-		dispatch('clickLike', snap);
-	}
+	// 	dispatch('clickLike', snap);
+	// }
 
 	function handleError() {
 		imageLoadingFailed = true;

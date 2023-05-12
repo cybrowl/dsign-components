@@ -89,7 +89,7 @@
 		@apply bg-transparent border-none text-grey;
 	}
 	.button--filter-active {
-		@apply bg-transparent border-none text-primary-purple;
+		@apply bg-transparent border-none text-bubble-purple;
 	}
 	.cursor_default {
 		@apply cursor-default;

@@ -44,7 +44,7 @@
 	<div class="tags">
 		{#each get(snap, 'tags', []) as tag}
 			<Button
-				label={`# ${tag.toUpperCase()}`}
+				label={`# ${tag.toLowerCase()}`}
 				class="button--filter-active cursor_default"
 				size=""
 			/>

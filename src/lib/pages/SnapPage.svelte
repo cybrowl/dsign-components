@@ -1,8 +1,9 @@
 <script>
 	import Avatar from '../components/basic_elements/Avatar.svelte';
 	import Button from '../components/basic_elements/Button.svelte';
-	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
+	import PageNavigation from '../components/navigation/PageNavigation.svelte';
+	import SnapActionsBar from '../components/snap/SnapActionsBar.svelte';
 	import SnapInfo from '../components/snap/SnapInfo.svelte';
 
 	import {createEventDispatcher} from 'svelte';
@@ -42,8 +43,19 @@
 						</span>
 					</PageNavigation>
 				</div>
+
 				<div class="snap_info_layout">
 					<SnapInfo {snap} />
+				</div>
+
+				<div class="content_layout">
+					{#each snap.images as image}
+						<img src={image.url} alt="" />
+					{/each}
+				</div>
+
+				<div class="actions_bar_layout">
+					<SnapActionsBar {snap} />
 				</div>
 			</div>
 		</body>
@@ -57,15 +69,24 @@
 
 <style lang="postcss">
 	.grid_layout {
-		@apply hidden lg:grid grid-cols-12 gap-y-2 relative ml-12 mr-12;
+		@apply hidden lg:grid grid-cols-12 gap-y-2 ml-12 mr-12;
 	}
 	.navigation_main_layout {
-		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
+		@apply row-start-1 row-end-auto col-start-1 col-end-13;
 	}
 	.navigation_main_layout span {
 		@apply flex gap-x-3 cursor-pointer;
 	}
 	.snap_info_layout {
-		@apply relative col-start-1 col-end-13 row-start-2 row-end-auto;
+		@apply row-start-2 row-end-auto col-start-1 col-end-13 mb-10;
+	}
+	.content_layout {
+		@apply row-start-3 row-end-auto col-start-1 col-end-12 mb-10;
+	}
+	.content_layout img {
+		@apply pb-10;
+	}
+	.actions_bar_layout {
+		@apply row-start-3 row-end-auto col-start-12 col-end-13 mb-10 flex justify-center;
 	}
 </style>

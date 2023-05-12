@@ -142,21 +142,21 @@
 		@apply hidden lg:grid grid-cols-12 relative ml-12 mr-12;
 	}
 	.navigation_main_layout {
-		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
+		@apply row-start-1 row-end-auto col-start-1 col-end-13;
 	}
 	.navigation_main_layout span {
 		@apply flex gap-x-3 cursor-pointer;
 	}
 	.profile_info_layout {
-		@apply relative col-start-1 col-end-4 row-start-2 row-end-auto;
+		@apply row-start-2 row-end-auto col-start-1 col-end-4;
 	}
 	.profile_banner_layout {
-		@apply col-start-4 col-end-13 row-start-2 row-end-auto;
+		@apply row-start-2 row-end-auto col-start-4 col-end-13;
 	}
 	.tabs_layout {
-		@apply hidden lg:grid col-start-4 col-end-13 row-start-3 row-end-auto mt-12 self-end justify-between items-center mb-8;
+		@apply hidden lg:grid row-start-3 row-end-auto col-start-4 col-end-13 mt-12 self-end justify-between items-center mb-8;
 	}
 	.tabs_content_layout {
-		@apply hidden lg:grid col-start-4 col-end-13 grid-cols-3 row-start-4 row-end-auto gap-x-8 gap-y-12 mb-16;
+		@apply hidden lg:grid row-start-4 row-end-auto col-start-4 col-end-13 grid-cols-3 gap-x-8 gap-y-12 mb-16;
 	}
 </style>
