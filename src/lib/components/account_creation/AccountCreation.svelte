@@ -52,7 +52,12 @@
 		isEdit="false"
 		onlyAllowLettersAndNumbers={true}
 	/>
-	<a href="/private-policy">Private Policy</a>
+	<a
+		href="https://github.com/cybrowl/dsign-components-v2/blob/main/src/lib/policies/privacy.md"
+		target="_blank"
+		rel="noopener noreferrer"
+		>Privacy Policy
+	</a>
 	<span class="primaryButon">
 		<Button
 			primary="true"
