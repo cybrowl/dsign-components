@@ -12,6 +12,7 @@
 
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
+	import FavoriteCardEmpty from '../components/cards/FavoriteCardEmpty.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -71,7 +72,7 @@
 					/>
 				</div>
 
-				<div class="profile_tabs_layout">
+				<div class="tabs_layout">
 					<ProfileTabs
 						{profileTabsState}
 						on:toggleProjects={e => profileTabsState.set(e.detail)}
@@ -79,8 +80,9 @@
 					/>
 				</div>
 
-				{#if profileTabsState.isProjectsSelected}
-					<div class="projects_layout">
+				<div class="tabs_content_layout">
+					<!-- Projects -->
+					{#if profileTabsState.isProjectsSelected}
 						{#each project_store as project}
 							<ProjectCard
 								{project}
@@ -92,8 +94,13 @@
 						{#if is_owner}
 							<ProjectCardCreate />
 						{/if}
-					</div>
-				{/if}
+					{/if}
+
+					<!-- Favorites -->
+					{#if profileTabsState.isFavoritesSelected}
+						<FavoriteCardEmpty />
+					{/if}
+				</div>
 			</div>
 		</body>
 	</html>
@@ -120,10 +127,10 @@
 	.profile_banner_layout {
 		@apply col-start-4 col-end-13 row-start-2 row-end-auto;
 	}
-	.profile_tabs_layout {
+	.tabs_layout {
 		@apply hidden lg:grid col-start-4 col-end-13 row-start-3 row-end-auto mt-12 self-end justify-between items-center mb-8;
 	}
-	.projects_layout {
+	.tabs_content_layout {
 		@apply hidden lg:grid col-start-4 col-end-13 grid-cols-3 row-start-4 row-end-auto gap-x-8 gap-y-12 mb-16;
 	}
 </style>

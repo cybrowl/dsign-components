@@ -131,3 +131,23 @@
 		showOptionsPopover: false
 	}}
 />
+
+<Story
+	name="Favorites Empty  / Authenticated & Owner"
+	args={{
+		avatar: '/mishicat_bat.png',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'mishicat',
+		is_authenticated: true,
+		is_owner: true,
+		modal_visible: modal_visible,
+		navItems: navItems,
+		project_store: [],
+		showOptionsPopover: false,
+		profileTabsState: {
+			isFavoritesSelected: true,
+			isProjectsSelected: false
+		}
+	}}
+/>
