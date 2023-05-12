@@ -8,7 +8,7 @@ export {default as Input} from './components/basic_elements/Input.svelte';
 export {default as FavoriteCardEmpty} from './components/cards/FavoriteCardEmpty.svelte';
 export {default as ProjectCard} from './components/cards/ProjectCard.svelte';
 export {default as ProjectCardCreate} from './components/cards/ProjectCardCreate.svelte';
-
+export {default as ProjectCardEmpty} from './components/cards/ProjectCardEmpty.svelte';
 export {default as SnapCard} from './components/cards/SnapCard.svelte';
 export {default as SnapCardCreate} from './components/cards/SnapCardCreate.svelte';
 
@@ -25,6 +25,5 @@ export {default as ProjectEditActionsBar} from './components/project/ProjectEdit
 export {default as ProjectInfo} from './components/project/ProjectInfo.svelte';
 export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
 
-// import ProjectCardEmpty from 'dsign-components/components/ProjectCardEmpty.svelte';
 // ProjectEdit
 // ProjectDelete

@@ -24,7 +24,6 @@
 	export let is_owner = false;
 	export let isEditActive = false;
 	export const navItems = [];
-	export const isLoadingProject = false;
 	// export let showOptionsPopover = false;
 	export let selectedTabState = {};
 
@@ -68,6 +67,7 @@
 					{#each project.snaps as snap}
 						<SnapCard {snap} isEditMode={isEditActive} />
 					{/each}
+
 					{#if is_owner && isEditActive === false}
 						<SnapCardCreate
 							on:clickSnapCardCreate={handleSnapCreateModalOpen}

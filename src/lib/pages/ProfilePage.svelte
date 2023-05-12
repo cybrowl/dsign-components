@@ -3,6 +3,8 @@
 	import Button from '../components/basic_elements/Button.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
 
+	import get from 'lodash/get';
+
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 
@@ -17,17 +19,16 @@
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let avatar = '';
-	export let avatar_nav = '';
-	export let username = '';
 	export let is_authenticated = false;
 	export let is_owner = false;
-	export let navItems;
-	export const isLoadingSnap = false;
-	export let isLoadingProject;
-	export let showOptionsPopover = false;
-	export let project_store = [];
-	// export let is_visible = false;
+
+	export let user_profile = {};
+	export let my_profile = {};
+
+	export let project_store = {};
+
+	export let modal_visible = {};
+
 	export let profileTabsState = {
 		isFavoritesSelected: false,
 		isProjectsSelected: true
@@ -41,10 +42,13 @@
 		<body>
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
-					<PageNavigation {navItems}>
+					<PageNavigation>
 						<span>
 							{#if is_authenticated}
-								<Avatar avatar={avatar_nav} {username} />
+								<Avatar
+									avatar={get(my_profile, 'avatar', '')}
+									username={get(my_profile, 'username', '')}
+								/>
 								<Icon
 									name="settings"
 									size="2.75rem"
@@ -62,12 +66,16 @@
 				</div>
 
 				<div class="profile_info_layout">
-					<ProfileInfo {avatar} {is_owner} {username} />
+					<ProfileInfo
+						{is_owner}
+						avatar={get(user_profile, 'avatar', '')}
+						username={get(user_profile, 'username', '')}
+					/>
 				</div>
 
 				<div class="profile_banner_layout">
 					<ProfileBanner
-						{is_authenticated}
+						{is_owner}
 						profile_banner_url="/default_profile_banner.png"
 					/>
 				</div>
@@ -83,14 +91,22 @@
 				<div class="tabs_content_layout">
 					<!-- Projects -->
 					{#if profileTabsState.isProjectsSelected}
-						{#each project_store as project}
-							<ProjectCard
-								{project}
-								{isLoadingProject}
-								{showOptionsPopover}
-								on:clickProject={handleProjectClick}
-							/>
-						{/each}
+						<!-- Fetching Projects -->
+						{#if project_store.isFetching === true}
+							<ProjectCard isLoadingProject={true} />
+						{/if}
+
+						<!-- Project -->
+						{#if project_store.isFetching === false && project_store.projects.length > 0}
+							{#each project_store.projects as project}
+								<ProjectCard
+									{project}
+									showOptionsPopover={is_owner ? true : false}
+									on:clickProject={handleProjectClick}
+								/>
+							{/each}
+						{/if}
+
 						{#if is_owner}
 							<ProjectCardCreate />
 						{/if}
