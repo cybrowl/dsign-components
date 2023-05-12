@@ -1,8 +1,13 @@
+// account creation
+export {default as AccountCreation} from './components/account_creation/AccountCreation.svelte';
+export {default as AccountCreationSuccess} from './components/account_creation/AccountCreationSuccess.svelte';
+
 // basic_elements
 export {default as Avatar} from './components/basic_elements/Avatar.svelte';
 export {default as Button} from './components/basic_elements/Button.svelte';
 export {default as Icon} from './components/basic_elements/Icon.svelte';
 export {default as Input} from './components/basic_elements/Input.svelte';
+export {default as Modal} from './components/basic_elements/Modal.svelte';
 
 // cards
 export {default as FavoriteCardEmpty} from './components/cards/FavoriteCardEmpty.svelte';
