@@ -21,7 +21,7 @@
 </script>
 
 <Meta
-	title="Pages/SnapPage"
+	title="Pages/Snap View"
 	component={SnapPage}
 	argTypes={{
 		onClick: {action: 'onClick'}
@@ -33,9 +33,10 @@
 </Template>
 
 <Story
-	name="SnapPage / Authed"
+	name="Default"
 	args={{
-		avatar: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
