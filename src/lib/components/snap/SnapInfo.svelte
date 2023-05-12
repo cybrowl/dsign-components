@@ -75,6 +75,6 @@
 		@apply text-light-grey cursor-default;
 	}
 	.tags {
-		@apply flex gap-x-3;
+		@apply flex gap-x-3 h-3;
 	}
 </style>

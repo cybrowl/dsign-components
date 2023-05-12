@@ -133,3 +133,54 @@
 		}
 	}}
 />
+
+<Story
+	name="No Tags"
+	args={{
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		navItems: navItems,
+		snap: {
+			canister_id: 'lrr5x-jaaaa-aaaag-aatzq-cai',
+			created: '1682251811746367146',
+			isSelected: false,
+			file_asset: {
+				canister_id: '',
+				file_name: 'story.fig',
+				id: 'xxx',
+				is_public: false,
+				url: 'https://l7tq7-sqaaa-aaaag-aatyq-cai.raw.icp0.io/asset/7VFRDHRM9CKRS6X4YQPQ6J72MM'
+			},
+			id: '7SZZ2TJWHZ3XYRZTWMK5A08MYN',
+			image_cover_location: 0,
+			images: [
+				{
+					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
+					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				},
+				{
+					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
+					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				}
+			],
+			metrics: {
+				views: '0',
+				likes: '0'
+			},
+			owner: null,
+			project: {
+				id: '8SZZ2TJWHZ3XYRZTWMK5A08MYN',
+				canister_id: 'xrr5x-jaaaa-aaaag-aatzq-cai',
+				name: 'Poro'
+			},
+			tags: [],
+			title: 'Wallet',
+			username: 'cyberowl'
+		}
+	}}
+/>

@@ -83,7 +83,7 @@
 		@apply flex gap-x-6 text-4xl font-bold text-white mb-3;
 	}
 	.projectTags {
-		@apply flex gap-x-3;
+		@apply flex gap-x-3 h-3;
 	}
 	.loadingBreadcrumb {
 		@apply h-4 w-40 bg-black-a mb-8 animate-pulse;

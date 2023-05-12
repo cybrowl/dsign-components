@@ -28,7 +28,8 @@
 <Story
 	name="Snaps / Auth / Guest"
 	args={{
-		avatar_nav: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
@@ -44,7 +45,8 @@
 <Story
 	name="Snaps / Many / Auth / Guest"
 	args={{
-		avatar_nav: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
@@ -60,7 +62,8 @@
 <Story
 	name="Snaps / Auth / Owner"
 	args={{
-		avatar_nav: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
@@ -77,7 +80,8 @@
 <Story
 	name="Snaps / Auth / Owner / Edit"
 	args={{
-		avatar_nav: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
@@ -95,11 +99,29 @@
 <Story
 	name="Snaps / Guest / Guest"
 	args={{
-		avatar_nav: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: project,
+		selectedTabState: {
+			isChangesSelected: false,
+			isRecsSelected: false,
+			isSnapsSelected: true
+		}
+	}}
+/>
+
+<Story
+	name="No Tags"
+	args={{
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		project: {...project, tags: []},
 		selectedTabState: {
 			isChangesSelected: false,
 			isRecsSelected: false,
