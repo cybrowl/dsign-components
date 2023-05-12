@@ -15,9 +15,6 @@
 	export let label = '';
 	let mode = 'button--primary';
 
-	let disabled =
-		primaryDisabled || secondaryDisabled || tertiaryDisabled || destroyDisabled;
-
 	if (primary) {
 		mode = 'button--primary';
 	} else if (secondary) {
@@ -37,7 +34,10 @@
 
 <button
 	type="button"
-	{disabled}
+	disabled={primaryDisabled ||
+		secondaryDisabled ||
+		tertiaryDisabled ||
+		destroyDisabled}
 	class={['button', `button--${size}`, mode, $$props.class].join(' ')}
 	class:button--primary-disabled={primaryDisabled === true}
 	class:button--secondary-disabled={secondaryDisabled === true}
