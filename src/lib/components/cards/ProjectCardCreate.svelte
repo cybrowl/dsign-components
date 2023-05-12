@@ -41,7 +41,7 @@
 
 <style lang="postcss">
 	.projectCardCreate {
-		@apply bg-black-a w-full max-w-xs border border-castle-grey rounded
+		@apply bg-black-a w-full max-w-xs border border-castle-grey rounded h-60
         flex justify-center drop-shadow-md cursor-pointer text-moon-grey font-sans mb-12;
 	}
 	.projectCardCreate:hover {
