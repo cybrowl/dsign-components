@@ -154,7 +154,7 @@
 		modal_visible: modal_visible,
 		project_store: {
 			isFetching: false,
-			projects: projects_list
+			projects: []
 		}
 	}}
 />
@@ -175,7 +175,7 @@
 		modal_visible: modal_visible,
 		project_store: {
 			isFetching: false,
-			projects: projects_list
+			projects: []
 		}
 	}}
 />

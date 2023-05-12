@@ -1,6 +1,6 @@
 <script>
 	import {createEventDispatcher} from 'svelte';
-	import Icon from './Icon.svelte';
+	import Icon from '../basic_elements/Icon.svelte';
 
 	const dispatch = createEventDispatcher();
 

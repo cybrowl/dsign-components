@@ -14,6 +14,7 @@
 
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
+	import ProjectCardEmpty from '../components/cards/ProjectCardEmpty.svelte';
 	import FavoriteCardEmpty from '../components/cards/FavoriteCardEmpty.svelte';
 
 	import {createEventDispatcher} from 'svelte';
@@ -27,7 +28,7 @@
 
 	export let project_store = {};
 
-	export let modal_visible = {};
+	// export let modal_visible = {};
 
 	export let profileTabsState = {
 		isFavoritesSelected: false,
@@ -96,6 +97,15 @@
 							<ProjectCard isLoadingProject={true} />
 						{/if}
 
+						<!-- No Projects Found -->
+						{#if project_store.isFetching === false && project_store.projects.length === 0}
+							{#if is_owner}
+								<ProjectCardCreate />
+							{:else}
+								<ProjectCardEmpty />
+							{/if}
+						{/if}
+
 						<!-- Project -->
 						{#if project_store.isFetching === false && project_store.projects.length > 0}
 							{#each project_store.projects as project}
@@ -105,10 +115,10 @@
 									on:clickProject={handleProjectClick}
 								/>
 							{/each}
-						{/if}
 
-						{#if is_owner}
-							<ProjectCardCreate />
+							{#if is_owner}
+								<ProjectCardCreate />
+							{/if}
 						{/if}
 					{/if}
 
