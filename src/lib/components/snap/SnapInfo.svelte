@@ -26,14 +26,16 @@
 	<span class="breadcrumb">
 		<a href={`/${get(snap, 'username', '')}`}>{get(snap, 'username', '')}</a>
 		<span>/</span>
-		<a
-			href={`/project/${get(snap, 'project.id', '')}/?canister_id=${get(
-				snap,
-				'project.canister_id',
-				''
-			)}`}>{get(snap, 'project.name', '')}</a
-		>
-		<span>/</span>
+		{#if get(snap, 'project.id', '').length > 0}
+			<a
+				href={`/project/${get(snap, 'project.id', '')}/?canister_id=${get(
+					snap,
+					'project.canister_id',
+					''
+				)}`}>{get(snap, 'project.name', '')}</a
+			>
+			<span>/</span>
+		{/if}
 		<p>{get(snap, 'title', '')}</p>
 	</span>
 	<h1>{get(snap, 'title', '')}</h1>
