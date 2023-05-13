@@ -81,10 +81,10 @@
 		@apply row-start-2 row-end-auto col-start-1 col-end-13 mb-10;
 	}
 	.content_layout {
-		@apply row-start-3 row-end-auto col-start-1 col-end-12 mb-10;
+		@apply row-start-3 row-end-auto col-start-1 col-end-12 mb-10 flex flex-col items-center;
 	}
 	.content_layout img {
-		@apply pb-10;
+		@apply pb-10 max-w-full;
 	}
 	.actions_bar_layout {
 		@apply row-start-3 row-end-auto col-start-12 col-end-13 mb-10 flex justify-center;

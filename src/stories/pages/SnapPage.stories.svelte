@@ -217,6 +217,11 @@
 					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
 					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
 					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				},
+				{
+					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
+					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7VAFVFDNB7JCYKA8NSJA11AAB0'
 				}
 			],
 			metrics: {
