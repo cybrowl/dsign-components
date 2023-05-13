@@ -56,6 +56,9 @@
 	.cursor_pointer {
 		@apply cursor-pointer;
 	}
+	.cursor_default {
+		@apply cursor-default;
+	}
 	.fill_white {
 		@apply fill-white;
 	}

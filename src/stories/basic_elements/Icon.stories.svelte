@@ -232,6 +232,93 @@
 	}}
 />
 
+<Story
+	name="add_name"
+	args={{
+		name: 'add_name',
+		clickable: false,
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '32',
+			height: '32'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="upload_category"
+	args={{
+		name: 'upload_category',
+		clickable: false,
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '24',
+			height: '24'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="attach_design_file"
+	args={{
+		name: 'attach_design_file',
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '55',
+			height: '55'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="attach_images"
+	args={{
+		name: 'attach_images',
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '40',
+			height: '40'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="move_images"
+	args={{
+		name: 'move_images',
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '42',
+			height: '42'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="add_tags"
+	args={{
+		name: 'add_tags',
+		clickable: false,
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '31.5',
+			height: '24'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
 <!-- <Story
 	name="file_"
 	args={{
