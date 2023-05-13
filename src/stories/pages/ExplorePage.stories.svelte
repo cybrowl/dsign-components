@@ -35,7 +35,8 @@
 <Story
 	name="Explore / Authed"
 	args={{
-		avatar: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: true,
@@ -47,11 +48,31 @@
 <Story
 	name="Explore / Guest"
 	args={{
-		avatar: 'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
 		username: 'jelly',
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		navItems: navItems,
+		project_store: projects_store
+	}}
+/>
+
+<Story
+	name="Notification"
+	args={{
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		navItems: navItems,
+		notification_visible: {
+			auth_error: true
+		},
+		notification: {
+			message: 'Connect to Access'
+		},
 		project_store: projects_store
 	}}
 />

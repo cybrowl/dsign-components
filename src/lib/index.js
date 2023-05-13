@@ -8,6 +8,7 @@ export {default as Button} from './components/basic_elements/Button.svelte';
 export {default as Icon} from './components/basic_elements/Icon.svelte';
 export {default as Input} from './components/basic_elements/Input.svelte';
 export {default as Modal} from './components/basic_elements/Modal.svelte';
+export {default as Notification} from './components/basic_elements/Notification.svelte';
 
 // cards
 export {default as FavoriteCardEmpty} from './components/cards/FavoriteCardEmpty.svelte';

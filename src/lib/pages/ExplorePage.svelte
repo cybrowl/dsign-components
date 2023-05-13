@@ -1,7 +1,7 @@
 <script>
 	import Avatar from '../components/basic_elements/Avatar.svelte';
 	import Button from '../components/basic_elements/Button.svelte';
-	// import Notification from '../components/Notification.svelte';
+	import Notification from '../components/basic_elements/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
@@ -15,6 +15,14 @@
 	export let navItems;
 	export const isLoadingSnap = false;
 	export let isLoadingProject;
+	export let notification_visible = {
+		auth_error: false
+	};
+
+	export let notification = {
+		message: ''
+	};
+
 	export let showOptionsPopover = false;
 	export let project_store = [];
 
@@ -52,6 +60,18 @@
 					</PageNavigation>
 				</div>
 
+				<!-- Notification -->
+				{#if notification_visible.auth_error}
+					<div class="notification_layout">
+						<Notification
+							is_visible={notification_visible.auth_error}
+							hide_delay_sec={2000}
+						>
+							<p>{notification.message}</p>
+						</Notification>
+					</div>
+				{/if}
+
 				{#if profileTabsState.isProjectsSelected}
 					<div class="projects_layout">
 						{#each project_store as project}
@@ -85,6 +105,9 @@
 	}
 	.navigation_main_layout span {
 		@apply flex gap-x-3 cursor-pointer;
+	}
+	.notification_layout {
+		@apply absolute col-start-12 col-end-13 row-start-2 row-end-3 top-0 right-0;
 	}
 	.projects_layout {
 		@apply hidden lg:grid col-start-1 col-end-13 grid-cols-4 
