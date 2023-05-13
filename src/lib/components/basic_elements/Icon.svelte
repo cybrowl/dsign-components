@@ -4,6 +4,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let name;
+	export let clickable = true;
 	export let focusable = false;
 	export let viewSize = {
 		width: 24,
@@ -22,19 +23,34 @@
 	}
 </script>
 
-<svg
-	class={$$props.class}
-	{focusable}
-	width={size}
-	height={size}
-	viewBox={`0 0 ${viewbox.width} ${viewbox.height}`}
-	on:click={onClick}
-	on:keypress={e => {
-		//TODO: need to design how this will work A11y
-	}}
->
-	{@html icons[name]}
-</svg>
+{#if clickable}
+	<button on:click={onClick}>
+		<svg
+			class={$$props.class}
+			{focusable}
+			width={size}
+			height={size}
+			viewBox={`0 0 ${viewbox.width} ${viewbox.height}`}
+			on:keypress={e => {
+				//TODO: need to design how this will work A11y
+			}}
+		>
+			{@html icons[name]}
+		</svg>
+	</button>
+{:else}
+	<span>
+		<svg
+			class={$$props.class}
+			{focusable}
+			width={size}
+			height={size}
+			viewBox={`0 0 ${viewbox.width} ${viewbox.height}`}
+		>
+			{@html icons[name]}
+		</svg>
+	</span>
+{/if}
 
 <style lang="postcss">
 	.cursor_pointer {

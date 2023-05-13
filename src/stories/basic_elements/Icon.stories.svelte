@@ -64,6 +64,7 @@
 	name="error_sign"
 	args={{
 		name: 'error_sign',
+		clickable: false,
 		size: '4rem',
 		scale: 1
 	}}
@@ -169,6 +170,7 @@
 	name="project_empty"
 	args={{
 		name: 'project_empty',
+		clickable: false,
 		viewSize: {
 			width: '92',
 			height: '92'
@@ -182,6 +184,7 @@
 	name="favorite_empty"
 	args={{
 		name: 'favorite_empty',
+		clickable: false,
 		viewSize: {
 			width: '64',
 			height: '64'
