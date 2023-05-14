@@ -13,7 +13,7 @@
 	<Icon
 		name="add_name"
 		clickable={false}
-		class="fill-none"
+		class="fill_none"
 		size="2rem"
 		viewSize={{width: '32', height: '32'}}
 	/>
