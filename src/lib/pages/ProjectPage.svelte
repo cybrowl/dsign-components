@@ -5,6 +5,7 @@
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
 	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
+	import CardEmpty from '../components/cards/CardEmpty.svelte';
 
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
@@ -14,6 +15,7 @@
 	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
 
 	import {createEventDispatcher} from 'svelte';
+	import {isEmpty} from 'lodash';
 	const dispatch = createEventDispatcher();
 
 	// export let avatar = '';
@@ -64,6 +66,13 @@
 					{/if}
 				</div>
 				<div class="snaps_layout">
+					{#if isEmpty(project.snaps)}
+						<CardEmpty
+							name="snap_empty"
+							content="No snaps found"
+							view_size={{width: '64', height: '64'}}
+						/>
+					{/if}
 					{#each project.snaps as snap}
 						<SnapCard {snap} isEditMode={isEditActive} />
 					{/each}

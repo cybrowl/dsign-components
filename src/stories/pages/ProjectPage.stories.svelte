@@ -114,6 +114,23 @@
 />
 
 <Story
+	name="Snaps Empty"
+	args={{
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		project: {...project, snaps: []},
+		selectedTabState: {
+			isChangesSelected: false,
+			isRecsSelected: false,
+			isSnapsSelected: true
+		}
+	}}
+/>
+
+<Story
 	name="No Tags"
 	args={{
 		avatar_nav:
