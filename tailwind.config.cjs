@@ -24,6 +24,7 @@ const config = {
 				'foggy-purple': '#A099F4',
 				'bubble-purple': '#B6AFFC',
 				'lilalic-purple': '#968CFF',
+				'spring-leaf-green': '#5BC859',
 				'error-red': '#FC3030'
 			}
 		}

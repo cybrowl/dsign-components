@@ -277,6 +277,20 @@
 />
 
 <Story
+	name="design_file_attached"
+	args={{
+		name: 'design_file_attached',
+		class: 'cursor_default fill_dark_grey',
+		viewSize: {
+			width: '55',
+			height: '55'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
 	name="attach_images"
 	args={{
 		name: 'attach_images',

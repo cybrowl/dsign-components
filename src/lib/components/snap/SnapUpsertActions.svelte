@@ -8,14 +8,21 @@
 	import Icon from '../basic_elements/Icon.svelte';
 	import AttachDesignFileButton from './AttachDesignFileButton.svelte';
 
+	export let snap = {};
+
 	let value;
 	let placeholder = 'Add a name to your snap';
-	let snap = {};
 
-	function handleAttachDesignClick(event) {
+	function handleAttachFile(event) {
 		let file = event.detail;
 
-		dispatch('onAttachDesignClick', file);
+		dispatch('attachFile', file);
+	}
+
+	function handleRemoveFile(event) {
+		let file = event.detail;
+
+		dispatch('removeFile', file);
 	}
 </script>
 
@@ -27,7 +34,11 @@
 		<h3>Upload</h3>
 	</div>
 
-	<AttachDesignFileButton on:click={handleAttachDesignClick} />
+	<AttachDesignFileButton
+		on:attachFile={handleAttachFile}
+		on:removeFile={handleRemoveFile}
+		file_asset={get(snap, 'file_asset')}
+	/>
 
 	<div class="category">
 		<Icon name="organize_category" class="fill_white cursor_default" />

@@ -24,12 +24,12 @@
 	title="Pages/Snap View"
 	component={SnapPage}
 	argTypes={{
-		onClick: {action: 'onClick'}
+		backHistory: {action: 'onClick'}
 	}}
 />
 
 <Template let:args>
-	<SnapPage {...args} />
+	<SnapPage {...args} on:backHistory={args.backHistory} />
 </Template>
 
 <Story

@@ -14,6 +14,10 @@
 	export let snap = {};
 	export let is_authenticated = false;
 	export let navItems;
+
+	function handleBackHistory() {
+		dispatch('backHistory');
+	}
 </script>
 
 <main>
@@ -55,7 +59,7 @@
 				</div>
 
 				<div class="actions_bar_layout">
-					<SnapActionsBar {snap} />
+					<SnapActionsBar {snap} on:clickBack={handleBackHistory} />
 				</div>
 			</div>
 		</body>

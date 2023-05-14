@@ -19,6 +19,8 @@
 	};
 
 	function onClick(event) {
+		event.stopPropagation();
+
 		dispatch('click', event);
 	}
 </script>
