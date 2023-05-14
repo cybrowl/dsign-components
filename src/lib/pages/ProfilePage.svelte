@@ -14,7 +14,6 @@
 
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
-	import ProjectCardEmpty from '../components/cards/ProjectCardEmpty.svelte';
 	import CardEmpty from '../components/cards/CardEmpty.svelte';
 
 	import {createEventDispatcher} from 'svelte';
@@ -102,7 +101,11 @@
 							{#if is_owner}
 								<ProjectCardCreate />
 							{:else}
-								<ProjectCardEmpty />
+								<CardEmpty
+									name="project_empty"
+									content="No projects found"
+									view_size={{width: '92', height: '92'}}
+								/>
 							{/if}
 						{/if}
 

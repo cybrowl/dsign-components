@@ -11,7 +11,7 @@
 
 <div class="cardEmpty">
 	<span>
-		<Icon {name} size="4rem" viewSize={view_size} />
+		<Icon {name} clickable={false} size="4rem" viewSize={view_size} />
 		<p>{content}</p>
 	</span>
 </div>
