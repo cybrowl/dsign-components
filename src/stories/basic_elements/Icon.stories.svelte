@@ -319,6 +319,16 @@
 	}}
 />
 
+<Story
+	name="organize_category"
+	args={{
+		name: 'organize_category',
+		clickable: false,
+		class: 'cursor_default fill_white',
+		size: '4rem'
+	}}
+/>
+
 <!-- <Story
 	name="file_"
 	args={{

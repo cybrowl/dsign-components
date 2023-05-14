@@ -60,7 +60,7 @@
 		@apply cursor-default;
 	}
 	.fill_white {
-		@apply fill-white;
+		@apply fill-slate-50;
 	}
 	.fill_dark_grey {
 		@apply fill-dark-grey;
