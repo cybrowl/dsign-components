@@ -33,6 +33,7 @@ export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
 // snap
 export {default as SnapInfo} from './components/snap/SnapInfo.svelte';
 export {default as SnapActionsBar} from './components/snap/SnapActionsBar.svelte';
+export {default as SnapUpsertActions} from './components/snap/SnapUpsertActions.svelte';
 
 // ProjectCreation
 // ProjectCreationFetching
