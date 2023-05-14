@@ -1,9 +1,13 @@
 <script>
 	import Input from '../snap/Input.svelte';
 	import Icon from '../basic_elements/Icon.svelte';
+	import AttachDesignFileButton from './AttachDesignFileButton.svelte';
+
+	import get from 'lodash/get';
 
 	let value;
 	let placeholder = 'Add a name to your snap';
+	let snap = {};
 </script>
 
 <div class="actions">
@@ -14,14 +18,20 @@
 		<h3>Upload</h3>
 	</div>
 
+	<AttachDesignFileButton />
+
 	<div class="category">
 		<Icon name="organize_category" class="fill_white" />
 		<h3>Organize</h3>
 	</div>
 
 	<div class="category">
-		<Icon name="upload_category" class="fill_none" />
-		<h3>Upload</h3>
+		<Icon
+			name="add_tags"
+			class="fill_none"
+			viewSize={{width: '31.5', height: '24'}}
+		/>
+		<h3>Add Tags</h3>
 	</div>
 </div>
 
@@ -30,6 +40,6 @@
 		@apply flex flex-col gap-y-6 font-sans font-bold;
 	}
 	.category {
-		@apply flex flex-row text-white items-center gap-x-2;
+		@apply flex flex-row text-white items-center gap-x-2 cursor-default;
 	}
 </style>
