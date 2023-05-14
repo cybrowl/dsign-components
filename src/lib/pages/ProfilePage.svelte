@@ -15,7 +15,7 @@
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
 	import ProjectCardEmpty from '../components/cards/ProjectCardEmpty.svelte';
-	import FavoriteCardEmpty from '../components/cards/FavoriteCardEmpty.svelte';
+	import CardEmpty from '../components/cards/CardEmpty.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -124,7 +124,11 @@
 
 					<!-- Favorites -->
 					{#if profileTabsState.isFavoritesSelected}
-						<FavoriteCardEmpty />
+						<CardEmpty
+							name="project_empty"
+							content="No favorite projects"
+							view_size={{width: '92', height: '92'}}
+						/>
 					{/if}
 				</div>
 			</div>

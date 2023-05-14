@@ -11,10 +11,9 @@ export {default as Modal} from './components/basic_elements/Modal.svelte';
 export {default as Notification} from './components/basic_elements/Notification.svelte';
 
 // cards
-export {default as FavoriteCardEmpty} from './components/cards/FavoriteCardEmpty.svelte';
+export {default as CardEmpty} from './components/cards/CardEmpty.svelte';
 export {default as ProjectCard} from './components/cards/ProjectCard.svelte';
 export {default as ProjectCardCreate} from './components/cards/ProjectCardCreate.svelte';
-export {default as ProjectCardEmpty} from './components/cards/ProjectCardEmpty.svelte';
 export {default as SnapCard} from './components/cards/SnapCard.svelte';
 export {default as SnapCardCreate} from './components/cards/SnapCardCreate.svelte';
 

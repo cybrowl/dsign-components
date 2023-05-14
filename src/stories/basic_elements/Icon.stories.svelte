@@ -181,9 +181,9 @@
 />
 
 <Story
-	name="favorite_empty"
+	name="snap_empty"
 	args={{
-		name: 'favorite_empty',
+		name: 'snap_empty',
 		clickable: false,
 		viewSize: {
 			width: '64',
