@@ -34,6 +34,8 @@ export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
 export {default as SnapInfo} from './components/snap/SnapInfo.svelte';
 export {default as SnapActionsBar} from './components/snap/SnapActionsBar.svelte';
 export {default as SnapUpsertActions} from './components/snap/SnapUpsertActions.svelte';
+export {default as Images} from './components/snap/Images.svelte';
+export {default as ImagesEmpty} from './components/snap/ImagesEmpty.svelte';
 
 // ProjectCreation
 // ProjectCreationFetching
