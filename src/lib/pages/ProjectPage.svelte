@@ -25,7 +25,7 @@
 	export let project = {};
 	export let is_owner = false;
 	export let isEditActive = false;
-	export const navItems = [];
+	export const navigationItems = [];
 	// export let showOptionsPopover = false;
 	export let selectedTabState = {};
 
@@ -37,7 +37,7 @@
 		<body>
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
-					<PageNavigation {navItems}>
+					<PageNavigation {navigationItems}>
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar={avatar_nav} {username} />

@@ -12,7 +12,7 @@
 	export const avatar = '';
 	export const username = '';
 	export let is_authenticated = false;
-	export let navItems;
+	export let navigationItems;
 	export const isLoadingSnap = false;
 	export let isLoadingProject;
 	export let notification_visible = {
@@ -40,7 +40,7 @@
 		<body>
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
-					<PageNavigation {navItems}>
+					<PageNavigation {navigationItems}>
 						<span>
 							{#if is_authenticated}
 								<Avatar avatar="https://i.ibb.co/TRJmsGT/motoko.png" />

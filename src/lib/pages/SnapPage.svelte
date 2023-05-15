@@ -13,7 +13,7 @@
 	export const username = '';
 	export let snap = {};
 	export let is_authenticated = false;
-	export let navItems;
+	export let navigationItems;
 
 	function handleBackHistory() {
 		dispatch('backHistory');
@@ -25,7 +25,7 @@
 		<body>
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
-					<PageNavigation {navItems}>
+					<PageNavigation {navigationItems}>
 						<span>
 							{#if is_authenticated}
 								<Avatar
