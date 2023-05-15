@@ -7,6 +7,7 @@
 	import Images from '../components/snap/Images.svelte';
 
 	import get from 'lodash/get';
+	import set from 'lodash/set';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -22,6 +23,8 @@
 		let file = event.detail;
 
 		let file_array_buffer = file && new Uint8Array(await file.arrayBuffer());
+
+		set(snap_preview, 'file_asset.file_name', file.name);
 
 		console.log('page: file: ', file_array_buffer);
 	}
@@ -40,10 +43,9 @@
 		let {snap_base64_images, images_unit8Arrays} = event.detail;
 
 		console.log('page: images_unit8Arrays: ', images_unit8Arrays);
+		console.log('snap_preview: ', snap_preview);
 
-		if (!snap_preview.images) {
-			snap_preview.images = [];
-		}
+		set(snap_preview, 'images', get(snap_preview, 'images', []));
 
 		snap_base64_images.forEach((url, index) => {
 			let newImage = {
@@ -54,6 +56,7 @@
 
 			if (snap_preview.images.length <= 12) {
 				snap_preview.images = [...snap_preview.images, newImage];
+				console.log('snap_preview: ', snap_preview);
 			}
 		});
 	}
