@@ -111,7 +111,7 @@
 	}
 
 	.file-too-large {
-		@apply text-error-red;
+		@apply text-mute-red;
 	}
 
 	.close-icon-container {

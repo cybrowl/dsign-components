@@ -37,6 +37,7 @@
 	}
 
 	.input {
-		@apply bg-transparent border-none px-3 py-2 w-full outline-0 text-white font-bold italic caret-tulip-purple;
+		@apply bg-transparent border-none px-3 py-2 w-full outline-0 text-mist-grey font-bold italic 
+		caret-tulip-purple placeholder:text-white;
 	}
 </style>
