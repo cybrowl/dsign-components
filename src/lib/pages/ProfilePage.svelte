@@ -34,6 +34,11 @@
 		isProjectsSelected: true
 	};
 
+	let optionsPopover = {
+		edit: true,
+		delete: true
+	};
+
 	function handleProjectClick() {}
 </script>
 
@@ -114,6 +119,7 @@
 							{#each project_store.projects as project}
 								<ProjectCard
 									{project}
+									{optionsPopover}
 									showOptionsPopover={is_owner ? true : false}
 									on:clickProject={handleProjectClick}
 								/>

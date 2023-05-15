@@ -17,8 +17,8 @@
 	export let showUsername = false;
 	export let isMoveModal = false;
 	export let showOptionsPopover = false;
-	export let optionsPopoverHide = {
-		rename: false,
+	export let optionsPopover = {
+		edit: false,
 		delete: false
 	};
 
@@ -32,12 +32,12 @@
 		}
 	}
 
-	function clickRenameProject() {
-		dispatch('clickRenameProject', project);
+	function handleEditProject() {
+		dispatch('editProject', project);
 	}
 
-	function clickDeleteProject() {
-		dispatch('clickDeleteProject', project);
+	function handleDeleteProject() {
+		dispatch('deleteProject', project);
 	}
 </script>
 
@@ -64,7 +64,6 @@
 		{#if (mouseOverProjectCard || isOptionsPopoverOpen) && showOptionsPopover}
 			<span
 				class="options"
-				on:click={() => (isOptionsPopoverOpen = true)}
 				on:keypress={e => {
 					//TODO: need to design how this will work A11y
 				}}
@@ -72,6 +71,7 @@
 				<Icon
 					class="cursor_pointer fill_dark_grey hover_grey"
 					name="options"
+					on:click={() => (isOptionsPopoverOpen = true)}
 					viewSize={{
 						width: '40',
 						height: '40'
@@ -88,17 +88,17 @@
 					}}
 				>
 					<span>
-						{#if optionsPopoverHide.rename === false}
+						{#if optionsPopover.edit}
 							<button
-								on:click={clickRenameProject}
+								on:click={handleEditProject}
 								on:keypress={e => {
 									//TODO: need to design how this will work A11y
-								}}>Rename</button
+								}}>Edit</button
 							>
 						{/if}
-						{#if optionsPopoverHide.delete === false}
+						{#if optionsPopover.delete}
 							<button
-								on:click={clickDeleteProject}
+								on:click={handleDeleteProject}
 								on:keypress={e => {
 									//TODO: need to design how this will work A11y
 								}}>Delete</button
