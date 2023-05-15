@@ -3,7 +3,6 @@
 	import get from 'lodash/get';
 
 	export let images = [];
-	let mouseOverImg = false;
 
 	const setCover = selectedImage => {
 		images = images.map(image => {
@@ -15,22 +14,25 @@
 			return image;
 		});
 	};
+
+	// Add mouseOver property to each image
+	images = images.map(image => ({...image, mouseOver: false}));
 </script>
 
 {#each images as image (image.id)}
 	<span
 		class="container"
-		on:mouseenter={() => (mouseOverImg = true)}
-		on:mouseleave={() => (mouseOverImg = false)}
+		on:mouseenter={() => (image.mouseOver = true)}
+		on:mouseleave={() => (image.mouseOver = false)}
 	>
-		{#if mouseOverImg && get(image, 'cover', false) === true}
+		{#if image.mouseOver && get(image, 'cover', false) === true}
 			<Button
 				label="Cover"
 				disabled={true}
 				class="snap_creation_cover_active"
 			/>
 		{/if}
-		{#if mouseOverImg && get(image, 'cover', false) === false}
+		{#if image.mouseOver && get(image, 'cover', false) === false}
 			<Button
 				on:click={() => setCover(image)}
 				label="Cover"
