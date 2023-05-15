@@ -106,6 +106,10 @@
 		@apply ml-2 text-start gap-x-2;
 	}
 
+	.info p {
+		@apply text-sm;
+	}
+
 	.fileInput {
 		@apply invisible w-0 h-0 absolute;
 	}
