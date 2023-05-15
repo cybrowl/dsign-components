@@ -10,6 +10,7 @@
 	export let primaryDisabled = false;
 	export let secondaryDisabled = false;
 	export let tertiaryDisabled = false;
+	export let disable = false;
 
 	export let size = 'medium';
 	export let label = '';
@@ -37,7 +38,8 @@
 	disabled={primaryDisabled ||
 		secondaryDisabled ||
 		tertiaryDisabled ||
-		destroyDisabled}
+		destroyDisabled ||
+		disable}
 	class={['button', `button--${size}`, mode, $$props.class].join(' ')}
 	class:button--primary-disabled={primaryDisabled === true}
 	class:button--secondary-disabled={secondaryDisabled === true}
@@ -53,7 +55,7 @@
 
 <style lang="postcss">
 	.button {
-		@apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block leading-5 h-full;
+		@apply font-sans font-bold text-white rounded-md border-0 cursor-pointer inline-block leading-5 h-full max-h-12;
 	}
 	.button--primary {
 		@apply bg-tulip-purple;
@@ -102,5 +104,13 @@
 	}
 	.button--medium {
 		@apply px-4 py-2 text-base;
+	}
+
+	.snap_creation_cover_active {
+		@apply cursor-default absolute bottom-4 right-4 text-bubble-purple bg-backdrop;
+	}
+
+	.snap_creation_cover_disabled {
+		@apply cursor-pointer absolute bottom-4 right-4 text-grey bg-backdrop hover:bg-backdrop;
 	}
 </style>
