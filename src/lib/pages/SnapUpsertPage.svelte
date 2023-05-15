@@ -5,9 +5,9 @@
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 	import SnapUpsertActions from '../components/snap/SnapUpsertActions.svelte';
 	import Images from '../components/snap/Images.svelte';
+	import ImagesEmpty from '../components/snap/ImagesEmpty.svelte';
 
-	import get from 'lodash/get';
-	import set from 'lodash/set';
+	import {get, set, isEmpty} from 'lodash';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -86,8 +86,13 @@
 						</span>
 					</PageNavigation>
 				</div>
+
 				<div class="content_layout">
-					<Images images={snap_preview.images} />
+					{#if isEmpty(snap_preview.images)}
+						<ImagesEmpty content="Please add images" />
+					{:else}
+						<Images images={snap_preview.images} />
+					{/if}
 				</div>
 
 				<div class="actions_bar_layout">
