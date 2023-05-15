@@ -3,6 +3,7 @@
 	const dispatch = createEventDispatcher();
 
 	import isEmpty from 'lodash/isEmpty';
+	import get from 'lodash/get';
 
 	import Icon from '../basic_elements/Icon.svelte';
 
@@ -46,7 +47,7 @@
 
 <button class="attachDesignFile" on:click={triggerFileSelectionBrowser}>
 	<span class="container">
-		{#if file_asset.file_name}
+		{#if get(file_asset, 'file_name', '')}
 			<Icon
 				name="design_file_attached"
 				clickable={false}
@@ -55,7 +56,7 @@
 				size="4rem"
 			/>
 			<span class="info">
-				<h4>{file_asset.file_name}</h4>
+				<h4>{get(file_asset, 'file_name', '')}</h4>
 			</span>
 
 			<div class="close-icon-container">
