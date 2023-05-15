@@ -23,25 +23,28 @@
 		return result_base64;
 	}
 
-	function generatePreviewImgs() {
+	async function generatePreviewImgs() {
 		let snapImagesPreviewPromises = images.map(image => {
 			return readFileAsDataUrl(image);
 		});
 
-		Promise.all(snapImagesPreviewPromises).then(snap_base64_images => {
-			images = [];
-
-			console.log('snap_base64_images: ', snap_base64_images.length);
-			dispatch('addImages', snap_base64_images);
+		let unit8ArrayImagesPromises = images.map(async image => {
+			const arrayBuffer = await image.arrayBuffer();
+			return new Uint8Array(arrayBuffer);
 		});
+
+		let [snap_base64_images, images_unit8Arrays] = await Promise.all([
+			Promise.all(snapImagesPreviewPromises),
+			Promise.all(unit8ArrayImagesPromises)
+		]);
+
+		images = [];
+
+		dispatch('addImages', {snap_base64_images, images_unit8Arrays});
 	}
 
 	function handleAddImages(e) {
 		let files = e.target.files;
-
-		if (images.length > 12) {
-			return null;
-		}
 
 		const max_image_size = 2000000;
 
