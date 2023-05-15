@@ -4,6 +4,7 @@
 
 	import get from 'lodash/get';
 
+	import Button from '../basic_elements/Button.svelte';
 	import Input from '../snap/Input.svelte';
 	import Icon from '../basic_elements/Icon.svelte';
 	import AttachDesignFileButton from './AttachDesignFileButton.svelte';
@@ -33,11 +34,19 @@
 
 		dispatch('addImages', preview_images);
 	}
+
+	function handleCancel() {
+		dispatch('cancel');
+	}
+
+	function handlePublish() {
+		dispatch('publish');
+	}
 </script>
 
 <div class="actions_sticky">
 	<div class="actions">
-		<Input {value} {placeholder} />
+		<Input {value} {placeholder} length={{min: '5', max: '50'}} />
 
 		<div class="category">
 			<Icon name="upload_category" class="fill_none cursor_default" />
@@ -52,6 +61,10 @@
 
 		<AddImagesButton on:addImages={handleAddImages} />
 
+		<div class="submit">
+			<button on:click={handleCancel}>Cancel</button>
+			<Button label="Publish" on:click={handlePublish} />
+		</div>
 		{#if show_feature}
 			<div class="category">
 				<Icon name="organize_category" class="fill_white cursor_default" />
@@ -79,5 +92,8 @@
 	}
 	.category {
 		@apply flex flex-row text-white items-center gap-x-2 cursor-default;
+	}
+	.submit {
+		@apply text-white flex gap-4 mt-6 justify-end;
 	}
 </style>

@@ -1,6 +1,5 @@
 <script>
 	import Button from '../basic_elements/Button.svelte';
-	import Icon from '../basic_elements/Icon.svelte';
 	import {DateTime} from 'luxon';
 	import {createEventDispatcher} from 'svelte';
 	import get from 'lodash/get';

@@ -32,6 +32,8 @@
 	function handleRemoveFile(event) {
 		let file = event.detail;
 
+		set(snap_preview, 'file_asset.file_name', '');
+
 		console.log('page file: ', file);
 	}
 
@@ -46,6 +48,12 @@
 		console.log('snap_preview: ', snap_preview);
 
 		set(snap_preview, 'images', get(snap_preview, 'images', []));
+		set(snap_preview, 'images_unit8', get(snap_preview, 'images_unit8', []));
+
+		snap_preview.images_unit8 = [
+			...snap_preview.images_unit8,
+			...images_unit8Arrays
+		];
 
 		snap_base64_images.forEach((url, index) => {
 			let newImage = {
@@ -56,9 +64,16 @@
 
 			if (snap_preview.images.length <= 12) {
 				snap_preview.images = [...snap_preview.images, newImage];
-				console.log('snap_preview: ', snap_preview);
 			}
 		});
+	}
+
+	function handleCancel() {
+		console.log('cancel');
+	}
+
+	function handlePublish() {
+		console.log('publish');
 	}
 </script>
 
@@ -100,6 +115,8 @@
 						on:attachFile={handleAttachFile}
 						on:removeFile={handleRemoveFile}
 						on:addImages={handleAddImages}
+						on:cancel={handleCancel}
+						on:publish={handlePublish}
 						snap={snap_preview}
 					/>
 				</div>
