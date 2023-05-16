@@ -106,11 +106,10 @@
 		@apply px-4 py-2 text-base;
 	}
 
-	.snap_creation_cover_active {
-		@apply cursor-default absolute bottom-4 right-4 text-bubble-purple bg-backdrop;
+	.action_active {
+		@apply cursor-default text-bubble-purple bg-backdrop;
 	}
-
-	.snap_creation_cover_disabled {
-		@apply cursor-pointer absolute bottom-4 right-4 text-grey bg-backdrop hover:bg-backdrop;
+	.action_disabled {
+		@apply cursor-pointer text-grey bg-backdrop hover:bg-backdrop;
 	}
 </style>
