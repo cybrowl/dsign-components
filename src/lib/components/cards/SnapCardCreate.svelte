@@ -25,9 +25,9 @@
 			class={is_hovered
 				? 'cursor_pointer fill_primary_purple'
 				: 'cursor_pointer fill_castle_grey'}
-			viewSize={{width: '89', height: '89'}}
+			viewSize={{width: '64', height: '64'}}
 			clickable={false}
-			size="4rem"
+			size="3rem"
 		/>
 		<p>Publish a new snap</p>
 	</span>
