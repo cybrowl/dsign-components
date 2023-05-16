@@ -15,7 +15,7 @@
 	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
 
 	import {createEventDispatcher} from 'svelte';
-	import {isEmpty} from 'lodash';
+	import {isEmpty, get, map, set} from 'lodash';
 	const dispatch = createEventDispatcher();
 
 	// export let avatar = '';
@@ -29,7 +29,17 @@
 	// export let showOptionsPopover = false;
 	export let selectedTabState = {};
 
-	function handleSnapCreateModalOpen() {}
+	function deselectAllSnaps(snaps) {
+		return map(snaps, snap => ({...snap, isSelected: false}));
+	}
+
+	function handleToggleEditMode(e) {
+		isEditActive = get(e, 'detail', false);
+
+		const deselected_snaps = deselectAllSnaps(project.snaps);
+
+		project = {...project, snaps: deselected_snaps};
+	}
 </script>
 
 <main>
@@ -62,7 +72,10 @@
 				<div class="project_tabs_layout">
 					<ProjectTabs {selectedTabState} />
 					{#if selectedTabState.isSnapsSelected && is_owner}
-						<ProjectEditActionsBar {isEditActive} />
+						<ProjectEditActionsBar
+							{isEditActive}
+							on:toggleEditMode={handleToggleEditMode}
+						/>
 					{/if}
 				</div>
 				<div class="snaps_layout">
@@ -79,7 +92,7 @@
 
 					{#if is_owner && isEditActive === false}
 						<SnapCardCreate
-							on:clickSnapCardCreate={handleSnapCreateModalOpen}
+							on:clickSnapCardCreate={() => console.log('route /snap/upsert')}
 						/>
 					{/if}
 				</div>
