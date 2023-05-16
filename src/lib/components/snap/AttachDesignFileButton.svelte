@@ -28,6 +28,8 @@
 		} else {
 			file_too_large = false;
 
+			file_asset = {};
+
 			dispatch('attachFile', file);
 		}
 
