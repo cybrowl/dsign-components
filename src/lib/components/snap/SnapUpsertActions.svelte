@@ -56,7 +56,7 @@
 		<AttachDesignFileButton
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
-			file_asset={get(snap, 'file_asset')}
+			file_name={get(snap, 'file_asset.file_name', '')}
 		/>
 
 		<AddImagesButton on:addImages={handleAddImages} />

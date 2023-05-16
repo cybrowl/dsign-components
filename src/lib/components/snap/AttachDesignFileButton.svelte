@@ -3,17 +3,16 @@
 	const dispatch = createEventDispatcher();
 
 	import isEmpty from 'lodash/isEmpty';
-	import get from 'lodash/get';
 
 	import Icon from '../basic_elements/Icon.svelte';
 
-	export let file_asset = {};
+	let file_name = '';
 	let file_input_elem;
 	let file_too_large = false;
 	let file;
 
 	function triggerFileSelectionBrowser(e) {
-		if (isEmpty(file_asset)) {
+		if (isEmpty(file_name)) {
 			file_input_elem.click();
 		}
 	}
@@ -28,7 +27,7 @@
 		} else {
 			file_too_large = false;
 
-			file_asset = {};
+			file_name = file.name;
 
 			dispatch('attachFile', file);
 		}
@@ -37,7 +36,7 @@
 	}
 
 	async function handleRemoveFile() {
-		file_asset = {};
+		file_name = '';
 
 		dispatch('removeFile', file);
 	}
@@ -45,7 +44,7 @@
 
 <button class="attachDesignFile" on:click={triggerFileSelectionBrowser}>
 	<span class="container">
-		{#if get(file_asset, 'file_name', '')}
+		{#if file_name}
 			<Icon
 				name="design_file_attached"
 				clickable={false}
@@ -54,7 +53,7 @@
 				size="4rem"
 			/>
 			<span class="info">
-				<h4>{get(file_asset, 'file_name', '')}</h4>
+				<h4>{file_name}</h4>
 			</span>
 
 			<div class="close-icon-container">

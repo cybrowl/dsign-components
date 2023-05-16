@@ -17,14 +17,14 @@
 	export let modal_visible = {};
 	export let is_authenticated = false;
 	export let navigationItems;
-	export let snap_preview = {};
+	export let snap_creation = {};
 
 	async function handleAttachFile(event) {
 		let file = event.detail;
 
 		let file_array_buffer = file && new Uint8Array(await file.arrayBuffer());
 
-		snap_preview = {...snap_preview, file_asset: {file_name: file.name}};
+		snap_creation = {...snap_creation, file_asset: {file_name: file.name}};
 
 		console.log('page: file: ', file_array_buffer);
 	}
@@ -32,7 +32,7 @@
 	function handleRemoveFile(event) {
 		let file = event.detail;
 
-		set(snap_preview, 'file_asset', {});
+		set(snap_creation, 'file_asset', {});
 
 		console.log('page file: ', file);
 	}
@@ -44,9 +44,9 @@
 	function handleAddImages(event) {
 		let {snap_base64_images, images_unit8Arrays} = event.detail;
 
-		snap_preview = {
-			...snap_preview,
-			images: snap_preview.images || []
+		snap_creation = {
+			...snap_creation,
+			images: snap_creation.images || []
 		};
 
 		snap_base64_images.forEach((url, index) => {
@@ -57,12 +57,12 @@
 				data: images_unit8Arrays[index]
 			};
 
-			if (snap_preview.images.length < 12) {
-				snap_preview.images = [...snap_preview.images, newImage];
+			if (snap_creation.images.length < 12) {
+				snap_creation.images = [...snap_creation.images, newImage];
 			}
 		});
 
-		console.log('snap_preview: ', snap_preview);
+		console.log('snap_creation: ', snap_creation);
 	}
 
 	function handleCancel() {
@@ -76,9 +76,9 @@
 	function handleRemove(event) {
 		const image_id = event.detail;
 
-		snap_preview = {
-			...snap_preview,
-			images: snap_preview.images.filter(image => image.id !== image_id)
+		snap_creation = {
+			...snap_creation,
+			images: snap_creation.images.filter(image => image.id !== image_id)
 		};
 	}
 </script>
@@ -109,10 +109,10 @@
 				</div>
 
 				<div class="content_layout">
-					{#if isEmpty(snap_preview.images)}
+					{#if isEmpty(snap_creation.images)}
 						<ImagesEmpty content="Please add images" />
 					{:else}
-						<Images images={snap_preview.images} on:remove={handleRemove} />
+						<Images images={snap_creation.images} on:remove={handleRemove} />
 					{/if}
 				</div>
 
@@ -123,7 +123,7 @@
 						on:addImages={handleAddImages}
 						on:cancel={handleCancel}
 						on:publish={handlePublish}
-						snap={snap_preview}
+						snap={snap_creation}
 					/>
 				</div>
 			</div>
