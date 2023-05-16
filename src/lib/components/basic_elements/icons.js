@@ -433,3 +433,9 @@ id="clip0_103_1908">
 </clipPath>
 </defs>
 `;
+
+export const snap_creation_v2 = `<rect width="64" height="64" rx="32" fill="none"/>
+<path d="M32 58.6666C46.7276 58.6666 58.6666 46.7276 58.6666 32C58.6666 17.2724 46.7276 5.33331 
+32 5.33331C17.2724 5.33331 5.33331 17.2724 5.33331 32C5.33331 46.7276 17.2724 58.6666 32 58.6666Z" 
+stroke="#DBD8FF" stroke-width="2"/>
+<path d="M40 32H32M32 32H24M32 32V24M32 32V40" stroke="#DBD8FF" stroke-width="2" stroke-linecap="round"/>`;

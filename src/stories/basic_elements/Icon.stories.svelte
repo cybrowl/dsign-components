@@ -167,6 +167,20 @@
 />
 
 <Story
+	name="snap_creation_v2"
+	args={{
+		name: 'snap_creation_v2',
+		class: 'cursor_pointer fill_castle_grey',
+		viewSize: {
+			width: '89',
+			height: '89'
+		},
+		size: '6rem',
+		scale: 1
+	}}
+/>
+
+<Story
 	name="project_empty"
 	args={{
 		name: 'project_empty',
