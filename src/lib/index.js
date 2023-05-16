@@ -29,6 +29,7 @@ export {default as ProfileTabs} from './components/profile/ProfileTabs.svelte';
 export {default as ProjectEditActionsBar} from './components/project/ProjectEditActionsBar.svelte';
 export {default as ProjectInfo} from './components/project/ProjectInfo.svelte';
 export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
+export {default as ComingSoon} from './components/project/ComingSoon.svelte';
 
 // snap
 export {default as SnapInfo} from './components/snap/SnapInfo.svelte';

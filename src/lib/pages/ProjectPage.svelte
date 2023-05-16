@@ -13,6 +13,7 @@
 	import ProjectTabs from '../components/project/ProjectTabs.svelte';
 	import ProjectInfo from '../components/project/ProjectInfo.svelte';
 	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
+	import ComingSoon from '../components/project/ComingSoon.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	import {isEmpty, get, map, set} from 'lodash';
@@ -79,21 +80,28 @@
 					{/if}
 				</div>
 				<div class="snaps_layout">
-					{#if isEmpty(project.snaps)}
-						<CardEmpty
-							name="snap_empty"
-							content="No snaps found"
-							view_size={{width: '64', height: '64'}}
-						/>
-					{/if}
-					{#each project.snaps as snap}
-						<SnapCard {snap} isEditMode={isEditActive} />
-					{/each}
+					{#if selectedTabState.isSnapsSelected}
+						{#if isEmpty(project.snaps)}
+							<CardEmpty
+								name="snap_empty"
+								content="No snaps found"
+								view_size={{width: '64', height: '64'}}
+							/>
+						{/if}
+						{#each project.snaps as snap}
+							<SnapCard {snap} isEditMode={isEditActive} />
+						{/each}
 
-					{#if is_owner && isEditActive === false}
-						<SnapCardCreate
-							on:clickSnapCardCreate={() => console.log('route /snap/upsert')}
-						/>
+						{#if is_owner && isEditActive === false}
+							<SnapCardCreate
+								on:clickSnapCardCreate={() => console.log('route /snap/upsert')}
+							/>
+						{/if}
+					{/if}
+					{#if selectedTabState.isRecsSelected}
+						<div class="coming_soon_layout">
+							<ComingSoon />
+						</div>
 					{/if}
 				</div>
 			</div>
@@ -123,6 +131,9 @@
 		@apply col-start-1 col-end-13 items-center justify-between row-start-3 row-end-auto mt-12 mb-6;
 	}
 	.snaps_layout {
-		@apply hidden lg:grid col-start-1 col-end-13 grid-cols-4 row-start-4 row-end-auto gap-x-6 gap-y-12 mb-16;
+		@apply hidden lg:grid grid-cols-4 col-start-1 col-end-13  row-start-4 row-end-auto gap-x-6 gap-y-12 mb-16;
+	}
+	.coming_soon_layout {
+		@apply grid col-start-3 col-end-13 row-start-4 row-end-auto;
 	}
 </style>

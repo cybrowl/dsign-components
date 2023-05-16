@@ -146,3 +146,20 @@
 		}
 	}}
 />
+
+<Story
+	name="Recs Selected"
+	args={{
+		avatar_nav:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		project: {...project, tags: []},
+		selectedTabState: {
+			isChangesSelected: false,
+			isRecsSelected: true,
+			isSnapsSelected: false
+		}
+	}}
+/>
