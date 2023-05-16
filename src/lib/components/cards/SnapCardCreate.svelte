@@ -35,7 +35,7 @@
 
 <style lang="postcss">
 	.snapCardCreate {
-		@apply bg-black-a w-full max-w-xs h-56 border border-castle-grey rounded text-cloud-purple
+		@apply bg-black-a w-full max-w-xs h-56 border border-castle-grey rounded text-moon-grey
         flex justify-center items-center drop-shadow-md cursor-pointer;
 	}
 	.snapCardCreate span {
