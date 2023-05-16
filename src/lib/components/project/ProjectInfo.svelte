@@ -10,8 +10,6 @@
 	export let isFetching = false;
 
 	function saveToFavorites() {
-		project.metrics.likes = Number(project.metrics.likes) + 1;
-
 		project.likeActive = true;
 
 		dispatch('saveToFavorites', project);
@@ -29,21 +27,15 @@
 		</span>
 		<div class="heading">
 			<h1>{get(project, 'name', '')}</h1>
-			<span
+			<Icon
+				name="favorite"
+				size="3rem"
+				scale="1"
+				class={get(project, 'likeActive', false)
+					? 'cursor_pointer fill_primary_purple'
+					: 'cursor_pointer fill_none'}
 				on:click={saveToFavorites}
-				on:keypress={e => {
-					//TODO: need to design how this will work A11y
-				}}
-			>
-				<Icon
-					name="favorite"
-					size="3rem"
-					scale="1"
-					class={get(project, 'likeActive', false)
-						? 'cursor_pointer fill_primary_purple'
-						: 'cursor_pointer fill_none'}
-				/>
-			</span>
+			/>
 		</div>
 		<h2>{get(project, 'description', '')}</h2>
 		<div class="projectTags">
