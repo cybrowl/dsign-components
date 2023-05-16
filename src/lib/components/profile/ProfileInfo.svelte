@@ -9,55 +9,40 @@
 
 	const dispatch = createEventDispatcher();
 
-	function editProfile() {
+	function handleEditProfile() {
 		dispatch('editProfile');
 	}
 </script>
 
-{#if avatar.length > 3}
-	<div class="profileInfoContainer">
-		<div class="profileInfo">
+<div class="profileInfoContainer">
+	<div class="profileInfo">
+		{#if avatar.length > 3}
 			<div class="cropAvatar">
 				<img alt="avatar" class="avatarImg" src={avatar} />
 			</div>
-			<p>{username}</p>
-
-			{#if is_owner}
-				<Button
-					tertiary={true}
-					label="Edit Profile"
-					on:click={editProfile}
-					on:keypress={e => {
-						//TODO: need to design how this will work A11y
-					}}
-				/>
-			{/if}
-		</div>
-	</div>
-{:else}
-	<div class="profileInfoContainer">
-		<div class="profileInfo">
+		{:else}
 			<div class="avatarUsername">
 				<p>
 					{username.charAt(0)}
 					{username.charAt(username.length - 1)}
 				</p>
 			</div>
-			<p>{username}</p>
+		{/if}
 
-			{#if is_owner}
-				<Button
-					tertiary={true}
-					label="Edit Profile"
-					on:click={editProfile}
-					on:keypress={e => {
-						//TODO: need to design how this will work A11y
-					}}
-				/>
-			{/if}
-		</div>
+		<p>{username}</p>
+
+		{#if is_owner}
+			<Button
+				tertiary={true}
+				label="Edit Profile"
+				on:click={handleEditProfile}
+				on:keypress={e => {
+					//TODO: need to design how this will work A11y
+				}}
+			/>
+		{/if}
 	</div>
-{/if}
+</div>
 
 <style lang="postcss">
 	.profileInfoContainer {
@@ -65,11 +50,7 @@
 	}
 
 	.profileInfo {
-		@apply flex flex-col items-center gap-y-2 font-sans text-white;
-	}
-
-	.profileInfo p {
-		@apply text-xl;
+		@apply flex flex-col items-center gap-y-2 font-sans text-white text-xl;
 	}
 
 	.cropAvatar {
@@ -78,15 +59,11 @@
 
 	.avatarUsername {
 		@apply relative font-sans font-bold w-40 h-40 flex justify-center items-center
-		bg-neutral-900 text-white uppercase cursor-pointer;
-	}
-
-	.avatarUsername p {
-		@apply text-4xl;
+		bg-neutral-900 text-white uppercase cursor-pointer text-4xl;
 	}
 
 	.avatarImg {
-		@apply bg-transparent rounded-md w-40 max-h-40;
+		@apply bg-transparent rounded-md w-40 max-h-40 object-cover;
 		clip-path: inset(0 0 0 0 round 0);
 	}
 </style>

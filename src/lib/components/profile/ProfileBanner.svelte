@@ -11,8 +11,6 @@
 
 	function handleEditProfileBanner(event) {
 		fileinput.click();
-
-		dispatch('editProfileBanner', event);
 	}
 
 	function handleFileSelection(e) {
