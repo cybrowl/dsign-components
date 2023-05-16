@@ -6,30 +6,34 @@
 	import Icon from '../basic_elements/Icon.svelte';
 
 	export let profile_banner_url = '';
-	export let is_authenticated = false;
+	export let is_owner = false;
 	let fileinput;
 
-	function editProfileBanner(event) {
+	function handleEditProfileBanner(event) {
 		fileinput.click();
 
 		dispatch('editProfileBanner', event);
 	}
 
-	const onFileSelected = e => {
-		let files = e.target.files;
+	function handleFileSelection(e) {
+		const maxSize = 2 * 1024 * 1024; // 2 MB
+		const file = e.target.files[0];
 
-		dispatch('profileBannerChange', files);
-	};
+		if (file.size <= maxSize) {
+			dispatch('profileBannerChange', file);
+		} else {
+			dispatch('error', 'Max Img File Size 2MB');
+		}
+	}
 </script>
 
 <div class="profileBanner">
 	{#if profile_banner_url.length > 0}
 		<img src={profile_banner_url} alt="profile banner" />
 	{/if}
-	{#if is_authenticated}
+	{#if is_owner}
 		<span
-			class="editProfileBanner"
-			on:click={editProfileBanner}
+			class="editIcon"
 			on:keypress={e => {
 				//TODO: need to design how this will work A11y
 			}}
@@ -37,6 +41,7 @@
 			<Icon
 				class="cursor_pointer fill_dark_grey hover_tulip_purple"
 				name="edit"
+				on:click={handleEditProfileBanner}
 				size="2.5rem"
 			/>
 		</span>
@@ -44,8 +49,8 @@
 			class="input"
 			type="file"
 			multiple={false}
-			accept=".jpg, .jpeg, .png, .gif"
-			on:change={e => onFileSelected(e)}
+			accept=".jpg, .jpeg, .png, .gif, .webp"
+			on:change={e => handleFileSelection(e)}
 			bind:this={fileinput}
 		/>
 	{/if}
@@ -55,11 +60,11 @@
 	.profileBanner {
 		@apply relative h-64 w-full object-cover rounded bg-black-a;
 	}
-	.editProfileBanner {
-		@apply absolute top-0 right-0 p-2 rounded;
-	}
 	.profileBanner img {
 		@apply object-cover h-full w-full rounded;
+	}
+	.editIcon {
+		@apply absolute top-0 right-0 p-2 rounded;
 	}
 	.input {
 		@apply invisible w-0 h-0;
