@@ -3,6 +3,9 @@
 	import Icon from '../basic_elements/Icon.svelte';
 	import get from 'lodash/get';
 
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let images = [];
 
 	const setCover = selectedImage => {
@@ -16,8 +19,11 @@
 		});
 	};
 
-	// Add mouseOver property to each image
 	images = images.map(image => ({...image, mouseOver: false}));
+
+	function handleRemove(imageId) {
+		dispatch('remove', imageId);
+	}
 </script>
 
 {#each images as image (image.id)}
@@ -34,20 +40,21 @@
 						clickable={true}
 						size="2rem"
 						class="cursor_pointer fill_dark_grey hover_primary_purple"
+						on:click={() => handleRemove(image.id)}
 						viewSize={{width: '40', height: '40'}}
 					/>
-				{/if}
 
-				{#if image.mouseOver && get(image, 'cover', false) === true}
-					<Button label="Cover" class="action_active" disabled={true} />
-				{/if}
+					{#if get(image, 'cover', false) === true}
+						<Button label="Cover" class="action_active" disabled={true} />
+					{/if}
 
-				{#if image.mouseOver && get(image, 'cover', false) === false}
-					<Button
-						label="Cover"
-						class="action_disabled"
-						on:click={() => setCover(image)}
-					/>
+					{#if get(image, 'cover', false) === false}
+						<Button
+							label="Cover"
+							class="action_disabled"
+							on:click={() => setCover(image)}
+						/>
+					{/if}
 				{/if}
 			</div>
 		</span>

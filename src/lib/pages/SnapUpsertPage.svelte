@@ -24,7 +24,7 @@
 
 		let file_array_buffer = file && new Uint8Array(await file.arrayBuffer());
 
-		set(snap_preview, 'file_asset.file_name', file.name);
+		snap_preview = {...snap_preview, file_asset: {file_name: file.name}};
 
 		console.log('page: file: ', file_array_buffer);
 	}
@@ -32,7 +32,7 @@
 	function handleRemoveFile(event) {
 		let file = event.detail;
 
-		set(snap_preview, 'file_asset.file_name', '');
+		set(snap_preview, 'file_asset', {});
 
 		console.log('page file: ', file);
 	}
@@ -44,28 +44,25 @@
 	function handleAddImages(event) {
 		let {snap_base64_images, images_unit8Arrays} = event.detail;
 
-		console.log('page: images_unit8Arrays: ', images_unit8Arrays);
-		console.log('snap_preview: ', snap_preview);
-
-		set(snap_preview, 'images', get(snap_preview, 'images', []));
-		set(snap_preview, 'images_unit8', get(snap_preview, 'images_unit8', []));
-
-		snap_preview.images_unit8 = [
-			...snap_preview.images_unit8,
-			...images_unit8Arrays
-		];
+		snap_preview = {
+			...snap_preview,
+			images: snap_preview.images || []
+		};
 
 		snap_base64_images.forEach((url, index) => {
 			let newImage = {
 				canister_id: '',
 				id: generateId(),
-				url: url
+				url: url,
+				data: images_unit8Arrays[index]
 			};
 
-			if (snap_preview.images.length <= 12) {
+			if (snap_preview.images.length < 12) {
 				snap_preview.images = [...snap_preview.images, newImage];
 			}
 		});
+
+		console.log('snap_preview: ', snap_preview);
 	}
 
 	function handleCancel() {
@@ -74,6 +71,15 @@
 
 	function handlePublish() {
 		console.log('publish');
+	}
+
+	function handleRemove(event) {
+		const image_id = event.detail;
+
+		snap_preview = {
+			...snap_preview,
+			images: snap_preview.images.filter(image => image.id !== image_id)
+		};
 	}
 </script>
 
@@ -106,7 +112,7 @@
 					{#if isEmpty(snap_preview.images)}
 						<ImagesEmpty content="Please add images" />
 					{:else}
-						<Images images={snap_preview.images} />
+						<Images images={snap_preview.images} on:remove={handleRemove} />
 					{/if}
 				</div>
 

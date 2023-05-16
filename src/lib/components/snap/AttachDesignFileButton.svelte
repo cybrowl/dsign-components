@@ -28,10 +28,6 @@
 		} else {
 			file_too_large = false;
 
-			file_asset = {
-				file_name: file.name
-			};
-
 			dispatch('attachFile', file);
 		}
 
