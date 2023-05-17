@@ -11,11 +11,11 @@
 	import AddImagesButton from './AddImagesButton.svelte';
 
 	export let snap = {};
+	export let is_publishing = false;
 
 	let snap_name = '';
 	let placeholder = 'Add a name to your snap';
 	let has_error = false;
-	let has_images = false;
 	let images_empty_error = false;
 
 	const show_feature = false;
@@ -89,7 +89,11 @@
 
 		<div class="submit">
 			<button on:click={handleCancel}>Cancel</button>
-			<Button label="Publish" on:click={handlePublish} />
+			<Button
+				label="Publish"
+				on:click={handlePublish}
+				primaryDisabled={is_publishing}
+			/>
 		</div>
 
 		{#if show_feature}
