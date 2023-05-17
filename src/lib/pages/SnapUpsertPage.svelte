@@ -76,6 +76,12 @@
 		console.log('publish', {snap_name});
 	}
 
+	function handleSelectCover(event) {
+		const cover_img = event.detail;
+
+		console.log('cover_img', cover_img);
+	}
+
 	function handleRemove(event) {
 		const image_id = event.detail;
 
@@ -115,7 +121,11 @@
 					{#if isEmpty(snap_creation.images)}
 						<ImagesEmpty content="Please add images" />
 					{:else}
-						<Images images={snap_creation.images} on:remove={handleRemove} />
+						<Images
+							images={snap_creation.images}
+							on:remove={handleRemove}
+							on:selectCover={handleSelectCover}
+						/>
 					{/if}
 				</div>
 

@@ -12,6 +12,8 @@
 		images = images.map(image => {
 			if (image === selectedImage) {
 				image.cover = true;
+
+				dispatch('selectCover', image);
 			} else {
 				image.cover = false;
 			}
