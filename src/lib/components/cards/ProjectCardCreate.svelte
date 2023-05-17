@@ -5,30 +5,30 @@
 	const dispatch = createEventDispatcher();
 	let is_hovered = false;
 
-	function clickProjectCardCreate(event) {
-		dispatch('clickProjectCardCreate', event);
+	function handleProjectCreation(event) {
+		dispatch('createProject', event);
 	}
 
 	function handleKeyPress(e) {
 		if (e.key === 'Enter' || e.key === ' ') {
-			clickProjectCardCreate(e);
+			handleProjectCreation(e);
 		}
 	}
 </script>
 
-<div
+<button
 	class="projectCardCreate"
-	on:click={clickProjectCardCreate}
+	on:click={handleProjectCreation}
 	on:mouseenter={() => (is_hovered = true)}
 	on:mouseleave={() => (is_hovered = false)}
 	on:keydown={handleKeyPress}
 	tabindex="0"
-	role="button"
 	aria-label="Start a new project"
 >
 	<span>
 		<Icon
 			name="project_creation"
+			clickable={false}
 			class={is_hovered
 				? 'cursor_pointer fill_primary_purple'
 				: 'cursor_pointer fill_castle_grey'}
@@ -37,12 +37,12 @@
 		/>
 		<p>Start a new project</p>
 	</span>
-</div>
+</button>
 
 <style lang="postcss">
 	.projectCardCreate {
-		@apply bg-black-a w-full max-w-xs border border-castle-grey rounded h-60
-        flex justify-center drop-shadow-md cursor-pointer text-moon-grey font-sans mb-12;
+		@apply bg-black-a w-full max-w-xs h-56 border border-castle-grey rounded text-moon-grey
+        flex justify-center items-center drop-shadow-md cursor-pointer;
 	}
 	.projectCardCreate:hover {
 		@apply border-primary-purple text-primary-purple;
