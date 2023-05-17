@@ -9,6 +9,7 @@ export {default as Icon} from './components/basic_elements/Icon.svelte';
 export {default as Input} from './components/basic_elements/Input.svelte';
 export {default as Modal} from './components/basic_elements/Modal.svelte';
 export {default as Notification} from './components/basic_elements/Notification.svelte';
+export {default as LoadingSpinner} from './components/basic_elements/LoadingSpinner.svelte';
 
 // cards
 export {default as CardEmpty} from './components/cards/CardEmpty.svelte';
