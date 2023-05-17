@@ -7,6 +7,8 @@
 	let images = [];
 	let error_message = '';
 
+	export let images_empty_error = false;
+
 	let file_img_input_elem;
 
 	function triggerFileSelectionBrowser(e) {
@@ -50,6 +52,7 @@
 		images = [];
 
 		dispatch('addImages', {img_data_urls, images_unit8Arrays});
+		dispatch('error');
 	}
 
 	function handleAddImages(e) {
@@ -82,7 +85,7 @@
 			size="3rem"
 		/>
 		<span class="info">
-			<h4>Add Images</h4>
+			<h4 class:error={images_empty_error === true}>Add Images</h4>
 			<p>Max. 2 MB</p>
 			<p>Max. # 12</p>
 		</span>
@@ -113,6 +116,10 @@
 
 	.info p {
 		@apply text-sm text-start;
+	}
+
+	.error {
+		@apply text-mute-red;
 	}
 
 	.imgsInput {

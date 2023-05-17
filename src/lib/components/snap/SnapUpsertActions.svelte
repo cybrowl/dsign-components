@@ -15,6 +15,8 @@
 	let snap_name = '';
 	let placeholder = 'Add a name to your snap';
 	let has_error = false;
+	let has_images = false;
+	let images_empty_error = false;
 
 	const show_feature = false;
 
@@ -33,6 +35,8 @@
 	function handleAddImages(event) {
 		let preview_images = event.detail;
 
+		has_images = preview_images.length > 0 ? true : false;
+
 		dispatch('addImages', preview_images);
 	}
 
@@ -41,13 +45,17 @@
 	}
 
 	function handlePublish() {
-		if (snap_name.length < 1) {
+		if (!snap_name.length) {
 			has_error = true;
 		}
 
-		dispatch('publish', {
-			snap_name: snap_name
-		});
+		if (!has_images) {
+			images_empty_error = true;
+		}
+
+		if (has_images && snap_name.length) {
+			dispatch('publish', {snap_name});
+		}
 	}
 </script>
 
@@ -70,7 +78,13 @@
 		/>
 
 		<div class="img_actions">
-			<AddImagesButton on:addImages={handleAddImages} />
+			<AddImagesButton
+				on:addImages={handleAddImages}
+				{images_empty_error}
+				on:error={() => {
+					images_empty_error = false;
+				}}
+			/>
 		</div>
 
 		<div class="submit">
