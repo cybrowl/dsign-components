@@ -86,7 +86,7 @@
 <input
 	class="fileInput"
 	type="file"
-	accept=".fig, .sketch"
+	accept=".fig"
 	on:change={e => handleAttachFile(e)}
 	bind:this={file_input_elem}
 />
