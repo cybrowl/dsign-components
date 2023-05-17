@@ -2,6 +2,7 @@
 	import Avatar from '../components/basic_elements/Avatar.svelte';
 	import Button from '../components/basic_elements/Button.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
+	import LoadingSpinner from '../components/basic_elements/LoadingSpinner.svelte';
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
 	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
@@ -25,6 +26,7 @@
 	export let is_authenticated = false;
 	export let project = {};
 	export let is_owner = false;
+	export let isFetching = false;
 	export let isEditActive = false;
 	export const navigationItems = [];
 	// export let showOptionsPopover = false;
@@ -67,43 +69,53 @@
 						</span>
 					</PageNavigation>
 				</div>
-				<div class="project_info_layout">
-					<ProjectInfo {project} />
-				</div>
-				<div class="project_tabs_layout">
-					<ProjectTabs {selectedTabState} />
-					{#if selectedTabState.isSnapsSelected && is_owner}
-						<ProjectEditActionsBar
-							{isEditActive}
-							on:toggleEditMode={handleToggleEditMode}
-						/>
-					{/if}
-				</div>
-				<div class="snaps_layout">
-					{#if selectedTabState.isSnapsSelected}
-						{#if isEmpty(project.snaps)}
-							<CardEmpty
-								name="snap_empty"
-								content="No snaps found"
-								view_size={{width: '64', height: '64'}}
-							/>
-						{/if}
-						{#each project.snaps as snap}
-							<SnapCard {snap} isEditMode={isEditActive} />
-						{/each}
 
-						{#if is_owner && isEditActive === false}
-							<SnapCardCreate
-								on:clickSnapCardCreate={() => console.log('route /snap/upsert')}
-							/>
-						{/if}
-					{/if}
-					{#if selectedTabState.isRecsSelected}
-						<div class="coming_soon_layout">
-							<ComingSoon />
-						</div>
+				<div class="loading_layout">
+					{#if isFetching === true}
+						<LoadingSpinner />
 					{/if}
 				</div>
+
+				{#if isFetching === false}
+					<div class="project_info_layout">
+						<ProjectInfo {project} />
+					</div>
+					<div class="project_tabs_layout">
+						<ProjectTabs {selectedTabState} />
+						{#if selectedTabState.isSnapsSelected && is_owner}
+							<ProjectEditActionsBar
+								{isEditActive}
+								on:toggleEditMode={handleToggleEditMode}
+							/>
+						{/if}
+					</div>
+					<div class="snaps_layout">
+						{#if selectedTabState.isSnapsSelected}
+							{#if isEmpty(project.snaps)}
+								<CardEmpty
+									name="snap_empty"
+									content="No snaps found"
+									view_size={{width: '64', height: '64'}}
+								/>
+							{/if}
+							{#each project.snaps as snap}
+								<SnapCard {snap} isEditMode={isEditActive} />
+							{/each}
+
+							{#if is_owner && isEditActive === false}
+								<SnapCardCreate
+									on:clickSnapCardCreate={() =>
+										console.log('route /snap/upsert')}
+								/>
+							{/if}
+						{/if}
+						{#if selectedTabState.isRecsSelected}
+							<div class="coming_soon_layout">
+								<ComingSoon />
+							</div>
+						{/if}
+					</div>
+				{/if}
 			</div>
 		</body>
 	</html>
@@ -123,6 +135,12 @@
 	}
 	.navigation_main_layout span {
 		@apply flex gap-x-3 cursor-pointer;
+	}
+	.loading_layout {
+		@apply fixed z-30;
+		top: 42%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 	.project_info_layout {
 		@apply relative col-start-1 col-end-13 row-start-2 row-end-auto;
