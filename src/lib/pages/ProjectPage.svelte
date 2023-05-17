@@ -131,7 +131,7 @@
 		@apply col-start-1 col-end-13 items-center justify-between row-start-3 row-end-auto mt-12 mb-6;
 	}
 	.snaps_layout {
-		@apply hidden lg:grid grid-cols-4 col-start-1 col-end-13  row-start-4 row-end-auto gap-x-6 gap-y-12 mb-16;
+		@apply hidden lg:grid grid-cols-4 row-start-4 row-end-auto col-start-1 col-end-13 gap-x-6 gap-y-12 mb-16;
 	}
 	.coming_soon_layout {
 		@apply grid col-start-3 col-end-13 row-start-4 row-end-auto;

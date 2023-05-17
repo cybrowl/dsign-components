@@ -12,7 +12,7 @@
 
 	export let snap = {};
 
-	let value;
+	let snap_name = '';
 	let placeholder = 'Add a name to your snap';
 
 	const show_feature = false;
@@ -40,13 +40,15 @@
 	}
 
 	function handlePublish() {
-		dispatch('publish');
+		dispatch('publish', {
+			snap_name: snap_name
+		});
 	}
 </script>
 
 <div class="actions_sticky">
 	<div class="actions">
-		<Input {value} {placeholder} length={{min: '5', max: '50'}} />
+		<Input value={snap_name} {placeholder} length={{min: '5', max: '50'}} />
 
 		<div class="category">
 			<Icon name="upload_category" class="fill_none cursor_default" />

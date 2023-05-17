@@ -13,19 +13,28 @@
 		file_img_input_elem.click();
 	}
 
-	async function readFileAsDataUrl(file) {
-		let result_base64 = await new Promise(resolve => {
+	async function convertFileToDataUrl(file) {
+		let dataUrl = await new Promise(resolve => {
 			let fileReader = new FileReader();
-			fileReader.onload = e => resolve(fileReader.result);
+
+			fileReader.onload = event => {
+				resolve(fileReader.result);
+			};
+
 			fileReader.readAsDataURL(file);
 		});
 
-		return result_base64;
+		let splitDataUrl = dataUrl.split(',');
+
+		let mimeType = splitDataUrl[0].split(':')[1].split(';')[0];
+		// let base64Data = splitDataUrl[1];
+
+		return {dataUrl: dataUrl, mimeType: mimeType};
 	}
 
 	async function generatePreviewImgs() {
-		let snapImagesPreviewPromises = images.map(image => {
-			return readFileAsDataUrl(image);
+		let fileDataUrlsPromises = images.map(image => {
+			return convertFileToDataUrl(image);
 		});
 
 		let unit8ArrayImagesPromises = images.map(async image => {
@@ -33,14 +42,14 @@
 			return new Uint8Array(arrayBuffer);
 		});
 
-		let [snap_base64_images, images_unit8Arrays] = await Promise.all([
-			Promise.all(snapImagesPreviewPromises),
+		let [img_data_urls, images_unit8Arrays] = await Promise.all([
+			Promise.all(fileDataUrlsPromises),
 			Promise.all(unit8ArrayImagesPromises)
 		]);
 
 		images = [];
 
-		dispatch('addImages', {snap_base64_images, images_unit8Arrays});
+		dispatch('addImages', {img_data_urls, images_unit8Arrays});
 	}
 
 	function handleAddImages(e) {

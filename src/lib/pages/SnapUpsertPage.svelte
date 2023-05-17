@@ -42,18 +42,19 @@
 	}
 
 	function handleAddImages(event) {
-		let {snap_base64_images, images_unit8Arrays} = event.detail;
+		let {img_data_urls, images_unit8Arrays} = event.detail;
 
 		snap_creation = {
 			...snap_creation,
 			images: snap_creation.images || []
 		};
 
-		snap_base64_images.forEach((url, index) => {
+		img_data_urls.forEach(({dataUrl, mimeType}, index) => {
 			let newImage = {
 				canister_id: '',
 				id: generateId(),
-				url: url,
+				url: dataUrl,
+				mimeType,
 				data: images_unit8Arrays[index]
 			};
 
