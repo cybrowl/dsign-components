@@ -83,8 +83,8 @@
 		/>
 		<span class="info">
 			<h4>Add Images</h4>
-			<p>Max. img size 2 MB</p>
-			<p>Max. # imgs 12</p>
+			<p>Max. 2 MB</p>
+			<p>Max. # 12</p>
 		</span>
 	</span>
 </button>
@@ -100,11 +100,11 @@
 
 <style lang="postcss">
 	.addImages {
-		@apply font-sans text-white bg-black-a h-36 w-44 rounded-md hover:bg-dark-grey;
+		@apply font-sans text-white bg-black-a h-36 w-full rounded-md hover:bg-dark-grey;
 	}
 
 	.container {
-		@apply flex flex-col items-center pl-6 pr-6;
+		@apply flex flex-col items-center pl-4 pr-4;
 	}
 
 	.info {
@@ -112,7 +112,7 @@
 	}
 
 	.info p {
-		@apply text-sm;
+		@apply text-sm text-start;
 	}
 
 	.imgsInput {

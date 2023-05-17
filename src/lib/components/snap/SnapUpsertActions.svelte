@@ -14,6 +14,7 @@
 
 	let snap_name = '';
 	let placeholder = 'Add a name to your snap';
+	let has_error = false;
 
 	const show_feature = false;
 
@@ -40,6 +41,10 @@
 	}
 
 	function handlePublish() {
+		if (snap_name.length < 1) {
+			has_error = true;
+		}
+
 		dispatch('publish', {
 			snap_name: snap_name
 		});
@@ -51,13 +56,12 @@
 		<Input
 			bind:value={snap_name}
 			{placeholder}
+			{has_error}
 			length={{min: '5', max: '50'}}
+			on:error={() => {
+				has_error = false;
+			}}
 		/>
-
-		<div class="category">
-			<Icon name="upload_category" class="fill_none cursor_default" />
-			<h3>Upload</h3>
-		</div>
 
 		<AttachDesignFileButton
 			on:attachFile={handleAttachFile}
@@ -65,12 +69,15 @@
 			file_name={get(snap, 'file_asset.file_name', '')}
 		/>
 
-		<AddImagesButton on:addImages={handleAddImages} />
+		<div class="img_actions">
+			<AddImagesButton on:addImages={handleAddImages} />
+		</div>
 
 		<div class="submit">
 			<button on:click={handleCancel}>Cancel</button>
 			<Button label="Publish" on:click={handlePublish} />
 		</div>
+
 		{#if show_feature}
 			<div class="category">
 				<Icon name="organize_category" class="fill_white cursor_default" />
@@ -95,6 +102,9 @@
 	}
 	.actions {
 		@apply sticky top-10 right-0 flex flex-col gap-y-6 font-sans font-bold;
+	}
+	.img_actions {
+		@apply grid grid-cols-3;
 	}
 	.category {
 		@apply flex flex-row text-white items-center gap-x-2 cursor-default;
