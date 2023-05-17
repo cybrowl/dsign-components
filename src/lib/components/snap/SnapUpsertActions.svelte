@@ -35,8 +35,6 @@
 	function handleAddImages(event) {
 		let preview_images = event.detail;
 
-		has_images = preview_images.length > 0 ? true : false;
-
 		dispatch('addImages', preview_images);
 	}
 
@@ -45,6 +43,8 @@
 	}
 
 	function handlePublish() {
+		const has_images = get(snap, 'images', []).length > 0 ? true : false;
+
 		if (!snap_name.length) {
 			has_error = true;
 		}
