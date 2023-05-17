@@ -232,7 +232,7 @@
 	}
 
 	.optionsPopover {
-		@apply absolute top-10 right-4 z-20 w-32 bg-dark-grey rounded-lg p-4;
+		@apply absolute top-11 right-2 z-20 w-32 bg-dark-grey rounded-lg p-4;
 	}
 
 	.optionsPopover button {
