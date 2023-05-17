@@ -96,7 +96,7 @@
 	class="imgsInput"
 	type="file"
 	multiple={true}
-	accept=".jpg, .jpeg, .png, .gif, .webp"
+	accept=".jpg, .jpeg, .png, .gif, .webp, .jp2"
 	on:change={e => handleAddImages(e)}
 	bind:this={file_img_input_elem}
 />
