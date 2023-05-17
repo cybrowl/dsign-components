@@ -235,12 +235,8 @@
 		@apply absolute top-11 right-2 z-20 w-32 bg-dark-grey rounded-lg p-4;
 	}
 
-	.optionsPopover button {
-		@apply mb-2;
-	}
-
 	.optionsPopover span {
-		@apply flex flex-col;
+		@apply flex flex-col gap-2;
 	}
 
 	.optionsPopover button:hover {

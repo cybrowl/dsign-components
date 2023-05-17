@@ -3,7 +3,7 @@
 	import Button from '../components/basic_elements/Button.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
 
-	import get from 'lodash/get';
+	import {get, isEmpty} from 'lodash';
 
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
@@ -26,6 +26,7 @@
 	export let my_profile = {};
 
 	export let project_store = {};
+	export let favorite_store = {};
 
 	// export let modal_visible = {};
 
@@ -39,7 +40,12 @@
 		delete: true
 	};
 
-	function handleProjectClick() {}
+	function handleProjectClick() {
+		console.log('project click');
+	}
+	function handleDeleteFavorite() {
+		console.log('delete favorite');
+	}
 </script>
 
 <main>
@@ -93,51 +99,81 @@
 					/>
 				</div>
 
-				<div class="tabs_content_layout">
-					<!-- Projects -->
+				<div class="content_layout">
 					{#if profileTabsState.isProjectsSelected}
 						<!-- Fetching Projects -->
 						{#if project_store.isFetching === true}
 							<ProjectCard isLoadingProject={true} />
 						{/if}
 
-						<!-- No Projects Found -->
-						{#if project_store.isFetching === false && project_store.projects.length === 0}
-							{#if is_owner}
-								<ProjectCardCreate />
-							{:else}
-								<CardEmpty
-									name="project_empty"
-									content="No projects found"
-									view_size={{width: '92', height: '92'}}
-								/>
+						<!-- Rendering Projects -->
+						{#if project_store.isFetching === false}
+							<!-- No Projects Found -->
+							{#if isEmpty(project_store.projects)}
+								{#if is_owner}
+									<ProjectCardCreate />
+								{:else}
+									<CardEmpty
+										name="project_empty"
+										content="No projects found"
+										view_size={{width: '92', height: '92'}}
+									/>
+								{/if}
 							{/if}
-						{/if}
 
-						<!-- Project -->
-						{#if project_store.isFetching === false && project_store.projects.length > 0}
-							{#each project_store.projects as project}
-								<ProjectCard
-									{project}
-									{optionsPopover}
-									showOptionsPopover={is_owner ? true : false}
-									on:clickProject={handleProjectClick}
-								/>
-							{/each}
+							<!-- Projects -->
+							{#if !isEmpty(project_store.projects)}
+								{#each project_store.projects as project}
+									<ProjectCard
+										{project}
+										{optionsPopover}
+										showOptionsPopover={is_owner ? true : false}
+										on:clickProject={handleProjectClick}
+									/>
+								{/each}
 
-							{#if is_owner}
-								<ProjectCardCreate />
+								{#if is_owner}
+									<ProjectCardCreate />
+								{/if}
 							{/if}
 						{/if}
 					{/if}
 
-					<!-- Favorites -->
 					{#if profileTabsState.isFavoritesSelected}
-						<CardEmpty
-							name="project_empty"
-							content="No favorite projects"
-							view_size={{width: '92', height: '92'}}
-						/>
+						<!-- Fetching Favorites -->
+						{#if favorite_store.isFetching === true}
+							<ProjectCard isLoadingProject={true} />
+						{/if}
+
+						<!-- Rendering Favorites -->
+						{#if favorite_store.isFetching === false}
+							<!-- No Favorites Found -->
+							{#if isEmpty(favorite_store.projects)}
+								<CardEmpty
+									name="project_empty"
+									content="No favorite projects"
+									view_size={{width: '92', height: '92'}}
+								/>
+							{/if}
+
+							<!-- Favorites Found -->
+							{#if !isEmpty(favorite_store.projects)}
+								{#each favorite_store.projects as project}
+									<ProjectCard
+										{project}
+										hideSnapsCount={true}
+										showUsername={true}
+										showOptionsPopover={is_owner ? true : false}
+										optionsPopover={{
+											edit: false,
+											delete: true
+										}}
+										on:clickProject={handleProjectClick}
+										on:deleteProject={handleDeleteFavorite}
+									/>
+								{/each}
+							{/if}
+						{/if}
 					{/if}
 				</div>
 			</div>
@@ -169,7 +205,7 @@
 	.tabs_layout {
 		@apply hidden lg:grid row-start-3 row-end-auto col-start-4 col-end-13 mt-12 self-end justify-between items-center mb-8;
 	}
-	.tabs_content_layout {
+	.content_layout {
 		@apply hidden lg:grid row-start-4 row-end-auto col-start-4 col-end-13 grid-cols-3 gap-x-8 gap-y-12 mb-16;
 	}
 </style>
