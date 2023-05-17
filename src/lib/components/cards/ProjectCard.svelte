@@ -26,7 +26,6 @@
 	let mouseOverProjectCard = false;
 
 	function clickProject() {
-		console.log('project');
 		if (!isOptionsPopoverOpen) {
 			dispatch('clickProject', project);
 		}

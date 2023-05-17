@@ -70,8 +70,10 @@
 		console.log('cancel');
 	}
 
-	function handlePublish() {
-		console.log('publish');
+	function handlePublish(event) {
+		const {snap_name} = event.detail;
+
+		console.log('publish', {snap_name});
 	}
 
 	function handleRemove(event) {

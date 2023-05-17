@@ -48,7 +48,11 @@
 
 <div class="actions_sticky">
 	<div class="actions">
-		<Input value={snap_name} {placeholder} length={{min: '5', max: '50'}} />
+		<Input
+			bind:value={snap_name}
+			{placeholder}
+			length={{min: '5', max: '50'}}
+		/>
 
 		<div class="category">
 			<Icon name="upload_category" class="fill_none cursor_default" />
