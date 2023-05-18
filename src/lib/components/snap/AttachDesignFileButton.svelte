@@ -6,7 +6,7 @@
 
 	import Icon from '../basic_elements/Icon.svelte';
 
-	let file_name = '';
+	export let file_name = '';
 	let file_input_elem;
 	let file_too_large = false;
 	let file;
@@ -36,8 +36,6 @@
 	}
 
 	async function handleRemoveFile() {
-		file_name = '';
-
 		dispatch('removeFile', file);
 	}
 </script>

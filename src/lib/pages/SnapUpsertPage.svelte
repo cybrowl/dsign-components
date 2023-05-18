@@ -32,7 +32,7 @@
 	function handleRemoveFile(event) {
 		let file = event.detail;
 
-		set(snap_creation, 'file_asset', {});
+		snap_creation = {...snap_creation, file_asset: {file_name: ''}};
 
 		console.log('page file: ', file);
 	}
@@ -82,7 +82,7 @@
 		console.log('cover_img', cover_img);
 	}
 
-	function handleRemove(event) {
+	function handleRemoveImg(event) {
 		const image_id = event.detail;
 
 		snap_creation = {
@@ -123,7 +123,7 @@
 					{:else}
 						<Images
 							images={snap_creation.images}
-							on:remove={handleRemove}
+							on:remove={handleRemoveImg}
 							on:selectCover={handleSelectCover}
 						/>
 					{/if}
