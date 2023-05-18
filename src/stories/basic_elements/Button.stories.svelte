@@ -39,6 +39,15 @@
 />
 
 <Story
+	name="Primary & Hover"
+	args={{
+		primary: true,
+		label: 'Button',
+		class: 'hover_lilalic_purple'
+	}}
+/>
+
+<Story
 	name="Primary/Disabled"
 	args={{
 		label: 'Button',

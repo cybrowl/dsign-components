@@ -106,6 +106,10 @@
 		@apply px-4 py-2 text-base;
 	}
 
+	.hover_lilalic_purple {
+		@apply hover:bg-lilalic-purple;
+	}
+
 	.action_active {
 		@apply cursor-default text-bubble-purple bg-backdrop;
 	}
