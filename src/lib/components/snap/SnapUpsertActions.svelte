@@ -12,6 +12,7 @@
 
 	export let snap = {};
 	export let is_publishing = false;
+	export let is_uploading_design_file = false;
 
 	let snap_name = '';
 	let placeholder = 'Add a name to your snap';
@@ -75,6 +76,7 @@
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
 			file_name={get(snap, 'file_asset.file_name', '')}
+			{is_uploading_design_file}
 		/>
 
 		<div class="img_actions">

@@ -5,8 +5,11 @@
 	import isEmpty from 'lodash/isEmpty';
 
 	import Icon from '../basic_elements/Icon.svelte';
+	import JellyFish from '../loading_spinners/JellyFish.svelte';
 
 	export let file_name = '';
+	export let is_uploading_design_file = false;
+
 	let file_input_elem;
 	let file_too_large = false;
 	let file;
@@ -43,14 +46,21 @@
 <button class="attachDesignFile" on:click={triggerFileSelectionBrowser}>
 	<span class="container">
 		{#if file_name}
-			<Icon
-				name="design_file_attached"
-				clickable={false}
-				class="cursor_pointer"
-				viewSize={{width: '55', height: '55'}}
-				size="4rem"
-			/>
+			{#if is_uploading_design_file}
+				<JellyFish />
+			{:else}
+				<Icon
+					name="design_file_attached"
+					clickable={false}
+					class="cursor_pointer"
+					viewSize={{width: '55', height: '55'}}
+					size="4rem"
+				/>
+			{/if}
 			<span class="info">
+				{#if is_uploading_design_file}
+					<h3>Uploading file...</h3>
+				{/if}
 				<h4>{file_name}</h4>
 			</span>
 
@@ -100,6 +110,10 @@
 
 	.info {
 		@apply ml-2 text-start gap-x-2;
+	}
+
+	.info h3 {
+		@apply text-base font-bold italic;
 	}
 
 	.info p {

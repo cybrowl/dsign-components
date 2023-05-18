@@ -13,7 +13,7 @@
 
 	const navigationItems = [];
 
-	const snap_preview = {
+	const snap_creation = {
 		canister_id: 'cbopz-duaaa-aaaaa-qaaka-cai',
 		created: 1684070034352968000,
 		file_asset: {
@@ -97,7 +97,7 @@
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navigationItems: navigationItems,
-		snap_preview
+		snap_creation
 	}}
 />
 
@@ -110,8 +110,8 @@
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navigationItems: navigationItems,
-		snap_preview: {
-			...snap_preview,
+		snap_creation: {
+			...snap_creation,
 			file_asset: {}
 		}
 	}}
@@ -126,6 +126,34 @@
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navigationItems: navigationItems,
-		snap_preview: {}
+		snap_creation: {}
+	}}
+/>
+
+<Story
+	name="Publishing"
+	args={{
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		navigationItems: navigationItems,
+		is_publishing: true,
+		snap_creation: {}
+	}}
+/>
+
+<Story
+	name="Uploading File"
+	args={{
+		avatar:
+			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+		username: 'jelly',
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		navigationItems: navigationItems,
+		is_uploading_design_file: true,
+		snap_creation: snap_creation
 	}}
 />

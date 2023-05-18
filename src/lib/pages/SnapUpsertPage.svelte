@@ -18,6 +18,8 @@
 	export let is_authenticated = false;
 	export let navigationItems;
 	export let snap_creation = {};
+	export let is_publishing = false;
+	export let is_uploading_design_file = false;
 
 	async function handleAttachFile(event) {
 		let file = event.detail;
@@ -137,6 +139,8 @@
 						on:cancel={handleCancel}
 						on:publish={handlePublish}
 						snap={snap_creation}
+						{is_publishing}
+						{is_uploading_design_file}
 					/>
 				</div>
 			</div>
