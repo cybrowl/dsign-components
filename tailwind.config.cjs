@@ -27,6 +27,9 @@ const config = {
 				'spring-leaf-green': '#5BC859',
 				'error-red': '#FC3030',
 				'mute-red': '#F0627C'
+			},
+			boxShadow: {
+				gray: '0 10px 15px -3px rgba(58, 58, 80, 0.5), 0 4px 6px -2px rgba(58, 58, 80, 0.3)'
 			}
 		}
 	},

@@ -7,77 +7,53 @@
 	const dispatch = createEventDispatcher();
 
 	export let snap = {
-		likeActive: false,
-		metrics: {
-			likes: 0,
-			views: 0
-		}
+		likeActive: false
 	};
-
-	export let isEditMode = false;
+	export let showEditMode = false;
 	export let isLoadingSnap = false;
-	// export let showMetrics = true;
-	// export let showMetricLikesNumber = true;
 	export let showUsername = false;
 
-	let imageLoadingFailed = false;
+	let imgLoadFailed = false;
 
 	function select_card() {
 		snap.isSelected = !snap.isSelected;
 	}
 
-	// function clickLike() {
-	// 	snap.metrics.likes = Number(snap.metrics.likes) + 1;
-
-	// 	snap.likeActive = true;
-
-	// 	dispatch('clickLike', snap);
-	// }
-
 	function handleError() {
-		imageLoadingFailed = true;
+		imgLoadFailed = true;
 	}
 </script>
 
+<!-- Loading Snap -->
 {#if isLoadingSnap}
-	<div class="snapCardLoading">
-		<div class="snapCardLoadingImg" />
-		<span class="metrics">
-			<!-- <span>
-                <Icon name="like" width="16" height="16" class="like" />
-                {#if showMetricLikesNumber}
-                    <span class="count">{snap.metrics.likes}</span>
-                {/if}
-            </span> -->
-			<!-- <span>
-                <Icon name="visibility" width="16" height="16" />
-                <span class="count">{snap.metrics.views}</span>
-            </span> -->
-		</span>
+	<div class="loading_card">
+		<div class="loading_card_img" />
 	</div>
-{:else}
-	<div>
-		<!-- Image -->
-		<div
-			class="snapCardImg"
-			on:click={() => {
-				if (isEditMode) {
-					select_card();
-				} else {
-					dispatch('clickCard', snap);
-				}
-			}}
-			on:keypress={e => {
-				//TODO: need to design how this will work A11y
-			}}
-		>
-			{#if imageLoadingFailed === true}
-				<div class="snapCardImgError">
+{/if}
+
+<!-- Snap -->
+{#if isLoadingSnap === false}
+	<button
+		class="card"
+		on:click={() => {
+			if (showEditMode) {
+				select_card();
+			} else {
+				dispatch('clickCard', snap);
+			}
+		}}
+		on:keypress={e => {
+			//TODO: need to design how this will work A11y
+		}}
+	>
+		<div class="img">
+			{#if imgLoadFailed === true}
+				<div class="img_error">
 					<p>Owner Purged Images</p>
 				</div>
 			{:else}
 				<img
-					class={isEditMode === true ? 'editModeSnapCard' : ''}
+					class:edit_mode={showEditMode === true}
 					src={snap.images[snap.image_cover_location].url}
 					on:error={handleError}
 					alt="snap"
@@ -86,14 +62,14 @@
 			{/if}
 
 			<!-- Unselected -->
-			{#if isEditMode && snap.isSelected === false}
+			{#if showEditMode && snap.isSelected === false}
 				<span class="checkmark">
 					<Icon name="unchecked" width="32" height="32" />
 				</span>
 			{/if}
 
 			<!-- Selected -->
-			{#if isEditMode && snap.isSelected}
+			{#if showEditMode && snap.isSelected}
 				<span class="checkmark">
 					<Icon name="checkmark" width="32" height="32" />
 				</span>
@@ -113,80 +89,51 @@
 		<div class="title">
 			<p>{snap.title}</p>
 		</div>
-		<!-- Metrics -->
-		<!-- {#if showMetrics}
-            <span class="metrics">
-                <span
-                    on:click={clickLike}
-                    on:keypress={e => {
-                        //TODO: need to design how this will work A11y
-                    }}
-                >
-                    <Icon name="like" width="16" height="16" class={snap.likeActive ? 'likeActive' : 'like'} />
-
-                    {#if showMetricLikesNumber}
-                        <span class="count">{snap.metrics.likes}</span>
-                    {/if}
-                </span> -->
-		<!-- <span>
-                <Icon name="visibility" width="16" height="16" />
-                <span class="count">{snap.metrics.views}</span>
-            </span> -->
-		<!-- </span>
-        {/if} -->
-	</div>
+	</button>
 {/if}
 
 <style lang="postcss">
-	.snapCardLoading {
+	.loading_card {
 		@apply relative font-sans cursor-pointer w-full max-w-xs h-56;
 	}
 
-	.snapCardLoadingImg {
+	.loading_card_img {
 		@apply bg-black-a w-full h-full relative animate-pulse rounded-md;
 	}
 
-	.snapCardImgError {
-		@apply bg-black-a w-full h-full rounded-lg text-castle-grey font-bold text-center;
+	.card {
+		@apply flex flex-col;
 	}
-
-	.snapCardImgError p {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+	.img {
+		@apply relative font-sans cursor-pointer w-full max-w-xs h-56 hover:drop-shadow-md hover:shadow-gray;
 	}
-
-	.snapCardImg {
-		@apply relative font-sans cursor-pointer w-full max-w-xs h-56;
-	}
-
-	.snapCardImg > img {
+	.img > img {
 		@apply bg-black-a object-cover w-full h-full rounded-lg;
 	}
 
 	.checkmark {
 		@apply absolute top-2 left-2 w-8 h-8 rounded-full;
 	}
+	.edit_mode {
+		@apply bg-backdrop opacity-50;
+	}
 
-	.editModeSnapCard {
-		background: #1b1a22;
-		opacity: 0.5;
+	.img_error {
+		@apply bg-black-a w-full h-full rounded-lg text-castle-grey font-bold text-center;
+	}
+
+	.img_error p {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.username {
-		@apply gap-1 float-left mt-2 font-sans text-gray-100 hover:text-primary-purple;
+		@apply gap-1 flex flex-col justify-start mt-2 font-sans text-gray-100 hover:text-primary-purple;
 	}
 
 	.title {
 		@apply text-base font-bold text-white pt-1;
 	}
-
-	/* .metrics {
-        @apply gap-1 float-right mt-2 cursor-pointer;
-    }
-
-    .metrics span {
-        @apply flex gap-0.5 font-sans font-bold text-gray-100 text-xs;
-    } */
 </style>

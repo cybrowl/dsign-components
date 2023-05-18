@@ -27,21 +27,25 @@
 	export let project = {};
 	export let is_owner = false;
 	export let isFetching = false;
-	export let isEditActive = false;
 	export const navigationItems = [];
-	// export let showOptionsPopover = false;
+	export let isEditActive = false;
+
 	export let selectedTabState = {};
 
 	function deselectAllSnaps(snaps) {
 		return map(snaps, snap => ({...snap, isSelected: false}));
 	}
 
-	function handleToggleEditMode(e) {
-		isEditActive = get(e, 'detail', false);
+	function handleToggleEditMode(event) {
+		isEditActive = !isEditActive;
 
 		const deselected_snaps = deselectAllSnaps(project.snaps);
 
 		project = {...project, snaps: deselected_snaps};
+	}
+
+	function handleClickCard(event) {
+		console.log('clickCard');
 	}
 </script>
 
@@ -98,11 +102,16 @@
 									view_size={{width: '64', height: '64'}}
 								/>
 							{/if}
+
 							{#each project.snaps as snap}
-								<SnapCard {snap} isEditMode={isEditActive} />
+								<SnapCard
+									{snap}
+									showEditMode={isEditActive}
+									on:clickCard={handleClickCard}
+								/>
 							{/each}
 
-							{#if is_owner && isEditActive === false}
+							{#if is_owner}
 								<SnapCardCreate
 									on:clickSnapCardCreate={() =>
 										console.log('route /snap/upsert')}
