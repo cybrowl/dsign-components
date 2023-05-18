@@ -11,6 +11,12 @@
 		project_options: false,
 		project_rename: false
 	};
+
+	const selectedTabState = {
+		isChangesSelected: false,
+		isFeedbackSelected: false,
+		isSnapsSelected: false
+	};
 </script>
 
 <Meta
@@ -35,8 +41,7 @@
 		is_authenticated: true,
 		project: project,
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -52,8 +57,7 @@
 		is_authenticated: true,
 		project: project_many_snaps,
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -70,8 +74,7 @@
 		is_owner: true,
 		project: project,
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -89,8 +92,7 @@
 		isEditActive: true,
 		project: project,
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -106,8 +108,7 @@
 		is_authenticated: false,
 		project: project,
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -123,8 +124,7 @@
 		is_authenticated: false,
 		project: {...project, snaps: []},
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
@@ -140,15 +140,14 @@
 		is_authenticated: false,
 		project: {...project, tags: []},
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: false,
+			...selectedTabState,
 			isSnapsSelected: true
 		}
 	}}
 />
 
 <Story
-	name="Recs Selected"
+	name="Feedback / Coming Soon"
 	args={{
 		avatar_nav:
 			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
@@ -157,9 +156,8 @@
 		is_authenticated: false,
 		project: {...project, tags: []},
 		selectedTabState: {
-			isChangesSelected: false,
-			isRecsSelected: true,
-			isSnapsSelected: false
+			...selectedTabState,
+			isFeedbackSelected: true
 		}
 	}}
 />

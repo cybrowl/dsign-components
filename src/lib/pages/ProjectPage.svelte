@@ -118,7 +118,7 @@
 								/>
 							{/if}
 						{/if}
-						{#if selectedTabState.isRecsSelected}
+						{#if selectedTabState.isFeedbackSelected}
 							<div class="coming_soon_layout">
 								<ComingSoon />
 							</div>
