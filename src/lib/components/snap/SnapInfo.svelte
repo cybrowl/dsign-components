@@ -39,7 +39,7 @@
 	</span>
 	<h1>{get(snap, 'title', '')}</h1>
 	<div class="details">
-		<p><span>Owner: </span>{get(snap, 'username', '')}</p>
+		<p><span>Creator: </span>{get(snap, 'username', '')}</p>
 		<p><span>Published: </span>{created}</p>
 	</div>
 	<div class="tags">
