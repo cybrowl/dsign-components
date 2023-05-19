@@ -1,12 +1,12 @@
 <script>
 	import Button from '../basic_elements/Button.svelte';
 	import {DateTime} from 'luxon';
-	import {get, capitalize} from 'lodash';
+	import {get} from 'lodash';
 
 	export let snap = {};
 
 	let snap_name = get(snap, 'title', '');
-	let username = capitalize(get(snap, 'username', ''));
+	let username = get(snap, 'username', '');
 	let published = DateTime.fromMillis(
 		Number(snap.created) / 1000000
 	).toLocaleString(DateTime.DATETIME_MED);
@@ -19,7 +19,7 @@
 
 <div class="info">
 	<span class="breadcrumb">
-		<a href={`/${get(snap, 'username', '')}`}>{get(snap, 'username', '')}</a>
+		<a href={`/${username}`}>{username}</a>
 		<span>/</span>
 		{#if project_id.length > 0}
 			<a href={project_href}>{project_name}</a>
