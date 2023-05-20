@@ -17,6 +17,6 @@ module.exports = {
 		name: '@storybook/sveltekit'
 	},
 	docs: {
-		autodocs: true
+		autodocs: false
 	}
 };

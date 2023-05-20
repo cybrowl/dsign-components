@@ -34,10 +34,12 @@
 	name="Primary"
 	args={{
 		primary: true,
+		secondary: false,
 		label: 'Button'
 	}}
 />
 
+<!-- 
 <Story
 	name="Primary & Hover"
 	args={{
@@ -129,4 +131,4 @@
 		label: '# Fonts',
 		class: 'button--filter-active'
 	}}
-/>
+/> -->

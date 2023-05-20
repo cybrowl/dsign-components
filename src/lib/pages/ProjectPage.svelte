@@ -2,7 +2,7 @@
 	import Avatar from '../components/basic_elements/Avatar.svelte';
 	import Button from '../components/basic_elements/Button.svelte';
 	import Icon from '../components/basic_elements/Icon.svelte';
-	import LoadingSpinner from '../components/basic_elements/LoadingSpinner.svelte';
+	import Circle from '../components/loading_spinners/Circle.svelte';
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
 	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
@@ -76,7 +76,7 @@
 
 				<div class="loading_layout">
 					{#if isFetching === true}
-						<LoadingSpinner />
+						<Circle />
 					{/if}
 				</div>
 
