@@ -35,9 +35,10 @@
 <Story
 	name="On Mount"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar: '',
+			username: ''
+		},
 		modal_visible: {...modal_visible, account_creation: true},
 		is_authenticated: true,
 		navItems: navItems,

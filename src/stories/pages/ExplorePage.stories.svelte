@@ -35,9 +35,10 @@
 <Story
 	name="Explore / Authed"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar: '/mishicat_bat.png',
+			username: 'mishicat'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navItems: navItems,
@@ -48,9 +49,10 @@
 <Story
 	name="Explore / Guest"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar: '/mishicat_bat.png',
+			username: 'mishicat'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		navItems: navItems,
@@ -61,9 +63,10 @@
 <Story
 	name="Notification"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar: '/mishicat_bat.png',
+			username: 'mishicat'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		navItems: navItems,

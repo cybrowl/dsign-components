@@ -35,9 +35,11 @@
 <Story
 	name="No File"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navItems: navItems,
@@ -86,9 +88,11 @@
 <Story
 	name="File"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navItems: navItems,
@@ -137,9 +141,11 @@
 <Story
 	name="No Tags"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navItems: navItems,
@@ -188,9 +194,11 @@
 <Story
 	name="No Project Ref"
 	args={{
-		avatar:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		navItems: navItems,

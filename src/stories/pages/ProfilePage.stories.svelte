@@ -101,7 +101,8 @@
 	args={{
 		my_profile: {
 			avatar:
-				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b'
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
 		},
 		user_profile: {
 			avatar: '/mishicat_bat.png',
@@ -244,6 +245,31 @@
 		is_authenticated: true,
 		is_owner: true,
 		modal_visible: modal_visible,
+		favorite_store: {
+			isFetching: false,
+			projects: projects_list
+		},
+		profileTabsState: {
+			isFavoritesSelected: true,
+			isProjectsSelected: false
+		}
+	}}
+/>
+
+<Story
+	name="Modals  / Account Settings"
+	args={{
+		my_profile: {
+			username: 'mishicat'
+		},
+		user_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			username: 'jelly'
+		},
+		is_authenticated: true,
+		is_owner: true,
+		modal_visible: {...modal_visible, account_settings: true},
 		favorite_store: {
 			isFetching: false,
 			projects: projects_list

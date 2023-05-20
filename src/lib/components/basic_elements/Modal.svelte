@@ -20,29 +20,22 @@
 
 {#if isModalOpen}
 	<div
-		class="modalBackdrop"
+		class="modal_backdrop"
 		in:fade
 		on:click={onClose}
 		on:keypress={e => {
 			//TODO: need to design how this will work A11y
 		}}
 	/>
-	<div class="modalLayout" in:fade={{delay: 500}} out:fade>
+	<div class="modal_layout" in:fade={{delay: 500}} out:fade>
 		<div class="modal">
 			{#if modalHeaderVisible}
-				<div class="modalHeader">
-					<span
-						class="modalHeaderClose"
+				<div class="header">
+					<Icon
+						class="cursor_pointer fill_white hover_bubble_purple"
+						name="close_standard"
 						on:click={onClose}
-						on:keypress={e => {
-							//TODO: need to design how this will work A11y
-						}}
-					>
-						<Icon
-							class="cursor_pointer fill_white hover_bubble_purple"
-							name="close_standard"
-						/>
-					</span>
+					/>
 				</div>
 			{/if}
 			<slot />
@@ -51,10 +44,10 @@
 {/if}
 
 <style lang="postcss">
-	.modalBackdrop {
+	.modal_backdrop {
 		@apply fixed top-0 left-0 right-0 h-full w-full bg-backdrop opacity-90 z-30;
 	}
-	.modalLayout {
+	.modal_layout {
 		@apply fixed z-30;
 		top: 50%;
 		left: 50%;
@@ -63,10 +56,7 @@
 	.modal {
 		@apply rounded-lg shadow bg-dark-grey;
 	}
-	.modalHeader {
-		@apply flex flex-row-reverse;
-	}
-	.modalHeaderClose {
-		@apply p-5 rounded-t;
+	.header {
+		@apply flex flex-row-reverse p-4;
 	}
 </style>

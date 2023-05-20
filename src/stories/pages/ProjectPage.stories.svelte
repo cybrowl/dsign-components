@@ -34,9 +34,11 @@
 <Story
 	name="Snaps / Auth / Guest"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		project: project,
@@ -50,9 +52,11 @@
 <Story
 	name="Snaps / Many / Auth / Guest"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		project: project_many_snaps,
@@ -66,9 +70,11 @@
 <Story
 	name="Snaps / Auth / Owner"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		is_owner: true,
@@ -83,9 +89,11 @@
 <Story
 	name="Snaps / Auth / Owner / Edit"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		is_owner: true,
@@ -101,9 +109,11 @@
 <Story
 	name="Snaps / Guest / Guest"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: project,
@@ -117,9 +127,11 @@
 <Story
 	name="Snaps Empty"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: {...project, snaps: []},
@@ -133,9 +145,11 @@
 <Story
 	name="No Tags"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: {...project, tags: []},
@@ -149,9 +163,11 @@
 <Story
 	name="Feedback / Coming Soon"
 	args={{
-		avatar_nav:
-			'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
-		username: 'jelly',
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: {...project, tags: []},

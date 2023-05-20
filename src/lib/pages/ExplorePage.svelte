@@ -1,10 +1,8 @@
 <script>
-	import Avatar from '../components/basic_elements/Avatar.svelte';
-	import Button from '../components/basic_elements/Button.svelte';
+	import Login from '../components/login/Login.svelte';
 	import Notification from '../components/basic_elements/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
-	import Icon from '../components/basic_elements/Icon.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -25,6 +23,7 @@
 
 	export let showOptionsPopover = false;
 	export let project_store = [];
+	export let my_profile = {};
 
 	// export let is_visible = false;
 	export let profileTabsState = {
@@ -41,22 +40,7 @@
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
 					<PageNavigation {navigationItems}>
-						<span>
-							{#if is_authenticated}
-								<Avatar avatar="https://i.ibb.co/TRJmsGT/motoko.png" />
-								<Icon
-									name="settings"
-									size="2.75rem"
-									class="cursor_pointer fill_dark_grey hover_smoky_grey"
-									viewSize={{
-										width: '44',
-										height: '44'
-									}}
-								/>
-							{:else}
-								<Button primary={true} label="Connect" />
-							{/if}
-						</span>
+						<Login {is_authenticated} {my_profile} />
 					</PageNavigation>
 				</div>
 

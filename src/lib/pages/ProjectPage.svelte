@@ -1,16 +1,12 @@
 <script>
-	import Avatar from '../components/basic_elements/Avatar.svelte';
-	import Button from '../components/basic_elements/Button.svelte';
-	import Icon from '../components/basic_elements/Icon.svelte';
-	import Circle from '../components/loading_spinners/Circle.svelte';
+	import Login from '../components/login/Login.svelte';
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
 	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
 	import CardEmpty from '../components/cards/CardEmpty.svelte';
-
+	import Circle from '../components/loading_spinners/Circle.svelte';
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
-
 	import ProjectTabs from '../components/project/ProjectTabs.svelte';
 	import ProjectInfo from '../components/project/ProjectInfo.svelte';
 	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
@@ -20,9 +16,7 @@
 	import {isEmpty, get, map, set} from 'lodash';
 	const dispatch = createEventDispatcher();
 
-	// export let avatar = '';
-	export let avatar_nav = '';
-	export let username = '';
+	export let my_profile = {};
 	export let is_authenticated = false;
 	export let project = {};
 	export let is_owner = false;
@@ -55,22 +49,7 @@
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
 					<PageNavigation {navigationItems}>
-						<span>
-							{#if is_authenticated}
-								<Avatar avatar={avatar_nav} {username} />
-								<Icon
-									name="settings"
-									size="2.75rem"
-									class="cursor_pointer fill_dark_grey hover_smoky_grey"
-									viewSize={{
-										width: '44',
-										height: '44'
-									}}
-								/>
-							{:else}
-								<Button primary={true} label="Connect" />
-							{/if}
-						</span>
+						<Login {is_authenticated} {my_profile} />
 					</PageNavigation>
 				</div>
 
@@ -141,9 +120,6 @@
 	}
 	.navigation_main_layout {
 		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
-	}
-	.navigation_main_layout span {
-		@apply flex gap-x-3 cursor-pointer;
 	}
 	.loading_layout {
 		@apply fixed z-30;

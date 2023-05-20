@@ -1,10 +1,7 @@
 <script>
-	import Avatar from '../components/basic_elements/Avatar.svelte';
-	import Button from '../components/basic_elements/Button.svelte';
-	import Icon from '../components/basic_elements/Icon.svelte';
-
 	import {get, isEmpty} from 'lodash';
 
+	import Login from '../components/login/Login.svelte';
 	// import Notification from '../components/Notification.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 
@@ -15,6 +12,8 @@
 	import ProjectCard from '../components/cards/ProjectCard.svelte';
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
 	import CardEmpty from '../components/cards/CardEmpty.svelte';
+
+	import AccountSettingsModal from '../components/modals/AccountSettingsModal.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
@@ -28,7 +27,7 @@
 	export let project_store = {};
 	export let favorite_store = {};
 
-	// export let modal_visible = {};
+	export let modal_visible = {};
 
 	export let profileTabsState = {
 		isFavoritesSelected: false,
@@ -54,27 +53,19 @@
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
 					<PageNavigation>
-						<span>
-							{#if is_authenticated}
-								<Avatar
-									avatar={get(my_profile, 'avatar', '')}
-									username={get(my_profile, 'username', '')}
-								/>
-								<Icon
-									name="settings"
-									size="2.75rem"
-									class="cursor_pointer fill_dark_grey hover_smoky_grey"
-									viewSize={{
-										width: '44',
-										height: '44'
-									}}
-								/>
-							{:else}
-								<Button primary={true} label="Connect" />
-							{/if}
-						</span>
+						<Login {is_authenticated} {my_profile} />
 					</PageNavigation>
 				</div>
+
+				<!-- Modals -->
+				{#if modal_visible.account_settings}
+					<AccountSettingsModal
+						avatar={my_profile.avatar}
+						username={my_profile.username}
+						on:closeModal={(modal_visible.account_settings =
+							!modal_visible.account_settings)}
+					/>
+				{/if}
 
 				<div class="profile_info_layout">
 					<ProfileInfo
@@ -192,9 +183,6 @@
 	}
 	.navigation_main_layout {
 		@apply row-start-1 row-end-auto col-start-1 col-end-13;
-	}
-	.navigation_main_layout span {
-		@apply flex gap-x-3 cursor-pointer;
 	}
 	.profile_info_layout {
 		@apply row-start-2 row-end-auto col-start-1 col-end-4;

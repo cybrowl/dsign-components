@@ -14,7 +14,7 @@
 	}
 </script>
 
-<Modal isModalLocked={isCreatingAccount} on:closeModal={handleAccountCreation}>
+<Modal isModalLocked={true} on:closeModal={handleAccountCreation}>
 	{#if createdAccount}
 		{#if isVisible}
 			<AccountCreationSuccess />

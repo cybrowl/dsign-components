@@ -1,7 +1,5 @@
 <script>
-	import Avatar from '../components/basic_elements/Avatar.svelte';
-	import Button from '../components/basic_elements/Button.svelte';
-	import Icon from '../components/basic_elements/Icon.svelte';
+	import Login from '../components/login/Login.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 	import SnapUpsertActions from '../components/snap/SnapUpsertActions.svelte';
 	import Images from '../components/snap/Images.svelte';
@@ -12,8 +10,7 @@
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let avatar = '';
-	export let username = '';
+	export let my_profile = {};
 	export let modal_visible = {};
 	export let is_authenticated = false;
 	export let navigationItems;
@@ -100,22 +97,7 @@
 			<div class="grid_layout">
 				<div class="navigation_main_layout">
 					<PageNavigation {navigationItems}>
-						<span>
-							{#if is_authenticated}
-								<Avatar {avatar} {username} />
-								<Icon
-									name="settings"
-									size="2.75rem"
-									class="cursor_pointer fill_dark_grey hover_smoky_grey"
-									viewSize={{
-										width: '44',
-										height: '44'
-									}}
-								/>
-							{:else}
-								<Button primary={true} label="Connect" />
-							{/if}
-						</span>
+						<Login {is_authenticated} {my_profile} />
 					</PageNavigation>
 				</div>
 
