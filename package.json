@@ -1,6 +1,6 @@
 {
 	"name": "dsign-components-v2",
-	"version": "0.17.3",
+	"version": "0.18.0",
 	"description": "",
 	"scripts": {
 		"storybook": "storybook dev -p 6007",
@@ -20,12 +20,12 @@
 		"svelte": "^3.58.0"
 	},
 	"devDependencies": {
-		"@storybook/addon-essentials": "^7.0.8",
-		"@storybook/addon-interactions": "^7.0.8",
-		"@storybook/addon-links": "^7.0.8",
-		"@storybook/addon-styling": "^1.0.6",
+		"@storybook/addon-essentials": "^7.0.12",
+		"@storybook/addon-interactions": "^7.0.12",
+		"@storybook/addon-links": "^7.0.12",
+		"@storybook/addon-styling": "^1.0.8",
 		"@storybook/addon-svelte-csf": "^3.0.2",
-		"@storybook/sveltekit": "^7.0.8",
+		"@storybook/sveltekit": "^7.0.12",
 		"@storybook/testing-library": "^0.1.0",
 		"@sveltejs/package": "^2.0.2",
 		"autoprefixer": "^10.4.14",
@@ -35,7 +35,7 @@
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.8",
 		"prettier-plugin-svelte": "^2.10.0",
-		"storybook": "^7.0.9",
+		"storybook": "^7.0.12",
 		"storybook-dark-mode": "^3.0.0",
 		"svelte-preprocess": "^5.0.3",
 		"tailwindcss": "^3.3.1",
