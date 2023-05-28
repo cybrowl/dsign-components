@@ -27,6 +27,7 @@
 				class="cursor_pointer editAvatar"
 				name="edit_avatar"
 				size="1.5rem"
+				on:click={onClick}
 			/>
 		{/if}
 	</div>
@@ -47,6 +48,7 @@
 				class="cursor_pointer editAvatar"
 				name="edit_avatar"
 				size="1.5rem"
+				on:click={onClick}
 			/>
 		{/if}
 	</div>
