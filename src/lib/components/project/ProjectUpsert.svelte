@@ -16,7 +16,7 @@
 
 	function handleSubmit() {
 		if (project_name.length < 1) {
-			hasError = !hasError;
+			hasError = true;
 			errorMessage = 'Project name cannot be empty';
 			return;
 		}
@@ -37,7 +37,7 @@
 		<Input
 			autofocus={true}
 			on:focus={() => {
-				hasError = !hasError;
+				hasError = false;
 			}}
 			{hasError}
 			{errorMessage}
