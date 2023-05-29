@@ -8,7 +8,7 @@
 	export let mode_create = false;
 
 	let header = '';
-	let project_name = '';
+	let project_name_default = '';
 	let loading_msg = '';
 	let submit_button_label = '';
 	let is_sending = false;
@@ -20,7 +20,7 @@
 	} else {
 		header = 'Edit Project';
 		loading_msg = 'Editing';
-		project_name = 'Poro';
+		project_name_default = 'Poro';
 		submit_button_label = 'Done';
 	}
 
@@ -40,7 +40,7 @@
 			{header}
 			{loading_msg}
 			{is_sending}
-			{project_name}
+			{project_name_default}
 			{submit_button_label}
 			on:submit={handleSubmit}
 		/>

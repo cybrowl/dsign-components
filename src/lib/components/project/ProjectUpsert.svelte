@@ -7,12 +7,13 @@
 
 	export let header = '';
 	export let loading_msg = '';
-	export let project_name = '';
+	export let project_name_default = '';
 	export let submit_button_label = '';
 	export let is_sending = false;
 
 	let hasError = false;
 	let errorMessage = '';
+	let project_name = project_name_default;
 
 	function handleSubmit() {
 		if (project_name.length < 1) {
