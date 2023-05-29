@@ -1,9 +1,10 @@
 <script>
 	import Icon from './Icon.svelte';
 
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	export let autofocus = false;
-	export let capitalizeFirstLetter = false;
-	export let clearValueOnFocus = false;
 	export let errorMessage = '';
 	export let hasError = false;
 	export let label = {
@@ -14,32 +15,17 @@
 		min: '',
 		max: ''
 	};
-	export let onlyAllowLettersAndNumbers = false;
+	export let isFocused = autofocus;
 	export let placeholder = '';
 	export let value;
 
-	let isFocused = autofocus;
-
-	const onFocus = () => {
-		isFocused = true;
-
-		if (clearValueOnFocus) {
-			value = '';
-		}
-		hasError = false;
-		errorMessage = '';
-	};
-
-	const onBlur = () => (isFocused = false);
-
-	const onlyLowercaseLettersAndNumbers = str => {
-		return /^[a-z0-9]*$/.test(str);
-	};
+	export let onlyAllowLettersAndNumbers = false;
+	export let capitalizeFirstLetter = false;
 </script>
 
-<span class="inputContainer">
+<span class="input_container">
 	<label for="finput" name={label.name} class="label">
-		<p class:focused={isFocused === true} class:errorLabel={hasError === true}>
+		<p class:focused={isFocused === true} class:error_label={hasError === true}>
 			{label.value}
 		</p>
 	</label>
@@ -51,20 +37,20 @@
 			bind:value
 			autocomplete="off"
 			class="input"
-			class:errorInput={hasError === true}
+			class:error_input={hasError === true}
 			class:focused={isFocused === true}
 			id="finput"
 			maxlength={length.max}
 			minlength={length.min}
-			on:blur={onBlur}
-			on:focus={onFocus}
+			on:blur={() => {
+				dispatch('blur');
+			}}
+			on:focus={() => {
+				dispatch('focus');
+			}}
 			on:input={() => {
 				if (onlyAllowLettersAndNumbers) {
-					if (onlyLowercaseLettersAndNumbers(value)) {
-						hasError = false;
-					} else {
-						hasError = true;
-					}
+					value = value.replace(/[^a-z0-9]/g, '');
 				}
 
 				if (capitalizeFirstLetter) {
@@ -78,7 +64,7 @@
 		{/if}
 	</span>
 	{#if hasError}
-		<p class="errorMessage">{errorMessage}</p>
+		<p class="error_msg">{errorMessage}</p>
 	{/if}
 </span>
 
@@ -89,24 +75,22 @@
 	.input {
 		@apply bg-smoky-grey border border-solid rounded border-white px-3 py-2 text-white w-full outline-0;
 	}
-	.inputContainer {
+	.input_container {
 		@apply font-sans;
 	}
-	.inputContainer span {
+	.input_container span {
 		@apply flex items-center;
 	}
 	.focused {
 		@apply text-bubble-purple border-bubble-purple;
 	}
-	.errorLabel {
-		color: #f0627c;
+	.error_label {
+		@apply text-mute-red;
 	}
-	.errorInput {
-		margin-right: 1rem;
-		border-color: #f0627c;
+	.error_input {
+		@apply mr-4 border-mute-red;
 	}
-	.errorMessage {
-		color: #f0627c;
-		@apply mt-2.5;
+	.error_msg {
+		@apply mt-2.5 text-mute-red;
 	}
 </style>

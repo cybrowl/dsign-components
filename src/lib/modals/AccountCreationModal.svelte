@@ -1,7 +1,7 @@
 <script>
-	import AccountCreation from '../account_creation/AccountCreation.svelte';
-	import AccountCreationSuccess from '../account_creation/AccountCreationSuccess.svelte';
-	import Modal from '../basic_elements/Modal.svelte';
+	import AccountCreation from '../components/account_creation/AccountCreation.svelte';
+	import AccountCreationSuccess from '../components/account_creation/AccountCreationSuccess.svelte';
+	import Modal from '../components/basic_elements/Modal.svelte';
 
 	export let createdAccount = false;
 	export let errorMessage = '';

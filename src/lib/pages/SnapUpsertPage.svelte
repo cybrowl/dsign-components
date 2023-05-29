@@ -5,7 +5,7 @@
 	import Images from '../components/snap/Images.svelte';
 	import ImagesEmpty from '../components/snap/ImagesEmpty.svelte';
 
-	import {get, set, isEmpty} from 'lodash';
+	import {isEmpty} from 'lodash';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();

@@ -1,8 +1,8 @@
 <script>
-	import {createEventDispatcher} from 'svelte';
-	import AccountSettings from '../account_settings/AccountSettings.svelte';
-	import Modal from '../basic_elements/Modal.svelte';
+	import AccountSettings from '../components/account_settings/AccountSettings.svelte';
+	import Modal from '../components/basic_elements/Modal.svelte';
 
+	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
 	export let avatar = '';

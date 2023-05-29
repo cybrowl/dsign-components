@@ -13,13 +13,16 @@
 	import ProjectCardCreate from '../components/cards/ProjectCardCreate.svelte';
 	import CardEmpty from '../components/cards/CardEmpty.svelte';
 
-	import AccountSettingsModal from '../components/modals/AccountSettingsModal.svelte';
+	import AccountSettingsModal from '../modals/AccountSettingsModal.svelte';
+	import ProjectUpsertModal from '../modals/ProjectUpsertModal.svelte';
+	import ProjectDeleteModal from '../modals/ProjectDeleteModal.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
 	export let is_authenticated = false;
 	export let is_owner = false;
+	export let mode_create = false;
 
 	export let user_profile = {};
 	export let my_profile = {};
@@ -64,6 +67,21 @@
 						username={my_profile.username}
 						on:closeModal={(modal_visible.account_settings =
 							!modal_visible.account_settings)}
+					/>
+				{/if}
+
+				{#if modal_visible.project_upsert}
+					<ProjectUpsertModal
+						{mode_create}
+						on:closeModal={(modal_visible.project_upsert =
+							!modal_visible.project_upsert)}
+					/>
+				{/if}
+
+				{#if modal_visible.project_delete}
+					<ProjectDeleteModal
+						on:closeModal={(modal_visible.project_delete =
+							!modal_visible.project_delete)}
 					/>
 				{/if}
 

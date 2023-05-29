@@ -32,19 +32,16 @@ export {default as ProfileInfo} from './components/profile/ProfileInfo.svelte';
 export {default as ProfileTabs} from './components/profile/ProfileTabs.svelte';
 
 // project
+export {default as ComingSoon} from './components/project/ComingSoon.svelte';
+export {default as ProjectDelete} from './components/project/ProjectDelete.svelte';
 export {default as ProjectEditActionsBar} from './components/project/ProjectEditActionsBar.svelte';
 export {default as ProjectInfo} from './components/project/ProjectInfo.svelte';
 export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
-export {default as ComingSoon} from './components/project/ComingSoon.svelte';
+export {default as ProjectUpsert} from './components/project/ProjectUpsert.svelte';
 
 // snap
-export {default as SnapInfo} from './components/snap/SnapInfo.svelte';
-export {default as SnapActionsBar} from './components/snap/SnapActionsBar.svelte';
-export {default as SnapUpsertActions} from './components/snap/SnapUpsertActions.svelte';
 export {default as Images} from './components/snap/Images.svelte';
 export {default as ImagesEmpty} from './components/snap/ImagesEmpty.svelte';
-
-// ProjectCreation
-// ProjectCreationFetching
-// ProjectEdit
-// ProjectDelete
+export {default as SnapActionsBar} from './components/snap/SnapActionsBar.svelte';
+export {default as SnapInfo} from './components/snap/SnapInfo.svelte';
+export {default as SnapUpsertActions} from './components/snap/SnapUpsertActions.svelte';

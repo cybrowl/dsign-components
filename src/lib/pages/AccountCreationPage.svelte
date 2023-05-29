@@ -2,7 +2,7 @@
 	import Login from '../components/login/Login.svelte';
 	import PageNavigation from '../components/navigation/PageNavigation.svelte';
 
-	import AccountCreationModal from '../components/modals/AccountCreationModal.svelte';
+	import AccountCreationModal from '../modals/AccountCreationModal.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();

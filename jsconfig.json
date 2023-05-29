@@ -3,4 +3,3 @@
     "include": ["src/**/*.js", "src/**/*.svelte", "src/**/**/*.svelte", "src/**/**/*.js"],
     "exclude": ["node_modules/*"]
 }
-  
