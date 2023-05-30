@@ -1,6 +1,6 @@
 {
-	"name": "dsign-components-v2",
-	"version": "0.20.2",
+	"name": "dsign-components",
+	"version": "1.0.0",
 	"description": "",
 	"scripts": {
 		"storybook": "storybook dev -p 6007",
