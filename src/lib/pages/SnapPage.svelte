@@ -11,11 +11,16 @@
 	export const username = '';
 	export let snap = {};
 	export let is_authenticated = false;
+	export let is_owner = false;
 	export let navigationItems;
 	export let my_profile = {};
 
 	function handleBackHistory() {
 		dispatch('backHistory');
+	}
+
+	function handleClickEdit() {
+		dispatch('edit');
 	}
 </script>
 
@@ -30,7 +35,7 @@
 				</div>
 
 				<div class="snap_info_layout">
-					<SnapInfo {snap} />
+					<SnapInfo {snap} {is_owner} on:edit={handleClickEdit} />
 				</div>
 
 				<div class="content_layout">

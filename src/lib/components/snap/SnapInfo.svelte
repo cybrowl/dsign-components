@@ -1,9 +1,15 @@
 <script>
 	import Button from '../basic_elements/Button.svelte';
+	import Icon from '../basic_elements/Icon.svelte';
+
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
+
 	import {DateTime} from 'luxon';
 	import {get} from 'lodash';
 
 	export let snap = {};
+	export let is_owner = false;
 
 	let snap_name = get(snap, 'title', '');
 	let username = get(snap, 'username', '');
@@ -15,6 +21,10 @@
 	let project_name = get(snap, 'project.name', '');
 	let project_canister_id = get(snap, 'project.canister_id', '');
 	let project_href = `/project/${project_id}/?canister_id=${project_canister_id}`;
+
+	function handleClickEdit() {
+		dispatch('edit');
+	}
 </script>
 
 <div class="info">
@@ -27,7 +37,23 @@
 		{/if}
 		<p>{snap_name}</p>
 	</span>
-	<h1>{snap_name}</h1>
+
+	<span class="name">
+		<h1>{snap_name}</h1>
+		{#if is_owner}
+			<Icon
+				class="cursor_pointer fill_dark_grey hover_tulip_purple"
+				name="edit"
+				size="2.5rem"
+				on:click={handleClickEdit}
+				viewSize={{
+					width: '40',
+					height: '40'
+				}}
+			/>
+		{/if}
+	</span>
+
 	<div class="details">
 		<p><span>Creator: </span>{username}</p>
 		<p><span>Published: </span>{published}</p>
@@ -64,6 +90,9 @@
 	}
 	.breadcrumb p {
 		@apply text-light-grey cursor-default;
+	}
+	.name {
+		@apply flex flex-row gap-x-6;
 	}
 	.tags {
 		@apply flex gap-x-3 h-3;

@@ -39,8 +39,12 @@
 			<Icon
 				class="cursor_pointer fill_dark_grey hover_tulip_purple"
 				name="edit"
-				on:click={handleEditProfileBanner}
 				size="2.5rem"
+				viewSize={{
+					width: '40',
+					height: '40'
+				}}
+				on:click={handleEditProfileBanner}
 			/>
 		</span>
 		<input

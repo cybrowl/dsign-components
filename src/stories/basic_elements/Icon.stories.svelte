@@ -76,7 +76,11 @@
 		class: 'cursor_pointer fill_dark_grey hover_primary_purple',
 		name: 'edit',
 		size: '4rem',
-		scale: 1
+		scale: 1,
+		viewSize: {
+			width: '40',
+			height: '40'
+		}
 	}}
 />
 

@@ -38,6 +38,10 @@
 			class="cursor_pointer fill_dark_grey hover_primary_purple"
 			name="edit"
 			size="2.5rem"
+			viewSize={{
+				width: '40',
+				height: '40'
+			}}
 			on:click={toggleEditMode}
 		/>
 	{/if}
