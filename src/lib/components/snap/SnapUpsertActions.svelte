@@ -14,7 +14,7 @@
 	export let is_publishing = false;
 	export let is_uploading_design_file = false;
 
-	let snap_name = snap.name || '';
+	let snap_name = snap.title || '';
 	let placeholder = 'Add a name to your snap';
 	let has_error = false;
 	let images_empty_error = false;
