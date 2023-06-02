@@ -31,6 +31,12 @@
 		}
 	}
 
+	function handleClickUsername() {
+		if (!isOptionsPopoverOpen) {
+			dispatch('clickUsername', project);
+		}
+	}
+
 	function handleEditProject() {
 		dispatch('editProject', project);
 	}
@@ -183,12 +189,12 @@
 				{/if}
 
 				{#if showUsername}
-					<a
-						href={`/${project.username}`}
+					<button
+						on:click={handleClickUsername}
 						on:mouseenter={() => (mouseOverProjectCard = false)}
 						on:mouseleave={() => (mouseOverProjectCard = true)}
 					>
-						{project.username}</a
+						{project.username}</button
 					>
 				{/if}
 			</span>
@@ -246,7 +252,7 @@
 		@apply text-sm;
 	}
 
-	.projectCardDetails a:hover {
+	.projectCardDetails button:hover {
 		@apply underline underline-offset-4 text-bubble-purple;
 	}
 
