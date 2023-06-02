@@ -7,6 +7,10 @@
 		dispatchEvent('itemclick', event);
 	}
 
+	function handleHomeClick(event) {
+		dispatchEvent('home', event);
+	}
+
 	function handleKeyPress(event, item) {
 		if (event.key === 'Enter' || event.key === ' ') {
 			handleItemClick(item);
@@ -17,9 +21,14 @@
 
 <div class="pageNavigation" aria-label="Main navigation">
 	<nav class="navigation">
-		<a href="/" class="logo" aria-label="Home" on:keypress={handleKeyPress}>
+		<button
+			class="logo"
+			aria-label="Home"
+			on:keypress={handleKeyPress}
+			on:click={handleHomeClick}
+		>
 			<img src="/logo.png" alt="letter D" />Sign
-		</a>
+		</button>
 		{#each navigationItems as item}
 			<a
 				class="navItem"
