@@ -106,8 +106,7 @@
 
 <style lang="postcss">
 	.settings {
-		@apply flex flex-row font-sans font-bold text-white ml-6;
-		min-width: 540px;
+		@apply flex flex-row font-sans font-bold text-white ml-6 w-[34rem];
 	}
 	.nav {
 		@apply basis-1/5;
@@ -122,8 +121,7 @@
 		@apply text-bubble-purple;
 	}
 	.nav button:nth-child(3) {
-		@apply mt-60;
-		color: #f0627c;
+		@apply mt-60 text-mute-red;
 	}
 	.content {
 		@apply basis-4/5;

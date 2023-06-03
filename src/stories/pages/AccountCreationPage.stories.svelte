@@ -33,7 +33,7 @@
 </Template>
 
 <Story
-	name="On Mount"
+	name="Create Username"
 	args={{
 		my_profile: {
 			avatar: '',
@@ -43,5 +43,20 @@
 		is_authenticated: true,
 		navItems: navItems,
 		project_store: projects_store
+	}}
+/>
+
+<Story
+	name="Username Created"
+	args={{
+		my_profile: {
+			avatar: '',
+			username: ''
+		},
+		modal_visible: {...modal_visible, account_creation: true},
+		is_authenticated: true,
+		navItems: navItems,
+		project_store: projects_store,
+		createdAccount: true
 	}}
 />

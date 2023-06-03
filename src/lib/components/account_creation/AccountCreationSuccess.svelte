@@ -9,8 +9,7 @@
 
 <style lang="postcss">
 	.accountCreationSuccess {
-		@apply font-sans text-white pb-24 pt-10 flex flex-col items-center;
-		min-width: 600px;
+		@apply font-sans text-white pb-16 flex flex-col items-center w-[38rem];
 	}
 	.accountCreationSuccess img {
 		@apply w-64 h-56 mb-11;

@@ -225,7 +225,7 @@
 	}
 
 	.emptyProject {
-		border: 0.5px solid #706e7a;
+		@apply border border-solid border-castle-grey;
 	}
 
 	.move-modal-preview {

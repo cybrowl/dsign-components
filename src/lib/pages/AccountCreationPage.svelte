@@ -9,6 +9,7 @@
 
 	export const avatar = '';
 	export const username = '';
+	export let createdAccount = false;
 	export let is_authenticated = false;
 	export let navigationItems;
 	export const isLoadingSnap = false;
@@ -25,7 +26,7 @@
 					</PageNavigation>
 				</div>
 
-				<AccountCreationModal />
+				<AccountCreationModal {createdAccount} />
 			</div>
 		</body>
 	</html>
