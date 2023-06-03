@@ -4,13 +4,11 @@
 	const dispatch = createEventDispatcher();
 
 	export let selectedTabState = {
-		isChangesSelected: false,
 		isFeedbackSelected: false,
 		isSnapsSelected: false
 	};
 
 	export let deselectedTabState = {
-		isChangesSelected: false,
 		isFeedbackSelected: false,
 		isSnapsSelected: false
 	};
@@ -22,17 +20,10 @@
 		});
 	}
 
-	function selectRecsTab() {
-		dispatch('selectRecsTab', {
+	function selectFeedbackTab() {
+		dispatch('selectFeedbackTab', {
 			...deselectedTabState,
 			isFeedbackSelected: true
-		});
-	}
-
-	function selectChangesTab() {
-		dispatch('selectChangesTab', {
-			...deselectedTabState,
-			isChangesSelected: true
 		});
 	}
 </script>
@@ -47,16 +38,8 @@
 	>
 
 	<span
-		class={selectedTabState.isChangesSelected ? 'selected' : ''}
-		on:click={selectChangesTab}
-		on:keypress={e => {
-			//TODO: need to design how this will work for A11y
-		}}>Changes</span
-	>
-
-	<span
 		class={selectedTabState.isFeedbackSelected ? 'selected' : ''}
-		on:click={selectRecsTab}
+		on:click={selectFeedbackTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
 		}}>Feedback</span
