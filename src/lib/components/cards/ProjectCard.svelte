@@ -55,150 +55,152 @@
 		</span>
 	</div>
 {:else}
-	<div
-		class="projectCard"
-		class:move-modal-preview={isMoveModal === true}
-		on:click={clickProject}
-		on:keypress={e => {
-			//TODO: need to design how this will work A11y
-		}}
-		alt="project"
-		on:mouseenter={() => (mouseOverProjectCard = true)}
-		on:mouseleave={() => (mouseOverProjectCard = false)}
-	>
-		{#if (mouseOverProjectCard || isOptionsPopoverOpen) && showOptionsPopover}
-			<span
-				class="options"
-				on:keypress={e => {
-					//TODO: need to design how this will work A11y
-				}}
-			>
-				<Icon
-					class="cursor_pointer fill_dark_grey hover_grey"
-					name="options"
-					on:click={() => (isOptionsPopoverOpen = true)}
-					viewSize={{
-						width: '40',
-						height: '40'
-					}}
-				/>
-			</span>
-			{#if isOptionsPopoverOpen}
-				<div
-					class="optionsPopover"
-					use:clickOutside
-					on:click_outside={() => (isOptionsPopoverOpen = false)}
+	<div class="projectCard-wrapper">
+		<div
+			class="projectCard"
+			class:move-modal-preview={isMoveModal === true}
+			on:click={clickProject}
+			on:keypress={e => {
+				//TODO: need to design how this will work A11y
+			}}
+			alt="project"
+			on:mouseenter={() => (mouseOverProjectCard = true)}
+			on:mouseleave={() => (mouseOverProjectCard = false)}
+		>
+			{#if (mouseOverProjectCard || isOptionsPopoverOpen) && showOptionsPopover}
+				<span
+					class="options"
 					on:keypress={e => {
 						//TODO: need to design how this will work A11y
 					}}
 				>
-					<span>
-						{#if optionsPopover.edit}
-							<button
-								on:click={handleEditProject}
-								on:keypress={e => {
-									//TODO: need to design how this will work A11y
-								}}>Edit</button
-							>
-						{/if}
-						{#if optionsPopover.delete}
-							<button
-								on:click={handleDeleteProject}
-								on:keypress={e => {
-									//TODO: need to design how this will work A11y
-								}}>Delete</button
-							>
-						{/if}
-					</span>
-				</div>
+					<Icon
+						class="cursor_pointer fill_dark_grey hover_grey"
+						name="options"
+						on:click={() => (isOptionsPopoverOpen = true)}
+						viewSize={{
+							width: '40',
+							height: '40'
+						}}
+					/>
+				</span>
+				{#if isOptionsPopoverOpen}
+					<div
+						class="optionsPopover"
+						use:clickOutside
+						on:click_outside={() => (isOptionsPopoverOpen = false)}
+						on:keypress={e => {
+							//TODO: need to design how this will work A11y
+						}}
+					>
+						<span>
+							{#if optionsPopover.edit}
+								<button
+									on:click={handleEditProject}
+									on:keypress={e => {
+										//TODO: need to design how this will work A11y
+									}}>Edit</button
+								>
+							{/if}
+							{#if optionsPopover.delete}
+								<button
+									on:click={handleDeleteProject}
+									on:keypress={e => {
+										//TODO: need to design how this will work A11y
+									}}>Delete</button
+								>
+							{/if}
+						</span>
+					</div>
+				{/if}
 			{/if}
-		{/if}
 
-		{#each project.snaps as snap, index}
-			{#if project.snaps.length < 5}
-				<img
-					src={snap.images[snap.image_cover_location].url}
-					class:fill-grid={project.snaps.length === 1}
-					class:row-full={project.snaps.length === 2}
-					class:col-full={(project.snaps.length === 3) & (index === 0)}
-					class:card-rounded-l={project.snaps.length === 2 && index === 0}
-					class:card-rounded-r={project.snaps.length === 2 && index === 1}
-					class:card-rounded-bl={(project.snaps.length === 3) & (index === 1) ||
-						(project.snaps.length === 4) & (index === 2)}
-					class:card-rounded-br={(project.snaps.length === 3) & (index === 2) ||
-						(project.snaps.length === 4) & (index === 3)}
-					class:card-rounded-tr={(project.snaps.length === 4) & (index === 1)}
-					class:card-rounded-tl={(project.snaps.length === 4) & (index === 0)}
-					alt="snap"
-					in:fade
-				/>
-			{/if}
-			{#if project.snaps.length > 4}
-				{#if index < 3}
+			{#each project.snaps as snap, index}
+				{#if project.snaps.length < 5}
 					<img
 						src={snap.images[snap.image_cover_location].url}
-						class:card-rounded-bl={index === 2}
-						class:card-rounded-tl={index === 0}
-						class:card-rounded-tr={index === 1}
+						class:fill-grid={project.snaps.length === 1}
+						class:row-full={project.snaps.length === 2}
+						class:col-full={(project.snaps.length === 3) & (index === 0)}
+						class:card-rounded-l={project.snaps.length === 2 && index === 0}
+						class:card-rounded-r={project.snaps.length === 2 && index === 1}
+						class:card-rounded-bl={(project.snaps.length === 3) &
+							(index === 1) || (project.snaps.length === 4) & (index === 2)}
+						class:card-rounded-br={(project.snaps.length === 3) &
+							(index === 2) || (project.snaps.length === 4) & (index === 3)}
+						class:card-rounded-tr={(project.snaps.length === 4) & (index === 1)}
+						class:card-rounded-tl={(project.snaps.length === 4) & (index === 0)}
 						alt="snap"
 						in:fade
 					/>
 				{/if}
-				{#if index === 3}
-					<div class="overlay-container">
-						<span class="overlay-count" class:card-rounded-br={true} />
-						<p class="overlay-count-text">+ {project.snaps.length}</p>
+				{#if project.snaps.length > 4}
+					{#if index < 3}
 						<img
 							src={snap.images[snap.image_cover_location].url}
-							class:card-rounded-br={true}
+							class:card-rounded-bl={index === 2}
+							class:card-rounded-tl={index === 0}
+							class:card-rounded-tr={index === 1}
 							alt="snap"
 							in:fade
 						/>
-					</div>
-				{/if}
-			{/if}
-		{/each}
-
-		{#if project.snaps.length === 0}
-			<img
-				src="/empty_project.png"
-				alt="account created"
-				class:fill-grid={true}
-				class="emptyProject"
-			/>
-		{/if}
-
-		{#if !hideDetails}
-			<span
-				class="projectCardDetails"
-				on:click|stopPropagation
-				on:keypress={e => {
-					//TODO: need to design how this will work A11y
-				}}
-			>
-				<p class:change-project-color={mouseOverProjectCard === true}>
-					{project.name}
-				</p>
-
-				{#if !hideSnapsCount}
-					{#if project.snaps.length > 1 || project.snaps.length === 0}
-						<p>{project.snaps.length} snaps</p>
-					{:else}
-						<p>{project.snaps.length} snap</p>
+					{/if}
+					{#if index === 3}
+						<div class="overlay-container">
+							<span class="overlay-count" class:card-rounded-br={true} />
+							<p class="overlay-count-text">+ {project.snaps.length}</p>
+							<img
+								src={snap.images[snap.image_cover_location].url}
+								class:card-rounded-br={true}
+								alt="snap"
+								in:fade
+							/>
+						</div>
 					{/if}
 				{/if}
+			{/each}
 
-				{#if showUsername}
-					<button
-						on:click={handleClickUsername}
-						on:mouseenter={() => (mouseOverProjectCard = false)}
-						on:mouseleave={() => (mouseOverProjectCard = true)}
-					>
-						{project.username}</button
-					>
-				{/if}
-			</span>
-		{/if}
+			{#if project.snaps.length === 0}
+				<img
+					src="/empty_project.png"
+					alt="account created"
+					class:fill-grid={true}
+					class="emptyProject"
+				/>
+			{/if}
+
+			{#if !hideDetails}
+				<span
+					class="projectCardDetails"
+					on:click|stopPropagation
+					on:keypress={e => {
+						//TODO: need to design how this will work A11y
+					}}
+				>
+					<p class:change-project-color={mouseOverProjectCard === true}>
+						{project.name}
+					</p>
+
+					{#if !hideSnapsCount}
+						{#if project.snaps.length > 1 || project.snaps.length === 0}
+							<p>{project.snaps.length} snaps</p>
+						{:else}
+							<p>{project.snaps.length} snap</p>
+						{/if}
+					{/if}
+
+					{#if showUsername}
+						<button
+							on:click={handleClickUsername}
+							on:mouseenter={() => (mouseOverProjectCard = false)}
+							on:mouseleave={() => (mouseOverProjectCard = true)}
+						>
+							{project.username}</button
+						>
+					{/if}
+				</span>
+			{/if}
+		</div>
 	</div>
 {/if}
 
@@ -219,9 +221,12 @@
 		@apply bg-black-a h-3 w-20;
 	}
 
+	.projectCard-wrapper {
+		@apply relative w-full;
+		padding-bottom: 100%;
+	}
 	.projectCard {
-		@apply relative font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300
-        lg:h-72 lg:max-h-72 2xl:h-96 2xl:max-h-96;
+		@apply font-sans cursor-pointer grid grid-cols-2 grid-rows-2 gap-1 text-slate-300 absolute w-full h-full;
 	}
 
 	.emptyProject {
