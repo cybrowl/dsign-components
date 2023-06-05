@@ -74,7 +74,7 @@
 					</div>
 					<div class="snaps_layout">
 						{#if selectedTabState.isSnapsSelected}
-							{#if isEmpty(project.snaps)}
+							{#if isEmpty(project.snaps) && is_owner == false}
 								<CardEmpty
 									name="snap_empty"
 									content="No snaps found"

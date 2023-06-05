@@ -38,11 +38,11 @@
 <style lang="postcss">
 	.snapCardCreate-wrapper {
 		@apply relative w-full mb-7;
+		padding-bottom: 75%;
 	}
 	.snapCardCreate {
 		@apply bg-black-a border border-castle-grey rounded text-moon-grey
-		flex justify-center items-center drop-shadow-md cursor-pointer;
-		@apply absolute w-full h-full;
+		flex justify-center items-center drop-shadow-md cursor-pointer absolute w-full h-full;
 	}
 	.snapCardCreate span {
 		@apply flex flex-col justify-center items-center;

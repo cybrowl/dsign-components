@@ -1,7 +1,7 @@
 <script>
 	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
 	import ProjectPage from '../../lib/pages/ProjectPage.svelte';
-	import {project, project_many_snaps} from './data/project';
+	import {project, project_2, project_many_snaps} from './data/project';
 
 	const modal_visible = {
 		account_creation: false,
@@ -87,6 +87,25 @@
 />
 
 <Story
+	name="Snaps / Auth / Owner / 2"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		is_owner: true,
+		project: project_2,
+		selectedTabState: {
+			...selectedTabState,
+			isSnapsSelected: true
+		}
+	}}
+/>
+
+<Story
 	name="Snaps / Auth / Owner / Edit"
 	args={{
 		my_profile: {
@@ -134,6 +153,25 @@
 		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
+		project: {...project, snaps: []},
+		selectedTabState: {
+			...selectedTabState,
+			isSnapsSelected: true
+		}
+	}}
+/>
+
+<Story
+	name="Snaps Empty / Owner"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		is_owner: true,
 		project: {...project, snaps: []},
 		selectedTabState: {
 			...selectedTabState,

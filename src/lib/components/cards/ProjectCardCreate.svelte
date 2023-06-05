@@ -44,6 +44,7 @@
 <style lang="postcss">
 	.projectCardCreate-wrapper {
 		@apply relative w-full mb-12;
+		padding-bottom: 75%;
 	}
 	.projectCardCreate {
 		@apply bg-black-a w-full border border-castle-grey rounded text-moon-grey
