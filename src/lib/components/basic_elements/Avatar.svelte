@@ -88,7 +88,7 @@
 		animation: 1s boop forwards running;
 	}
 	.avatarImg {
-		@apply bg-transparent w-full h-full object-scale-down rounded-full;
+		@apply bg-transparent w-full h-full object-cover rounded-full;
 	}
 	.avatarUsername {
 		@apply relative font-sans font-bold w-11 h-11 flex justify-center items-center rounded-full
