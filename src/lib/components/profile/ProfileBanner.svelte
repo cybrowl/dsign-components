@@ -60,10 +60,11 @@
 
 <style lang="postcss">
 	.profileBanner {
-		@apply relative h-64 w-full object-cover rounded bg-black-a;
+		@apply relative w-full object-cover rounded bg-black-a;
+		padding-bottom: 22%;
 	}
 	.profileBanner img {
-		@apply object-cover h-full w-full rounded;
+		@apply absolute bg-black-a object-cover w-full h-full rounded;
 	}
 	.editIcon {
 		@apply absolute top-0 right-0 p-2 rounded;
