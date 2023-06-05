@@ -99,4 +99,8 @@
 	.editAvatar {
 		@apply absolute top-0 right-0;
 	}
+
+	.responsive_icon {
+		@apply w-16 h-16 lg:w-11 lg:h-11 3xl:w-16 3xl:h-16;
+	}
 </style>

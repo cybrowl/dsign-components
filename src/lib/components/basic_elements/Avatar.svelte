@@ -82,14 +82,13 @@
 		}
 	}
 	.cropAvatar {
-		@apply relative w-11 h-11 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
+		@apply relative lg:w-11 lg:h-11 3xl:w-16 3xl:h-16 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
 	}
 	.cropAvatar:hover {
 		animation: 1s boop forwards running;
 	}
 	.avatarImg {
-		@apply bg-transparent;
-		clip-path: circle(1.2rem);
+		@apply bg-transparent w-full h-full object-scale-down rounded-full;
 	}
 	.avatarUsername {
 		@apply relative font-sans font-bold w-11 h-11 flex justify-center items-center rounded-full

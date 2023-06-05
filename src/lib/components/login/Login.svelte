@@ -18,7 +18,7 @@
 		<Icon
 			name="settings"
 			size="2.75rem"
-			class="cursor_pointer fill_dark_grey hover_smoky_grey"
+			class="cursor_pointer fill_dark_grey hover_smoky_grey responsive_icon"
 			viewSize={{
 				width: '44',
 				height: '44'
