@@ -10,7 +10,6 @@
 		likeActive: false
 	};
 	export let showEditMode = false;
-	export let isLoadingSnap = false;
 	export let showUsername = false;
 
 	let imgLoadFailed = false;
@@ -24,91 +23,77 @@
 	}
 </script>
 
-<!-- Loading Snap -->
-{#if isLoadingSnap}
-	<div class="loading_card">
-		<div class="loading_card_img" />
-	</div>
-{/if}
-
 <!-- Snap -->
-{#if isLoadingSnap === false}
-	<button
-		class="card"
-		on:click={() => {
-			if (showEditMode) {
-				select_card();
-			} else {
-				dispatch('clickCard', snap);
-			}
-		}}
-		on:keypress={e => {
-			//TODO: need to design how this will work A11y
-		}}
-	>
-		<div class="img">
-			{#if imgLoadFailed === true}
-				<div class="img_error">
-					<p>Owner Purged Images</p>
-				</div>
-			{:else}
-				<img
-					class:edit_mode={showEditMode === true}
-					src={snap.images[snap.image_cover_location].url}
-					on:error={handleError}
-					alt="snap"
-					in:fade
-				/>
-			{/if}
+<button
+	class="card"
+	on:click={() => {
+		if (showEditMode) {
+			select_card();
+		} else {
+			dispatch('clickCard', snap);
+		}
+	}}
+	on:keypress={e => {
+		//TODO: need to design how this will work A11y
+	}}
+>
+	<div class="img">
+		{#if imgLoadFailed === true}
+			<div class="img_error">
+				<p>Owner Purged Images</p>
+			</div>
+		{:else}
+			<img
+				class="img-content"
+				class:edit_mode={showEditMode === true}
+				src={snap.images[snap.image_cover_location].url}
+				on:error={handleError}
+				alt="snap"
+				in:fade
+			/>
+		{/if}
 
-			<!-- Unselected -->
-			{#if showEditMode && snap.isSelected === false}
-				<span class="checkmark">
-					<Icon name="unchecked" width="32" height="32" />
-				</span>
-			{/if}
-
-			<!-- Selected -->
-			{#if showEditMode && snap.isSelected}
-				<span class="checkmark">
-					<Icon name="checkmark" width="32" height="32" />
-				</span>
-			{/if}
-		</div>
-
-		{#if showUsername}
-			<span class="username">
-				{#if snap.username.length > 12}
-					<a href={`/${snap.username}`}>{snap.username.slice(0, 12)}...</a>
-				{:else}
-					<a href={`/${snap.username}`}>{snap.username}</a>
-				{/if}
+		<!-- Unselected -->
+		{#if showEditMode && snap.isSelected === false}
+			<span class="checkmark">
+				<Icon name="unchecked" width="32" height="32" />
 			</span>
 		{/if}
 
-		<div class="title">
-			<p>{snap.title}</p>
-		</div>
-	</button>
-{/if}
+		<!-- Selected -->
+		{#if showEditMode && snap.isSelected}
+			<span class="checkmark">
+				<Icon name="checkmark" width="32" height="32" />
+			</span>
+		{/if}
+	</div>
+
+	{#if showUsername}
+		<span class="username">
+			{#if snap.username.length > 12}
+				<a href={`/${snap.username}`}>{snap.username.slice(0, 12)}...</a>
+			{:else}
+				<a href={`/${snap.username}`}>{snap.username}</a>
+			{/if}
+		</span>
+	{/if}
+
+	<div class="title">
+		<p>{snap.title}</p>
+	</div>
+</button>
 
 <style lang="postcss">
-	.loading_card {
-		@apply relative font-sans cursor-pointer w-full max-w-xs h-56;
-	}
-
-	.loading_card_img {
-		@apply bg-black-a w-full h-full relative animate-pulse rounded-md;
-	}
-
 	.card {
 		@apply flex flex-col;
 	}
 	.img {
-		@apply relative font-sans cursor-pointer w-full max-w-xs h-56 hover:drop-shadow-md hover:shadow-gray;
+		@apply relative font-sans cursor-pointer w-full hover:drop-shadow-md hover:shadow-gray;
+		height: 0;
+		padding-bottom: 75%;
 	}
-	.img > img {
-		@apply bg-black-a object-cover w-full h-full rounded-lg;
+	.img-content {
+		@apply absolute top-0 left-0 bg-black-a object-cover w-full h-full rounded-lg;
 	}
 
 	.checkmark {
