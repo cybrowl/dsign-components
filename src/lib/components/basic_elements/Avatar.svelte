@@ -82,7 +82,7 @@
 		}
 	}
 	.cropAvatar {
-		@apply relative lg:w-11 lg:h-11 3xl:w-16 3xl:h-16 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
+		@apply relative lg:w-11 lg:h-11 3xl:w-11 3xl:h-11 flex items-center justify-center rounded-full bg-neutral-900 cursor-pointer;
 	}
 	.cropAvatar:hover {
 		animation: 1s boop forwards running;
