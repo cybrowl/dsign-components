@@ -49,10 +49,6 @@
 {#if isLoadingProject}
 	<div class="projectCardLoading">
 		<div class="projectCardLoadingImg" />
-		<span class="projectCardLoadingDetails">
-			<span />
-			<span />
-		</span>
 	</div>
 {:else}
 	<div class="projectCard-wrapper">
@@ -206,19 +202,12 @@
 
 <style lang="postcss">
 	.projectCardLoading {
-		@apply relative font-sans cursor-pointer w-full max-w-xs h-56;
+		@apply relative;
+		padding-bottom: 100%;
 	}
 
 	.projectCardLoadingImg {
-		@apply bg-black-a w-full h-full relative animate-pulse rounded-md;
-	}
-
-	.projectCardLoadingDetails {
-		@apply flex flex-col gap-y-2 mt-2;
-	}
-
-	.projectCardLoadingDetails > span {
-		@apply bg-black-a h-3 w-20;
+		@apply bg-black-a w-full h-5/6 absolute animate-pulse rounded-md;
 	}
 
 	.projectCard-wrapper {

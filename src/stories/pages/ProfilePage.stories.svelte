@@ -25,6 +25,24 @@
 </Template>
 
 <Story
+	name="Fetching"
+	args={{
+		user_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			username: 'jelly'
+		},
+		is_authenticated: true,
+		is_owner: true,
+		modal_visible: modal_visible,
+		project_store: {
+			isFetching: true,
+			projects: projects_list
+		}
+	}}
+/>
+
+<Story
 	name="Avatar Full Img / Guest"
 	args={{
 		user_profile: {
