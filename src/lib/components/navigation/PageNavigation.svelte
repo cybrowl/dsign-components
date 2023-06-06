@@ -51,11 +51,11 @@
 	}
 
 	.logo {
-		@apply mr-12 text-2xl 2xl:text-3xl 3xl:text-5xl font-bold text-white flex flex-row items-center;
+		@apply mr-12 text-2xl 2xl:text-3xl 3xl:text-4xl font-bold text-white flex flex-row items-center;
 	}
 
 	.logo_img {
-		@apply w-6 h-6 2xl:h-8 2xl:w-8 3xl:h-12 3xl:w-12 mr-1;
+		@apply w-6 h-6 2xl:h-8 2xl:w-8 3xl:h-9 3xl:w-9 mr-1;
 	}
 
 	.navItem {

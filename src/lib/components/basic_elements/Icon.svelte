@@ -101,6 +101,6 @@
 	}
 
 	.responsive_icon {
-		@apply w-16 h-16 lg:w-11 lg:h-11 3xl:w-16 3xl:h-16;
+		@apply w-16 h-16 lg:w-11 lg:h-11 3xl:w-11 3xl:h-11;
 	}
 </style>
