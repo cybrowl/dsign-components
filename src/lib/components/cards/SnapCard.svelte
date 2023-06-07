@@ -1,5 +1,6 @@
 <script>
 	import {fade} from 'svelte/transition';
+	import {get} from 'lodash';
 	import {createEventDispatcher} from 'svelte';
 
 	import Icon from '../basic_elements/Icon.svelte';
@@ -13,6 +14,13 @@
 	export let showUsername = false;
 
 	let imgLoadFailed = false;
+
+	const username = get(snap, 'username', '');
+	const snap_images = get(snap, 'images', []);
+	const snap_image_cover = get(snap, 'image_cover_location', 0);
+
+	const snap_url =
+		(snap_images.length > 0 && snap_images[snap_image_cover]?.url) || '';
 
 	function select_card() {
 		snap.isSelected = !snap.isSelected;
@@ -46,7 +54,7 @@
 			<img
 				class="img-content"
 				class:edit_mode={showEditMode === true}
-				src={snap.images[snap.image_cover_location].url}
+				src={snap_url}
 				on:error={handleError}
 				alt="snap"
 				in:fade
@@ -70,10 +78,10 @@
 
 	{#if showUsername}
 		<span class="username">
-			{#if snap.username.length > 12}
-				<a href={`/${snap.username}`}>{snap.username.slice(0, 12)}...</a>
+			{#if username.length > 12}
+				<a href={`/${username}`}>{username.slice(0, 12)}...</a>
 			{:else}
-				<a href={`/${snap.username}`}>{snap.username}</a>
+				<a href={`/${username}`}>{username}</a>
 			{/if}
 		</span>
 	{/if}

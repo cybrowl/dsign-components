@@ -1,7 +1,12 @@
 <script>
 	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
 	import ProjectPage from '../../lib/pages/ProjectPage.svelte';
-	import {project, project_2, project_many_snaps} from './data/project';
+	import {
+		project,
+		project_2,
+		project_many_snaps,
+		project_imgs_empty
+	} from './data/project';
 
 	const modal_visible = {
 		account_creation: false,
@@ -212,6 +217,24 @@
 		selectedTabState: {
 			...selectedTabState,
 			isFeedbackSelected: true
+		}
+	}}
+/>
+
+<Story
+	name="Empty / Images"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		project: {...project_imgs_empty, tags: []},
+		selectedTabState: {
+			...selectedTabState,
+			isSnapsSelected: true
 		}
 	}}
 />
