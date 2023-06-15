@@ -117,7 +117,11 @@
 			{#each project.snaps as snap, index}
 				{#if project.snaps.length < 5}
 					<img
-						src={get(snap, `images[${snap.image_cover_location}].url`, '')}
+						src={get(
+							snap,
+							`images[${snap.image_cover_location}].url`,
+							'/empty_project.png'
+						)}
 						class:fill-grid={project.snaps.length === 1}
 						class:row-full={project.snaps.length === 2}
 						class:col-full={(project.snaps.length === 3) & (index === 0)}
@@ -136,7 +140,11 @@
 				{#if project.snaps.length > 4}
 					{#if index < 3}
 						<img
-							src={get(snap, `images[${snap.image_cover_location}].url`, '')}
+							src={get(
+								snap,
+								`images[${snap.image_cover_location}].url`,
+								'/empty_project.png'
+							)}
 							class:card-rounded-bl={index === 2}
 							class:card-rounded-tl={index === 0}
 							class:card-rounded-tr={index === 1}
@@ -149,7 +157,11 @@
 							<span class="overlay-count" class:card-rounded-br={true} />
 							<p class="overlay-count-text">+ {project.snaps.length}</p>
 							<img
-								src={get(snap, `images[${snap.image_cover_location}].url`, '')}
+								src={get(
+									snap,
+									`images[${snap.image_cover_location}].url`,
+									'/empty_project.png'
+								)}
 								class:card-rounded-br={true}
 								alt="snap"
 								in:fade
