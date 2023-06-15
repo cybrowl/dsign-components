@@ -48,7 +48,7 @@
 	<div class="img">
 		{#if imgLoadFailed === true}
 			<div class="img_error">
-				<p>Owner Purged Images</p>
+				<p>Owner Removed Image</p>
 			</div>
 		{:else}
 			<img
