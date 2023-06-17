@@ -23,8 +23,8 @@
 
 	images = images.map(image => ({...image, mouseOver: false}));
 
-	function handleRemove(imageId) {
-		dispatch('remove', imageId);
+	function handleRemoveImg(image) {
+		dispatch('removeImg', image);
 	}
 </script>
 
@@ -42,7 +42,7 @@
 						clickable={true}
 						size="2rem"
 						class="cursor_pointer fill_dark_grey hover_primary_purple"
-						on:click={() => handleRemove(image.id)}
+						on:click={() => handleRemoveImg(image)}
 						viewSize={{width: '40', height: '40'}}
 					/>
 
