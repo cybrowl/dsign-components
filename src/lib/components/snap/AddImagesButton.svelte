@@ -65,8 +65,12 @@
 		[...files].forEach(file => {
 			if (file.size > max_image_size) {
 				error_message = 'Image size must be less than 2MB';
+				images_empty_error = true;
 				return;
 			}
+
+			images_empty_error = false;
+
 			images.push(file);
 		});
 
@@ -85,9 +89,9 @@
 			size="3rem"
 		/>
 		<span class="info">
-			<h4 class:error={images_empty_error === true}>Add Images</h4>
-			<p>Max. 2 MB</p>
-			<p>Max. # 12</p>
+			<h4>Add Images</h4>
+			<p class:error={images_empty_error}>Max. 2 MB</p>
+			<p class:error={images_empty_error}>Max. # 12</p>
 		</span>
 	</span>
 </button>
