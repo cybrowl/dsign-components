@@ -70,9 +70,9 @@
 	}
 
 	function handlePublish(event) {
-		const {snap_name} = event.detail;
+		const publish_res = event.detail;
 
-		console.log('publish', {snap_name});
+		console.log('publish', publish_res);
 	}
 
 	function handleSelectCover(event) {

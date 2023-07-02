@@ -40,7 +40,7 @@
 			{
 				canister_id: 'lwq3d-xx-aaaag-aatza-cai',
 				id: '7SZZ2TJWHZ0RXWYVPXFAA6GA63M',
-				url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				url: 'https://images.squarespace-cdn.com/content/v1/54437e21e4b048c830a0cff1/1518620903447-06P5JU5BC17ABDGJTLG5/sweet-run-50.jpg?format=2500w'
 			},
 			{
 				canister_id: 'lwq3d-eyaaa-yy-aatza-cai',

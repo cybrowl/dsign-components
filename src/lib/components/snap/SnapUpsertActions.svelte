@@ -9,8 +9,10 @@
 	import Icon from '../basic_elements/Icon.svelte';
 	import AttachDesignFileButton from './AttachDesignFileButton.svelte';
 	import AddImagesButton from './AddImagesButton.svelte';
+	import AddTags from './AddTags.svelte';
 
 	export let snap = {};
+	export let tags_added = [];
 	export let is_publishing = false;
 	export let is_uploading_design_file = false;
 
@@ -43,6 +45,10 @@
 		dispatch('cancel');
 	}
 
+	function handleUpdate(event) {
+		tags_added = event.detail;
+	}
+
 	function handlePublish() {
 		const has_images = get(snap, 'images', []).length > 0 ? true : false;
 
@@ -55,7 +61,7 @@
 		}
 
 		if (has_images && snap_name.length) {
-			dispatch('publish', {snap_name});
+			dispatch('publish', {snap_name, tags_added});
 		}
 	}
 </script>
@@ -89,6 +95,10 @@
 			/>
 		</div>
 
+		<div class="tags_add">
+			<AddTags {tags_added} on:update={handleUpdate} />
+		</div>
+
 		<div class="submit">
 			<button on:click={handleCancel}>Cancel</button>
 			<Button
@@ -103,15 +113,6 @@
 				<Icon name="organize_category" class="fill_white cursor_default" />
 				<h3>Organize</h3>
 			</div>
-
-			<div class="category">
-				<Icon
-					name="add_tags"
-					class="fill_none cursor_default"
-					viewSize={{width: '31.5', height: '24'}}
-				/>
-				<h3>Add Tags</h3>
-			</div>
 		{/if}
 	</div>
 </div>
@@ -125,6 +126,9 @@
 	}
 	.img_actions {
 		@apply grid grid-cols-3;
+	}
+	.tags_add {
+		@apply grid grid-cols-1;
 	}
 	.category {
 		@apply flex flex-row text-white items-center gap-x-2 cursor-default;

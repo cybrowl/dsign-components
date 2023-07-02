@@ -103,4 +103,8 @@
 	.responsive_icon {
 		@apply w-16 h-16 lg:w-11 lg:h-11 3xl:w-11 3xl:h-11;
 	}
+
+	.add_tags {
+		@apply absolute z-20 left-2 top-1/2 transform -translate-y-1/2;
+	}
 </style>
