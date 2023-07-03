@@ -12,7 +12,9 @@
 	import AddTags from './AddTags.svelte';
 
 	export let snap = {};
-	export let tags_added = [];
+
+	let tags_added = snap.tags;
+
 	export let is_publishing = false;
 	export let is_uploading_design_file = false;
 

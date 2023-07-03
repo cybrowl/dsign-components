@@ -167,3 +167,22 @@
 		snap_creation: snap_creation
 	}}
 />
+
+<Story
+	name="Tags"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		navigationItems: navigationItems,
+		is_uploading_design_file: false,
+		snap_creation: {
+			...snap_creation,
+			tags: ['hello', 'kitty']
+		}
+	}}
+/>
