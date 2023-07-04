@@ -24,7 +24,7 @@ export const project = {
 				{
 					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
 					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
-					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7ZN4ANKCD0T9GB9PYKCTHWTPJP'
 				}
 			],
 			metrics: {
@@ -34,7 +34,7 @@ export const project = {
 			owner: null,
 			project: [],
 			tags: [],
-			title: 'Chat History',
+			title: 'home',
 			username: 'cyberowl'
 		},
 		{
@@ -54,7 +54,7 @@ export const project = {
 				{
 					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
 					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
-					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7ZJ0DEAM97Y1M66VVMGTWM81YA'
 				}
 			],
 			metrics: {
@@ -64,7 +64,7 @@ export const project = {
 			owner: null,
 			project: [],
 			tags: [],
-			title: 'Wallet',
+			title: 'history',
 			username: 'cyberowl'
 		},
 		{
@@ -84,7 +84,7 @@ export const project = {
 				{
 					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
 					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
-					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7ZJ0DEAM97Y1M66VVMGTWM81YA'
 				}
 			],
 			metrics: {
@@ -94,7 +94,7 @@ export const project = {
 			owner: null,
 			project: [],
 			tags: [],
-			title: 'Wallet',
+			title: 'wallet',
 			username: 'cyberowl'
 		},
 		{

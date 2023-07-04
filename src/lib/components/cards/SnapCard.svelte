@@ -101,7 +101,7 @@
 		padding-bottom: 75%;
 	}
 	.img-content {
-		@apply absolute top-0 left-0 bg-black-a object-cover w-full h-full rounded-lg;
+		@apply absolute top-0 left-0 bg-black-a w-full h-full rounded-lg;
 	}
 
 	.checkmark {
