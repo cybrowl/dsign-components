@@ -13,7 +13,7 @@
 
 	export let snap = {};
 
-	let tags_added = snap.tags;
+	let tags_added = snap.tags || [];
 
 	export let is_publishing = false;
 	export let is_uploading_design_file = false;
