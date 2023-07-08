@@ -12,8 +12,12 @@
 	export let is_sending = false;
 
 	let hasError = false;
+	let isProjectNameFocused = false;
+	let isProjectDescriptionFocused = false;
 	let errorMessage = '';
 	let project_name = project_name_default;
+	let project_description = '';
+	let project_description_prev = '';
 
 	function handleSubmit() {
 		if (project_name.length < 1) {
@@ -22,7 +26,7 @@
 			return;
 		}
 
-		dispatch('submit', {project_name});
+		dispatch('submit', {project_name, project_description});
 	}
 
 	function handleCancel() {
@@ -35,17 +39,53 @@
 	{#if is_sending}
 		<p class="loading">{loading_msg} <strong>{project_name}</strong> ...</p>
 	{:else}
-		<Input
-			autofocus={true}
+		<div class="project_name">
+			<Input
+				autofocus={false}
+				on:focus={() => {
+					isProjectNameFocused = true;
+				}}
+				on:blur={() => {
+					isProjectNameFocused = false;
+				}}
+				label={{
+					name: 'Project Name',
+					value: 'Project Name'
+				}}
+				isFocused={isProjectNameFocused}
+				{hasError}
+				{errorMessage}
+				bind:value={project_name}
+				capitalizeFirstLetter={true}
+				length={{min: 1, max: 35}}
+				placeholder=""
+			/>
+		</div>
+
+		<label
+			for="description"
+			class="description-label"
+			class:focused={isProjectDescriptionFocused === true}>Description *</label
+		>
+		<textarea
+			class:focused={isProjectDescriptionFocused === true}
+			bind:value={project_description}
 			on:focus={() => {
-				hasError = false;
+				isProjectDescriptionFocused = true;
 			}}
-			{hasError}
-			{errorMessage}
-			bind:value={project_name}
-			capitalizeFirstLetter={true}
-			length={{min: 1, max: 35}}
-			placeholder="Project name"
+			on:blur={() => {
+				isProjectDescriptionFocused = false;
+			}}
+			on:input={event => {
+				const words = event.target.value.split(/\s+/);
+				if (words.length > 20) {
+					project_description = project_description_prev;
+				} else {
+					project_description_prev = project_description = event.target.value;
+				}
+			}}
+			class="description"
+			placeholder="Project description"
 		/>
 	{/if}
 	<div class="footer">
@@ -64,7 +104,19 @@
 
 <style lang="postcss">
 	.project_upsert {
-		@apply p-10 w-96;
+		@apply p-10 w-[30rem];
+	}
+	.project_name {
+		@apply mb-4;
+	}
+	.description-label {
+		@apply mt-2 text-white;
+	}
+	.description {
+		@apply mt-2 p-2 h-32 border border-gray-300 rounded bg-dark-grey text-cloud-purple w-full outline-0;
+	}
+	.focused {
+		@apply text-bubble-purple border-bubble-purple;
 	}
 	.loading {
 		@apply text-white italic;

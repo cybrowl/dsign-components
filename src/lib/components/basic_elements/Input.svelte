@@ -4,7 +4,6 @@
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let autofocus = false;
 	export let errorMessage = '';
 	export let hasError = false;
 	export let label = {
@@ -15,7 +14,7 @@
 		min: '',
 		max: ''
 	};
-	export let isFocused = autofocus;
+	export let isFocused = false;
 	export let placeholder = '';
 	export let value;
 
@@ -32,7 +31,6 @@
 	<span>
 		<!-- svelte-ignore a11y-autofocus -->
 		<input
-			{autofocus}
 			{placeholder}
 			bind:value
 			autocomplete="off"

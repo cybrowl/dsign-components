@@ -313,7 +313,8 @@
 		},
 		is_authenticated: true,
 		is_owner: true,
-		modal_visible: {...modal_visible, project_create: true},
+		mode_create: true,
+		modal_visible: {...modal_visible, project_upsert: true},
 		favorite_store: {
 			isFetching: false,
 			projects: projects_list
