@@ -8,6 +8,7 @@
 	export let header = '';
 	export let loading_msg = '';
 	export let project_name_default = '';
+	export let project_description_default = '';
 	export let submit_button_label = '';
 	export let is_sending = false;
 
@@ -16,7 +17,7 @@
 	let isProjectDescriptionFocused = false;
 	let errorMessage = '';
 	let project_name = project_name_default;
-	let project_description = '';
+	let project_description = project_description_default;
 	let project_description_prev = '';
 
 	function handleSubmit() {
