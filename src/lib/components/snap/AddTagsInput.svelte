@@ -11,7 +11,7 @@
 		max: ''
 	};
 	export let isFocused = autofocus;
-	export let placeholder = '';
+	export let placeholder = 'Add a tag...';
 	export let onlyAllowLettersAndNumbers = false;
 
 	let value;
