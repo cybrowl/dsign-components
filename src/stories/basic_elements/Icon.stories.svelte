@@ -115,6 +115,20 @@
 />
 
 <Story
+	name="feedback"
+	args={{
+		name: 'feedback',
+		class: 'cursor_pointer fill_dark_grey hover_tulip_purple',
+		viewSize: {
+			width: '52',
+			height: '52'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
 	name="options"
 	args={{
 		class: 'cursor_pointer fill_dark_grey hover_grey',
