@@ -4,8 +4,12 @@
 	import SnapActionsBar from '../components/snap/SnapActionsBar.svelte';
 	import SnapInfo from '../components/snap/SnapInfo.svelte';
 
+	import SnapFeedbackModal from '../modals/SnapFeedbackModal.svelte';
+
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
+
+	export let modal_visible = {};
 
 	export const avatar = '';
 	export const username = '';
@@ -33,6 +37,11 @@
 						<Login {is_authenticated} {my_profile} />
 					</PageNavigation>
 				</div>
+
+				<!-- Modals -->
+				{#if modal_visible.snap_feedback}
+					<SnapFeedbackModal {snap} />
+				{/if}
 
 				<div class="snap_info_layout">
 					<SnapInfo {snap} {is_owner} on:edit={handleClickEdit} />

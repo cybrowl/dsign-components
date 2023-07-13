@@ -85,6 +85,7 @@
 			on:removeFile={handleRemoveFile}
 			file_name={get(snap, 'file_asset.file_name', '')}
 			{is_uploading_design_file}
+			hover_active={true}
 		/>
 
 		<div class="img_actions">
