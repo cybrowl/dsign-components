@@ -45,7 +45,11 @@
 				</div>
 
 				<div class="actions_bar_layout">
-					<SnapActionsBar {snap} on:clickBack={handleBackHistory} />
+					<SnapActionsBar
+						{snap}
+						{is_authenticated}
+						on:clickBack={handleBackHistory}
+					/>
 				</div>
 			</div>
 		</body>

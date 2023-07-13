@@ -6,6 +6,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let snap = {};
+	export let is_authenticated = false;
 
 	function clickBackHistory(event) {
 		dispatch('clickBack', event);
@@ -16,6 +17,10 @@
 		link.href = snap.file_asset.url;
 		link.click();
 		link.remove();
+	}
+
+	function clickFeedback(event) {
+		dispatch('clickFeedback', event);
 	}
 </script>
 
@@ -44,6 +49,22 @@
 					on:click={clickDownload}
 				/>
 				<p>Download</p>
+			</span>
+		{/if}
+
+		{#if is_authenticated}
+			<span class="action_item">
+				<Icon
+					name="feedback"
+					class="cursor_pointer fill_dark_grey hover_tulip_purple"
+					viewSize={{
+						width: '52',
+						height: '52'
+					}}
+					size="3rem"
+					on:click={clickFeedback}
+				/>
+				<p>Feedback</p>
 			</span>
 		{/if}
 	</div>
