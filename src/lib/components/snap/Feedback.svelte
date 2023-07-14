@@ -49,11 +49,12 @@
 
 <div class="feedback">
 	<div class="name">
-		<h1>{`#${get(snap, 'title', '')}`}</h1>
+		<h1>{`# ${get(snap, 'title', '')} /`}</h1>
 		<input bind:value={name} />
 	</div>
 
 	<AttachDesignFileButton
+		class="feedback_styles"
 		on:attachFile={handleAttachFile}
 		on:removeFile={handleRemoveFile}
 		bind:file_name

@@ -8,7 +8,6 @@
 	import JellyFish from '../loading_spinners/JellyFish.svelte';
 
 	export let file_name = '';
-	export let hover_active = false;
 	export let is_uploading_design_file = false;
 
 	let file_input_elem;
@@ -45,8 +44,7 @@
 </script>
 
 <button
-	class="attachDesignFile"
-	class:hover_active={hover_active === true}
+	class="attachDesignFile {$$props.class}"
 	on:click={triggerFileSelectionBrowser}
 >
 	<span class="container">
@@ -106,38 +104,33 @@
 
 <style lang="postcss">
 	.attachDesignFile {
-		@apply font-sans text-white bg-black-a h-36 w-full rounded-md;
+		@apply font-sans text-white bg-black-a w-full rounded-md;
 	}
-
-	.hover_active {
-		@apply hover:bg-dark-grey;
-	}
-
 	.container {
 		@apply flex flex-row items-center pl-6 pr-6;
 	}
-
 	.info {
 		@apply ml-2 text-start gap-x-2;
 	}
-
 	.info h3 {
 		@apply text-base font-bold italic;
 	}
-
 	.info p {
 		@apply text-sm;
 	}
-
 	.fileInput {
 		@apply invisible w-0 h-0 absolute;
 	}
-
 	.file-too-large {
 		@apply text-mute-red;
 	}
-
 	.close-icon-container {
 		@apply ml-auto;
+	}
+	.feedback_styles {
+		@apply h-28 hover:bg-backdrop;
+	}
+	.snap_upsert_styles {
+		@apply h-36 hover:bg-dark-grey;
 	}
 </style>

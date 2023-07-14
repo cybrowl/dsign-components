@@ -81,6 +81,7 @@
 		/>
 
 		<AttachDesignFileButton
+			class="snap_upsert_styles"
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
 			file_name={get(snap, 'file_asset.file_name', '')}
