@@ -17,9 +17,9 @@
 		Number(snap.created) / 1000000
 	).toLocaleString(DateTime.DATETIME_MED);
 
-	let project_id = get(snap, 'project.id', '');
 	let project_name = get(snap, 'project.name', '');
-	let project_canister_id = get(snap, 'project.canister_id', '');
+	let project_id = get(snap, 'project_ref[0].id', '');
+	let project_canister_id = get(snap, 'project_ref[0].canister_id', '');
 	let project_href = `/project/${project_id}/?canister_id=${project_canister_id}`;
 
 	function handleClickEdit() {
