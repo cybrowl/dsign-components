@@ -9,6 +9,7 @@
 	import {get} from 'lodash';
 
 	export let snap = {};
+	export let project_name = '';
 	export let is_owner = false;
 
 	let snap_name = get(snap, 'title', '');
@@ -17,7 +18,6 @@
 		Number(snap.created) / 1000000
 	).toLocaleString(DateTime.DATETIME_MED);
 
-	let project_name = get(snap, 'project.name', '');
 	let project_id = get(snap, 'project_ref[0].id', '');
 	let project_canister_id = get(snap, 'project_ref[0].canister_id', '');
 	let project_href = `/project/${project_id}/?canister_id=${project_canister_id}`;
@@ -31,7 +31,7 @@
 	<span class="breadcrumb">
 		<a href={`/${username}`}>{username}</a>
 		<span>/</span>
-		{#if project_id.length > 0}
+		{#if project_name.length > 0}
 			<a href={project_href}>{project_name}</a>
 			<span>/</span>
 		{/if}

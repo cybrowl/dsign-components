@@ -407,3 +407,57 @@
 		}
 	}}
 />
+
+<Story
+	name="Breadcrum/Project"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		is_owner: true,
+		navItems: navItems,
+		project_name: 'Poro',
+		snap: {
+			canister_id: 'lrr5x-jaaaa-aaaag-aatzq-cai',
+			created: '1682251811746367146',
+			isSelected: false,
+			file_asset: {
+				canister_id: '',
+				file_name: '',
+				id: '',
+				is_public: false,
+				url: ''
+			},
+			id: '7SZZ2TJWHZ3XYRZTWMK5A08MYN',
+			image_cover_location: 0,
+			images: [
+				{
+					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
+					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				},
+				{
+					canister_id: 'lwq3d-eyaaa-aaaag-aatza-cai',
+					id: '7SZZ2TJWHZ0RWYVPXFAA6GA63M',
+					url: 'https://lwq3d-eyaaa-aaaag-aatza-cai.raw.icp0.io/image/snap/7SZZ2TJWHZ0RWYVPXFAA6GA63M'
+				}
+			],
+			metrics: {
+				views: '0',
+				likes: '0'
+			},
+			owner: null,
+			project_ref: {
+				id: '8SZZ2TJWHZ3XYRZTWMK5A08MYN',
+				canister_id: 'xrr5x-jaaaa-aaaag-aatzq-cai'
+			},
+			tags: ['Wallet', 'Desktop', 'BTC'],
+			title: 'Wallet',
+			username: 'cyberowl'
+		}
+	}}
+/>

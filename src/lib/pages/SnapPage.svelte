@@ -14,6 +14,7 @@
 	export const avatar = '';
 	export const username = '';
 	export let snap = {};
+	export let project_name = '';
 	export let is_authenticated = false;
 	export let is_owner = false;
 	export let navigationItems;
@@ -44,7 +45,12 @@
 				{/if}
 
 				<div class="snap_info_layout">
-					<SnapInfo {snap} {is_owner} on:edit={handleClickEdit} />
+					<SnapInfo
+						{project_name}
+						{snap}
+						{is_owner}
+						on:edit={handleClickEdit}
+					/>
 				</div>
 
 				<div class="content_layout">
