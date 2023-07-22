@@ -98,8 +98,12 @@
 	name="favorite"
 	args={{
 		name: 'favorite',
-		class: 'cursor_pointer fill_none',
+		class: 'cursor_pointer fill_dark_grey',
 		size: '4rem',
+		viewSize: {
+			width: 40,
+			height: 40
+		},
 		scale: 1
 	}}
 />
@@ -110,6 +114,10 @@
 		name: 'favorite',
 		class: 'cursor_pointer fill_primary_purple',
 		size: '4rem',
+		viewSize: {
+			width: 40,
+			height: 40
+		},
 		scale: 1
 	}}
 />
@@ -133,6 +141,20 @@
 	args={{
 		class: 'cursor_pointer fill_dark_grey hover_grey',
 		name: 'options',
+		viewSize: {
+			width: '40',
+			height: '40'
+		},
+		size: '4rem',
+		scale: 1
+	}}
+/>
+
+<Story
+	name="options_h"
+	args={{
+		class: 'cursor_pointer fill_dark_grey hover_grey',
+		name: 'options_h',
 		viewSize: {
 			width: '40',
 			height: '40'

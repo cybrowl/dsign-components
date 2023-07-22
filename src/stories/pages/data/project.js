@@ -404,3 +404,66 @@ export const project_many_snaps = {
 	],
 	username: 'cyberowl'
 };
+
+export const topics = [
+	{
+		snap: {
+			name: 'Join'
+		},
+		name: 'Programming in Python',
+		file: {
+			created: '2023-07-16T18:30:00Z',
+			name: 'PythonTutorial.pdf',
+			size: 3000,
+			url: 'https://example.com/files/PythonTutorial.pdf'
+		},
+		messages: [
+			{
+				created: '2023-07-15T15:30:00Z',
+				content:
+					"Hello, I'm new to Python. Can someone help me with basic syntax?",
+				username: 'user1'
+			},
+			{
+				created: '2023-07-15T15:35:00Z',
+				content: 'Sure, I can help. What do you need?',
+				username: 'user2'
+			},
+			{
+				created: '2023-07-15T15:45:00Z',
+				content: "Thank you, I'll message you privately.",
+				username: 'user1'
+			}
+		]
+	},
+	{
+		snap: {
+			name: 'Intro'
+		},
+		name: 'Programming in Java',
+		file: {
+			created: '2023-07-16T18:30:00Z',
+			name: 'PythonTutorial.pdf',
+			size: 3000,
+			url: 'https://example.com/files/PythonTutorial.pdf'
+		},
+		messages: [
+			{
+				created: '2023-07-15T15:30:00Z',
+				content:
+					"Hello, I'm new to Python. Can someone help me with basic syntax?",
+				username: 'user1'
+			},
+			{
+				created: '2023-07-15T15:35:00Z',
+				content: 'Sure, I can help. What do you need?',
+				username: 'user2'
+			},
+			{
+				created: '2023-07-15T15:45:00Z',
+				content: "Thank you, I'll message you privately.",
+				username: 'user1'
+			}
+		]
+	}
+];

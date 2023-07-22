@@ -43,10 +43,11 @@ export const edit_avatar = `<circle cx="12.7275" cy="12.5" r="11" fill="#6259C8"
 <path d="M12.0824 15.7995L10.869 14.3386L9.16667 16.5238H15.9762L13.7848 13.6081L12.0824 15.7995Z" fill="#DADADA"/>
 <path d="M18.1429 7.85714V6H16.9048V7.85714H15.0476C15.0538 7.86333 15.0476 9.09524 15.0476 9.09524H16.9048V10.9462C16.911 10.9524 18.1429 10.9462 18.1429 10.9462V9.09524H20V7.85714H18.1429Z" fill="#DADADA"/>`;
 
-export const favorite = `<rect width="24" height="24" rx="6" fill="#32313D"/>
-<path d="M9.3 7C7.4775 7 6 8.43477 6 10.2046C6 13.4091 9.9 16.3224 12 17C14.1 16.3224 18 13.4091 18 10.2046C18 8.43477 
-16.5225 7 14.7 7C13.584 7 12.597 7.53808 12 8.36165C11.6957 7.94075 11.2914 7.59724 10.8215 7.36022C10.3515 
-7.1232 9.82959 6.99964 9.3 7Z" stroke="#EBE9FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>`;
+export const favorite = `<rect width="40" height="40" rx="6" />
+<path d="M15.5 12C12.4625 12 10 14.4625 10 17.5C10 23 16.5 28 20 29.163C23.5 28 30 23 30 17.5C30 14.4625 
+27.5375 12 24.5 12C22.64 12 20.995 12.9235 20 14.337C19.4928 13.6146 18.8191 13.025 18.0358 12.6182C17.2525 
+12.2114 16.3826 11.9994 15.5 12Z" stroke="#EBE9FF" stroke-width="1.3" stroke-linecap="round" 
+stroke-linejoin="round"/>`;
 
 export const feedback = `<rect width="52" height="48" rx="24" />
 <path d="M14 37.4533L18.7866 32.6667H34C34.7072 32.6667 35.3855 32.3857 35.8856 31.8856C36.3857 31.3855 36.6666 
@@ -77,6 +78,49 @@ export const options = `<g opacity="0.9"><rect width="40" height="40" rx="4" /><
 19.242 31.4284 19.9997 31.4284C20.7575 31.4284 21.4842 31.1274 22.02 30.5916C22.5558 30.0558 22.8569 29.329 22.8569
 28.5713C22.8569 27.8135 22.5558 27.0868 22.02 26.551C21.4842 26.0152 20.7575 25.7141 19.9997 25.7141C19.242 25.7141
 18.5152 26.0152 17.9794 26.551C17.4436 27.0868 17.1426 27.8135 17.1426 28.5713Z" fill="#FEFEFF"/></g>`;
+
+export const options_h = `<g filter="url(#filter0_d_354_1823)">
+<circle cx="4" cy="4.5" r="2.5" transform="rotate(-90 4 4.5)" stroke="#FEFEFF" shape-rendering="crispEdges"/>
+</g>
+<g filter="url(#filter1_d_354_1823)">
+<circle cx="14" cy="4.5" r="2.5" transform="rotate(-90 14 4.5)" stroke="#FEFEFF" shape-rendering="crispEdges"/>
+</g>
+<g filter="url(#filter2_d_354_1823)">
+<circle cx="24" cy="4.5" r="2.5" transform="rotate(-90 24 4.5)" stroke="#FEFEFF" shape-rendering="crispEdges"/>
+</g>
+<defs>
+<filter id="filter0_d_354_1823" x="0" y="0.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_354_1823"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_354_1823"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_354_1823" result="shape"/>
+</filter>
+<filter id="filter1_d_354_1823" x="10" y="0.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_354_1823"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_354_1823"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_354_1823" result="shape"/>
+</filter>
+<filter id="filter2_d_354_1823" x="20" y="0.5" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_354_1823"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.105882 0 0 0 0 0.101961 0 0 0 0 0.133333 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_354_1823"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_354_1823" result="shape"/>
+</filter>
+</defs>
+`;
 
 export const trash = `<rect width="40" height="40" rx="6" /><path fill-rule="evenodd" clip-rule="evenodd" d="M23.3333 
 8L24.6666 9.33333H29.3333V12H10.6666V9.33333H15.3333L16.6666 8H23.3333ZM12 29.3333C12 30.8 13.2 32 14.6666 32H25.3333C26.8 

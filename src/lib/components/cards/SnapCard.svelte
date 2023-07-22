@@ -101,7 +101,8 @@
 		padding-bottom: 75%;
 	}
 	.img-content {
-		@apply absolute top-0 left-0 bg-black-a w-full h-full rounded-lg;
+		@apply absolute top-0 left-0 bg-black-a w-full h-full rounded-lg object-cover 
+		transform scale-100 transition-transform duration-300 ease-in-out hover:scale-110;
 	}
 
 	.checkmark {
@@ -127,6 +128,6 @@
 	}
 
 	.title {
-		@apply text-base font-bold text-white pt-1;
+		@apply text-base font-bold text-cloud-purple pt-4 italic;
 	}
 </style>

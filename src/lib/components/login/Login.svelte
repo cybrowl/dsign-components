@@ -25,7 +25,7 @@
 			}}
 		/>
 	{:else}
-		<Button primary={true} label="Connect" />
+		<Button primary={true} label="Get Started" />
 	{/if}
 </span>
 

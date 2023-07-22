@@ -31,9 +31,13 @@
 				name="favorite"
 				size="3rem"
 				scale="1"
+				viewSize={{
+					width: 40,
+					height: 40
+				}}
 				class={get(project, 'likeActive', false)
 					? 'cursor_pointer fill_primary_purple'
-					: 'cursor_pointer fill_none'}
+					: 'cursor_pointer fill_dark_grey hover_primary_purple'}
 				on:click={saveToFavorites}
 			/>
 		</div>

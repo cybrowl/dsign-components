@@ -10,7 +10,7 @@
 	import ProjectTabs from '../components/project/ProjectTabs.svelte';
 	import ProjectInfo from '../components/project/ProjectInfo.svelte';
 	import ProjectEditActionsBar from '../components/project/ProjectEditActionsBar.svelte';
-	import ComingSoon from '../components/project/ComingSoon.svelte';
+	import Feedback from '../components/project/Feedback.svelte';
 
 	import {createEventDispatcher} from 'svelte';
 	import {isEmpty, get, map, set} from 'lodash';
@@ -72,7 +72,7 @@
 							/>
 						{/if}
 					</div>
-					<div class="snaps_layout">
+					<div class="content_layout">
 						{#if selectedTabState.isSnapsSelected}
 							{#if isEmpty(project.snaps) && is_owner == false}
 								<CardEmpty
@@ -98,9 +98,7 @@
 							{/if}
 						{/if}
 						{#if selectedTabState.isFeedbackSelected}
-							<div class="coming_soon_layout">
-								<ComingSoon />
-							</div>
+							<Feedback topics={project.topics} />
 						{/if}
 					</div>
 				{/if}
@@ -133,10 +131,7 @@
 	.project_tabs_layout {
 		@apply col-start-1 col-end-13 items-center justify-between row-start-3 row-end-auto mt-12 mb-6;
 	}
-	.snaps_layout {
+	.content_layout {
 		@apply row-start-4 row-end-auto hidden lg:grid grid-cols-4 col-start-1 col-end-13 gap-x-6 gap-y-12 mb-16;
-	}
-	.coming_soon_layout {
-		@apply grid col-start-3 col-end-13 row-start-4 row-end-auto;
 	}
 </style>

@@ -83,9 +83,6 @@
 	.navigation_main_layout {
 		@apply row-start-1 row-end-auto col-start-1 col-end-13;
 	}
-	.navigation_main_layout span {
-		@apply flex gap-x-3 cursor-pointer;
-	}
 	.snap_info_layout {
 		@apply row-start-2 row-end-auto col-start-1 col-end-13 mb-10;
 	}

@@ -5,7 +5,8 @@
 		project,
 		project_2,
 		project_many_snaps,
-		project_imgs_empty
+		project_imgs_empty,
+		topics
 	} from './data/project';
 
 	const modal_visible = {
@@ -213,7 +214,7 @@
 		},
 		modal_visible: modal_visible,
 		is_authenticated: false,
-		project: {...project, tags: []},
+		project: {...project, tags: [], topics: topics},
 		selectedTabState: {
 			...selectedTabState,
 			isFeedbackSelected: true

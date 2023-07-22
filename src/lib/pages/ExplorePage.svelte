@@ -87,9 +87,6 @@
 	.navigation_main_layout {
 		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
 	}
-	.navigation_main_layout span {
-		@apply flex gap-x-3 cursor-pointer;
-	}
 	.notification_layout {
 		@apply absolute col-start-12 col-end-13 row-start-2 row-end-3 top-0 right-0;
 	}
