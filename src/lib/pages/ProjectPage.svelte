@@ -13,7 +13,7 @@
 	import Feedback from '../components/project/Feedback.svelte';
 
 	import {createEventDispatcher} from 'svelte';
-	import {isEmpty, get, map, set} from 'lodash';
+	import {isEmpty, map} from 'lodash';
 	const dispatch = createEventDispatcher();
 
 	export let my_profile = {};
@@ -97,6 +97,8 @@
 								/>
 							{/if}
 						{/if}
+					</div>
+					<div class="feedback_layout">
 						{#if selectedTabState.isFeedbackSelected}
 							<Feedback topics={project.topics} />
 						{/if}
@@ -117,7 +119,7 @@
 		@apply hidden lg:grid grid-cols-12 relative mx-12 2xl:mx-60;
 	}
 	.navigation_main_layout {
-		@apply col-start-1 col-end-13 row-start-1 row-end-auto;
+		@apply row-start-1 row-end-auto col-start-1 col-end-13;
 	}
 	.loading_layout {
 		@apply fixed z-30;
@@ -126,12 +128,15 @@
 		transform: translate(-50%, -50%);
 	}
 	.project_info_layout {
-		@apply relative col-start-1 col-end-13 row-start-2 row-end-auto;
+		@apply row-start-2 row-end-auto relative col-start-1 col-end-13;
 	}
 	.project_tabs_layout {
-		@apply col-start-1 col-end-13 items-center justify-between row-start-3 row-end-auto mt-12 mb-6;
+		@apply row-start-3 row-end-auto col-start-1 col-end-13 items-center justify-between mt-12 mb-6;
 	}
 	.content_layout {
 		@apply row-start-4 row-end-auto hidden lg:grid grid-cols-4 col-start-1 col-end-13 gap-x-6 gap-y-12 mb-16;
+	}
+	.feedback_layout {
+		@apply row-start-4 row-end-auto hidden lg:grid grid-cols-12 col-start-1 col-end-13 gap-x-6 gap-y-12 mb-16;
 	}
 </style>

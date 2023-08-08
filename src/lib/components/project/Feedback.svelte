@@ -1,17 +1,23 @@
 <script>
 	import TopicSidebar from './TopicSidebar.svelte';
+	import Conversation from './Conversation.svelte';
 
 	export let topics = [];
 </script>
 
-<div>
-	<div class="topic_sidebar">
-		<TopicSidebar {topics} />
-	</div>
+<div class="topic_sidebar">
+	<TopicSidebar {topics} />
+</div>
+
+<div class="conversation">
+	<Conversation />
 </div>
 
 <style lang="postcss">
 	.topic_sidebar {
-		@apply flex flex-col text-cloud-purple;
+		@apply col-start-1 col-end-4 text-cloud-purple;
+	}
+	.conversation {
+		@apply col-start-4 col-end-13;
 	}
 </style>

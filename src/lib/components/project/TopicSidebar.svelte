@@ -49,7 +49,4 @@
 	.button {
 		@apply flex flex-row justify-between bg-dark-grey hover:bg-black-a px-3 py-3 w-full rounded mb-2;
 	}
-	.text-content {
-		@apply flex-grow text-center;
-	}
 </style>
