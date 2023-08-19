@@ -23,7 +23,7 @@
 	export let isFetching = false;
 	export const navigationItems = [];
 	export let isEditActive = false;
-
+	export let is_change_pending = false;
 	export let selectedTabState = {};
 
 	function deselectAllSnaps(snaps) {
@@ -100,7 +100,7 @@
 					</div>
 					<div class="feedback_layout">
 						{#if selectedTabState.isFeedbackSelected}
-							<Feedback topics={project.topics} />
+							<Feedback topics={project.topics} {is_change_pending} />
 						{/if}
 					</div>
 				{/if}

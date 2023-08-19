@@ -3,6 +3,8 @@
 	import Conversation from './Conversation.svelte';
 
 	export let topics = [];
+	export let is_change_pending;
+	let selectedTopic = topics[0];
 </script>
 
 <div class="topic_sidebar">
@@ -10,7 +12,7 @@
 </div>
 
 <div class="conversation">
-	<Conversation />
+	<Conversation {is_change_pending} {selectedTopic} />
 </div>
 
 <style lang="postcss">

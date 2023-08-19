@@ -414,7 +414,7 @@ export const topics = [
 		file: {
 			created: '2023-07-16T18:30:00Z',
 			name: 'PythonTutorial.pdf',
-			size: 3000,
+			size: 30,
 			url: 'https://example.com/files/PythonTutorial.pdf'
 		},
 		messages: [
@@ -444,7 +444,7 @@ export const topics = [
 		file: {
 			created: '2023-07-16T18:30:00Z',
 			name: 'PythonTutorial.pdf',
-			size: 3000,
+			size: 30,
 			url: 'https://example.com/files/PythonTutorial.pdf'
 		},
 		messages: [

@@ -48,7 +48,7 @@
 
 <style lang="postcss">
 	.tabsContainer {
-		@apply font-sans flex m-4 gap-4 float-left cursor-pointer text-white text-sm;
+		@apply font-sans flex p-4 gap-4 cursor-pointer text-white text-sm;
 	}
 	.selected {
 		@apply text-bubble-purple border-solid border-b-4 pb-1 border-bubble-purple;

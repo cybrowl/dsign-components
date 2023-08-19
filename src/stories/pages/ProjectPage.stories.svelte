@@ -19,7 +19,6 @@
 	};
 
 	const selectedTabState = {
-		isChangesSelected: false,
 		isFeedbackSelected: false,
 		isSnapsSelected: false
 	};
@@ -215,6 +214,25 @@
 		modal_visible: modal_visible,
 		is_authenticated: false,
 		project: {...project, tags: [], topics: topics},
+		selectedTabState: {
+			...selectedTabState,
+			isFeedbackSelected: true
+		}
+	}}
+/>
+
+<Story
+	name="Feedback / Changes Pending"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: false,
+		project: {...project, tags: [], topics: topics},
+		is_change_pending: true,
 		selectedTabState: {
 			...selectedTabState,
 			isFeedbackSelected: true
