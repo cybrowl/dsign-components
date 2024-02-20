@@ -62,6 +62,8 @@
 			on:keypress={e => {
 				//TODO: need to design how this will work A11y
 			}}
+			role="button"
+			tabindex="0"
 			alt="project"
 			on:mouseenter={() => (mouseOverProjectCard = true)}
 			on:mouseleave={() => (mouseOverProjectCard = false)}
@@ -72,6 +74,8 @@
 					on:keypress={e => {
 						//TODO: need to design how this will work A11y
 					}}
+					role="button"
+					tabindex="0"
 				>
 					<Icon
 						class="cursor_pointer fill_dark_grey hover_grey"
@@ -88,9 +92,8 @@
 						class="optionsPopover"
 						use:clickOutside
 						on:click_outside={() => (isOptionsPopoverOpen = false)}
-						on:keypress={e => {
-							//TODO: need to design how this will work A11y
-						}}
+						role="dialog"
+						aria-labelledby="optionsPopoverLabel"
 					>
 						<span>
 							{#if optionsPopover.edit}
@@ -187,6 +190,8 @@
 					on:keypress={e => {
 						//TODO: need to design how this will work A11y
 					}}
+					role="button"
+					tabindex="0"
 				>
 					<p class:change-project-color={mouseOverProjectCard === true}>
 						{project.name}
