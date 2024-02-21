@@ -34,7 +34,9 @@
 		on:click={selectConversationTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
-		}}>Conversation</span
+		}}
+		role="button"
+		tabindex="0">Conversation</span
 	>
 
 	<span
@@ -42,7 +44,9 @@
 		on:click={selectChangesTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
-		}}>Changes</span
+		}}
+		role="button"
+		tabindex="0">Changes</span
 	>
 </div>
 

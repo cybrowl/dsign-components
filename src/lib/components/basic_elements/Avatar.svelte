@@ -20,6 +20,8 @@
 		on:keypress={e => {
 			//TODO: need to design how this will work A11y
 		}}
+		role="button"
+		tabindex="0"
 	>
 		<img alt="avatar" class="avatarImg" src={avatar} />
 		{#if canEditAvatar}
@@ -38,6 +40,8 @@
 		on:keypress={e => {
 			//TODO: need to design how this will work A11y
 		}}
+		role="button"
+		tabindex="0"
 	>
 		<p>
 			{username.charAt(0)}

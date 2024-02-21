@@ -33,6 +33,8 @@
 		class="images"
 		on:mouseenter={() => (image.mouseOver = true)}
 		on:mouseleave={() => (image.mouseOver = false)}
+		role="button"
+		tabindex="0"
 	>
 		<span class="image_action">
 			<div class="action_layout">

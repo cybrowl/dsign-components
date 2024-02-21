@@ -19,7 +19,6 @@
 
 <span class="input_container">
 	<span>
-		<!-- svelte-ignore a11y-autofocus -->
 		<Icon
 			class="add_tags"
 			name="add_tags"
@@ -30,6 +29,7 @@
 			}}
 		/>
 
+		<!-- svelte-ignore a11y-autofocus -->
 		<input
 			{autofocus}
 			{placeholder}

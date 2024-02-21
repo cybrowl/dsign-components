@@ -29,7 +29,9 @@
 		on:click={selectProjectsTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
-		}}>Projects</span
+		}}
+		role="button"
+		tabindex="0">Projects</span
 	>
 
 	<span
@@ -37,7 +39,9 @@
 		on:click={selectFavoritesTab}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
-		}}>Favorites</span
+		}}
+		role="button"
+		tabindex="0">Favorites</span
 	>
 </div>
 

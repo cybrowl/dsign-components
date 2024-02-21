@@ -23,6 +23,8 @@
 			on:keypress={e => {
 				//TODO: need to design how this will work A11y
 			}}
+			role="button"
+			tabindex="0"
 		>
 			<Icon
 				class="cursor_pointer fill_white hover_bubble_purple"

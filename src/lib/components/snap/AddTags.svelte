@@ -37,7 +37,9 @@
 					on:click={() => handleTagDelete(index)}
 					on:keypress={e => {
 						//TODO: need to design how this will work A11y
-					}}>X</span
+					}}
+					role="button"
+					tabindex="0">X</span
 				>
 				<span>{tag}</span>
 			</div>
