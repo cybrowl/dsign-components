@@ -115,7 +115,7 @@
 
 <style lang="postcss">
 	.accountCreation {
-		@apply font-sans text-white pb-28 w-[38rem] pr-20 pl-20;
+		@apply font-sans text-white pb-28 pt-20 w-[38rem] pr-20 pl-20;
 	}
 
 	.accountCreation h1 {
