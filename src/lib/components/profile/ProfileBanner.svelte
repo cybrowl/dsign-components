@@ -14,13 +14,13 @@
 	}
 
 	function handleFileSelection(e) {
-		const maxSize = 2 * 1024 * 1024; // 2 MB
+		const MAX_SIZE = 4 * 1024 * 1024; // 4 MB
 		const file = e.target.files[0];
 
-		if (file.size <= maxSize) {
+		if (file.size <= MAX_SIZE) {
 			dispatch('profileBannerChange', file);
 		} else {
-			dispatch('error', 'Max Img File Size 2MB');
+			dispatch('error', 'Max Img File Size 4MB');
 		}
 	}
 </script>
