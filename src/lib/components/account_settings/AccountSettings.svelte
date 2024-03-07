@@ -25,9 +25,14 @@
 	}
 
 	const onFileSelected = e => {
-		let files = e.target.files;
+		const MAX_SIZE = 4 * 1024 * 1024; // 4 MB
+		const file = e.target.files[0];
 
-		dispatch('avatarChange', files);
+		if (file.size <= MAX_SIZE) {
+			dispatch('avatarChange', file);
+		} else {
+			dispatch('error', 'Max Img File Size 4MB');
+		}
 	};
 
 	function onClickProfile() {
