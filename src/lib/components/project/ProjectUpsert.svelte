@@ -5,19 +5,15 @@
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let header = '';
-	export let loading_msg = '';
-	export let project_name_default = '';
-	export let project_description_default = '';
-	export let submit_button_label = '';
 	export let is_sending = false;
+	export let content = {};
 
 	let hasError = false;
 	let isProjectNameFocused = false;
 	let isProjectDescriptionFocused = false;
 	let errorMessage = '';
-	let project_name = project_name_default;
-	let project_description = project_description_default;
+	let project_name = content.project_name;
+	let project_description = content.project_description;
 	let project_description_prev = '';
 
 	function handleSubmit() {
@@ -36,9 +32,11 @@
 </script>
 
 <div class="project_upsert">
-	<h2 class="header">{header}</h2>
+	<h2 class="header">{content.header}</h2>
 	{#if is_sending}
-		<p class="loading">{loading_msg} <strong>{project_name}</strong> ...</p>
+		<p class="loading">
+			{content.loading_msg} <strong>{project_name}</strong> ...
+		</p>
 	{:else}
 		<div class="project_name">
 			<Input
@@ -92,7 +90,7 @@
 	<div class="footer">
 		<button class="cancel" on:click={handleCancel}>Cancel</button>
 		<Button
-			label={submit_button_label}
+			label={content.submit_button_label}
 			primary={true}
 			primaryDisabled={is_sending}
 			on:click={handleSubmit}
