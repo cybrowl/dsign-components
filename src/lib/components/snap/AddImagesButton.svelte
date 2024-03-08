@@ -1,85 +1,77 @@
 <script>
 	import {createEventDispatcher} from 'svelte';
-	const dispatch = createEventDispatcher();
-
 	import Icon from '../basic_elements/Icon.svelte';
+	import {generateUUID} from '../../utils/uuid';
+
+	const dispatch = createEventDispatcher();
 
 	let images = [];
 	let error_message = '';
-
 	export let images_empty_error = false;
 
 	let file_img_input_elem;
 
-	function triggerFileSelectionBrowser(e) {
+	// Utility functions
+	async function readFileAsDataURL(file) {
+		return new Promise(resolve => {
+			const reader = new FileReader();
+			reader.onload = () => resolve(reader.result);
+			reader.readAsDataURL(file);
+		});
+	}
+
+	async function fileToArrayBuffer(file) {
+		const arrayBuffer = await file.arrayBuffer();
+		return new Uint8Array(arrayBuffer);
+	}
+
+	async function processImages(files) {
+		const maxImageSize = 2_000_000; // 2MB in bytes
+		images = [...files].filter(file => {
+			const isValidSize = file.size <= maxImageSize;
+			if (!isValidSize) {
+				error_message = 'Image size must be less than 2MB';
+				images_empty_error = true;
+			}
+			return isValidSize;
+		});
+
+		if (images.length > 0) {
+			images_empty_error = false;
+			await generatePreviewImages();
+		}
+	}
+
+	async function generatePreviewImages() {
+		const imageDataPromises = images.map(async image => {
+			const url = await readFileAsDataURL(image);
+			const uint8Array = await fileToArrayBuffer(image);
+			return {
+				id: generateUUID(),
+				url,
+				is_new: true,
+				mimeType: image.type,
+				uint8Array
+			};
+		});
+
+		const imageData = await Promise.all(imageDataPromises);
+		dispatch('addImages', {imageData});
+		images = [];
+	}
+
+	// Event handlers
+	function triggerFileSelection() {
 		file_img_input_elem.click();
 	}
 
-	async function convertFileToDataUrl(file) {
-		let dataUrl = await new Promise(resolve => {
-			let fileReader = new FileReader();
-
-			fileReader.onload = event => {
-				resolve(fileReader.result);
-			};
-
-			fileReader.readAsDataURL(file);
-		});
-
-		let splitDataUrl = dataUrl.split(',');
-
-		let mimeType = splitDataUrl[0].split(':')[1].split(';')[0];
-		// let base64Data = splitDataUrl[1];
-
-		return {dataUrl: dataUrl, mimeType: mimeType};
-	}
-
-	async function generatePreviewImgs() {
-		let fileDataUrlsPromises = images.map(image => {
-			return convertFileToDataUrl(image);
-		});
-
-		let unit8ArrayImagesPromises = images.map(async image => {
-			const arrayBuffer = await image.arrayBuffer();
-			return new Uint8Array(arrayBuffer);
-		});
-
-		let [img_data_urls, images_unit8Arrays] = await Promise.all([
-			Promise.all(fileDataUrlsPromises),
-			Promise.all(unit8ArrayImagesPromises)
-		]);
-
-		images = [];
-
-		dispatch('addImages', {img_data_urls, images_unit8Arrays});
-		dispatch('error');
-	}
-
-	function handleAddImages(e) {
-		let files = e.target.files;
-
-		const max_image_size = 2000000;
-
-		error_message = '';
-
-		[...files].forEach(file => {
-			if (file.size > max_image_size) {
-				error_message = 'Image size must be less than 2MB';
-				images_empty_error = true;
-				return;
-			}
-
-			images_empty_error = false;
-
-			images.push(file);
-		});
-
-		generatePreviewImgs();
-		e.target.value = '';
+	function handleAddImages(event) {
+		processImages(event.target.files);
+		event.target.value = ''; // Reset input after processing
 	}
 </script>
 
-<button class="addImages" on:click={triggerFileSelectionBrowser}>
+<button class="addImages" on:click={triggerFileSelection}>
 	<span class="container">
 		<Icon
 			name="attach_images"
@@ -91,7 +83,6 @@
 		<span class="info">
 			<h4>Add Images</h4>
 			<p class:error={images_empty_error}>Max. 2 MB</p>
-			<p class:error={images_empty_error}>Max. # 12</p>
 		</span>
 	</span>
 </button>
@@ -101,7 +92,7 @@
 	type="file"
 	multiple={true}
 	accept=".jpg, .jpeg, .png, .gif, .webp"
-	on:change={e => handleAddImages(e)}
+	on:change={handleAddImages}
 	bind:this={file_img_input_elem}
 />
 

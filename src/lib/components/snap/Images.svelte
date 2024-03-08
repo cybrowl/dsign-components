@@ -24,7 +24,7 @@
 	images = images.map(image => ({...image, mouseOver: false}));
 
 	function handleRemoveImg(image) {
-		dispatch('removeImg', image);
+		dispatch('remove', image);
 	}
 </script>
 

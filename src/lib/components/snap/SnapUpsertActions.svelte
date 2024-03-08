@@ -40,6 +40,8 @@
 	function handleAddImages(event) {
 		let preview_images = event.detail;
 
+		console.log('preview_images: ', preview_images);
+
 		dispatch('addImages', preview_images);
 	}
 

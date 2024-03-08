@@ -36,25 +36,20 @@
 		console.log('page file: ', file);
 	}
 
-	function generateId() {
-		return Math.random().toString(36).substr(2, 9);
-	}
-
 	function handleAddImages(event) {
-		let {img_data_urls, images_unit8Arrays} = event.detail;
+		let {imageData} = event.detail;
 
 		snap_creation = {
 			...snap_creation,
 			images: snap_creation.images || []
 		};
 
-		img_data_urls.forEach(({dataUrl, mimeType}, index) => {
+		imageData.forEach(({id, url, mimeType, uint8Array}, index) => {
 			let newImage = {
-				canister_id: '',
-				id: generateId(),
-				url: dataUrl,
+				id: id,
+				url: url,
 				mimeType,
-				data: images_unit8Arrays[index]
+				data: uint8Array
 			};
 
 			if (snap_creation.images.length < 12) {
@@ -81,12 +76,14 @@
 		console.log('cover_img', cover_img);
 	}
 
-	function handleRemoveImg(event) {
-		const image_id = event.detail;
+	function remove_image(event) {
+		const image_selected = event.detail;
 
 		snap_creation = {
 			...snap_creation,
-			images: snap_creation.images.filter(image => image.id !== image_id)
+			images: snap_creation.images.filter(
+				image => image.id !== image_selected.id
+			)
 		};
 	}
 </script>
@@ -107,7 +104,7 @@
 					{:else}
 						<Images
 							images={snap_creation.images}
-							on:remove={handleRemoveImg}
+							on:remove={remove_image}
 							on:selectCover={handleSelectCover}
 						/>
 					{/if}
