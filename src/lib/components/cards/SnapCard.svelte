@@ -86,8 +86,8 @@
 		</span>
 	{/if}
 
-	<div class="title">
-		<p>{snap.title}</p>
+	<div class="name">
+		<p>{snap.name}</p>
 	</div>
 </button>
 
@@ -127,7 +127,7 @@
 		@apply gap-1 flex flex-col justify-start mt-2 font-sans text-gray-100 hover:text-primary-purple;
 	}
 
-	.title {
+	.name {
 		@apply text-base font-bold text-cloud-purple pt-4 italic;
 	}
 </style>
