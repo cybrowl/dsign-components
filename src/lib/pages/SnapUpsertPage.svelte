@@ -44,9 +44,10 @@
 			images: snap_creation.images || []
 		};
 
-		imageData.forEach(({id, url, mimeType, uint8Array}, index) => {
+		imageData.forEach(({id, url, mimeType, uint8Array, fileName}, index) => {
 			let newImage = {
 				id: id,
+				fileName,
 				url: url,
 				mimeType,
 				data: uint8Array

@@ -46,12 +46,14 @@
 		const imageDataPromises = images.map(async image => {
 			const url = await readFileAsDataURL(image);
 			const uint8Array = await fileToArrayBuffer(image);
+			const fileName = image.name;
 			return {
 				id: generateUUID(),
 				url,
 				is_new: true,
 				mimeType: image.type,
-				uint8Array
+				uint8Array,
+				fileName
 			};
 		});
 
