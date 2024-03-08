@@ -86,7 +86,7 @@
 			class="snap_upsert_styles"
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
-			file_name={get(snap, 'file_asset.file_name', '')}
+			file_name={get(snap, 'design_file[0].filename', '')}
 			{is_uploading_design_file}
 			hover_active={true}
 		/>
