@@ -12,6 +12,7 @@
 
 	export let my_profile = {};
 	export let modal_visible = {};
+	export let is_edit_mode = false;
 	export let is_authenticated = false;
 	export let navigationItems;
 	export let snap_upsert_store = {
@@ -138,6 +139,7 @@
 						on:cancel={handleCancel}
 						on:publish={handlePublish}
 						snap={snap_upsert_store.snap}
+						{is_edit_mode}
 						{is_publishing}
 						{is_uploading_design_file}
 					/>

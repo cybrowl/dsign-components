@@ -10,6 +10,7 @@
 	import AttachDesignFileButton from './AttachDesignFileButton.svelte';
 	import AddImagesButton from './AddImagesButton.svelte';
 	import AddTags from './AddTags.svelte';
+	import JellyFish from '../loading_spinners/JellyFish.svelte';
 
 	export let snap = {};
 
@@ -18,7 +19,7 @@
 	let tags_added = snap.tags || [];
 
 	export let is_publishing = false;
-	export let is_edit = false;
+	export let is_edit_mode = false;
 	export let is_uploading_design_file = false;
 
 	let snap_name = snap.name || '';
@@ -108,15 +109,31 @@
 			<AddTags {tags_added} on:update={handleUpdate} />
 		</div>
 
-		{#if is_edit === false}
+		{#if is_edit_mode === false}
 			<div class="submit">
-				<button on:click={handleCancel}>Cancel</button>
+				{#if is_publishing === false}
+					<button on:click={handleCancel}>Cancel</button>
+				{/if}
 				<Button
-					label="Publish"
+					label={is_publishing ? 'Creating' : 'Create'}
 					on:click={handlePublish}
 					primaryDisabled={is_publishing}
 				/>
 			</div>
+		{/if}
+
+		{#if is_edit_mode === true}
+			{#if is_publishing === false}
+				<div class="submit">
+					<button on:click={handleCancel}>back</button>
+				</div>
+			{/if}
+
+			{#if is_publishing === true}
+				<div class="submit">
+					<JellyFish />
+				</div>
+			{/if}
 		{/if}
 
 		{#if show_feature}

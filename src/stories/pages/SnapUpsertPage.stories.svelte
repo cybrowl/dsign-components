@@ -150,7 +150,7 @@
 />
 
 <Story
-	name="Edit"
+	name="Edit: Not Saving"
 	args={{
 		my_profile: {
 			avatar:
@@ -159,6 +159,26 @@
 		},
 		modal_visible: modal_visible,
 		is_authenticated: true,
+		is_edit_mode: true,
+		navigationItems: navigationItems,
+		snap_upsert_store: {
+			snap: snap_poked
+		}
+	}}
+/>
+
+<Story
+	name="Edit: Saving"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		is_publishing: true,
+		is_edit_mode: true,
 		navigationItems: navigationItems,
 		snap_upsert_store: {
 			snap: snap_poked
