@@ -1,26 +1,27 @@
 <script>
 	import Button from '../basic_elements/Button.svelte';
 	import Icon from '../basic_elements/Icon.svelte';
-
 	import {createEventDispatcher} from 'svelte';
-	const dispatch = createEventDispatcher();
-
 	import {DateTime} from 'luxon';
-	import {get} from 'lodash';
 
 	export let snap = {};
 	export let project_name = '';
 	export let is_owner = false;
 
-	let snap_name = get(snap, 'name', '');
-	let username = get(snap, 'username', '');
-	let published = DateTime.fromMillis(
-		Number(snap.created) / 1000000
-	).toLocaleString(DateTime.DATETIME_MED);
+	const dispatch = createEventDispatcher();
 
-	let project_id = get(snap, 'project_ref[0].id', '');
-	let project_canister_id = get(snap, 'project_ref[0].canister_id', '');
-	let project_href = `/project/${project_id}/?canister_id=${project_canister_id}`;
+	const snap_name = snap.name || '';
+	const tags = snap.tags || [];
+	const project_id = snap.project_id || '';
+	const project_cid = snap.canister_id || '';
+	const username = snap.username || '';
+	const published = snap.created
+		? DateTime.fromMillis(Number(snap.created) / 1000000).toLocaleString(
+				DateTime.DATETIME_MED
+		  )
+		: '';
+
+	const project_href = `/project/${project_name}?id=${project_id}&cid=${project_cid}`;
 
 	function handleClickEdit() {
 		dispatch('edit');
@@ -59,7 +60,7 @@
 		<p><span>Published: </span>{published}</p>
 	</div>
 	<div class="tags">
-		{#each get(snap, 'tags', []) as tag}
+		{#each tags as tag}
 			<Button
 				label={`# ${tag.toLowerCase()}`}
 				class="button--filter-active cursor_default"
