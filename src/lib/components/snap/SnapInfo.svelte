@@ -12,7 +12,7 @@
 	export let project_name = '';
 	export let is_owner = false;
 
-	let snap_name = get(snap, 'title', '');
+	let snap_name = get(snap, 'name', '');
 	let username = get(snap, 'username', '');
 	let published = DateTime.fromMillis(
 		Number(snap.created) / 1000000
