@@ -14,7 +14,9 @@
 	export let modal_visible = {};
 	export let is_authenticated = false;
 	export let navigationItems;
-	export let snap_creation = {};
+	export let snap_upsert_store = {
+		snap: {}
+	};
 	export let is_publishing = false;
 	export let is_uploading_design_file = false;
 
@@ -23,7 +25,12 @@
 
 		let file_array_buffer = file && new Uint8Array(await file.arrayBuffer());
 
-		snap_creation = {...snap_creation, file_asset: {file_name: file.name}};
+		snap_upsert_store = {
+			snap: {
+				...snap_upsert_store.snap,
+				design_file: {filename: file.name}
+			}
+		};
 
 		console.log('page: file: ', file_array_buffer);
 	}
@@ -31,7 +38,12 @@
 	function handleRemoveFile(event) {
 		let file = event.detail;
 
-		snap_creation = {...snap_creation, file_asset: {file_name: ''}};
+		snap_upsert_store = {
+			snap: {
+				...snap_upsert_store.snap,
+				design_file: {filename: ''}
+			}
+		};
 
 		console.log('page file: ', file);
 	}
@@ -39,9 +51,11 @@
 	function handleAddImages(event) {
 		let {imageData} = event.detail;
 
-		snap_creation = {
-			...snap_creation,
-			images: snap_creation.images || []
+		snap_upsert_store = {
+			snap: {
+				...snap_creation,
+				images: snap_upsert_store.snap.images || []
+			}
 		};
 
 		imageData.forEach(({id, url, mimeType, uint8Array, fileName}, index) => {
@@ -53,12 +67,15 @@
 				data: uint8Array
 			};
 
-			if (snap_creation.images.length < 12) {
-				snap_creation.images = [...snap_creation.images, newImage];
+			if (snap_upsert_store.snap.images.length < 12) {
+				snap_upsert_store.snap.images = [
+					...snap_upsert_store.snap.images,
+					newImage
+				];
 			}
 		});
 
-		console.log('snap_creation: ', snap_creation);
+		console.log('snap_upsert_store.snap: ', snap_upsert_store.snap);
 	}
 
 	function handleCancel() {
@@ -80,9 +97,11 @@
 	function remove_image(event) {
 		const image_selected = event.detail;
 
-		snap_creation = {
-			...snap_creation,
-			images: snap_creation.images.filter(
+		snap_upsert_store = {
+			snap: {
+				...snap_upsert_store.snap
+			},
+			images: snap_upsert_store.snap.images.filter(
 				image => image.id !== image_selected.id
 			)
 		};
@@ -100,11 +119,11 @@
 				</div>
 
 				<div class="content_layout">
-					{#if isEmpty(snap_creation.images)}
+					{#if isEmpty(snap_upsert_store.snap.images)}
 						<ImagesEmpty content="Please add images" />
 					{:else}
 						<Images
-							images={snap_creation.images}
+							images={snap_upsert_store.snap.images}
 							on:remove={remove_image}
 							on:selectCover={handleSelectCover}
 						/>
@@ -118,7 +137,7 @@
 						on:addImages={handleAddImages}
 						on:cancel={handleCancel}
 						on:publish={handlePublish}
-						snap={snap_creation}
+						snap={snap_upsert_store.snap}
 						{is_publishing}
 						{is_uploading_design_file}
 					/>

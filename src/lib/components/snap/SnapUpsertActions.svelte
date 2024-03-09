@@ -13,12 +13,15 @@
 
 	export let snap = {};
 
+	console.log('snap: ', snap);
+
 	let tags_added = snap.tags || [];
 
 	export let is_publishing = false;
+	export let is_edit = false;
 	export let is_uploading_design_file = false;
 
-	let snap_name = snap.title || '';
+	let snap_name = snap.name || '';
 	let placeholder = 'Add a name to your snap';
 	let has_error = false;
 	let images_empty_error = false;
@@ -86,7 +89,7 @@
 			class="snap_upsert_styles"
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
-			file_name={get(snap, 'design_file[0].name', '')}
+			file_name={get(snap, 'design_file[0].filename', '')}
 			{is_uploading_design_file}
 			hover_active={true}
 		/>
@@ -105,14 +108,16 @@
 			<AddTags {tags_added} on:update={handleUpdate} />
 		</div>
 
-		<div class="submit">
-			<button on:click={handleCancel}>Cancel</button>
-			<Button
-				label="Publish"
-				on:click={handlePublish}
-				primaryDisabled={is_publishing}
-			/>
-		</div>
+		{#if is_edit === false}
+			<div class="submit">
+				<button on:click={handleCancel}>Cancel</button>
+				<Button
+					label="Publish"
+					on:click={handlePublish}
+					primaryDisabled={is_publishing}
+				/>
+			</div>
+		{/if}
 
 		{#if show_feature}
 			<div class="category">

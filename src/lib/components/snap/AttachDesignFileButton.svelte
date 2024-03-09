@@ -10,6 +10,7 @@
 	export let file_name = '';
 	export let is_uploading_design_file = false;
 
+	console.log('file_name: ', file_name);
 	let file_input_elem;
 	let file_too_large = false;
 	let file;
