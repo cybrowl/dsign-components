@@ -10,18 +10,17 @@
 
 	const dispatch = createEventDispatcher();
 
-	const snap_name = snap.name || '';
-	const tags = snap.tags || [];
-	const project_id = snap.project_id || '';
-	const project_cid = snap.canister_id || '';
-	const username = snap.username || '';
-	const published = snap.created
+	$: username = snap.username || '';
+	$: snap_name = snap.name || '';
+	$: tags = snap.tags || [];
+	$: published_date = snap.created
 		? DateTime.fromMillis(Number(snap.created) / 1000000).toLocaleString(
 				DateTime.DATETIME_MED
 		  )
 		: '';
-
-	const project_href = `/project/${project_name}?id=${project_id}&cid=${project_cid}`;
+	$: project_href = `/project/${project_name}?id=${snap.project_id || ''}&cid=${
+		snap.canister_id || ''
+	}`;
 
 	function handleClickEdit() {
 		dispatch('edit');
@@ -57,7 +56,7 @@
 
 	<div class="details">
 		<p><span>Creator: </span>{username}</p>
-		<p><span>Published: </span>{published}</p>
+		<p><span>Published: </span>{published_date}</p>
 	</div>
 	<div class="tags">
 		{#each tags as tag}
