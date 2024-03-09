@@ -1,44 +1,44 @@
 {
-	"name": "dsign-components",
-	"version": "1.9.17",
-	"description": "",
-	"scripts": {
-		"storybook": "storybook dev -p 6007",
-		"package": "svelte-package --no-types",
-		"build-storybook": "storybook build",
-		"build": "storybook build -c .storybook -o dist"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"exports": {
-		".": {
-			"svelte": "./index.js"
-		}
-	},
-	"peerDependencies": {
-		"svelte": "^4.2.0"
-	},
-	"devDependencies": {
-		"@storybook/addon-essentials": "^7.6.6",
-		"@storybook/addon-interactions": "^7.6.6",
-		"@storybook/addon-links": "^7.6.6",
-		"@storybook/addon-styling": "^1.3.7",
-		"@storybook/addon-svelte-csf": "^4.1.0",
-		"@storybook/sveltekit": "^7.6.6",
-		"@storybook/testing-library": "^0.2.2",
-		"@sveltejs/package": "^2.0.2",
-		"autoprefixer": "^10.4.14",
-		"lodash": "^4.17.21",
-		"luxon": "^3.3.0",
-		"postcss": "^8.4.23",
-		"postcss-load-config": "^4.0.1",
-		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^2.10.0",
-		"storybook": "^7.6.6",
-		"storybook-dark-mode": "^3.0.3",
-		"svelte-preprocess": "^5.0.3",
-		"tailwindcss": "^3.3.1",
-		"vite": "^4.3.5"
-	}
+  "name": "dsign-components",
+  "version": "1.9.17",
+  "description": "",
+  "scripts": {
+    "storybook": "storybook dev -p 6007",
+    "package": "svelte-package --no-types",
+    "build-storybook": "storybook build",
+    "build": "storybook build -c .storybook -o dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "svelte": "./index.js"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^4.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-styling": "^1.3.7",
+    "@storybook/addon-svelte-csf": "^4.1.0",
+    "@storybook/sveltekit": "^7.6.17",
+    "@storybook/testing-library": "^0.2.2",
+    "@sveltejs/package": "^2.0.2",
+    "autoprefixer": "^10.4.14",
+    "lodash": "^4.17.21",
+    "luxon": "^3.3.0",
+    "postcss": "^8.4.23",
+    "postcss-load-config": "^4.0.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-svelte": "^2.10.0",
+    "storybook": "^7.6.17",
+    "storybook-dark-mode": "^3.0.3",
+    "svelte-preprocess": "^5.0.3",
+    "tailwindcss": "^3.3.1",
+    "vite": "^4.3.5"
+  }
 }
