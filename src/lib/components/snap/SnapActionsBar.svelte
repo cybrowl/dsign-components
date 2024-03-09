@@ -14,7 +14,7 @@
 
 	function clickDownload() {
 		const link = document.createElement('a');
-		link.href = snap.file_asset.url;
+		link.href = get(snap, 'design_file[0].url', '');
 		link.click();
 		link.remove();
 	}
