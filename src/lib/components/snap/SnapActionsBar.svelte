@@ -36,7 +36,7 @@
 			<p>Back</p>
 		</span>
 
-		{#if get(snap, 'file_asset.id', '').length > 0}
+		{#if get(snap, 'design_file', '').length > 0}
 			<span class="action_item">
 				<Icon
 					name="figma"
