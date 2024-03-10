@@ -1,10 +1,17 @@
 <script>
+	import {get} from 'lodash';
+
 	import TopicSidebar from './TopicSidebar.svelte';
 	import Conversation from './Conversation.svelte';
 
-	export let topics = [];
+	export let project = {};
 	export let is_change_pending;
-	let selectedTopic = topics[0];
+	const selectedTopic = false;
+
+	console.log('project: ', project);
+	const topics = get(project, 'feedback.topics', []);
+
+	console.log('topics: ', topics);
 </script>
 
 <div class="topic_sidebar">

@@ -1,7 +1,15 @@
-<script>
-	import {Meta, Template, Story} from '@storybook/addon-svelte-csf';
+<script context="module">
 	import ProjectPage from '../../lib/pages/ProjectPage.svelte';
 	import {project_gamma, project_delta} from './data/project';
+
+	export const meta = {
+		title: 'Pages/Project/Snaps',
+		component: ProjectPage
+	};
+</script>
+
+<script>
+	import {Template, Story} from '@storybook/addon-svelte-csf';
 
 	const modal_visible = {
 		account_creation: false,
@@ -17,14 +25,6 @@
 		isSnapsSelected: false
 	};
 </script>
-
-<Meta
-	title="Pages/Project"
-	component={ProjectPage}
-	argTypes={{
-		onClick: {action: 'onClick'}
-	}}
-/>
 
 <Template let:args>
 	<ProjectPage {...args} />
