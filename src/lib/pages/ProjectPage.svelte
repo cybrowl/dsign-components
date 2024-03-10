@@ -24,7 +24,6 @@
 	export let isFetching = false;
 	export const navigationItems = [];
 	export let isEditActive = false;
-	export let is_change_pending = false;
 	export let selectedTabState = {};
 
 	console.log('project_store: ', project_store);
@@ -106,7 +105,7 @@
 					</div>
 					<div class="feedback_layout">
 						{#if selectedTabState.isFeedbackSelected}
-							<Feedback project={project_store.project} {is_change_pending} />
+							<Feedback project={project_store.project} />
 						{/if}
 					</div>
 				{/if}

@@ -5,18 +5,46 @@
 	import Conversation from './Conversation.svelte';
 
 	export let project = {};
+	const topics = get(project, 'feedback[0].topics', []);
 
 	console.log('project: ', project);
-	const topics = get(project, 'feedback[0].topics', []);
 	console.log('topics: ', topics);
+
+	function remove_topic(event) {
+		event.stopPropagation();
+
+		dispatch('remove_topic', event);
+	}
+
+	function select_topic(event) {
+		event.stopPropagation();
+
+		dispatch('select_topic', event);
+	}
+
+	function accept_change(event) {
+		dispatch('accept_change', event);
+	}
+
+	function reject_change(event) {
+		dispatch('reject_change', event);
+	}
 </script>
 
 <div class="topic_sidebar">
-	<TopicSidebar {topics} />
+	<TopicSidebar
+		{topics}
+		on:remove_topic={remove_topic}
+		on:select_topic={select_topic}
+	/>
 </div>
 
 <div class="conversation">
-	<Conversation {topics} />
+	<Conversation
+		{topics}
+		on:accept_change={accept_change}
+		on:reject_change={reject_change}
+	/>
 </div>
 
 <style lang="postcss">
