@@ -114,8 +114,18 @@
 				{/each}
 			</div>
 			<div class="conversation_action_bar">
-				<span class="message_input" />
-				<span class="message_file" />
+				<input type="text" class="message_input" placeholder="Type a message" />
+
+				<Icon
+					class="fill_dark_grey"
+					name="attach_design_file"
+					clickable={true}
+					viewSize={{
+						width: '55',
+						height: '55'
+					}}
+					size="2rem"
+				/>
 			</div>
 		</div>
 	{/if}
@@ -123,7 +133,7 @@
 
 <style lang="postcss">
 	.content {
-		@apply text-white bg-black-a h-full font-sans;
+		@apply text-white bg-black-a h-full font-sans rounded-md;
 		position: relative;
 		min-height: calc(94vh - var(--current-offset));
 	}
@@ -131,7 +141,7 @@
 		@apply mt-6 px-10 text-warning-yellow;
 	}
 	.conversation {
-		@apply mt-6 px-10;
+		@apply relative px-10 mb-8;
 	}
 	.file {
 		@apply px-10 mt-8 mr-6 flex flex-row justify-between;
@@ -158,10 +168,9 @@
 		@apply text-bubble-purple;
 	}
 	.messages_container {
-		@apply overflow-y-auto;
 	}
 	.message {
-		@apply mb-4 last:mb-0;
+		@apply mb-4 last:mb-4;
 	}
 	.message_info {
 		@apply flex flex-row gap-4 items-center;
@@ -177,5 +186,14 @@
 	}
 	.message_content p {
 		@apply text-ghost-white py-4 px-6 rounded-md bg-dark-grey w-auto inline;
+	}
+	.conversation_action_bar {
+		@apply sticky bottom-0 flex items-center bg-black-a h-20 gap-6;
+	}
+	.message_input {
+		@apply flex-grow p-2 rounded-l-lg  bg-dark-grey text-mist-grey rounded-md;
+	}
+	.message_send {
+		@apply px-4 py-2 rounded-r-lg bg-bubble-purple text-white;
 	}
 </style>
