@@ -51,7 +51,7 @@
 />
 
 <Story
-	name="Authed & Guest: One Topic"
+	name="Authed & Guest: Two Topics & Changes"
 	args={{
 		my_profile: {
 			avatar:

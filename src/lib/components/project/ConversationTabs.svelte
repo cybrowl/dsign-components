@@ -3,35 +3,19 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let selectedTabState = {
-		isConversationSelected: true,
-		isChangesSelected: false
-	};
+	export let selected_tab = 'conversation';
+	export let is_change_pending = false;
 
-	export let deselectedTabState = {
-		isConversationSelected: false,
-		isChangesSelected: false
-	};
-
-	function selectChangesTab() {
-		dispatch('selectedTabState', {
-			...deselectedTabState,
-			isChangesSelected: true
-		});
-	}
-
-	function selectConversationTab() {
-		dispatch('selectedTabState', {
-			...deselectedTabState,
-			isConversationSelected: true
-		});
+	function select_tab(tab) {
+		selected_tab = tab;
+		dispatch('tab_change', {selected_tab: tab});
 	}
 </script>
 
-<div class="tabsContainer">
+<div class="tabs_container">
 	<span
-		class={selectedTabState.isConversationSelected ? 'selected' : ''}
-		on:click={selectConversationTab}
+		class:selected={selected_tab === 'conversation'}
+		on:click={() => select_tab('conversation')}
 		on:keypress={e => {
 			//TODO: need to design how this will work for A11y
 		}}
@@ -39,19 +23,21 @@
 		tabindex="0">Conversation</span
 	>
 
-	<span
-		class={selectedTabState.isChangesSelected ? 'selected' : ''}
-		on:click={selectChangesTab}
-		on:keypress={e => {
-			//TODO: need to design how this will work for A11y
-		}}
-		role="button"
-		tabindex="0">Changes</span
-	>
+	{#if is_change_pending}
+		<span
+			class:selected={selected_tab === 'changes'}
+			on:click={() => select_tab('changes')}
+			on:keypress={e => {
+				//TODO: need to design how this will work for A11y
+			}}
+			role="button"
+			tabindex="0">Changes</span
+		>
+	{/if}
 </div>
 
 <style lang="postcss">
-	.tabsContainer {
+	.tabs_container {
 		@apply font-sans flex p-4 gap-4 cursor-pointer text-white text-sm;
 	}
 	.selected {

@@ -93,7 +93,19 @@ export const project_delta = {
 					id: 'topic-2329',
 					snap_name: 'Sample Snap',
 					name: 'Discussion on Features',
-					design_file: [],
+					design_file: [
+						{
+							id: '5F0EA48189A6EBCDB0CF589A',
+							url: 'http://127.0.0.1:8080/file/5F0EA48189A6EBCDB0CF589A?canisterId=a3shf-5eaaa-aaaaa-qaafa-cai',
+							created: 1709973936153853000,
+							chunks_size: 3,
+							canister_id: 'a3shf-5eaaa-aaaaa-qaafa-cai',
+							content_size: 4473449,
+							content_type: 'application/octet-stream',
+							filename: '5mb_components.fig',
+							content_encoding: '[Object]'
+						}
+					],
 					messages: [
 						{
 							created: 1629358779,
@@ -104,7 +116,7 @@ export const project_delta = {
 				},
 				{
 					id: 'topic-2330',
-					snap_name: 'Sample Snap Sample SnapSample SnapSample SnapSample Snap',
+					snap_name: 'Sample Snap Two Two Two',
 					name: 'Discussion on Features',
 					design_file: [],
 					messages: [

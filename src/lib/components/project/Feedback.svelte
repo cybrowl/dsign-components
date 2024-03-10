@@ -5,8 +5,6 @@
 	import Conversation from './Conversation.svelte';
 
 	export let project = {};
-	export let is_change_pending;
-	const selectedTopic = false;
 
 	console.log('project: ', project);
 	const topics = get(project, 'feedback[0].topics', []);
@@ -18,7 +16,7 @@
 </div>
 
 <div class="conversation">
-	<Conversation {is_change_pending} {selectedTopic} />
+	<Conversation {topics} />
 </div>
 
 <style lang="postcss">
