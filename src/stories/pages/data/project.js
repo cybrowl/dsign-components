@@ -86,7 +86,38 @@ export const project_delta = {
 			}
 		}
 	],
-	feedback: [],
+	feedback: [
+		{
+			topics: [
+				{
+					id: 'topic-2329',
+					snap_name: 'Sample Snap',
+					name: 'Discussion on Features',
+					design_file: [],
+					messages: [
+						{
+							created: 1629358779,
+							content: 'Message about feedback',
+							username: 'user-730'
+						}
+					]
+				},
+				{
+					id: 'topic-2330',
+					snap_name: 'Sample Snap Sample SnapSample SnapSample SnapSample Snap',
+					name: 'Discussion on Features',
+					design_file: [],
+					messages: [
+						{
+							created: 1629358779,
+							content: 'Message about feedback',
+							username: 'user-730'
+						}
+					]
+				}
+			]
+		}
+	],
 	metrics: {
 		likes: 328,
 		views: 1328

@@ -9,8 +9,7 @@
 	const selectedTopic = false;
 
 	console.log('project: ', project);
-	const topics = get(project, 'feedback.topics', []);
-
+	const topics = get(project, 'feedback[0].topics', []);
 	console.log('topics: ', topics);
 </script>
 

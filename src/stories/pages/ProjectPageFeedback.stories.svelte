@@ -49,3 +49,23 @@
 		}
 	}}
 />
+
+<Story
+	name="Authed & Guest: One Topic"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		project_store: {
+			project: project_delta
+		},
+		selectedTabState: {
+			...selectedTabState,
+			isFeedbackSelected: true
+		}
+	}}
+/>

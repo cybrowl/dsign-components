@@ -1,24 +1,24 @@
 <script>
 	import {get} from 'lodash';
 	import Icon from '../basic_elements/Icon.svelte';
-
 	import {createEventDispatcher} from 'svelte';
 	const dispatch = createEventDispatcher();
 
 	export let topics = [];
+	let selected_topic_id = null;
 
-	const buttonText = topic => {
-		let text = `# ${get(topic, 'snap.name', '')} / ${get(topic, 'name', '')}`;
-		return text.length > 15 ? text.substring(0, 30) + ' ...' : text;
-	};
+	const truncate_text = (text, length) =>
+		text.length > length ? `${text.slice(0, length)}...` : text;
 
-	function handleOptionsClick(event) {
+	function remove_topic(event, topic_id) {
 		event.stopPropagation();
-		dispatch('options', event);
+		dispatch('remove_topic', {topic_id});
 	}
 
-	function handleTopicClick(event) {
-		dispatch('topic', event);
+	function select_topic(event, topic_id) {
+		event.stopPropagation();
+		selected_topic_id = topic_id;
+		dispatch('select_topic', {topic_id});
 	}
 </script>
 
@@ -31,16 +31,20 @@
 		</div>
 	{:else}
 		{#each topics as topic}
-			<button class="button" on:click={handleTopicClick}>
-				<p>
-					{buttonText(topic)}
+			<button
+				class="button"
+				class:selected={topic.id === selected_topic_id}
+				on:click={event => select_topic(event, topic.id)}
+			>
+				<p alt="topic_name">
+					{truncate_text(get(topic, 'snap_name', ''), 20)}
 				</p>
 				<Icon
-					class="cursor_pointer fill_white hover_bubble_purple"
-					name="options_h"
+					class="cursor_pointer fill_dark_grey hover_tulip_purple"
+					name="trash"
 					size="1.5rem"
-					on:click={handleOptionsClick}
-					viewSize={{width: '28', height: '9'}}
+					on:click={event => remove_topic(event, topic.id)}
+					viewSize={{width: '40', height: '40'}}
 				/>
 			</button>
 		{/each}
@@ -55,10 +59,13 @@
 		@apply text-xl font-bold mb-6;
 	}
 	.button {
-		@apply flex flex-row justify-between bg-dark-grey hover:bg-black-a px-3 py-3 w-full rounded mb-2;
+		@apply flex flex-row justify-between bg-black-a hover:bg-smoky-grey px-3 py-3 w-full rounded mb-2;
+	}
+	.button.selected {
+		@apply bg-smoky-grey;
 	}
 	.no_topics_container {
-		@apply flex justify-center  items-center h-full;
+		@apply flex justify-center items-center h-full;
 	}
 	.no_topics {
 		@apply text-grey text-2xl font-bold;
