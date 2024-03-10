@@ -29,6 +29,7 @@
 	console.log('messages: ', messages);
 
 	let contentDiv;
+	let textarea;
 
 	onMount(() => {
 		let rect = contentDiv.getBoundingClientRect();
@@ -37,6 +38,20 @@
 			`${rect.top}px`
 		);
 	});
+
+	function resize_text_area() {
+		textarea.style.height = 'auto';
+
+		const newHeight = Math.min(textarea.scrollHeight, window.innerHeight / 2);
+
+		textarea.style.height = `${newHeight}px`;
+
+		const actionBarHeight =
+			conversationActionBar.getBoundingClientRect().height;
+		conversationActionBar.style.bottom = `${
+			window.innerHeight / 2 - actionBarHeight
+		}px`;
+	}
 
 	function select_tab(event) {
 		selected_tab = event.detail.selected_tab;
@@ -114,7 +129,13 @@
 				{/each}
 			</div>
 			<div class="conversation_action_bar">
-				<input type="text" class="message_input" placeholder="Type a message" />
+				<textarea
+					bind:this={textarea}
+					on:input={resize_text_area}
+					type="text"
+					class="message_input"
+					placeholder="Type a message"
+				/>
 
 				<Icon
 					class="fill_dark_grey"
@@ -124,7 +145,7 @@
 						width: '55',
 						height: '55'
 					}}
-					size="2rem"
+					size="3rem"
 				/>
 			</div>
 		</div>
@@ -133,15 +154,14 @@
 
 <style lang="postcss">
 	.content {
-		@apply text-white bg-black-a h-full font-sans rounded-md;
-		position: relative;
+		@apply relative text-white bg-black-a font-sans rounded-md;
 		min-height: calc(94vh - var(--current-offset));
 	}
 	.warning {
 		@apply mt-6 px-10 text-warning-yellow;
 	}
 	.conversation {
-		@apply relative px-10 mb-8;
+		@apply mx-auto max-w-3xl;
 	}
 	.file {
 		@apply px-10 mt-8 mr-6 flex flex-row justify-between;
@@ -167,8 +187,6 @@
 	.accept {
 		@apply text-bubble-purple;
 	}
-	.messages_container {
-	}
 	.message {
 		@apply mb-4 last:mb-4;
 	}
@@ -185,15 +203,17 @@
 		@apply flex;
 	}
 	.message_content p {
-		@apply text-ghost-white py-4 px-6 rounded-md bg-dark-grey w-auto inline;
+		@apply p-4;
 	}
 	.conversation_action_bar {
-		@apply sticky bottom-0 flex items-center bg-black-a h-20 gap-6;
+		@apply sticky bottom-0 flex items-end bg-black-a p-4;
 	}
 	.message_input {
-		@apply flex-grow p-2 rounded-l-lg  bg-dark-grey text-mist-grey rounded-md;
+		@apply flex-grow bg-dark-grey rounded-lg text-mist-grey resize-none overflow-y-auto px-8 py-2 mr-10;
+		max-height: 50vh;
+		line-height: 1.5;
 	}
-	.message_send {
-		@apply px-4 py-2 rounded-r-lg bg-bubble-purple text-white;
+	::placeholder {
+		@apply text-center;
 	}
 </style>
