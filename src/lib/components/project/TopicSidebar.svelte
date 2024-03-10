@@ -2,7 +2,7 @@
 	import {get} from 'lodash';
 	import Icon from '../basic_elements/Icon.svelte';
 	import {createEventDispatcher} from 'svelte';
-	import {get_topic_by_id} from '../_libs/topics';
+	import {get_topic_by_id} from '../../utils/topics';
 
 	const dispatch = createEventDispatcher();
 
@@ -15,7 +15,7 @@
 	// TODO: write function given the id select topic from topics
 
 	const truncate_text = (text, length) =>
-		text.length > length ? `${text.slice(0, length)}...` : text;
+		text.length > length ? `# ${text.slice(0, length)}...` : `# ${text}`;
 
 	function remove_topic(event, topic_id) {
 		event.stopPropagation();

@@ -28,7 +28,8 @@ const config = {
 				'error-red': '#FC3030',
 				'reject-red': '#FFA1B2',
 				'mute-red': '#F0627C',
-				'warning-yellow': '#FFF0A1'
+				'warning-yellow': '#FFF0A1',
+				'ghost-white': '#FEFEFF'
 			},
 			boxShadow: {
 				gray: '0 10px 15px -3px rgba(58, 58, 80, 0.5), 0 4px 6px -2px rgba(58, 58, 80, 0.3)'

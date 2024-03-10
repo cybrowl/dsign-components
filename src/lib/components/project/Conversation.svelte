@@ -1,7 +1,8 @@
 <script>
 	import {onMount, createEventDispatcher} from 'svelte';
 	import {get} from 'lodash';
-	import {get_topic_by_id, bytes_to_megabytes} from '../_libs/topics';
+	import {get_topic_by_id, bytes_to_megabytes} from '../../utils/topics';
+	import {format_time} from '../../utils/time';
 
 	const dispatch = createEventDispatcher();
 
@@ -23,6 +24,9 @@
 	let file_content_size = get(design_file, 'content_size', 0);
 	const design_file_size = bytes_to_megabytes(file_content_size);
 	const design_file_name = get(design_file, 'filename', '');
+
+	let messages = get(selected_topic, 'messages', []);
+	console.log('messages: ', messages);
 
 	let contentDiv;
 
@@ -54,6 +58,7 @@
 		on:tab_change={select_tab}
 	/>
 
+	<!-- Changes -->
 	{#if selected_tab === 'changes' && is_change_pending}
 		<div class="warning">
 			Accept or reject file before another file can be added.
@@ -90,6 +95,30 @@
 			</span>
 		</div>
 	{/if}
+
+	<!-- Conversation -->
+	{#if selected_tab === 'conversation'}
+		<div class="conversation">
+			<div class="messages_container">
+				{#each messages as message}
+					<div class="message">
+						<div class="message_info">
+							<p class="message_info_username">{message.username}</p>
+							<p class="message_info_created">{format_time(message.created)}</p>
+						</div>
+
+						<div class="message_content">
+							<p>{message.content}</p>
+						</div>
+					</div>
+				{/each}
+			</div>
+			<div class="conversation_action_bar">
+				<span class="message_input" />
+				<span class="message_file" />
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style lang="postcss">
@@ -100,6 +129,9 @@
 	}
 	.warning {
 		@apply mt-6 px-10 text-warning-yellow;
+	}
+	.conversation {
+		@apply mt-6 px-10;
 	}
 	.file {
 		@apply px-10 mt-8 mr-6 flex flex-row justify-between;
@@ -124,5 +156,26 @@
 	}
 	.accept {
 		@apply text-bubble-purple;
+	}
+	.messages_container {
+		@apply overflow-y-auto;
+	}
+	.message {
+		@apply mb-4 last:mb-0;
+	}
+	.message_info {
+		@apply flex flex-row gap-4 items-center;
+	}
+	.message_info_username {
+		@apply font-bold text-white;
+	}
+	.message_info_created {
+		@apply font-bold text-xs text-mist-grey;
+	}
+	.message_content {
+		@apply flex;
+	}
+	.message_content p {
+		@apply text-ghost-white py-4 px-6 rounded-md bg-dark-grey w-auto inline;
 	}
 </style>

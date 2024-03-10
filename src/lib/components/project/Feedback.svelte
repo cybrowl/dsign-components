@@ -1,5 +1,7 @@
 <script>
 	import {get} from 'lodash';
+	import {createEventDispatcher} from 'svelte';
+	const dispatch = createEventDispatcher();
 
 	import TopicSidebar from './TopicSidebar.svelte';
 	import Conversation from './Conversation.svelte';
