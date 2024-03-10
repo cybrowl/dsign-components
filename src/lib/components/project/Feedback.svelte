@@ -42,11 +42,13 @@
 </div>
 
 <div class="conversation">
-	<Conversation
-		{topics}
-		on:accept_change={accept_change}
-		on:reject_change={reject_change}
-	/>
+	{#if topics.length > 0}
+		<Conversation
+			{topics}
+			on:accept_change={accept_change}
+			on:reject_change={reject_change}
+		/>
+	{/if}
 </div>
 
 <style lang="postcss">

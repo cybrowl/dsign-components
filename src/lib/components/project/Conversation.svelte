@@ -45,12 +45,6 @@
 		const newHeight = Math.min(textarea.scrollHeight, window.innerHeight / 2);
 
 		textarea.style.height = `${newHeight}px`;
-
-		const actionBarHeight =
-			conversationActionBar.getBoundingClientRect().height;
-		conversationActionBar.style.bottom = `${
-			window.innerHeight / 2 - actionBarHeight
-		}px`;
 	}
 
 	function select_tab(event) {
@@ -154,8 +148,7 @@
 
 <style lang="postcss">
 	.content {
-		@apply relative text-white bg-black-a font-sans rounded-md;
-		min-height: calc(94vh - var(--current-offset));
+		@apply relative text-white bg-black-a font-sans rounded-md pb-20;
 	}
 	.warning {
 		@apply mt-6 px-10 text-warning-yellow;
