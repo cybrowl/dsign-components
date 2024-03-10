@@ -37,6 +37,14 @@
 	function select_tab(event) {
 		selected_tab = event.detail.selected_tab;
 	}
+
+	function reject_change(event) {
+		dispatch('reject_change', event);
+	}
+
+	function accept_change(event) {
+		dispatch('accept_change', event);
+	}
 </script>
 
 <div class="content" bind:this={contentDiv}>
@@ -77,8 +85,8 @@
 				</span>
 			</span>
 			<span class="decision">
-				<button class="reject">Reject</button>
-				<button class="accept">Accept</button>
+				<button class="reject" on:click={reject_change}>Reject</button>
+				<button class="accept" on:click={accept_change}>Accept</button>
 			</span>
 		</div>
 	{/if}
