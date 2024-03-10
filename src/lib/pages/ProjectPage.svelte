@@ -1,5 +1,6 @@
 <script>
 	import Login from '../components/login/Login.svelte';
+	import get from 'lodash';
 
 	import SnapCard from '../components/cards/SnapCard.svelte';
 	import SnapCardCreate from '../components/cards/SnapCardCreate.svelte';
@@ -18,13 +19,15 @@
 
 	export let my_profile = {};
 	export let is_authenticated = false;
-	export let project = {};
-	export let is_owner = false;
+	export let project_store = {};
+	export let is_edit_active = false;
 	export let isFetching = false;
 	export const navigationItems = [];
 	export let isEditActive = false;
 	export let is_change_pending = false;
 	export let selectedTabState = {};
+
+	console.log('project_store: ', project_store);
 
 	function deselectAllSnaps(snaps) {
 		return map(snaps, snap => ({...snap, isSelected: false}));
@@ -41,6 +44,10 @@
 	function handleClickCard(event) {
 		console.log('clickCard');
 	}
+
+	function goto_snap_preview(event) {}
+
+	function goto_snap_create(event) {}
 </script>
 
 <main>
@@ -61,11 +68,11 @@
 
 				{#if isFetching === false}
 					<div class="project_info_layout">
-						<ProjectInfo {project} />
+						<ProjectInfo project={project_store.project} />
 					</div>
 					<div class="project_tabs_layout">
 						<ProjectTabs {selectedTabState} />
-						{#if selectedTabState.isSnapsSelected && is_owner}
+						{#if selectedTabState.isSnapsSelected && project_store.project.is_owner}
 							<ProjectEditActionsBar
 								{isEditActive}
 								on:toggleEditMode={handleToggleEditMode}
@@ -74,7 +81,7 @@
 					</div>
 					<div class="content_layout">
 						{#if selectedTabState.isSnapsSelected}
-							{#if isEmpty(project.snaps) && is_owner == false}
+							{#if isEmpty(project_store.project.snaps)}
 								<CardEmpty
 									name="snap_empty"
 									content="No snaps found"
@@ -82,25 +89,24 @@
 								/>
 							{/if}
 
-							{#each project.snaps as snap}
-								<SnapCard
-									{snap}
-									showEditMode={isEditActive}
-									on:clickCard={handleClickCard}
-								/>
-							{/each}
-
-							{#if is_owner}
-								<SnapCardCreate
-									on:clickSnapCardCreate={() =>
-										console.log('route /snap/upsert')}
-								/>
+							<!-- Snaps -->
+							{#if project_store.project.snaps && project_store.project.snaps.length > 0}
+								{#each project_store.project.snaps as snap (snap.id)}
+									<SnapCard
+										{snap}
+										showEditMode={is_edit_active}
+										on:clickCard={goto_snap_preview}
+									/>
+								{/each}
+								{#if project_store.project.is_owner === true}
+									<SnapCardCreate on:clickSnapCardCreate={goto_snap_create} />
+								{/if}
 							{/if}
 						{/if}
 					</div>
 					<div class="feedback_layout">
 						{#if selectedTabState.isFeedbackSelected}
-							<Feedback topics={project.topics} {is_change_pending} />
+							<Feedback project={project_store.project} {is_change_pending} />
 						{/if}
 					</div>
 				{/if}
