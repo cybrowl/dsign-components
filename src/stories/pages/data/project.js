@@ -90,7 +90,7 @@ export const project_delta = {
 		{
 			topics: [
 				{
-					id: 'topic-2329',
+					id: 'topic-2000',
 					snap_name: 'Sample Snap',
 					name: 'Discussion on Features',
 					design_file: [
@@ -146,7 +146,7 @@ export const project_delta = {
 					]
 				},
 				{
-					id: 'topic-2330',
+					id: 'topic-3000',
 					snap_name: 'Sample Snap Two Two Two',
 					name: 'Discussion on Features',
 					design_file: [],

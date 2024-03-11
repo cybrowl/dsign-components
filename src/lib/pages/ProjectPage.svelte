@@ -28,25 +28,49 @@
 
 	console.log('project_store: ', project_store);
 
-	function deselectAllSnaps(snaps) {
+	function deselect_all_snaps(snaps) {
 		return map(snaps, snap => ({...snap, isSelected: false}));
 	}
 
-	function handleToggleEditMode(event) {
+	function toggle_edit_mode(event) {
 		isEditActive = !isEditActive;
 
-		const deselected_snaps = deselectAllSnaps(project.snaps);
+		const deselected_snaps = deselect_all_snaps(project.snaps);
 
 		project = {...project, snaps: deselected_snaps};
 	}
 
-	function handleClickCard(event) {
-		console.log('clickCard');
+	function goto_snap_preview(event) {
+		console.log('goto_snap_preview: ', event);
 	}
 
-	function goto_snap_preview(event) {}
+	function goto_snap_create(event) {
+		console.log('goto_snap_create: ', event);
+	}
 
-	function goto_snap_create(event) {}
+	function accept_change(event) {
+		console.log('accept_change: ', event);
+	}
+
+	function reject_change(event) {
+		console.log('reject_change: ', event);
+	}
+
+	function remove_topic(event) {
+		console.log('remove_topic: ', event);
+	}
+
+	function select_topic(event) {
+		console.log('select_topic: ', event);
+	}
+
+	function select_file(event) {
+		console.log('select_file: ', event);
+	}
+
+	function download_file(event) {
+		console.log('download_file: ', event);
+	}
 </script>
 
 <main>
@@ -74,7 +98,7 @@
 						{#if selectedTabState.isSnapsSelected && project_store.project.is_owner}
 							<ProjectEditActionsBar
 								{isEditActive}
-								on:toggleEditMode={handleToggleEditMode}
+								on:toggleEditMode={toggle_edit_mode}
 							/>
 						{/if}
 					</div>
@@ -105,7 +129,15 @@
 					</div>
 					<div class="feedback_layout">
 						{#if selectedTabState.isFeedbackSelected}
-							<Feedback project={project_store.project} />
+							<Feedback
+								project={project_store.project}
+								on:accept_change={accept_change}
+								on:reject_change={reject_change}
+								on:remove_topic={remove_topic}
+								on:select_topic={select_topic}
+								on:select_file={select_file}
+								on:download_file={download_file}
+							/>
 						{/if}
 					</div>
 				{/if}

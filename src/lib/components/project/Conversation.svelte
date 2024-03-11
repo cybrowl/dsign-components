@@ -1,7 +1,6 @@
 <script>
 	import {onMount, createEventDispatcher} from 'svelte';
-	import {get} from 'lodash';
-	import {get_topic_by_id, bytes_to_megabytes} from '../../utils/topics';
+	import {bytes_to_megabytes} from '../../utils/topics';
 	import {format_time} from '../../utils/time';
 
 	const dispatch = createEventDispatcher();
@@ -10,34 +9,30 @@
 	import Icon from '../basic_elements/Icon.svelte';
 	import Button from '../basic_elements/Button.svelte';
 
-	export let topics = [];
+	export let selected_topic = {};
+
+	// Reactive declarations for properties derived from selected_topic
+	$: is_change_pending = selected_topic.design_file?.length > 0;
+	$: design_file = selected_topic.design_file?.[0] ?? {};
+	$: design_file_size = bytes_to_megabytes(design_file.content_size ?? 0);
+	$: design_file_name = design_file.filename ?? '';
+	$: messages = selected_topic.messages ?? [];
+
 	let selected_tab = 'conversation';
-
-	let selected_topic_id = get(topics, '[0].id', '');
-	let selected_topic = get_topic_by_id(topics, selected_topic_id);
-	let is_change_pending =
-		get(selected_topic, 'design_file', []).length > 0 || false;
-
-	console.log('selected_topic: ', selected_topic);
-
-	let design_file = get(selected_topic, 'design_file.[0]', {});
-	let file_content_size = get(design_file, 'content_size', 0);
-	const design_file_size = bytes_to_megabytes(file_content_size);
-	const design_file_name = get(design_file, 'filename', '');
-
-	let messages = get(selected_topic, 'messages', []);
-	console.log('messages: ', messages);
-
-	let contentDiv;
+	let content_div;
 	let textarea;
 
 	onMount(() => {
-		let rect = contentDiv.getBoundingClientRect();
+		adjust_content_offset();
+	});
+
+	function adjust_content_offset() {
+		const rect = content_div.getBoundingClientRect();
 		document.documentElement.style.setProperty(
 			'--current-offset',
 			`${rect.top}px`
 		);
-	});
+	}
 
 	function resize_text_area() {
 		textarea.style.height = 'auto';
@@ -51,6 +46,14 @@
 		selected_tab = event.detail.selected_tab;
 	}
 
+	function select_file(event) {
+		dispatch('select_file', event);
+	}
+
+	function download_file(event) {
+		dispatch('download_file', event);
+	}
+
 	function reject_change(event) {
 		dispatch('reject_change', event);
 	}
@@ -60,7 +63,7 @@
 	}
 </script>
 
-<div class="content" bind:this={contentDiv}>
+<div class="content" bind:this={content_div}>
 	<ConversationTabs
 		{is_change_pending}
 		{selected_tab}
@@ -95,7 +98,7 @@
 					</span>
 				</span>
 				<span>
-					<Button label="Download" />
+					<Button label="Download" on:click={download_file} />
 				</span>
 			</span>
 			<span class="decision">
@@ -135,6 +138,7 @@
 					class="fill_dark_grey"
 					name="attach_design_file"
 					clickable={true}
+					on:click={select_file}
 					viewSize={{
 						width: '55',
 						height: '55'

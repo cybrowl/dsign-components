@@ -25,7 +25,7 @@
 	function select_topic(event, topic_id) {
 		event.stopPropagation();
 		selected_topic_id = topic_id;
-		selected_topic = get_topic_by_id(topics, selected_topic_id);
+		selected_topic = get_topic_by_id(topics, topic_id);
 
 		dispatch('select_topic', {selected_topic});
 	}
