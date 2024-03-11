@@ -96,13 +96,13 @@ export const project_delta = {
 					design_file: [
 						{
 							id: '5F0EA48189A6EBCDB0CF589A',
-							url: 'http://127.0.0.1:8080/file/5F0EA48189A6EBCDB0CF589A?canisterId=a3shf-5eaaa-aaaaa-qaafa-cai',
+							url: 'https://ifw4i-haaaa-aaaag-abrja-cai.raw.icp0.io/asset/f16f422d-dbf-bbf-d49-e7ee428d35f6',
 							created: 1709973936153853000,
 							chunks_size: 3,
 							canister_id: 'a3shf-5eaaa-aaaaa-qaafa-cai',
 							content_size: 4473449,
 							content_type: 'application/octet-stream',
-							filename: '5mb_components.fig',
+							filename: 'wolf.png',
 							content_encoding: '[Object]'
 						}
 					],
@@ -119,12 +119,12 @@ export const project_delta = {
 						},
 						{
 							created: 1709983936153853000,
-							content: `Elixir can call Rust functions by leveraging the interoperability provided through Native Implemented Functions (NIFs) and Rust's Foreign Function Interface (FFI). 
-								This process essentially involves two main steps: exposing Rust functions in a way that they can be called from external code (like Elixir), 
+							content: `Elixir can call Rust functions by leveraging the interoperability provided through Native Implemented Functions (NIFs) and Rust's Foreign Function Interface (FFI).
+								This process essentially involves two main steps: exposing Rust functions in a way that they can be called from external code (like Elixir),
 								and then loading these functions into the Elixir application. Here's a more detailed breakdown
-								This setup allows Elixir applications to utilize Rust's performance and safety for certain tasks, such as number crunching, data processing, 
-								or any operation where raw performance is critical, while still benefiting from Elixir's strengths in handling concurrency, 
-								fault tolerance, and distributed computing. The combination can yield highly efficient and scalable applications by 
+								This setup allows Elixir applications to utilize Rust's performance and safety for certain tasks, such as number crunching, data processing,
+								or any operation where raw performance is critical, while still benefiting from Elixir's strengths in handling concurrency,
+								fault tolerance, and distributed computing. The combination can yield highly efficient and scalable applications by
 								leveraging the best of both worlds.
 								`,
 							username: 'user-400'

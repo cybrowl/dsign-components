@@ -50,8 +50,17 @@
 		dispatch('select_file', event);
 	}
 
-	function download_file(event) {
-		dispatch('download_file', event);
+	function download_file() {
+		const designFile = selected_topic.design_file?.[0];
+		if (designFile && designFile.url) {
+			console.log(`Attempting to download file from: ${designFile.url}`);
+			const link = document.createElement('a');
+			link.href = designFile.url;
+			link.click();
+			link.remove();
+		} else {
+			console.log('Design file URL or file is not available');
+		}
 	}
 
 	function reject_change(event) {

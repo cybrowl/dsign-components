@@ -9,8 +9,11 @@
 
 	export let project = {};
 	const topics = get(project, 'feedback[0].topics', []);
-	let selected_topic = get_topic_by_id(topics, get(topics, '[0].id', ''));
-	let selected_topic_id = selected_topic.id || '';
+	const defaultTopic = {id: ''};
+	let selected_topic =
+		get_topic_by_id(topics, get(topics, '[0].id', defaultTopic)) ||
+		defaultTopic;
+	let selected_topic_id = selected_topic.id;
 
 	function remove_topic(event) {
 		event.stopPropagation();
@@ -45,13 +48,13 @@
 	function accept_change(event) {
 		event.stopPropagation();
 
-		dispatch('accept_change', event);
+		dispatch('accept_change', selected_topic);
 	}
 
 	function reject_change(event) {
 		event.stopPropagation();
 
-		dispatch('reject_change', event);
+		dispatch('reject_change', selected_topic);
 	}
 </script>
 

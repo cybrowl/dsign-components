@@ -49,23 +49,23 @@
 	}
 
 	function accept_change(event) {
-		console.log('accept_change: ', event);
+		console.log('accept_change: ', event.detail);
 	}
 
 	function reject_change(event) {
-		console.log('reject_change: ', event);
+		console.log('reject_change: ', event.detail);
 	}
 
 	function remove_topic(event) {
-		console.log('remove_topic: ', event);
+		console.log('remove_topic: ', event.detail);
 	}
 
 	function select_topic(event) {
-		console.log('select_topic: ', event);
+		console.log('select_topic: ', event.detail);
 	}
 
 	function select_file(event) {
-		console.log('select_file: ', event);
+		console.log('select_file: ', event.detail);
 	}
 
 	function download_file(event) {
