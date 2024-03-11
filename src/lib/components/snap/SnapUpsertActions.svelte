@@ -14,20 +14,24 @@
 
 	export let snap = {};
 
-	console.log('snap: ', snap);
-
+	let snap_name = snap.name || '';
 	let tags_added = snap.tags || [];
+	let has_error = false;
+	let images_empty_error = false;
+	let publish_attempted = false;
+
+	$: placeholder = 'Add a name to your snap';
+	$: design_file_filename = get(snap, 'design_file[0].filename', '');
 
 	export let is_publishing = false;
 	export let is_edit_mode = false;
 	export let is_uploading_design_file = false;
+	let show_feature = false;
 
-	let snap_name = snap.name || '';
-	let placeholder = 'Add a name to your snap';
-	let has_error = false;
-	let images_empty_error = false;
-
-	const show_feature = false;
+	// Update these reactive statements to depend on publish_attempted
+	$: has_error = publish_attempted && !snap_name.length;
+	$: images_empty_error =
+		publish_attempted && get(snap, 'images', []).length === 0;
 
 	function handleAttachFile(event) {
 		let file = event.detail;
@@ -58,17 +62,16 @@
 	}
 
 	function handlePublish() {
-		const has_images = get(snap, 'images', []).length > 0 ? true : false;
+		publish_attempted = true; // Set to true on publish attempt
+		const has_images = get(snap, 'images', []).length > 0;
 
-		if (!snap_name.length) {
-			has_error = true;
+		if (!snap_name.length || !has_images) {
+			has_error = !snap_name.length;
+			images_empty_error = !has_images;
+			return; // Do not proceed with publishing
 		}
 
-		if (!has_images) {
-			images_empty_error = true;
-		}
-
-		if (has_images && snap_name.length) {
+		if (snap_name.length && get(snap, 'images', []).length) {
 			dispatch('publish', {snap_name, tags_added});
 		}
 	}
@@ -90,7 +93,7 @@
 			class="snap_upsert_styles"
 			on:attachFile={handleAttachFile}
 			on:removeFile={handleRemoveFile}
-			file_name={get(snap, 'design_file[0].filename', '')}
+			file_name={design_file_filename}
 			{is_uploading_design_file}
 			hover_active={true}
 		/>
