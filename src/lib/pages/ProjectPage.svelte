@@ -64,6 +64,10 @@
 		console.log('select_topic: ', event.detail);
 	}
 
+	function send_message(event) {
+		console.log('send_message: ', event.detail);
+	}
+
 	function select_file(event) {
 		console.log('select_file: ', event.detail);
 	}
@@ -131,6 +135,7 @@
 						{#if selectedTabState.isFeedbackSelected}
 							<Feedback
 								project={project_store.project}
+								on:send_message={send_message}
 								on:accept_change={accept_change}
 								on:reject_change={reject_change}
 								on:remove_topic={remove_topic}

@@ -18,7 +18,7 @@
 	function remove_topic(event) {
 		event.stopPropagation();
 
-		dispatch('remove_topic', event);
+		dispatch('remove_topic', event.detail);
 	}
 
 	function select_topic(event) {
@@ -30,19 +30,25 @@
 		console.log('Feedback: selected_topic: ', selected_topic);
 		console.log('Feedback: selected_topic.id: ', selected_topic.id);
 
-		dispatch('select_topic', event);
+		dispatch('select_topic', event.detail);
 	}
 
 	function select_file(event) {
 		event.stopPropagation();
 
-		dispatch('select_file', event);
+		dispatch('select_file', event.detail);
+	}
+
+	function send_message(event) {
+		event.stopPropagation();
+
+		dispatch('send_message', event.detail);
 	}
 
 	function download_file(event) {
 		event.stopPropagation();
 
-		dispatch('download_file', event);
+		dispatch('download_file', event.detail);
 	}
 
 	function accept_change(event) {
@@ -71,6 +77,7 @@
 		<Conversation
 			key={selected_topic_id}
 			{selected_topic}
+			on:send_message={send_message}
 			on:accept_change={accept_change}
 			on:reject_change={reject_change}
 			on:select_file={select_file}

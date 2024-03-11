@@ -50,6 +50,10 @@
 		dispatch('select_file', event);
 	}
 
+	function send_message() {
+		dispatch('send_message', {content: textarea.value});
+	}
+
 	function download_file() {
 		const designFile = selected_topic.design_file?.[0];
 		if (designFile && designFile.url) {
@@ -143,17 +147,21 @@
 					placeholder="Type a message"
 				/>
 
-				<Icon
-					class="fill_dark_grey"
-					name="attach_design_file"
-					clickable={true}
-					on:click={select_file}
-					viewSize={{
-						width: '55',
-						height: '55'
-					}}
-					size="3rem"
-				/>
+				<span class="conversation_action_bar_buttons">
+					<Icon
+						class="fill_dark_grey"
+						name="attach_design_file"
+						clickable={true}
+						on:click={select_file}
+						viewSize={{
+							width: '55',
+							height: '55'
+						}}
+						size="2.5rem"
+					/>
+
+					<Button label="Send" on:click={send_message} />
+				</span>
 			</div>
 		</div>
 	{/if}
@@ -213,6 +221,9 @@
 	}
 	.conversation_action_bar {
 		@apply sticky bottom-0 flex items-end bg-black-a p-4;
+	}
+	.conversation_action_bar_buttons {
+		@apply flex items-center gap-2;
 	}
 	.message_input {
 		@apply flex-grow bg-dark-grey rounded-lg text-mist-grey resize-none overflow-y-auto px-8 py-2 mr-10;
