@@ -21,7 +21,7 @@
 	let publish_attempted = false;
 
 	$: placeholder = 'Add a name to your snap';
-	$: design_file_filename = get(snap, 'design_file[0].filename', '');
+	$: design_file_filename = snap?.design_file?.[0]?.name || '';
 
 	export let is_publishing = false;
 	export let is_edit_mode = false;
