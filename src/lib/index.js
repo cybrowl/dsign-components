@@ -38,6 +38,7 @@ export {default as ProjectEditActionsBar} from './components/project/ProjectEdit
 export {default as ProjectInfo} from './components/project/ProjectInfo.svelte';
 export {default as ProjectTabs} from './components/project/ProjectTabs.svelte';
 export {default as ProjectUpsert} from './components/project/ProjectUpsert.svelte';
+export {default as Feedback} from './components/project/Feedback.svelte';
 
 // snap
 export {default as Images} from './components/snap/Images.svelte';
