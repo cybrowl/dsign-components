@@ -3,47 +3,30 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let selectedTabState = {
-		isFeedbackSelected: false,
-		isSnapsSelected: false
-	};
+	export let selected_tab = 'snaps';
 
-	export let deselectedTabState = {
-		isFeedbackSelected: false,
-		isSnapsSelected: false
-	};
-
-	function selectSnapsTab() {
-		dispatch('selectSnapsTab', {
-			...deselectedTabState,
-			isSnapsSelected: true
-		});
-	}
-
-	function selectFeedbackTab() {
-		dispatch('selectFeedbackTab', {
-			...deselectedTabState,
-			isFeedbackSelected: true
-		});
+	function select_tab(tab) {
+		selected_tab = tab;
+		dispatch('tabSelected', {selected_tab: tab});
 	}
 </script>
 
-<div class="tabsContainer">
+<div class="tabs_container">
 	<span
-		class={selectedTabState.isSnapsSelected ? 'selected' : ''}
-		on:click={selectSnapsTab}
+		class:selected={selected_tab === 'snaps'}
+		on:click={() => select_tab('snaps')}
 		on:keypress={e => {
-			//TODO: need to design how this will work for A11y
+			// Implement keyboard accessibility here
 		}}
 		role="button"
 		tabindex="0">Snaps</span
 	>
 
 	<span
-		class={selectedTabState.isFeedbackSelected ? 'selected' : ''}
-		on:click={selectFeedbackTab}
+		class:selected={selected_tab === 'feedback'}
+		on:click={() => select_tab('feedback')}
 		on:keypress={e => {
-			//TODO: need to design how this will work for A11y
+			// Implement keyboard accessibility here
 		}}
 		role="button"
 		tabindex="0">Feedback</span
@@ -51,8 +34,8 @@
 </div>
 
 <style lang="postcss">
-	.tabsContainer {
-		@apply font-sans flex gap-4 float-left cursor-pointer text-white text-sm;
+	.tabs_container {
+		@apply font-sans flex gap-4 cursor-pointer text-white text-sm;
 	}
 	.selected {
 		@apply text-bubble-purple border-solid border-b-4 pb-1 border-bubble-purple;
