@@ -24,7 +24,8 @@
 		event.stopPropagation();
 
 		selected_topic = {...selected_topic, ...event.detail.selected_topic};
-		selected_topic_id = event.detail.selected_topic.id;
+
+		// selected_topic_id = event.detail.selected_topic.id;
 
 		dispatch('select_topic', event.detail);
 	}
@@ -63,7 +64,9 @@
 
 <div class="topic_sidebar">
 	<TopicSidebar
+		key={selected_topic_id}
 		{topics}
+		{selected_topic_id}
 		on:remove_topic={remove_topic}
 		on:select_topic={select_topic}
 	/>
@@ -74,6 +77,7 @@
 		<Conversation
 			key={selected_topic_id}
 			{selected_topic}
+			{selected_topic_id}
 			on:send_message={send_message}
 			on:accept_change={accept_change}
 			on:reject_change={reject_change}

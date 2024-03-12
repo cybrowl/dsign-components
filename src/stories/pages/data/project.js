@@ -191,6 +191,19 @@ export const project_zeta = {
 						}
 					],
 					snap_name: 'Duex Verification'
+				},
+				{
+					id: 'topic-3000',
+					snap_name: 'Sample Two',
+					name: 'Discussion on Features',
+					design_file: [],
+					messages: [
+						{
+							created: 1709973936153853000,
+							content: 'Message about feedback',
+							username: 'user-730'
+						}
+					]
 				}
 			]
 		]

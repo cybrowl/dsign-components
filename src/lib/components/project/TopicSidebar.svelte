@@ -2,20 +2,18 @@
 	import {get} from 'lodash';
 	import Icon from '../basic_elements/Icon.svelte';
 	import {createEventDispatcher} from 'svelte';
-	import {get_topic_by_id} from '../../utils/topics';
+	import {get_topic_by_id, truncate_text} from '../../utils/topics';
 
 	const dispatch = createEventDispatcher();
 
 	export let topics = [];
+	export let selected_topic_id = '';
 
 	//TODO: id can come from query param to select
-	let selected_topic_id = get(topics, '[0].id', '');
+	// let selected_topic_id = get(topics, '[0].id', '');
 	let selected_topic = get_topic_by_id(topics, selected_topic_id);
 
 	// TODO: write function given the id select topic from topics
-
-	const truncate_text = (text, length) =>
-		text.length > length ? `# ${text.slice(0, length)}...` : `# ${text}`;
 
 	function remove_topic(event, topic_id) {
 		event.stopPropagation();
@@ -24,10 +22,13 @@
 
 	function select_topic(event, topic_id) {
 		event.stopPropagation();
-		selected_topic_id = topic_id;
+		// selected_topic_id = topic_id;
+
 		selected_topic = get_topic_by_id(topics, topic_id);
 
-		dispatch('select_topic', {selected_topic});
+		console.log('selected_topic: ', selected_topic);
+
+		dispatch('select_topic', {selected_topic, topic_id});
 	}
 </script>
 
