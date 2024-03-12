@@ -7,11 +7,11 @@
 	const dispatch = createEventDispatcher();
 
 	export let topics = [];
-	export let selected_topic_id = '';
+	export let selected_topic = '';
 
 	//TODO: id can come from query param to select
 	// let selected_topic_id = get(topics, '[0].id', '');
-	let selected_topic = get_topic_by_id(topics, selected_topic_id);
+	// let selected_topic = get_topic_by_id(topics, selected_topic_id);
 
 	// TODO: write function given the id select topic from topics
 
@@ -43,7 +43,7 @@
 		{#each topics as topic}
 			<button
 				class="button"
-				class:selected={topic.id === selected_topic_id}
+				class:selected={topic.id === selected_topic.id}
 				on:click={event => select_topic(event, topic.id)}
 			>
 				<p alt="topic_name">

@@ -25,8 +25,6 @@
 
 		selected_topic = {...selected_topic, ...event.detail.selected_topic};
 
-		// selected_topic_id = event.detail.selected_topic.id;
-
 		dispatch('select_topic', event.detail);
 	}
 
@@ -64,9 +62,9 @@
 
 <div class="topic_sidebar">
 	<TopicSidebar
-		key={selected_topic_id}
+		key={selected_topic.id}
 		{topics}
-		{selected_topic_id}
+		{selected_topic}
 		on:remove_topic={remove_topic}
 		on:select_topic={select_topic}
 	/>
@@ -75,9 +73,8 @@
 <div class="conversation">
 	{#if topics.length > 0}
 		<Conversation
-			key={selected_topic_id}
+			key={selected_topic.id}
 			{selected_topic}
-			{selected_topic_id}
 			on:send_message={send_message}
 			on:accept_change={accept_change}
 			on:reject_change={reject_change}
