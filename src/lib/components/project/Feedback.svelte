@@ -14,12 +14,6 @@
 
 	let selected_topic = get_topic_by_id(topics, selected_topic_id);
 
-	function remove_topic(event) {
-		event.stopPropagation();
-
-		dispatch('remove_topic', event.detail);
-	}
-
 	function select_topic(event) {
 		event.stopPropagation();
 
@@ -57,6 +51,12 @@
 		event.stopPropagation();
 
 		dispatch('reject_change', selected_topic);
+	}
+
+	function remove_topic(event) {
+		event.stopPropagation();
+
+		dispatch('remove_topic', event.detail);
 	}
 </script>
 
