@@ -31,7 +31,7 @@
 	function select_file(event) {
 		event.stopPropagation();
 
-		dispatch('select_file', event.detail);
+		dispatch('select_file', {file: event.detail, selected_topic});
 	}
 
 	function send_message(event) {
