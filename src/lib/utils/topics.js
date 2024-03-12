@@ -1,6 +1,10 @@
 export function get_topic_by_id(topics, topic_id) {
 	const topic = topics.find(t => t.id === topic_id);
-	return topic;
+	if (topic) {
+		return topic;
+	} else {
+		return topics[0];
+	}
 }
 
 export function bytes_to_megabytes(bytes) {

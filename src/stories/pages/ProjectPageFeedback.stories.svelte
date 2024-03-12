@@ -1,6 +1,6 @@
 <script context="module">
 	import ProjectPage from '../../lib/pages/ProjectPage.svelte';
-	import {project_gamma, project_delta} from './data/project';
+	import {project_gamma, project_zeta} from './data/project';
 
 	export const meta = {
 		title: 'Pages/Project/Feedback',
@@ -61,7 +61,7 @@
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		project_store: {
-			project: project_delta
+			project: project_zeta
 		},
 		selectedTabState: {
 			...selectedTabState,

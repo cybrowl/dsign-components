@@ -8,12 +8,11 @@
 	import Conversation from './Conversation.svelte';
 
 	export let project = {};
-	const topics = get(project, 'feedback[0].topics', []);
-	const defaultTopic = {id: ''};
-	let selected_topic =
-		get_topic_by_id(topics, get(topics, '[0].id', defaultTopic)) ||
-		defaultTopic;
-	let selected_topic_id = selected_topic.id;
+	export let selected_topic_id = '';
+
+	const topics = get(project, 'feedback.topics[0]', []);
+
+	let selected_topic = get_topic_by_id(topics, selected_topic_id);
 
 	function remove_topic(event) {
 		event.stopPropagation();
@@ -26,9 +25,6 @@
 
 		selected_topic = {...selected_topic, ...event.detail.selected_topic};
 		selected_topic_id = event.detail.selected_topic.id;
-
-		console.log('Feedback: selected_topic: ', selected_topic);
-		console.log('Feedback: selected_topic.id: ', selected_topic.id);
 
 		dispatch('select_topic', event.detail);
 	}
