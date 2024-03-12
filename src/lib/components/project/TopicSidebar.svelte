@@ -7,7 +7,9 @@
 	const dispatch = createEventDispatcher();
 
 	export let topics = [];
-	export let selected_topic = '';
+	export let selected_topic = {
+		id: ''
+	};
 
 	//TODO: id can come from query param to select
 	// let selected_topic_id = get(topics, '[0].id', '');
