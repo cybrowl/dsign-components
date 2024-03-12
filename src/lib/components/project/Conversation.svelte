@@ -15,7 +15,7 @@
 	$: is_change_pending = selected_topic.design_file?.length > 0;
 	$: design_file = selected_topic.design_file?.[0] ?? {};
 	$: design_file_size = bytes_to_megabytes(design_file.content_size ?? 0);
-	$: design_file_name = design_file.filename ?? '';
+	$: design_file_name = design_file.name ?? '';
 	$: messages = selected_topic.messages ?? [];
 
 	let selected_tab = 'conversation';
