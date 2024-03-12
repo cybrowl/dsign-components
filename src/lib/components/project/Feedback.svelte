@@ -37,8 +37,9 @@
 
 	function send_message(event) {
 		event.stopPropagation();
+		const {content} = event.detail;
 
-		dispatch('send_message', event.detail);
+		dispatch('send_message', {selected_topic, content});
 	}
 
 	function download_file(event) {
