@@ -196,7 +196,21 @@ export const project_zeta = {
 					id: 'topic-3000',
 					snap_name: 'Sample Two',
 					name: 'Discussion on Features',
-					design_file: [],
+					design_file: [
+						{
+							canister_id: 'a3shf-5eaaa-aaaaa-qaafa-cai',
+							chunks_size: 1,
+							content_encoding: {
+								Identity: null
+							},
+							content_size: 187629,
+							content_type: 'application/x-figma',
+							created: 1710234223686223000,
+							id: 'E66677B2F51838211FAF5659',
+							name: 'dsign_feedback.fig',
+							url: 'https://ifw4i-haaaa-aaaag-abrja-cai.raw.icp0.io/asset/f16f422d-dbf-bbf-d49-e7ee428d35f6'
+						}
+					],
 					messages: [
 						{
 							created: 1709973936153853000,

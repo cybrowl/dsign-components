@@ -169,7 +169,7 @@
 				/>
 
 				<span class="conversation_action_bar_buttons">
-					{#if design_file_name.length === ''}
+					{#if design_file_name === ''}
 						<Icon
 							class="fill_dark_grey"
 							name="attach_design_file"
