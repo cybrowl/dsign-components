@@ -22,6 +22,10 @@
 	let content_div;
 	let textarea;
 
+	let file_input_elem;
+	let file_too_large = false;
+	let file;
+
 	onMount(() => {
 		adjust_content_offset();
 	});
@@ -46,12 +50,29 @@
 		selected_tab = event.detail.selected_tab;
 	}
 
-	function select_file(event) {
-		dispatch('select_file', event);
-	}
-
 	function send_message() {
 		dispatch('send_message', {content: textarea.value});
+	}
+
+	function trigger_file_selection(e) {
+		file_input_elem.click();
+	}
+
+	function select_file(e) {
+		const max_file_size = 25 * 1024 * 1024;
+
+		file = e.target.files[0];
+
+		if (file.size > max_file_size) {
+			file_too_large = true;
+			dispatch('err', {message: 'file_too_large'});
+		} else {
+			file_too_large = false;
+
+			dispatch('select_file', file);
+		}
+
+		e.target.value = '';
 	}
 
 	function download_file() {
@@ -152,7 +173,7 @@
 						class="fill_dark_grey"
 						name="attach_design_file"
 						clickable={true}
-						on:click={select_file}
+						on:click={trigger_file_selection}
 						viewSize={{
 							width: '55',
 							height: '55'
@@ -165,6 +186,15 @@
 			</div>
 		</div>
 	{/if}
+
+	<!-- File upload input (hidden) -->
+	<input
+		class="file_input"
+		type="file"
+		accept=".fig"
+		on:change={e => select_file(e)}
+		bind:this={file_input_elem}
+	/>
 </div>
 
 <style lang="postcss">
@@ -232,5 +262,8 @@
 	}
 	::placeholder {
 		@apply text-center;
+	}
+	.file_input {
+		@apply invisible w-0 h-0 absolute;
 	}
 </style>
