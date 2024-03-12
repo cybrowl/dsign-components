@@ -169,17 +169,19 @@
 				/>
 
 				<span class="conversation_action_bar_buttons">
-					<Icon
-						class="fill_dark_grey"
-						name="attach_design_file"
-						clickable={true}
-						on:click={trigger_file_selection}
-						viewSize={{
-							width: '55',
-							height: '55'
-						}}
-						size="2.5rem"
-					/>
+					{#if design_file_name.length === ''}
+						<Icon
+							class="fill_dark_grey"
+							name="attach_design_file"
+							clickable={true}
+							on:click={trigger_file_selection}
+							viewSize={{
+								width: '55',
+								height: '55'
+							}}
+							size="2.5rem"
+						/>
+					{/if}
 
 					<Button label="Send" on:click={send_message} />
 				</span>
