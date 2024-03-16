@@ -107,6 +107,14 @@
 			)
 		};
 	}
+
+	function snap_name_change(event) {
+		console.log('snap_name_change: ', event);
+	}
+
+	function update_tags(event) {
+		console.log('update_tags: ', event);
+	}
 </script>
 
 <main>
@@ -138,6 +146,8 @@
 						on:addImages={handleAddImages}
 						on:cancel={handleCancel}
 						on:publish={handlePublish}
+						on:update_tags={update_tags}
+						on:snap_name_change={snap_name_change}
 						snap={snap_upsert_store.snap}
 						{is_edit_mode}
 						{is_publishing}

@@ -1,5 +1,5 @@
 <script>
-	import {createEventDispatcher} from 'svelte';
+	import {createEventDispatcher, tick} from 'svelte';
 	const dispatch = createEventDispatcher();
 
 	import get from 'lodash/get';
@@ -22,6 +22,11 @@
 
 	$: placeholder = 'Add a name to your snap';
 	$: design_file_filename = snap?.design_file?.[0]?.name || '';
+	$: snap_name, handle_snap_name_change();
+
+	// Debouncing
+	let debounce_timer;
+	const debounce_delay = 1000;
 
 	export let is_publishing = false;
 	export let is_edit_mode = false;
@@ -32,6 +37,15 @@
 	$: has_error = publish_attempted && !snap_name.length;
 	$: images_empty_error =
 		publish_attempted && get(snap, 'images', []).length === 0;
+
+	function handle_snap_name_change() {
+		if (debounce_timer) clearTimeout(debounce_timer);
+
+		debounce_timer = setTimeout(async () => {
+			await tick();
+			dispatch('snap_name_change', {snap_name});
+		}, debounce_delay);
+	}
 
 	function handleAttachFile(event) {
 		let file = event.detail;
@@ -48,8 +62,6 @@
 	function handleAddImages(event) {
 		let preview_images = event.detail;
 
-		console.log('preview_images: ', preview_images);
-
 		dispatch('addImages', preview_images);
 	}
 
@@ -57,8 +69,10 @@
 		dispatch('cancel');
 	}
 
-	function handleUpdate(event) {
+	function update_tags(event) {
 		tags_added = event.detail;
+
+		dispatch('update_tags', tags_added);
 	}
 
 	function handlePublish() {
@@ -109,7 +123,7 @@
 		</div>
 
 		<div class="tags_add">
-			<AddTags {tags_added} on:update={handleUpdate} />
+			<AddTags {tags_added} on:update={update_tags} />
 		</div>
 
 		{#if is_edit_mode === false}
