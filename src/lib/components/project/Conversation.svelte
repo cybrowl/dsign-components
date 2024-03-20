@@ -10,6 +10,7 @@
 	import Button from '../basic_elements/Button.svelte';
 
 	export let selected_topic = {};
+	export let is_owner = false;
 
 	// Reactive declarations for properties derived from selected_topic
 	$: is_change_pending = selected_topic.design_file?.length > 0;
@@ -106,9 +107,11 @@
 
 	<!-- Changes -->
 	{#if selected_tab === 'changes' && is_change_pending}
-		<div class="warning">
-			Accept or reject file before another file can be added.
-		</div>
+		{#if is_owner === true}
+			<div class="warning">
+				Accept or reject file before another file can be added.
+			</div>
+		{/if}
 		<div class="file">
 			<span class="info_container">
 				<span class="info">
@@ -135,10 +138,12 @@
 					<Button label="Download" on:click={download_file} />
 				</span>
 			</span>
-			<span class="decision">
-				<button class="reject" on:click={reject_change}>Reject</button>
-				<button class="accept" on:click={accept_change}>Accept</button>
-			</span>
+			{#if is_owner === true}
+				<span class="decision">
+					<button class="reject" on:click={reject_change}>Reject</button>
+					<button class="accept" on:click={accept_change}>Accept</button>
+				</span>
+			{/if}
 		</div>
 	{/if}
 

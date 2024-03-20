@@ -10,6 +10,7 @@
 	export let selected_topic = {
 		id: ''
 	};
+	export let is_owner = false;
 
 	//TODO: id can come from query param to select
 	// let selected_topic_id = get(topics, '[0].id', '');
@@ -51,13 +52,16 @@
 				<p alt="topic_name">
 					{truncate_text(get(topic, 'snap_name', ''), 20)}
 				</p>
-				<Icon
-					class="cursor_pointer fill_dark_grey hover_tulip_purple"
-					name="trash"
-					size="1.5rem"
-					on:click={event => remove_topic(event, topic.id)}
-					viewSize={{width: '40', height: '40'}}
-				/>
+
+				{#if is_owner === true}
+					<Icon
+						class="cursor_pointer fill_dark_grey hover_tulip_purple"
+						name="trash"
+						size="1.5rem"
+						on:click={event => remove_topic(event, topic.id)}
+						viewSize={{width: '40', height: '40'}}
+					/>
+				{/if}
 			</button>
 		{/each}
 	{/if}

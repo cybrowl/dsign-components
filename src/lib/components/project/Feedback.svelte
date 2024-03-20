@@ -11,6 +11,7 @@
 	export let selected_topic_id = '';
 
 	const topics = get(project, 'feedback.topics[0]', []);
+	const is_owner = get(project, 'is_owner', false);
 
 	let selected_topic = get_topic_by_id(topics, selected_topic_id);
 
@@ -64,6 +65,7 @@
 	<TopicSidebar
 		{topics}
 		{selected_topic}
+		{is_owner}
 		on:remove_topic={remove_topic}
 		on:select_topic={select_topic}
 	/>
@@ -73,6 +75,7 @@
 	{#if topics.length > 0}
 		<Conversation
 			{selected_topic}
+			{is_owner}
 			on:send_message={send_message}
 			on:accept_change={accept_change}
 			on:reject_change={reject_change}

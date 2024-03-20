@@ -1,6 +1,6 @@
 <script context="module">
 	import ProjectPage from '../../lib/pages/ProjectPage.svelte';
-	import {project_gamma, project_zeta} from './data/project';
+	import {project_gamma, project_guest, project_owner} from './data/project';
 
 	export const meta = {
 		title: 'Pages/Project/Feedback',
@@ -61,7 +61,27 @@
 		modal_visible: modal_visible,
 		is_authenticated: true,
 		project_store: {
-			project: project_zeta
+			project: project_guest
+		},
+		selectedTabState: {
+			...selectedTabState,
+			isFeedbackSelected: true
+		}
+	}}
+/>
+
+<Story
+	name="Authed & Owner: Two Topics & Changes"
+	args={{
+		my_profile: {
+			avatar:
+				'https://image.lexica.art/full_jpg/7408c9b1-2648-4edb-9d51-1dc74de4750b',
+			userame: 'jelly'
+		},
+		modal_visible: modal_visible,
+		is_authenticated: true,
+		project_store: {
+			project: project_owner
 		},
 		selectedTabState: {
 			...selectedTabState,
