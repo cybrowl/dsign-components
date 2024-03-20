@@ -41,7 +41,7 @@
 				on:click={saveToFavorites}
 			/>
 		</div>
-		<h2>{get(project, 'description', '')}</h2>
+		<h2 class="description">{get(project, 'description', '')}</h2>
 		<div class="projectTags">
 			{#each get(project, 'tags', []) as tag}
 				<Button
@@ -77,6 +77,9 @@
 	}
 	.heading {
 		@apply flex gap-x-6 text-4xl font-bold text-white mb-3;
+	}
+	.description {
+		@apply w-3/4;
 	}
 	.projectTags {
 		@apply flex gap-x-3 h-3;

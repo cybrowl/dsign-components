@@ -5,7 +5,9 @@ export const project_gamma = {
 	canister_id: 'canister-4132',
 	created: 1634451931,
 	name: 'Project Gamma',
-	description: [],
+	description: [
+		'A platform for streamlining and enhancing interactions across various digital and virtual social networks for both individuals and organizations.'
+	],
 	username: 'user-571',
 	owner: [],
 	is_owner: false,
