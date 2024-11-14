@@ -6,15 +6,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm i
-      - run: npm run package
-      - run: cp package.json ./dist
-      - run: cd dist && npm publish
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Package the project
+      - name: Package
+        run: npm run package
+
+      # Copy package.json to dist folder
+      - name: Copy package.json
+        run: cp package.json ./dist
+
+      # Publish to npm registry
+      - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          cd dist
+          npm publish
