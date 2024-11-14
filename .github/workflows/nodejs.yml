@@ -6,32 +6,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       # Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
 
-      # Install dependencies
-      - name: Install dependencies
-        run: npm ci
+      # Clean installation
+      - name: Clean and Install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+          npm install
 
-      # Package the project
-      - name: Package
-        run: npm run package
+      # Continue with your other steps like building and testing
+      - name: Build
+        run: npm run build
 
-      # Copy package.json to dist folder
-      - name: Copy package.json
-        run: cp package.json ./dist
-
-      # Publish to npm registry
-      - name: Publish to npm
+      # Optionally publish or other steps...
+      - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          cd dist
-          npm publish
+        run: npm publish
