@@ -3,7 +3,7 @@ name: Node CI
 on:
   push:
     branches:
-      - main  # or whatever branch you want to trigger this workflow
+      - main # or whatever branch you want to trigger this workflow
 
 jobs:
   build:
@@ -22,9 +22,7 @@ jobs:
       # Clean installation
       - name: Clean and Install
         run: |
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-          npm ci 
+          npm ci
 
       # Build the project
       - name: Build
