@@ -18,7 +18,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       # Package the project
       - name: Package
