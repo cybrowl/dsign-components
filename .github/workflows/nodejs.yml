@@ -12,25 +12,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Setup Node.js environment with npm registry URL
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      # Clean installation
-      - name: Clean and Install
-        run: |
-          npm ci
+      - name: Clean and Install Dependencies
+        run: npm ci
 
-      # Build the project
-      - name: Build
-        run: npm run build
+      # Run the package script to build the SvelteKit package.
+      - name: Build Package
+        run: npm run package
 
-      # Publish to npm registry
-      - name: Publish
+      # Change into the generated package directory and publish
+      - name: Publish Package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          cd package
           npm publish

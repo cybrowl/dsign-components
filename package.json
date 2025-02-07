@@ -1,47 +1,47 @@
 {
-  "name": "dsign-components",
-  "version": "1.11.2",
-  "description": "components for dsign",
-  "scripts": {
-    "storybook": "storybook dev -p 6007",
-    "package": "svelte-package --no-types",
-    "build-storybook": "storybook build",
-    "build": "storybook build -c .storybook -o dist"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "exports": {
-    ".": {
-      "svelte": "./index.js"
-    }
-  },
-  "peerDependencies": {
-    "svelte": "4.2.19"
-  },
-  "devDependencies": {
-    "@storybook/addon-essentials": "^8.5.3",
-    "@storybook/addon-interactions": "^8.5.3",
-    "@storybook/addon-links": "^8.5.3",
-    "@storybook/addon-svelte-csf": "^4.2.0",
-    "@storybook/svelte-vite": "^8.5.3",
-    "@storybook/sveltekit": "^8.5.3",
-    "@storybook/test": "^8.5.3",
-    "@storybook/theming": "^8.5.3",
-    "@sveltejs/package": "^2.0.2",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "autoprefixer": "^10.4.14",
-    "lodash": "^4.17.21",
-    "luxon": "^3.3.0",
-    "postcss": "^8.4.23",
-    "postcss-import": "^16.1.0",
-    "postcss-load-config": "^6.0.1",
-    "prettier": "^3.3.3",
-    "prettier-plugin-svelte": "^3.2.7",
-    "storybook": "^8.5.3",
-    "storybook-dark-mode": "^4.0.2",
-    "tailwindcss": "^3.3.1",
-    "vite": "^5.4.9"
-  }
+	"name": "dsign-components",
+	"version": "1.11.3",
+	"description": "components for dsign",
+	"scripts": {
+		"storybook": "storybook dev -p 6007",
+		"package": "svelte-package --no-types",
+		"build-storybook": "storybook build",
+		"build": "storybook build -c .storybook -o dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"exports": {
+		".": {
+			"svelte": "./index.js"
+		}
+	},
+	"peerDependencies": {
+		"svelte": "4.2.19"
+	},
+	"devDependencies": {
+		"@storybook/addon-essentials": "^8.5.3",
+		"@storybook/addon-interactions": "^8.5.3",
+		"@storybook/addon-links": "^8.5.3",
+		"@storybook/addon-svelte-csf": "^4.2.0",
+		"@storybook/svelte-vite": "^8.5.3",
+		"@storybook/sveltekit": "^8.5.3",
+		"@storybook/test": "^8.5.3",
+		"@storybook/theming": "^8.5.3",
+		"@sveltejs/package": "^2.0.2",
+		"@sveltejs/vite-plugin-svelte": "^3.1.2",
+		"autoprefixer": "^10.4.14",
+		"lodash": "^4.17.21",
+		"luxon": "^3.3.0",
+		"postcss": "^8.4.23",
+		"postcss-import": "^16.1.0",
+		"postcss-load-config": "^6.0.1",
+		"prettier": "^3.3.3",
+		"prettier-plugin-svelte": "^3.2.7",
+		"storybook": "^8.5.3",
+		"storybook-dark-mode": "^4.0.2",
+		"tailwindcss": "^3.3.1",
+		"vite": "^5.4.9"
+	}
 }
