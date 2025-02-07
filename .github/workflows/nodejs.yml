@@ -25,10 +25,14 @@ jobs:
       - name: Build Package
         run: npm run package
 
+      # Copy package.json into the dist directory if needed
+      - name: Copy package.json to dist
+        run: cp package.json dist/
+
       # Change into the generated package directory and publish
       - name: Publish Package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          cd package
+          cd dist
           npm publish
