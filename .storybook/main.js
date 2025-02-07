@@ -1,22 +1,23 @@
-module.exports = {
+const config = {
 	stories: [
-		'../src/**/*.stories.mdx',
-		'../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'
+		'../src/stories/*.stories.@(js|ts|svelte)',
+		'../src/stories/pages/*.stories.@(js|ts|svelte)'
 	],
+
 	addons: [
-		'@storybook/addon-essentials',
 		'@storybook/addon-links',
+		'@storybook/addon-essentials',
+		'@storybook/addon-interactions',
 		'@storybook/addon-svelte-csf',
-		'storybook-dark-mode',
-		{
-			name: '@storybook/addon-styling'
-		}
+		'storybook-dark-mode'
 	],
-	staticDirs: ['../src/lib/assets'],
+
 	framework: {
-		name: '@storybook/sveltekit'
+		name: '@storybook/svelte-vite',
+		options: {}
 	},
-	docs: {
-		autodocs: false
-	}
+
+	docs: {}
 };
+
+export default config;
